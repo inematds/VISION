@@ -30,35 +30,35 @@ Neste nível, você aprenderá os conceitos básicos da Inteligência Artificial
 
 ---
 
-### [Módulo 2: Primeiros Passos com Vídeos](mod2-primeiros-videos/)
-**Duração:** 7-9 horas
-
-- Aula 2.1: Introdução à criação de vídeos com IA
-- Aula 2.2: Criando vídeos simples de desenhos
-- Aula 2.3: Adicionando voz nos vídeos
-- Aula 2.4: Gerando vídeos a partir de texto
-
-**O que você vai aprender:**
-- Criar vídeos animados simples
-- Adicionar narração com ElevenLabs
-- Usar ferramentas text-to-video
-- Editar vídeos básicos
-
----
-
-### [Módulo 3: Criação Básica de Imagens](mod3-criacao-imagens/)
+### [Módulo 2: Criação Básica de Imagens](mod2-criacao-imagens/)
 **Duração:** 7-8 horas
 
-- Aula 3.1: Restauração de fotos antigas
-- Aula 3.2: Convertendo imagens para desenhos
-- Aula 3.3: Criando imagens simples com prompts
-- Aula 3.4: Mockups básicos para produtos
+- Aula 2.1: Restauração de fotos antigas
+- Aula 2.2: Convertendo imagens para desenhos
+- Aula 2.3: Criando imagens simples com prompts
+- Aula 2.4: Mockups básicos para produtos
 
 **O que você vai aprender:**
 - Restaurar e melhorar fotos
 - Aplicar estilos artísticos a imagens
 - Escrever prompts eficazes
 - Criar mockups de produtos
+
+---
+
+### [Módulo 3: Primeiros Passos com Vídeos](mod3-primeiros-videos/)
+**Duração:** 7-9 horas
+
+- Aula 3.1: Introdução à criação de vídeos com IA
+- Aula 3.2: Criando vídeos simples de desenhos
+- Aula 3.3: Adicionando voz nos vídeos
+- Aula 3.4: Gerando vídeos a partir de texto
+
+**O que você vai aprender:**
+- Criar vídeos animados simples
+- Adicionar narração com ElevenLabs
+- Usar ferramentas text-to-video
+- Editar vídeos básicos
 
 ---
 

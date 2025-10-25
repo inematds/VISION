@@ -1,8 +1,8 @@
-# Módulo 2: Primeiros Passos com Vídeos
+# Módulo 3: Primeiros Passos com Vídeos
 
 **Duração:** 7-9 horas
 **Nível:** Iniciante
-**Pré-requisito:** Módulo 1 concluído
+**Pré-requisito:** Módulos 1 e 2 concluídos
 
 ---
 
@@ -24,7 +24,7 @@ Aqui, não focamos apenas em ferramentas, mas sim **em processos e técnicas** q
 
 ## 📚 Aulas
 
-### [Aula 2.1: Introdução à criação de vídeos com IA](aula-2.1-introducao-videos-ia.md)
+### [Aula 3.1: Introdução à criação de vídeos com IA](aula-3.1-introducao-videos-ia.md)
 **Duração:** 1-2 horas
 
 Compreenda o ecossistema de criação de vídeos com IA e prepare-se para sua primeira produção.
@@ -37,7 +37,7 @@ Compreenda o ecossistema de criação de vídeos com IA e prepare-se para sua pr
 
 ---
 
-### [Aula 2.2: Criando vídeos simples de desenhos](aula-2.2-videos-desenhos.md)
+### [Aula 3.2: Criando vídeos simples de desenhos](aula-3.2-videos-desenhos.md)
 **Duração:** 2-3 horas
 
 Crie seu primeiro vídeo animado do zero usando IA.
@@ -50,7 +50,7 @@ Crie seu primeiro vídeo animado do zero usando IA.
 
 ---
 
-### [Aula 2.3: Adicionando voz nos vídeos](aula-2.3-adicionando-voz.md)
+### [Aula 3.3: Adicionando voz nos vídeos](aula-3.3-adicionando-voz.md)
 **Duração:** 2-3 horas
 
 Aprenda a gerar narrações realistas e sincronizar com animações.
@@ -63,7 +63,7 @@ Aprenda a gerar narrações realistas e sincronizar com animações.
 
 ---
 
-### [Aula 2.4: Gerando vídeos a partir de texto](aula-2.4-text-to-video.md)
+### [Aula 3.4: Gerando vídeos a partir de texto](aula-3.4-text-to-video.md)
 **Duração:** 1-2 horas
 
 Descubra o poder do text-to-video: criar vídeos completos apenas com descrições textuais.
@@ -90,7 +90,7 @@ Ao completar este módulo, você será capaz de:
 
 ---
 
-## 📝 Projeto Final do Módulo 2
+## 📝 Projeto Final do Módulo 3
 
 **Desafio:** Crie um vídeo animado de 30-45 segundos contando uma história curta.
 
@@ -190,8 +190,8 @@ Ao completar este módulo, você será capaz de:
 
 | Semana | Atividade | Tempo |
 |--------|-----------|-------|
-| **Semana 1** | Aulas 2.1 e 2.2 | 3-5h |
-| **Semana 2** | Aulas 2.3 e 2.4 | 3-4h |
+| **Semana 1** | Aulas 3.1 e 3.2 | 3-5h |
+| **Semana 2** | Aulas 3.3 e 3.4 | 3-4h |
 | **Semana 3** | Projeto Final | 2-3h |
 
 *Ajuste conforme seu ritmo!*
@@ -220,14 +220,17 @@ Antes de prosseguir para o Módulo 3, certifique-se de que você:
 
 ---
 
-## ⏭️ Próximo Módulo
+## ⏭️ Próximo Passo
 
-Após completar este módulo e criar seu vídeo animado, continue para:
+Após completar este módulo e criar seu vídeo animado, você terá concluído o Nível 1!
 
-**[Módulo 3: Criação Básica de Imagens →](../mod3-criacao-imagens/)**
+Continue para:
 
-Ou revise o módulo anterior:
+**[🔵 Nível 2: Desenvolvimento →](../../nivel-2-desenvolvimento/)**
 
+Ou revise os módulos anteriores:
+
+**[← Módulo 2: Criação Básica de Imagens](../mod2-criacao-imagens/)**
 **[← Módulo 1: Introdução à IA](../mod1-introducao-ia/)**
 
 ---

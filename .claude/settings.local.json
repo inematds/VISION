@@ -12,7 +12,10 @@
       "Bash(git commit -m \"$(cat <<''EOF''\nCommit inicial do projeto VISION - Curso completo de Audiovisual com IA\n\n- 35 aulas completas (100% do conteúdo)\n- 11 módulos organizados em 3 níveis\n- Design System baseado no FEP\n- Documentação completa\n- Módulos reorganizados: Imagens antes de Vídeos\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git config:*)",
       "Bash(git remote add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh repo view:*)",
+      "Bash(mv:*)"
     ],
     "deny": [],
     "ask": []
