@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VISION - Design System Demo</title>
+
+  <!-- Tailwind CSS (para layout básico) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- VISION Design System -->
+  <link rel="stylesheet" href="css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <!-- Skip to main content (Acessibilidade) -->
+  <a href="#main-content" class="skip-to-main">Pular para conteúdo principal</a>
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        <div class="flex gap-md">
+          <a href="#" class="text-gray-600 hover:text-gray-900">Início</a>
+          <a href="#" class="text-gray-600 hover:text-gray-900">Cursos</a>
+          <a href="#" class="text-gray-600 hover:text-gray-900">Recursos</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="container mx-auto px-4 py-8">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="#">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#">Cursos</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Audiovisual com IA</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="mb-xl animate-fade-in">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Audiovisual com Inteligência Artificial
+      </h1>
+      <p class="text-xl text-gray-600 mb-6">
+        Aprenda a criar conteúdo audiovisual profissional usando ferramentas de IA
+      </p>
+
+      <!-- Category Filters -->
+      <div class="flex gap-sm mb-8 flex-wrap">
+        <button class="category-filter active">Todos</button>
+        <button class="category-filter">Iniciante</button>
+        <button class="category-filter">Técnico</button>
+        <button class="category-filter">Masterclass</button>
+      </div>
+    </section>
+
+    <!-- Cards Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-xl">
+
+      <!-- Card 1 - Iniciante -->
+      <div class="level-card bg-white p-6 rounded-lg shadow-md animate-on-scroll fade-in">
+        <div class="flex items-center justify-between mb-4">
+          <span class="badge badge-iniciante">🌟 Iniciante</span>
+          <span class="text-sm text-gray-500">12-15 horas</span>
+        </div>
+
+        <h3 class="text-xl font-bold text-gray-900 mb-3">
+          Fundamentos de Audiovisual
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+          Conceitos básicos de produção audiovisual, equipamentos, e técnicas fundamentais.
+        </p>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar mb-4">
+          <div class="progress-fill" style="width: 35%;"></div>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">35% Completo</p>
+
+        <!-- Features List -->
+        <ul class="space-y-2 mb-6 text-sm text-gray-700">
+          <li>✓ Introdução à produção audiovisual</li>
+          <li>✓ Equipamentos essenciais</li>
+          <li>✓ Composição de cena</li>
+          <li>✓ Iluminação básica</li>
+        </ul>
+
+        <button class="content-button content-button-primary w-full">
+          Continuar Curso →
+        </button>
+      </div>
+
+      <!-- Card 2 - Técnico -->
+      <div class="level-card bg-white p-6 rounded-lg shadow-md animate-on-scroll fade-in">
+        <div class="flex items-center justify-between mb-4">
+          <span class="badge badge-tecnico">⚡ Técnico</span>
+          <span class="text-sm text-gray-500">35-45 horas</span>
+        </div>
+
+        <h3 class="text-xl font-bold text-gray-900 mb-3">
+          IA para Edição Profissional
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+          Técnicas avançadas de edição usando ferramentas de inteligência artificial.
+        </p>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar mb-4">
+          <div class="progress-fill" style="width: 60%;"></div>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">60% Completo</p>
+
+        <!-- Features List -->
+        <ul class="space-y-2 mb-6 text-sm text-gray-700">
+          <li>✓ Color grading com IA</li>
+          <li>✓ Edição automatizada</li>
+          <li>✓ Correção de áudio inteligente</li>
+          <li>✓ Efeitos visuais generativos</li>
+        </ul>
+
+        <button class="content-button content-button-primary w-full">
+          Continuar Curso →
+        </button>
+      </div>
+
+      <!-- Card 3 - Masterclass -->
+      <div class="level-card bg-white p-6 rounded-lg shadow-md animate-on-scroll fade-in">
+        <div class="flex items-center justify-between mb-4">
+          <span class="badge badge-masterclass">👑 Masterclass</span>
+          <span class="text-sm text-gray-500">50-60 horas</span>
+        </div>
+
+        <h3 class="text-xl font-bold text-gray-900 mb-3">
+          Produção Completa com IA
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+          Domine todo o pipeline de produção audiovisual profissional com IA.
+        </p>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar mb-4">
+          <div class="progress-fill" style="width: 15%;"></div>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">15% Completo</p>
+
+        <!-- Features List -->
+        <ul class="space-y-2 mb-6 text-sm text-gray-700">
+          <li>✓ Roteiro gerado por IA</li>
+          <li>✓ Storyboard automático</li>
+          <li>✓ Pós-produção avançada</li>
+          <li>✓ Projeto final profissional</li>
+        </ul>
+
+        <button class="content-button content-button-primary w-full">
+          Começar Masterclass →
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Module Cards Example -->
+    <section class="mb-xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Módulos em Destaque</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <div class="module-card bg-white p-4 rounded shadow-sm flex items-center gap-4">
+          <div class="text-4xl">🎥</div>
+          <div class="flex-1">
+            <h4 class="font-semibold text-gray-900">Captação de Vídeo</h4>
+            <p class="text-sm text-gray-600">Técnicas de filmagem profissional</p>
+          </div>
+          <button class="content-button content-button-secondary">Ver</button>
+        </div>
+
+        <div class="module-card bg-white p-4 rounded shadow-sm flex items-center gap-4">
+          <div class="text-4xl">🎬</div>
+          <div class="flex-1">
+            <h4 class="font-semibold text-gray-900">Edição Avançada</h4>
+            <p class="text-sm text-gray-600">Montagem e finalização</p>
+          </div>
+          <button class="content-button content-button-secondary">Ver</button>
+        </div>
+
+        <div class="module-card bg-white p-4 rounded shadow-sm flex items-center gap-4">
+          <div class="text-4xl">🎨</div>
+          <div class="flex-1">
+            <h4 class="font-semibold text-gray-900">Color Grading</h4>
+            <p class="text-sm text-gray-600">Correção de cor profissional</p>
+          </div>
+          <button class="content-button content-button-secondary">Ver</button>
+        </div>
+
+        <div class="module-card bg-white p-4 rounded shadow-sm flex items-center gap-4">
+          <div class="text-4xl">🤖</div>
+          <div class="flex-1">
+            <h4 class="font-semibold text-gray-900">IA Generativa</h4>
+            <p class="text-sm text-gray-600">Ferramentas de IA para vídeo</p>
+          </div>
+          <button class="content-button content-button-secondary">Ver</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Buttons Demo -->
+    <section class="mb-xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Exemplos de Botões</h2>
+
+      <div class="flex gap-md flex-wrap">
+        <button class="content-button content-button-primary">
+          Botão Primário
+        </button>
+        <button class="content-button content-button-secondary">
+          Botão Secundário
+        </button>
+        <button class="content-button content-button-primary loading">
+          Carregando...
+        </button>
+      </div>
+    </section>
+
+    <!-- Badges Demo -->
+    <section class="mb-xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Badges</h2>
+
+      <div class="flex gap-md flex-wrap">
+        <span class="badge badge-iniciante">Iniciante</span>
+        <span class="badge badge-tecnico">Técnico</span>
+        <span class="badge badge-masterclass">Masterclass</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 mt-16">
+    <div class="container mx-auto px-4 py-8">
+      <div class="text-center text-gray-600">
+        <p>&copy; 2025 VISION. Design System baseado em FEP.</p>
+        <p class="text-sm mt-2">Desenvolvido com ❤️ para projetos educacionais</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript para animações de scroll -->
+  <script>
+    // Intersection Observer para animações no scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    // Observa todos os elementos com classe animate-on-scroll
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Filtros de categoria (exemplo simples)
+    document.querySelectorAll('.category-filter').forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active de todos
+        document.querySelectorAll('.category-filter').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        // Adiciona active ao clicado
+        this.classList.add('active');
+      });
+    });
+
+    // Exemplo de toast notification
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.remove();
+      }, 3000);
+    }
+
+    // Teste: mostre um toast ao clicar em qualquer botão primário
+    document.querySelectorAll('.content-button-primary').forEach(btn => {
+      if (!btn.classList.contains('loading')) {
+        btn.addEventListener('click', function() {
+          showToast('Curso iniciado com sucesso!');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

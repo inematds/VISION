@@ -1,0 +1,42 @@
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (se usar futuramente)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Backups locais (manter apenas no repositório local)
+*.bak
+*~
+
+# Ambiente Python (se usar futuramente)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+ENV/
+
+# Cache
+.cache/
+*.cache
+
+# Builds
+dist/
+build/
