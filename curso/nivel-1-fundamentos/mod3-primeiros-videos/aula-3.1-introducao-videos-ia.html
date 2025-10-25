@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 3.1: Introdução à criação de vídeos com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 3</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 3</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 3.1</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">🎬 Aula 3.1</span>
+          <span class="badge badge-tecnico">60 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Introdução à criação de vídeos com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Entenda o panorama das ferramentas de vídeo IA e seus usos práticos.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            A geração de vídeos com IA é a fronteira mais recente da revolução criativa. Em 2024-2025, ferramentas como Runway, Pika Labs e Sora (OpenAI) tornaram possível criar vídeos profissionais a partir de texto ou transformar imagens em animações.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você terá uma visão completa do ecossistema de ferramentas de vídeo IA e saberá escolher a melhor para cada projeto.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎬 Tipos de Geração de Vídeo com IA</h2>
+
+          <div class="space-y-6">
+
+            <div class="border-l-4 border-purple-500 bg-purple-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">📝 Text-to-Video</h3>
+              <p class="text-gray-700 mb-3">Gera vídeos a partir de descrições em texto.</p>
+              <div class="bg-white p-3 rounded mt-3">
+                <p class="text-sm text-gray-800 mb-2"><strong>Casos de uso:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Prototipação rápida de cenas</li>
+                  <li>• B-roll para vídeos do YouTube</li>
+                  <li>• Concept videos para projetos</li>
+                  <li>• Animações abstratas e efeitos</li>
+                </ul>
+                <p class="text-sm font-semibold text-gray-800 mt-3">Ferramentas: Runway Gen-3, Pika Labs, Sora (beta)</p>
+              </div>
+            </div>
+
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">🖼️ Image-to-Video</h3>
+              <p class="text-gray-700 mb-3">Anima imagens estáticas adicionando movimento.</p>
+              <div class="bg-white p-3 rounded mt-3">
+                <p class="text-sm text-gray-800 mb-2"><strong>Casos de uso:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Animar concept art</li>
+                  <li>• Criar vídeos a partir de fotos</li>
+                  <li>• Dar vida a personagens</li>
+                  <li>• Parallax e efeitos 2.5D</li>
+                </ul>
+                <p class="text-sm font-semibold text-gray-800 mt-3">Ferramentas: Runway, Pika, Leonardo Motion</p>
+              </div>
+            </div>
+
+            <div class="border-l-4 border-green-500 bg-green-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">🎭 Video-to-Video</h3>
+              <p class="text-gray-700 mb-3">Transforma vídeos existentes aplicando novos estilos.</p>
+              <div class="bg-white p-3 rounded mt-3">
+                <p class="text-sm text-gray-800 mb-2"><strong>Casos de uso:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Rotoscopia automática</li>
+                  <li>• Estilização artística (ex: transformar em cartoon)</li>
+                  <li>• Modificar cenários mantendo ação</li>
+                  <li>• Criar variações de um mesmo vídeo</li>
+                </ul>
+                <p class="text-sm font-semibold text-gray-800 mt-3">Ferramentas: Runway, EB Synth, Kaiber</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Principais Ferramentas</h2>
+
+          <div class="space-y-4">
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-2 border-purple-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Runway Gen-3 🌟</h3>
+              <p class="text-gray-700 mb-3">Líder de mercado, usado profissionalmente em filmes e comerciais.</p>
+              <div class="grid md:grid-cols-3 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> $12/mês (básico)</div>
+                <div><strong>Qualidade:</strong> ⭐⭐⭐⭐⭐</div>
+                <div><strong>Velocidade:</strong> Média</div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold">Text-to-Video</span>
+                <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold">Image-to-Video</span>
+                <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold">Video-to-Video</span>
+              </div>
+              <a href="https://runwayml.com" target="_blank" class="text-purple-600 hover:text-purple-700 text-sm font-semibold">
+                Acessar Runway →
+              </a>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Pika Labs</h3>
+              <p class="text-gray-700 mb-3">Interface simples, ótima para iniciantes, acessível via Discord.</p>
+              <div class="grid md:grid-cols-3 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Grátis/Pago</div>
+                <div><strong>Qualidade:</strong> ⭐⭐⭐⭐</div>
+                <div><strong>Velocidade:</strong> Rápida</div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold">Text-to-Video</span>
+                <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold">Image-to-Video</span>
+              </div>
+              <a href="https://pika.art" target="_blank" class="text-blue-600 hover:text-blue-700 text-sm font-semibold">
+                Acessar Pika →
+              </a>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-2 border-green-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Leonardo Motion</h3>
+              <p class="text-gray-700 mb-3">Parte do Leonardo.AI, ótimo para animar suas criações.</p>
+              <div class="grid md:grid-cols-3 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Plano gratuito</div>
+                <div><strong>Qualidade:</strong> ⭐⭐⭐</div>
+                <div><strong>Velocidade:</strong> Rápida</div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold">Image-to-Video</span>
+              </div>
+              <a href="https://leonardo.ai" target="_blank" class="text-green-600 hover:text-green-700 text-sm font-semibold">
+                Acessar Leonardo →
+              </a>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-2 border-orange-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Sora (OpenAI) 🔒</h3>
+              <p class="text-gray-700 mb-3">Estado da arte em qualidade, ainda em acesso limitado (2025).</p>
+              <div class="grid md:grid-cols-3 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Beta fechado</div>
+                <div><strong>Qualidade:</strong> ⭐⭐⭐⭐⭐+</div>
+                <div><strong>Velocidade:</strong> Lenta</div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold">Text-to-Video</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚠️ Limitações Atuais (2025)</h2>
+
+          <div class="space-y-3">
+            <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h4 class="font-bold text-yellow-900 mb-2">⏱️ Duração limitada</h4>
+              <p class="text-sm text-gray-700">Maioria das ferramentas gera vídeos de 3-10 segundos por vez.</p>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h4 class="font-bold text-yellow-900 mb-2">🎯 Controle impreciso</h4>
+              <p class="text-sm text-gray-700">Ainda é difícil controlar exatamente o que acontece no vídeo.</p>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h4 class="font-bold text-yellow-900 mb-2">🧍 Pessoas realistas são desafiadoras</h4>
+              <p class="text-sm text-gray-700">Expressões faciais e movimentos naturais ainda não são perfeitos.</p>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h4 class="font-bold text-yellow-900 mb-2">💰 Custo por geração</h4>
+              <p class="text-sm text-gray-700">Gerações consomem créditos rapidamente, exigindo iterações planejadas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">✅ Melhores Práticas</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Faça</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Comece com ferramentas gratuitas (Pika, Leonardo)</li>
+                <li>• Teste múltiplas gerações antes de decidir</li>
+                <li>• Use image-to-video para mais controle</li>
+                <li>• Planeje storyboards antes de gerar</li>
+                <li>• Combine clips curtos em editor tradicional</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Esperar vídeos longos de uma vez</li>
+                <li>• Gerar sem planejar (desperdício de créditos)</li>
+                <li>• Confiar 100% em text-to-video complexo</li>
+                <li>• Ignorar pós-processamento</li>
+                <li>• Tentar fazer tudo em uma ferramenta só</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Workflow Recomendado</h2>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+              <div class="flex-shrink-0 w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Planejamento</h4>
+                <p class="text-sm text-gray-700">Escreva descrição detalhada ou crie storyboard visual</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+              <div class="flex-shrink-0 w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Gerar Keyframes</h4>
+                <p class="text-sm text-gray-700">Crie imagens-chave com DALL-E/Midjourney</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+              <div class="flex-shrink-0 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Animar com IA</h4>
+                <p class="text-sm text-gray-700">Use image-to-video para animar cada keyframe</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+              <div class="flex-shrink-0 w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Edição Final</h4>
+                <p class="text-sm text-gray-700">Monte tudo em Premiere/DaVinci/CapCut, adicione música e efeitos</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Checklist de Preparação</h2>
+        <p class="text-gray-700 mb-6">Prepare-se para começar a criar vídeos:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criei conta em pelo menos uma ferramenta (Pika ou Leonardo)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Assisti exemplos de vídeos gerados com IA</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Entendi as limitações atuais</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Tenho ideias de projetos para testar</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="./" class="content-button content-button-secondary">
+          ← Voltar ao Módulo
+        </a>
+        <a href="aula-3.2-videos-desenhos.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 3.1
+    </div>
+  </footer>
+
+</body>
+</html>

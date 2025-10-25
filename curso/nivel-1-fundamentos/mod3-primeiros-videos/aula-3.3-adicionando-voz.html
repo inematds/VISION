@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 3.3: Adicionando voz e narração com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 3</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 3</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 3.3</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">🎙️ Aula 3.3</span>
+          <span class="badge badge-tecnico">120 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Adicionando voz e narração com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Dê vida aos seus vídeos com vozes realistas geradas por IA e música de fundo.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Uma narração profissional pode transformar um vídeo simples em conteúdo envolvente. Com ferramentas de text-to-speech (TTS) baseadas em IA, você pode criar vozes realistas em diversos idiomas, estilos e personalidades sem precisar gravar sua própria voz.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de adicionar narração profissional aos seus vídeos usando IA e sincronizar com música de fundo.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎙️ Principais Ferramentas de Voice-over IA</h2>
+
+          <div class="space-y-4">
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-2 border-purple-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">ElevenLabs 🌟</h3>
+              <p class="text-gray-700 mb-3">Líder absoluto em qualidade de voz, extremamente natural.</p>
+              <div class="grid md:grid-cols-3 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Plano gratuito limitado</div>
+                <div><strong>Qualidade:</strong> ⭐⭐⭐⭐⭐</div>
+                <div><strong>Idiomas:</strong> 29+ incluindo PT-BR</div>
+              </div>
+              <div class="bg-white p-3 rounded mb-3">
+                <p class="text-sm text-gray-800 mb-2"><strong>Recursos principais:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Vozes ultra-realistas com emoção</li>
+                  <li>• Clonagem de voz (com permissão)</li>
+                  <li>• Controle de entonação e velocidade</li>
+                  <li>• Suporte a SSML para controle fino</li>
+                </ul>
+              </div>
+              <a href="https://elevenlabs.io" target="_blank" class="text-purple-600 hover:text-purple-700 text-sm font-semibold">
+                Acessar ElevenLabs →
+              </a>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Play.ht</h3>
+              <p class="text-gray-700 mb-3">Excelente custo-benefício com biblioteca vasta de vozes.</p>
+              <div class="grid md:grid-cols-3 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> $19/mês</div>
+                <div><strong>Qualidade:</strong> ⭐⭐⭐⭐</div>
+                <div><strong>Vozes:</strong> 800+ vozes</div>
+              </div>
+              <div class="bg-white p-3 rounded mb-3">
+                <p class="text-sm text-gray-800 mb-2"><strong>Ideal para:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Podcasts e audiobooks</li>
+                  <li>• Narrações de vídeos educativos</li>
+                  <li>• Múltiplos idiomas e sotaques</li>
+                </ul>
+              </div>
+              <a href="https://play.ht" target="_blank" class="text-blue-600 hover:text-blue-700 text-sm font-semibold">
+                Acessar Play.ht →
+              </a>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-2 border-green-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Google Cloud TTS / Azure Speech</h3>
+              <p class="text-gray-700 mb-3">Soluções enterprise, ótimas para automação em larga escala.</p>
+              <div class="grid md:grid-cols-3 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Pay-as-you-go</div>
+                <div><strong>Qualidade:</strong> ⭐⭐⭐⭐</div>
+                <div><strong>Integração:</strong> APIs robustas</div>
+              </div>
+              <div class="bg-white p-3 rounded mb-3">
+                <p class="text-sm text-gray-700">Requer conhecimento técnico, mas oferece máxima escalabilidade.</p>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-2 border-orange-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Murf.ai</h3>
+              <p class="text-gray-700 mb-3">Interface intuitiva, ideal para iniciantes.</p>
+              <div class="grid md:grid-cols-3 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> $23/mês</div>
+                <div><strong>Qualidade:</strong> ⭐⭐⭐⭐</div>
+                <div><strong>Editor:</strong> Integrado</div>
+              </div>
+              <a href="https://murf.ai" target="_blank" class="text-orange-600 hover:text-orange-700 text-sm font-semibold">
+                Acessar Murf.ai →
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Passo a Passo: Criando Narração com ElevenLabs</h2>
+
+          <div class="space-y-6">
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 1: Preparar o Script</h3>
+              <p class="text-gray-700 mb-3">Escreva seu roteiro de narração:</p>
+              <div class="bg-white p-4 rounded border border-gray-300 mb-3">
+                <p class="text-sm font-semibold mb-2">Exemplo de script:</p>
+                <p class="text-sm text-gray-700 italic">
+                  "Bem-vindo ao tutorial de criação de vídeos com inteligência artificial. Hoje, vamos explorar como transformar suas ideias em realidade visual usando ferramentas de última geração. Prepare-se para uma jornada incrível pelo futuro da criação de conteúdo."
+                </p>
+              </div>
+              <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-sm">
+                <strong>Dica:</strong> Use pontuação para controlar pausas. Vírgulas = pausa curta, pontos = pausa média, ... = pausa longa.
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 2: Escolher a Voz</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Acesse ElevenLabs e vá para "Voices"</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Filtre por idioma (Portuguese - Brazil)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Teste diferentes vozes clicando em "Preview"</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">4.</span>
+                  <span>Considere: Tom (formal/casual), Idade, Gênero, Energia</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 3: Configurações de Geração</h3>
+              <div class="space-y-3">
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-2">Stability (Estabilidade):</p>
+                  <p class="text-sm text-gray-700">0-100. Maior = mais consistente, menor = mais variação emocional</p>
+                  <p class="text-xs text-gray-600 mt-1">Recomendado: 50-70 para narrações educativas</p>
+                </div>
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-2">Similarity (Similaridade):</p>
+                  <p class="text-sm text-gray-700">0-100. Maior = mais próximo da voz original</p>
+                  <p class="text-xs text-gray-600 mt-1">Recomendado: 70-90</p>
+                </div>
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-2">Style Exaggeration:</p>
+                  <p class="text-sm text-gray-700">0-100. Maior = mais dramático e expressivo</p>
+                  <p class="text-xs text-gray-600 mt-1">Recomendado: 0-30 para tom profissional</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 4: Gerar e Baixar</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Cole seu script na caixa de texto</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Clique em "Generate"</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Ouça o preview e ajuste se necessário</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">4.</span>
+                  <span>Baixe em formato MP3 ou WAV (WAV tem melhor qualidade)</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎵 Adicionando Música de Fundo</h2>
+
+          <div class="space-y-4">
+
+            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-3">Fontes de Música Livre de Direitos</h3>
+              <div class="space-y-2 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Epidemic Sound:</strong> Biblioteca premium ($13/mês) - Qualidade profissional
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Uppbeat:</strong> Gratuito com atribuição - Ótima para iniciantes
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>YouTube Audio Library:</strong> 100% gratuito - Variedade limitada
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Suno AI / Udio:</strong> Gere música original com IA (experimental)
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-3">Regras de Ouro para Música de Fundo</h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>• <strong>Volume:</strong> Música deve ficar 15-20dB abaixo da voz (ducking)</li>
+                <li>• <strong>Tipo:</strong> Prefira músicas instrumentais sem vocal</li>
+                <li>• <strong>Tom:</strong> Escolha algo que combine com o mood do vídeo</li>
+                <li>• <strong>Fade:</strong> Sempre use fade in/out para entradas e saídas</li>
+                <li>• <strong>Loop:</strong> Certifique-se que a música loop é suave</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎬 Sincronizando Áudio e Vídeo</h2>
+
+          <div class="space-y-6">
+
+            <div class="bg-purple-50 p-6 rounded-lg border-2 border-purple-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Usando CapCut (Recomendado para Iniciantes)</h3>
+              <div class="space-y-3">
+                <div class="flex items-start gap-4 p-3 bg-white rounded">
+                  <div class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                  <div>
+                    <p class="text-sm text-gray-700">Importe seu vídeo e os arquivos de áudio (narração + música)</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-3 bg-white rounded">
+                  <div class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                  <div>
+                    <p class="text-sm text-gray-700">Arraste a narração para a timeline e sincronize com as cenas</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-3 bg-white rounded">
+                  <div class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                  <div>
+                    <p class="text-sm text-gray-700">Adicione a música em trilha separada abaixo</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-3 bg-white rounded">
+                  <div class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                  <div>
+                    <p class="text-sm text-gray-700">Ajuste o volume da música para -15dB em relação à voz</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-3 bg-white rounded">
+                  <div class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                  <div>
+                    <p class="text-sm text-gray-700">Use a função "Auto-ducking" se disponível (abaixa música quando há voz)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg">
+              <h4 class="font-bold text-gray-900 mb-3">Ferramentas de Edição por Nível:</h4>
+              <div class="space-y-2 text-sm">
+                <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                  <strong>Iniciante:</strong> CapCut (grátis), DaVinci Resolve (grátis)
+                </div>
+                <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                  <strong>Intermediário:</strong> Adobe Premiere Rush, Final Cut Pro
+                </div>
+                <div class="bg-white p-3 rounded border-l-4 border-purple-500">
+                  <strong>Avançado:</strong> Adobe Premiere Pro, DaVinci Resolve Studio
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Técnicas Avançadas</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">🎭 Múltiplas Vozes</h4>
+              <p class="text-sm text-gray-700 mb-2">Crie diálogos usando diferentes vozes:</p>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Narrador + Personagens</li>
+                <li>• Entrevistador + Entrevistado</li>
+                <li>• Diferentes perspectivas</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">🎵 Efeitos Sonoros</h4>
+              <p class="text-sm text-gray-700 mb-2">Adicione realismo com SFX:</p>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Freesound.org (biblioteca gratuita)</li>
+                <li>• Sincronize com ações no vídeo</li>
+                <li>• Não exagere - menos é mais</li>
+              </ul>
+            </div>
+
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">🔊 Equalização</h4>
+              <p class="text-sm text-gray-700 mb-2">Melhore a qualidade do áudio:</p>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Corte frequências abaixo de 80Hz</li>
+                <li>• Boost suave em 2-5kHz (clareza)</li>
+                <li>• Use compressor para nivelar volume</li>
+              </ul>
+            </div>
+
+            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">📝 Legendas Automáticas</h4>
+              <p class="text-sm text-gray-700 mb-2">Aumente acessibilidade:</p>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• CapCut tem geração automática</li>
+                <li>• Use para melhorar engajamento</li>
+                <li>• Sempre revise erros de transcrição</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎬 Projeto Prático</h2>
+
+          <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-300">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Criar um vídeo educativo de 60-90 segundos</h3>
+
+            <div class="space-y-3">
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">1. Escreva roteiro de 120-180 palavras</p>
+                <p class="text-sm text-gray-700">Apresentação → Desenvolvimento → Conclusão</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">2. Gere narração com ElevenLabs ou Play.ht</p>
+                <p class="text-sm text-gray-700">Teste 2-3 vozes diferentes antes de decidir</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">3. Selecione música de fundo apropriada</p>
+                <p class="text-sm text-gray-700">Tom consistente com o tema (educativo, inspirador, calmo, etc.)</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">4. Sincronize tudo em editor de vídeo</p>
+                <p class="text-sm text-gray-700">Vídeo + Narração + Música + (opcional) Efeitos sonoros</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">5. Adicione legendas automáticas</p>
+                <p class="text-sm text-gray-700">Revise e corrija erros de transcrição</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Checklist de Qualidade</h2>
+        <p class="text-gray-700 mb-6">Verifique antes de finalizar:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>A narração está clara e sem distorções</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>A música de fundo não compete com a voz</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Os volumes estão balanceados (voz > música > SFX)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Há fade in/out na música</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Legendas estão sincronizadas e corretas</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-3.2-videos-desenhos.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="aula-3.4-finalizacao-exportacao.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 3.3
+    </div>
+  </footer>
+
+</body>
+</html>

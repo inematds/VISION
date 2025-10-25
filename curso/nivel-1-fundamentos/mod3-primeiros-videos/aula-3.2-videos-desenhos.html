@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 3.2: Criando vídeos simples de desenhos - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 3</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 3</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 3.2</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">✏️ Aula 3.2</span>
+          <span class="badge badge-tecnico">150 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Criando vídeos simples de desenhos
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Transforme imagens em animações e crie seus primeiros vídeos.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Image-to-video é a forma mais controlável de criar vídeos com IA atualmente. Você cria a imagem perfeita primeiro (com DALL-E, Midjourney, etc.) e depois a anima. É ideal para começar porque você tem total controle sobre o frame inicial.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de criar vídeos animados a partir de suas imagens usando Runway e Pika Labs.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Método 1: Runway Gen-3 (Image-to-Video)</h2>
+
+          <div class="space-y-6">
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 1: Preparar a Imagem</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Crie ou selecione uma imagem de alta qualidade (1024x576 recomendado)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Certifique-se que a composição é interessante</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Evite imagens muito complexas ou com muitos detalhes pequenos</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 2: Configurar no Runway</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Acesse Runway.com e faça login</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Selecione "Gen-3 Alpha" e depois "Image to Video"</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Faça upload da sua imagem</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 3: Escrever Motion Prompt</h3>
+              <p class="text-gray-700 mb-3">Descreva o movimento desejado:</p>
+              <div class="space-y-3">
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Exemplo 1 - Câmera:</p>
+                  <p class="text-sm text-gray-700 italic">"Camera slowly zooms in, slight parallax effect"</p>
+                </div>
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Exemplo 2 - Objeto:</p>
+                  <p class="text-sm text-gray-700 italic">"Leaves gently swaying in the wind, water flowing"</p>
+                </div>
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Exemplo 3 - Personagem:</p>
+                  <p class="text-sm text-gray-700 italic">"Character turns head slowly and smiles"</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 4: Gerar e Ajustar</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Clique em "Generate" (gera 5-10 segundos)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Aguarde 1-3 minutos para processamento</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Se não gostar, ajuste o prompt e gere novamente</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">4.</span>
+                  <span>Baixe o vídeo em alta qualidade</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Método 2: Pika Labs (Discord)</h2>
+
+          <div class="space-y-6">
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Setup Inicial</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Acesse Pika.art e entre no Discord deles</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Vá para um canal #create</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Use o comando /create</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Comando Image-to-Video</h3>
+              <div class="bg-white p-4 rounded border border-gray-300 mb-3">
+                <code class="text-sm text-gray-800">
+                  /create image: [upload] prompt: [descrição do movimento]
+                </code>
+              </div>
+              <p class="text-sm text-gray-700 mb-2"><strong>Exemplo:</strong></p>
+              <div class="bg-white p-4 rounded border border-gray-300">
+                <code class="text-sm text-gray-800">
+                  /create image: character.png prompt: character walking forward, smooth animation, cinematic
+                </code>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Parâmetros Úteis</h3>
+              <div class="space-y-2 text-sm">
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <strong>-motion [1-4]:</strong> Controla intensidade do movimento (1=sutil, 4=intenso)
+                </div>
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <strong>-fps [24]:</strong> Define frames por segundo
+                </div>
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <strong>-ar 16:9:</strong> Aspect ratio do vídeo
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Tipos de Movimento</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">📹 Movimentos de Câmera</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• "camera slowly pans right"</li>
+                <li>• "zoom in on subject"</li>
+                <li>• "crane shot moving up"</li>
+                <li>• "orbit around object"</li>
+                <li>• "dolly zoom effect"</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">🌊 Movimentos Ambientais</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• "leaves blowing in wind"</li>
+                <li>• "water rippling gently"</li>
+                <li>• "clouds moving across sky"</li>
+                <li>• "fire flickering"</li>
+                <li>• "snow falling softly"</li>
+              </ul>
+            </div>
+
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">🚶 Movimentos de Personagem</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• "character walking forward"</li>
+                <li>• "head turning to look at camera"</li>
+                <li>• "hair flowing in wind"</li>
+                <li>• "blinking and subtle breathing"</li>
+                <li>• "waving hand"</li>
+              </ul>
+            </div>
+
+            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">✨ Efeitos Especiais</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• "particles floating upward"</li>
+                <li>• "lens flare moving across"</li>
+                <li>• "glitch effect"</li>
+                <li>• "depth of field shift"</li>
+                <li>• "color grading transition"</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Dicas para Melhores Resultados</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Faça</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Use imagens claras e bem iluminadas</li>
+                <li>• Comece com movimentos sutis</li>
+                <li>• Teste várias gerações da mesma imagem</li>
+                <li>• Especifique velocidade: "slowly", "gently", "rapidly"</li>
+                <li>• Mantenha composição simples</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Pedir movimentos muito complexos</li>
+                <li>• Usar imagens de baixa resolução</li>
+                <li>• Esperar movimentos precisos de pessoas</li>
+                <li>• Animar imagens com muito texto</li>
+                <li>• Desistir após primeira tentativa</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎬 Projeto Prático: Criar uma Sequência</h2>
+
+          <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-300">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Objetivo: Criar um vídeo de 15-30 segundos</h3>
+
+            <div class="space-y-4">
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-2">1. Gere 3 imagens-chave:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Cena inicial (estabelecendo contexto)</li>
+                  <li>• Cena do meio (ação/movimento)</li>
+                  <li>• Cena final (conclusão)</li>
+                </ul>
+              </div>
+
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-2">2. Anime cada uma:</p>
+                <p class="text-sm text-gray-700">Use image-to-video para criar 5-10 segundos de cada</p>
+              </div>
+
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-2">3. Monte no editor:</p>
+                <p class="text-sm text-gray-700">Use CapCut, DaVinci Resolve ou Premiere para juntar os clips</p>
+              </div>
+
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-2">4. Adicione transições:</p>
+                <p class="text-sm text-gray-700">Fade, cross-dissolve ou cuts simples entre cenas</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Exercício Prático</h2>
+        <p class="text-gray-700 mb-6">Complete este projeto para dominar image-to-video:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criei 3 imagens para minha sequência</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Animei cada imagem com Runway ou Pika</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Testei diferentes motion prompts</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Montei os clips em um vídeo de 15-30 segundos</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Adicionei transições básicas entre cenas</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-3.1-introducao-videos-ia.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="aula-3.3-adicionando-voz.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 3.2
+    </div>
+  </footer>
+
+</body>
+</html>

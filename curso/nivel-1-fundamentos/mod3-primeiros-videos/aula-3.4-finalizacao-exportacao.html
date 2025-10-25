@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 3.4: Finalização e exportação de vídeos - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 3</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 3</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 3.4</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">🎬 Aula 3.4</span>
+          <span class="badge badge-tecnico">90 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Finalização e exportação de vídeos
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Aprenda a polir, otimizar e exportar seus vídeos com qualidade profissional.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            A finalização é a etapa que separa vídeos amadores de produções profissionais. Nesta aula, você aprenderá técnicas de pós-produção, correção de cor, ajustes finais e as melhores configurações de exportação para cada plataforma.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de finalizar e exportar vídeos otimizados para YouTube, Instagram, TikTok e outras plataformas.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Correção de Cor e Grading</h2>
+
+          <div class="space-y-6">
+
+            <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Diferença: Correção vs Grading</h3>
+              <div class="grid md:grid-cols-2 gap-4 mt-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-semibold text-purple-900 mb-2">✅ Correção de Cor</h4>
+                  <p class="text-sm text-gray-700 mb-2">Normalizar e balancear as cores</p>
+                  <ul class="text-xs text-gray-600 space-y-1">
+                    <li>• Ajustar exposição</li>
+                    <li>• Corrigir balanço de branco</li>
+                    <li>• Normalizar contraste</li>
+                    <li>• Fazer PRIMEIRO</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-semibold text-blue-900 mb-2">🎨 Color Grading</h4>
+                  <p class="text-sm text-gray-700 mb-2">Criar mood e estilo visual</p>
+                  <ul class="text-xs text-gray-600 space-y-1">
+                    <li>• Aplicar LUTs</li>
+                    <li>• Criar look cinematográfico</li>
+                    <li>• Definir paleta de cores</li>
+                    <li>• Fazer DEPOIS da correção</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Ajustes Básicos em DaVinci Resolve</h3>
+              <div class="space-y-3">
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">1. Exposure (Exposição)</p>
+                  <p class="text-xs text-gray-700">Ajuste para que o vídeo não fique muito escuro nem estourado</p>
+                </div>
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">2. Contrast (Contraste)</p>
+                  <p class="text-xs text-gray-700">Aumente levemente (10-20%) para mais "punch" visual</p>
+                </div>
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">3. Saturation (Saturação)</p>
+                  <p class="text-xs text-gray-700">Reduza 5-10% se cores estiverem muito artificiais da IA</p>
+                </div>
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">4. Highlights/Shadows</p>
+                  <p class="text-xs text-gray-700">Recupere detalhes em áreas claras e escuras</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">LUTs Prontas (Atalho para Iniciantes)</h3>
+              <p class="text-gray-700 mb-3">LUTs são "filtros de cor" profissionais que você pode aplicar com um clique:</p>
+              <div class="space-y-2 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Onde encontrar LUTs gratuitas:</strong> RocketStock, FilterGrade, Adobe</div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Como aplicar:</strong> No DaVinci/Premiere, vá em Color → LUT → Importar</div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Dica:</strong> Aplique LUT primeiro e depois ajuste intensidade (50-70%)</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">✨ Toques Finais Profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-3">🎬 Transições</h4>
+              <p class="text-sm text-gray-700 mb-2">Use com moderação:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• <strong>Cut:</strong> Para 80% das transições</li>
+                <li>• <strong>Cross Dissolve:</strong> Mudanças de tempo/lugar</li>
+                <li>• <strong>Fade to Black:</strong> Fim de capítulos</li>
+                <li>• <strong>Evite:</strong> Star wipe, efeitos exagerados</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-3">📝 Texto e Títulos</h4>
+              <p class="text-sm text-gray-700 mb-2">Regras de legibilidade:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• <strong>Fonte:</strong> Sans-serif (Roboto, Inter, Montserrat)</li>
+                <li>• <strong>Tamanho:</strong> Mínimo 40pt para HD, 60pt para 4K</li>
+                <li>• <strong>Contraste:</strong> Texto branco com sombra/fundo escuro</li>
+                <li>• <strong>Animação:</strong> Fade in/out suave (0.3-0.5s)</li>
+              </ul>
+            </div>
+
+            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-3">🎵 Ajustes de Áudio</h4>
+              <p class="text-sm text-gray-700 mb-2">Polimento final:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• <strong>Normalização:</strong> -14 LUFS para YouTube</li>
+                <li>• <strong>Limiter:</strong> -1dB no máster (evita distorção)</li>
+                <li>• <strong>Fade out:</strong> 2-3 segundos no final</li>
+                <li>• <strong>Verificar:</strong> Sem cliques ou pops</li>
+              </ul>
+            </div>
+
+            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-3">🖼️ Lower Thirds</h4>
+              <p class="text-sm text-gray-700 mb-2">Para identificação profissional:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Use templates prontos do CapCut/Premiere</li>
+                <li>• Posicione no terço inferior da tela</li>
+                <li>• Mantenha na tela por 3-5 segundos</li>
+                <li>• Combine cores com identidade visual</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📤 Configurações de Exportação por Plataforma</h2>
+
+          <div class="space-y-4">
+
+            <div class="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-lg border-2 border-red-300">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-3xl">📺</span>
+                <h3 class="text-xl font-bold text-gray-900">YouTube</h3>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Resolução:</strong> 1920x1080 (Full HD) ou 3840x2160 (4K)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Frame Rate:</strong> 24, 30 ou 60fps
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Codec:</strong> H.264 (até 1080p) ou H.265 (4K)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Bitrate:</strong> 8-12 Mbps (1080p), 35-45 Mbps (4K)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Áudio:</strong> AAC, 320 kbps, 48kHz
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Formato:</strong> MP4 (container)
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-pink-50 to-pink-100 p-6 rounded-lg border-2 border-pink-300">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-3xl">📸</span>
+                <h3 class="text-xl font-bold text-gray-900">Instagram (Feed & Reels)</h3>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Resolução:</strong> 1080x1920 (9:16 vertical)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Duração:</strong> Até 90s (Reels), 60s (Feed)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Frame Rate:</strong> 30fps
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Bitrate:</strong> 5-8 Mbps
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Codec:</strong> H.264
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Formato:</strong> MP4
+                </div>
+              </div>
+              <div class="mt-3 bg-pink-200 p-3 rounded text-xs">
+                <strong>⚠️ Importante:</strong> Instagram comprime muito. Exporte com qualidade máxima para compensar.
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-lg border-2 border-gray-300">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-3xl">🎵</span>
+                <h3 class="text-xl font-bold text-gray-900">TikTok</h3>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Resolução:</strong> 1080x1920 (9:16)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Duração:</strong> Até 10 minutos
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Frame Rate:</strong> 30fps (ideal 24fps cinematográfico)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Bitrate:</strong> 4-6 Mbps
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Codec:</strong> H.264
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Tamanho máx:</strong> 287.6 MB
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-3xl">𝕏</span>
+                <h3 class="text-xl font-bold text-gray-900">Twitter/X</h3>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Resolução:</strong> 1280x720 mínimo
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Duração:</strong> Até 2:20 (gratuito)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Tamanho máx:</strong> 512 MB
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Formato:</strong> MP4 ou MOV
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚙️ Preset de Exportação Universal (Recomendado)</h2>
+
+          <div class="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-lg border-2 border-green-400">
+            <p class="text-gray-700 mb-4">Use esta configuração quando não souber exatamente onde vai postar:</p>
+
+            <div class="bg-white p-5 rounded-lg shadow-sm mb-4">
+              <h4 class="font-bold text-gray-900 mb-3">📋 Configuração Universal</h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="border-l-4 border-green-500 pl-3">
+                  <strong>Formato:</strong> MP4
+                </div>
+                <div class="border-l-4 border-green-500 pl-3">
+                  <strong>Codec:</strong> H.264
+                </div>
+                <div class="border-l-4 border-green-500 pl-3">
+                  <strong>Resolução:</strong> 1920x1080
+                </div>
+                <div class="border-l-4 border-green-500 pl-3">
+                  <strong>Frame Rate:</strong> 30fps
+                </div>
+                <div class="border-l-4 border-green-500 pl-3">
+                  <strong>Bitrate:</strong> 10 Mbps (VBR, 2-pass)
+                </div>
+                <div class="border-l-4 border-green-500 pl-3">
+                  <strong>Áudio:</strong> AAC 256 kbps
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-blue-100 p-4 rounded text-sm">
+              <strong>💡 Dica Pro:</strong> Exporte sempre em qualidade máxima e guarde este arquivo como "master". Depois, faça versões otimizadas para cada plataforma a partir deste master.
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔍 Checklist Final Antes de Exportar</h2>
+
+          <div class="space-y-3">
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 mb-2">✅ Aspectos Visuais</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>☐ Cores estão balanceadas e consistentes</li>
+                <li>☐ Transições estão suaves</li>
+                <li>☐ Textos são legíveis (teste em tela pequena)</li>
+                <li>☐ Não há frames pretos ou congelados</li>
+                <li>☐ Proporção (aspect ratio) está correta para plataforma</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 mb-2">✅ Aspectos de Áudio</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>☐ Níveis de áudio estão balanceados</li>
+                <li>☐ Narração está clara e sem distorções</li>
+                <li>☐ Música não compete com voz</li>
+                <li>☐ Não há cliques, pops ou ruídos</li>
+                <li>☐ Fade out está suave no final</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 mb-2">✅ Controle de Qualidade</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>☐ Assisti o vídeo completo sem pular</li>
+                <li>☐ Testei em diferentes dispositivos (celular/desktop)</li>
+                <li>☐ Legendas estão sincronizadas (se houver)</li>
+                <li>☐ Duração está dentro do limite da plataforma</li>
+                <li>☐ Arquivo final tem tamanho adequado</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎬 Workflow Completo de Finalização</h2>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border-l-4 border-purple-500">
+              <div class="flex-shrink-0 w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Primeira Revisão</h4>
+                <p class="text-sm text-gray-700">Assista do início ao fim, anote problemas</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-blue-500">
+              <div class="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Correção de Cor</h4>
+                <p class="text-sm text-gray-700">Normalize exposição, contraste e cores</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-l-4 border-green-500">
+              <div class="flex-shrink-0 w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Color Grading</h4>
+                <p class="text-sm text-gray-700">Aplique LUT ou crie mood desejado</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg border-l-4 border-orange-500">
+              <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Ajustes de Áudio</h4>
+                <p class="text-sm text-gray-700">Normalização, EQ, compressão, limiter</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-red-50 to-red-100 rounded-lg border-l-4 border-red-500">
+              <div class="flex-shrink-0 w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Adicionar Elementos</h4>
+                <p class="text-sm text-gray-700">Textos, lower thirds, transições finais</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border-l-4 border-purple-500">
+              <div class="flex-shrink-0 w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">6</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Exportar Master</h4>
+                <p class="text-sm text-gray-700">Qualidade máxima, arquivo de backup</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-blue-500">
+              <div class="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">7</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Versões por Plataforma</h4>
+                <p class="text-sm text-gray-700">Exporte versões otimizadas (YouTube, IG, TikTok)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-l-4 border-green-500">
+              <div class="flex-shrink-0 w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">8</div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">Teste Final</h4>
+                <p class="text-sm text-gray-700">Reproduza em diferentes dispositivos antes de publicar</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎬 Projeto Final do Módulo 3</h2>
+
+          <div class="bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 p-6 rounded-lg border-2 border-purple-400">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Criar um Vídeo Completo de 60-120 segundos</h3>
+
+            <div class="space-y-3 mb-5">
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">1. Planeje a narrativa</p>
+                <p class="text-sm text-gray-700">Escreva roteiro com introdução, desenvolvimento e conclusão</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">2. Crie 3-5 cenas visuais</p>
+                <p class="text-sm text-gray-700">Use image-to-video ou text-to-video do Runway/Pika</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">3. Adicione narração profissional</p>
+                <p class="text-sm text-gray-700">ElevenLabs ou Play.ht com voz em PT-BR</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">4. Música e SFX</p>
+                <p class="text-sm text-gray-700">Música de fundo + efeitos sonoros se necessário</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">5. Correção de cor e grading</p>
+                <p class="text-sm text-gray-700">Aplique LUT ou ajustes manuais para mood consistente</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">6. Textos e legendas</p>
+                <p class="text-sm text-gray-700">Títulos, lower thirds e legendas automáticas</p>
+              </div>
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-1">7. Exporte para 2 plataformas</p>
+                <p class="text-sm text-gray-700">YouTube (16:9) + Instagram Reels (9:16)</p>
+              </div>
+            </div>
+
+            <div class="bg-purple-100 p-4 rounded">
+              <p class="text-sm font-semibold text-purple-900">🏆 Desafio Extra: Publique seu vídeo e compartilhe com a comunidade VISION!</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Checklist de Conclusão</h2>
+        <p class="text-gray-700 mb-6">Parabéns por chegar ao final do Módulo 3! Verifique se você:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Entendeu o processo completo de pós-produção</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Aplicou correção de cor e color grading</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Adicionou textos, títulos e legendas</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Exportou vídeo em configurações adequadas</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Completou o projeto final do módulo</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg shadow-lg p-8 mb-8 border-2 border-green-400">
+        <div class="text-center">
+          <span class="text-5xl mb-4 block">🎉</span>
+          <h2 class="text-3xl font-bold text-gray-900 mb-3">Parabéns!</h2>
+          <p class="text-lg text-gray-700 mb-4">
+            Você concluiu o <strong>Módulo 3: Primeiros Vídeos</strong>!
+          </p>
+          <p class="text-gray-600 mb-6">
+            Agora você domina o processo completo: da criação à finalização de vídeos com IA. Continue para o próximo módulo e leve suas habilidades ao próximo nível!
+          </p>
+          <a href="../" class="inline-block px-8 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-colors">
+            Voltar aos Módulos
+          </a>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-3.3-adicionando-voz.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="../" class="content-button content-button-primary">
+          Concluir Módulo →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 3.4
+    </div>
+  </footer>
+
+</body>
+</html>

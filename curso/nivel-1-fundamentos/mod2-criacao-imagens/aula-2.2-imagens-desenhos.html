@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 2.2: Criando imagens e desenhos com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 2</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 2.2</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">🎨 Aula 2.2</span>
+          <span class="badge badge-tecnico">90 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Criando imagens e desenhos com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Transforme texto em imagens incríveis usando geradores de IA.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Os geradores de imagens por IA revolucionaram a criação visual. Com apenas uma descrição em texto (chamada de "prompt"), você pode criar ilustrações, arte digital, logos, personagens e muito mais - sem precisar saber desenhar.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de criar imagens originais usando text-to-image e entender como escrever bons prompts.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Principais Ferramentas</h2>
+
+          <div class="space-y-6">
+
+            <div class="border-l-4 border-purple-500 bg-purple-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">DALL-E 3 (ChatGPT Plus) 🌟</h3>
+              <p class="text-gray-700 mb-3">Gerador de imagens da OpenAI integrado ao ChatGPT, excelente para compreensão de linguagem natural.</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> $20/mês (ChatGPT Plus)</div>
+                <div><strong>Melhor para:</strong> Prompts complexos e conversação</div>
+              </div>
+              <a href="https://chat.openai.com" target="_blank" class="text-purple-600 hover:text-purple-700 text-sm font-semibold">
+                Acessar ChatGPT →
+              </a>
+            </div>
+
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Midjourney 🌟</h3>
+              <p class="text-gray-700 mb-3">Gerador via Discord famoso por criar arte de altíssima qualidade e estilo artístico.</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> $10/mês (plano básico)</div>
+                <div><strong>Melhor para:</strong> Arte conceitual e estética</div>
+              </div>
+              <a href="https://midjourney.com" target="_blank" class="text-blue-600 hover:text-blue-700 text-sm font-semibold">
+                Acessar Midjourney →
+              </a>
+            </div>
+
+            <div class="border-l-4 border-green-500 bg-green-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Leonardo.AI</h3>
+              <p class="text-gray-700 mb-3">Plataforma gratuita com créditos diários, ótima para iniciantes.</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Plano gratuito disponível</div>
+                <div><strong>Melhor para:</strong> Prática e experimentação</div>
+              </div>
+              <a href="https://leonardo.ai" target="_blank" class="text-green-600 hover:text-green-700 text-sm font-semibold">
+                Acessar Leonardo →
+              </a>
+            </div>
+
+            <div class="border-l-4 border-orange-500 bg-orange-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Stable Diffusion (via Clipdrop)</h3>
+              <p class="text-gray-700 mb-3">IA open-source acessível via web, com controle sobre parâmetros.</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Plano gratuito + pagos</div>
+                <div><strong>Melhor para:</strong> Controle técnico</div>
+              </div>
+              <a href="https://clipdrop.co" target="_blank" class="text-orange-600 hover:text-orange-700 text-sm font-semibold">
+                Acessar Clipdrop →
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Passo a Passo Prático</h2>
+
+          <div class="space-y-6">
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 1: Escolher a Ferramenta</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span><strong>Iniciante?</strong> Comece com Leonardo.AI (gratuito)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span><strong>Tem ChatGPT Plus?</strong> Use DALL-E 3</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span><strong>Quer qualidade máxima?</strong> Considere Midjourney</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 2: Escrever um Bom Prompt</h3>
+              <p class="text-gray-700 mb-3">Estrutura básica de um prompt eficaz:</p>
+              <div class="bg-white p-4 rounded border border-gray-300 mb-3">
+                <code class="text-sm text-gray-800">
+                  [ASSUNTO] + [ESTILO] + [DETALHES] + [ILUMINAÇÃO] + [CONFIGURAÇÕES]
+                </code>
+              </div>
+              <p class="text-gray-700 mb-2"><strong>Exemplo:</strong></p>
+              <div class="bg-white p-4 rounded border border-gray-300">
+                <p class="text-sm text-gray-800 italic">
+                  "Um gato astronauta, estilo cartoon pixar, flutuando no espaço com estrelas ao fundo, iluminação suave e colorida, renderização 3D, alta qualidade"
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 3: Gerar e Refinar</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Cole seu prompt na ferramenta escolhida</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Gere 4 variações e escolha a melhor</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Ajuste o prompt para melhorar detalhes</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">4.</span>
+                  <span>Gere novamente até obter o resultado desejado</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 4: Baixar e Usar</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Baixe a imagem em alta resolução</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Se necessário, use upscaler para aumentar qualidade</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Organize suas criações em pastas por projeto</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Fórmulas de Prompt por Estilo</h2>
+
+          <div class="space-y-4">
+
+            <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">🎨 Fotorrealista</h4>
+              <p class="text-sm text-gray-700 italic">
+                "photo of [assunto], realistic, professional photography, natural lighting, 8k, ultra detailed"
+              </p>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">🎬 Cartoon/Animação</h4>
+              <p class="text-sm text-gray-700 italic">
+                "[assunto], pixar style, 3D render, vibrant colors, smooth lighting, animation movie quality"
+              </p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">🖼️ Arte Digital/Fantasia</h4>
+              <p class="text-sm text-gray-700 italic">
+                "[assunto], digital art, fantasy style, trending on artstation, detailed, dramatic lighting"
+              </p>
+            </div>
+
+            <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">✏️ Desenho/Sketch</h4>
+              <p class="text-sm text-gray-700 italic">
+                "[assunto], pencil sketch, black and white, hand-drawn style, detailed linework"
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Dicas Profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Faça</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Seja específico nos detalhes</li>
+                <li>• Use referências de estilo (ex: "Pixar", "Van Gogh")</li>
+                <li>• Experimente várias versões</li>
+                <li>• Salve seus melhores prompts</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Prompts muito vagos ("um gato bonito")</li>
+                <li>• Misturar muitos estilos diferentes</li>
+                <li>• Desistir na primeira tentativa</li>
+                <li>• Esquecer de especificar qualidade</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Exercício Prático</h2>
+        <p class="text-gray-700 mb-6">Crie 3 imagens diferentes explorando estilos variados:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criei uma imagem fotorrealista</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criei uma ilustração estilo cartoon</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criei uma arte digital/fantasia</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Salvei meus melhores prompts</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Experimentei ajustar prompts para refinar resultados</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-2.1-restauracao-fotos.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="aula-2.3-arte-conceitual.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 2.2
+    </div>
+  </footer>
+
+</body>
+</html>

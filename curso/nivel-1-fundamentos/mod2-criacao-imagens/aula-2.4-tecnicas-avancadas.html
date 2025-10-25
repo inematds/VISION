@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 2.4: Técnicas avançadas de edição com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 2</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 2.4</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">⚡ Aula 2.4</span>
+          <span class="badge badge-tecnico">120 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Técnicas avançadas de edição com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Domine inpainting, outpainting, ControlNet e outras técnicas profissionais.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Depois de dominar a geração básica de imagens, é hora de aprender técnicas avançadas que dão controle preciso sobre cada aspecto da imagem. Essas ferramentas são usadas por profissionais para criar conteúdo de nível comercial.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de usar técnicas avançadas como inpainting, outpainting e ControlNet para ter controle total sobre suas criações.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Técnicas Avançadas</h2>
+
+          <div class="space-y-6">
+
+            <div class="border-l-4 border-purple-500 bg-purple-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">🎨 Inpainting (Pintura Interna)</h3>
+              <p class="text-gray-700 mb-3">Edita partes específicas de uma imagem mantendo o resto intacto.</p>
+              <div class="bg-white p-4 rounded mt-3">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Casos de uso:</p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Remover objetos indesejados</li>
+                  <li>• Modificar expressões faciais</li>
+                  <li>• Trocar roupas de personagens</li>
+                  <li>• Adicionar ou remover elementos específicos</li>
+                </ul>
+                <p class="text-sm font-semibold text-gray-800 mt-3 mb-2">Ferramentas:</p>
+                <p class="text-sm text-gray-700">DALL-E, Photoshop Firefly, ClipDrop</p>
+              </div>
+            </div>
+
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">🖼️ Outpainting (Expansão de Canvas)</h3>
+              <p class="text-gray-700 mb-3">Expande imagens além das bordas originais, criando mais contexto.</p>
+              <div class="bg-white p-4 rounded mt-3">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Casos de uso:</p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Transformar retrato em cena completa</li>
+                  <li>• Criar panoramas a partir de uma foto</li>
+                  <li>• Adicionar mais elementos ao redor</li>
+                  <li>• Ajustar enquadramento e composição</li>
+                </ul>
+                <p class="text-sm font-semibold text-gray-800 mt-3 mb-2">Ferramentas:</p>
+                <p class="text-sm text-gray-700">DALL-E, Photoshop Generative Fill, Canva</p>
+              </div>
+            </div>
+
+            <div class="border-l-4 border-green-500 bg-green-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">🎮 ControlNet (Controle de Pose/Estrutura)</h3>
+              <p class="text-gray-700 mb-3">Usa imagens de referência para controlar pose, profundidade, linhas, etc.</p>
+              <div class="bg-white p-4 rounded mt-3">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Casos de uso:</p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Recriar uma pose específica</li>
+                  <li>• Manter estrutura arquitetônica</li>
+                  <li>• Controlar composição exata</li>
+                  <li>• Transformar sketch em arte final</li>
+                </ul>
+                <p class="text-sm font-semibold text-gray-800 mt-3 mb-2">Ferramentas:</p>
+                <p class="text-sm text-gray-700">Leonardo.AI (Image Guidance), Stable Diffusion WebUI</p>
+              </div>
+            </div>
+
+            <div class="border-l-4 border-orange-500 bg-orange-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">🔄 Image-to-Image (Transformação)</h3>
+              <p class="text-gray-700 mb-3">Transforma uma imagem base em outra, mantendo estrutura geral.</p>
+              <div class="bg-white p-4 rounded mt-3">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Casos de uso:</p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Mudar estilo artístico (foto → pintura)</li>
+                  <li>• Alterar tempo/iluminação (dia → noite)</li>
+                  <li>• Transformar sketch em render final</li>
+                  <li>• Aplicar filtros criativos complexos</li>
+                </ul>
+                <p class="text-sm font-semibold text-gray-800 mt-3 mb-2">Ferramentas:</p>
+                <p class="text-sm text-gray-700">Midjourney, Leonardo.AI, Stable Diffusion</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Passo a Passo: Inpainting no DALL-E</h2>
+
+          <div class="space-y-6">
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 1: Preparar a Imagem</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Abra o ChatGPT (com DALL-E 3) ou use DALL-E 2 direto</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Faça upload da imagem que deseja editar</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>No ChatGPT, peça para editar parte específica</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 2: Marcar Área de Edição</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Use a ferramenta de seleção (se disponível)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Ou descreva claramente a área: "no canto superior direito", "na mão esquerda do personagem"</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 3: Descrever a Mudança</h3>
+              <p class="text-gray-700 mb-3">Seja específico sobre o que quer:</p>
+              <div class="bg-white p-4 rounded border border-gray-300 space-y-2">
+                <p class="text-sm"><strong>Ruim:</strong> <span class="text-gray-600">"Mude a roupa"</span></p>
+                <p class="text-sm"><strong>Bom:</strong> <span class="text-gray-600">"Substitua a camisa vermelha por uma jaqueta de couro preta"</span></p>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 4: Gerar e Refinar</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Gere a primeira versão</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Se necessário, peça ajustes finos</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Repita até alcançar o resultado desejado</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Exemplo Prático: Outpainting</h2>
+
+          <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Cenário: Expandir um retrato em cena completa</h3>
+
+            <div class="space-y-4">
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-2">1. Imagem Original:</p>
+                <p class="text-sm text-gray-700">Retrato close-up de uma pessoa</p>
+              </div>
+
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-2">2. Prompt de Outpainting:</p>
+                <p class="text-sm text-gray-700 italic">
+                  "Expand the canvas to show the full scene: [descreva a pessoa] sitting at a cozy cafe, wooden table with coffee cup, large window with city view in background, warm afternoon lighting, wide shot"
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded shadow-sm">
+                <p class="font-semibold text-gray-900 mb-2">3. Resultado:</p>
+                <p class="text-sm text-gray-700">
+                  A IA expande a imagem mantendo o retrato original e criando o ambiente ao redor
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Photoshop + Adobe Firefly</h2>
+
+          <div class="space-y-4">
+            <p class="text-gray-700">
+              O Adobe Photoshop agora integra IA (Firefly) para edições profissionais:
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <h4 class="font-bold text-purple-900 mb-2">Generative Fill</h4>
+                <p class="text-sm text-gray-700">Adiciona ou remove objetos com IA, mantendo qualidade profissional e respeitando iluminação/perspectiva.</p>
+              </div>
+
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <h4 class="font-bold text-blue-900 mb-2">Generative Expand</h4>
+                <p class="text-sm text-gray-700">Expande canvas de forma inteligente, perfeito para mudar aspect ratio de imagens.</p>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <h4 class="font-bold text-green-900 mb-2">Remove Tool</h4>
+                <p class="text-sm text-gray-700">Remove objetos com um clique, preenchendo automaticamente o fundo.</p>
+              </div>
+
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                <h4 class="font-bold text-orange-900 mb-2">Neural Filters</h4>
+                <p class="text-sm text-gray-700">Filtros alimentados por IA: envelhecer/rejuvenescer rostos, mudar expressões, etc.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Dicas Avançadas</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Faça</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Use alta resolução sempre que possível</li>
+                <li>• Faça backup antes de edições destrutivas</li>
+                <li>• Teste múltiplas variações de inpainting</li>
+                <li>• Combine técnicas (inpaint + outpaint)</li>
+                <li>• Use imagens de referência para ControlNet</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Usar inpainting em áreas muito grandes (melhor regenerar)</li>
+                <li>• Esquecer de manter consistência de iluminação</li>
+                <li>• Expandir canvas sem contexto claro</li>
+                <li>• Sobrescrever originais sem backup</li>
+                <li>• Aplicar técnicas avançadas em imagens de baixa qualidade</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔧 Ferramentas Comparadas</h2>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-gray-100">
+                  <th class="border border-gray-300 p-3 text-left">Ferramenta</th>
+                  <th class="border border-gray-300 p-3 text-left">Inpainting</th>
+                  <th class="border border-gray-300 p-3 text-left">Outpainting</th>
+                  <th class="border border-gray-300 p-3 text-left">ControlNet</th>
+                  <th class="border border-gray-300 p-3 text-left">Preço</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr>
+                  <td class="border border-gray-300 p-3 font-semibold">DALL-E 3</td>
+                  <td class="border border-gray-300 p-3">✅ Sim</td>
+                  <td class="border border-gray-300 p-3">✅ Sim</td>
+                  <td class="border border-gray-300 p-3">❌ Não</td>
+                  <td class="border border-gray-300 p-3">$20/mês</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-300 p-3 font-semibold">Photoshop Firefly</td>
+                  <td class="border border-gray-300 p-3">✅ Excelente</td>
+                  <td class="border border-gray-300 p-3">✅ Excelente</td>
+                  <td class="border border-gray-300 p-3">❌ Não</td>
+                  <td class="border border-gray-300 p-3">$55/mês</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-300 p-3 font-semibold">Leonardo.AI</td>
+                  <td class="border border-gray-300 p-3">✅ Sim</td>
+                  <td class="border border-gray-300 p-3">✅ Sim</td>
+                  <td class="border border-gray-300 p-3">✅ Sim</td>
+                  <td class="border border-gray-300 p-3">Grátis/Pago</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-300 p-3 font-semibold">ClipDrop</td>
+                  <td class="border border-gray-300 p-3">✅ Sim</td>
+                  <td class="border border-gray-300 p-3">⚠️ Limitado</td>
+                  <td class="border border-gray-300 p-3">❌ Não</td>
+                  <td class="border border-gray-300 p-3">Grátis/Pago</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Projeto Final do Módulo</h2>
+        <p class="text-gray-700 mb-6">Demonstre domínio de todas as técnicas avançadas:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Usei inpainting para modificar parte de uma imagem</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Usei outpainting para expandir uma imagem</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Experimentei image-to-image transformation</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criei uma composição complexa usando múltiplas técnicas</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Documentei meu processo e resultados</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-2.3-arte-conceitual.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="../mod3-primeiros-videos/" class="content-button content-button-primary">
+          Próximo Módulo →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 2.4
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 2.1: Restauração de fotos antigas - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 2</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 2.1</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">🖼️ Aula 2.1</span>
+          <span class="badge badge-tecnico">90 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Restauração de fotos antigas
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Use IA para restaurar, colorir e melhorar fotos antigas danificadas.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            A restauração de fotos antigas era um processo caro e demorado, exigindo habilidades profissionais em edição de imagem. Com IA, você pode restaurar fotos danificadas, remover arranhões, colorir fotos em preto e branco e melhorar a resolução em minutos.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de restaurar fotos antigas da sua família usando ferramentas de IA.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Ferramentas para Restauração</h2>
+
+          <div class="space-y-6">
+
+            <div class="border-l-4 border-purple-500 bg-purple-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Remini 🌟</h3>
+              <p class="text-gray-700 mb-3">App mobile e web para melhorar qualidade e resolução de fotos antigas.</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Plano gratuito limitado</div>
+                <div><strong>Melhor para:</strong> Aumentar resolução</div>
+              </div>
+              <a href="https://remini.ai" target="_blank" class="text-purple-600 hover:text-purple-700 text-sm font-semibold">
+                Acessar Remini →
+              </a>
+            </div>
+
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Restore Photos (Replicate)</h3>
+              <p class="text-gray-700 mb-3">Ferramenta gratuita e open-source para restaurar rostos em fotos antigas.</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Gratuito</div>
+                <div><strong>Melhor para:</strong> Restaurar rostos</div>
+              </div>
+              <a href="https://replicate.com/tencentarc/gfpgan" target="_blank" class="text-blue-600 hover:text-blue-700 text-sm font-semibold">
+                Acessar Restore Photos →
+              </a>
+            </div>
+
+            <div class="border-l-4 border-green-500 bg-green-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Colorize.cc</h3>
+              <p class="text-gray-700 mb-3">Adiciona cores realistas a fotos em preto e branco automaticamente.</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Gratuito</div>
+                <div><strong>Melhor para:</strong> Colorização</div>
+              </div>
+              <a href="https://colorize.cc" target="_blank" class="text-green-600 hover:text-green-700 text-sm font-semibold">
+                Acessar Colorize →
+              </a>
+            </div>
+
+            <div class="border-l-4 border-yellow-500 bg-yellow-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Adobe Photoshop + Firefly</h3>
+              <p class="text-gray-700 mb-3">Ferramenta profissional com IA integrada para restauração avançada.</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm mb-3">
+                <div><strong>Preço:</strong> Creative Cloud ($54.99/mês)</div>
+                <div><strong>Melhor para:</strong> Controle profissional</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Passo a Passo Prático</h2>
+
+          <div class="space-y-6">
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 1: Preparação</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Digitalize a foto antiga (use scanner ou tire foto com boa iluminação)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Salve em alta resolução (PNG ou JPG de qualidade)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Faça backup da foto original</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 2: Aumentar Resolução (Remini)</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Acesse Remini.ai e faça upload da foto</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Clique em "Enhance" e aguarde o processamento</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Compare antes/depois e faça download</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 3: Restaurar Rostos (Restore Photos)</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Acesse a ferramenta Restore Photos no Replicate</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Faça upload da foto melhorada</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>Ajuste configurações (scale factor) se necessário</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Etapa 4: Colorir (Colorize.cc)</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">1.</span>
+                  <span>Acesse Colorize.cc</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">2.</span>
+                  <span>Faça upload da foto restaurada</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">3.</span>
+                  <span>A IA adicionará cores automaticamente</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600">4.</span>
+                  <span>Baixe o resultado final</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Dicas Profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Faça</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Sempre mantenha o original</li>
+                <li>• Processe em etapas (resolução → restaurar → colorir)</li>
+                <li>• Compare resultados de diferentes ferramentas</li>
+                <li>• Use resolução máxima disponível</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Processar foto de baixa qualidade várias vezes</li>
+                <li>• Aplicar todos os efeitos de uma vez</li>
+                <li>• Confiar 100% na colorização automática</li>
+                <li>• Sobrescrever o arquivo original</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Exercício Prático</h2>
+        <p class="text-gray-700 mb-6">Restaure uma foto antiga seguindo o processo completo:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Digitalizei uma foto antiga</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Aumentei a resolução com Remini</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Restaurei rostos com Restore Photos</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Colori a foto com Colorize.cc</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Salvei o antes/depois</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="./" class="content-button content-button-secondary">
+          ← Voltar ao Módulo
+        </a>
+        <a href="aula-2.2-imagens-desenhos.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 2.1
+    </div>
+  </footer>
+
+</body>
+</html>
