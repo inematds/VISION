@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 6.3: Edição de Áudio com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 6</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 6</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 6.3</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">🎚️ Aula 6.3</span>
+          <span class="badge badge-tecnico">85 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Edição de Áudio com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Transforme áudio de qualquer qualidade em áudio profissional: remoção de ruído, enhancement, Adobe Podcast, Descript e mais.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🎧 A Revolução da Edição Inteligente de Áudio</h2>
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border-l-4 border-blue-500 mb-6">
+            <p class="text-gray-700 mb-4">
+              Ferramentas de IA transformaram edição de áudio de processo técnico complexo em <strong>automação de um clique</strong>:
+            </p>
+            <ul class="text-gray-700 space-y-2">
+              <li>✓ <strong>Remoção de ruído inteligente:</strong> Elimina eco, ventilador, barulho de fundo</li>
+              <li>✓ <strong>Enhancement automático:</strong> Clareza, equalização e compressão ideais</li>
+              <li>✓ <strong>Edição baseada em texto:</strong> Edite áudio como se fosse documento</li>
+              <li>✓ <strong>Remoção de filler words:</strong> "uhm", "ahh", pausas longas automaticamente</li>
+              <li>✓ <strong>Transcrição precisa:</strong> Speech-to-text em tempo real</li>
+              <li>✓ <strong>Restauração de qualidade:</strong> Recupere gravações de baixa qualidade</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg border-2 border-green-300">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Casos de Uso Profissionais</h3>
+            <div class="grid md:grid-cols-2 gap-3">
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-blue-900">🎙️ Podcasts</p>
+                <p class="text-xs text-gray-600">Qualidade studio sem equipamento caro</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-purple-900">🎬 Produções de Vídeo</p>
+                <p class="text-xs text-gray-600">Limpe áudio de entrevistas e narrações</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-green-900">💼 Webinars e Reuniões</p>
+                <p class="text-xs text-gray-600">Melhore gravações de chamadas</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-orange-900">🎓 Conteúdo Educacional</p>
+                <p class="text-xs text-gray-600">Aulas online com áudio cristalino</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-pink-900">📻 Rádio e Streaming</p>
+                <p class="text-xs text-gray-600">Padronização de qualidade</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-indigo-900">🎵 Produção Musical</p>
+                <p class="text-xs text-gray-600">Limpeza de vocais e instrumentos</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎙️ Adobe Podcast (Enhance): Qualidade Studio em 1 Clique</h2>
+
+          <div class="bg-gradient-to-r from-red-50 to-orange-50 p-6 rounded-lg border-2 border-red-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">🔴</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">Adobe Podcast (anteriormente Enhance Speech)</h3>
+                <p class="text-gray-600">podcast.adobe.com/enhance</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              <strong>A ferramenta mais impressionante</strong> para limpeza de áudio: transforma gravações de celular em qualidade studio profissional.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ O que faz:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• Remove ruído de fundo (trânsito, ventilador, eco)</li>
+                  <li>• Equaliza e normaliza volume</li>
+                  <li>• Simula ambiente de studio</li>
+                  <li>• Melhora clareza vocal</li>
+                  <li>• Corrige problemas de microfone</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">💰 Preço:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>100% GRATUITO</strong></li>
+                  <li>• Sem limite de uso (por enquanto)</li>
+                  <li>• Não precisa de conta Creative Cloud</li>
+                  <li>• Upload até 500MB por arquivo</li>
+                  <li>• Processa em ~1-2 minutos</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Como Usar Adobe Podcast Enhance</h3>
+
+            <div class="space-y-4">
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="font-semibold text-blue-900 mb-2">Passo 1: Upload do Áudio</p>
+                <ol class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>1. Acesse podcast.adobe.com/enhance</li>
+                  <li>2. Arraste arquivo de áudio ou clique "Upload"</li>
+                  <li>3. Formatos aceitos: MP3, WAV, M4A, AAC</li>
+                  <li>4. Aguarde upload (varia conforme tamanho)</li>
+                </ol>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <p class="font-semibold text-green-900 mb-2">Passo 2: Processamento Automático</p>
+                <p class="text-sm text-gray-700 mb-2">A IA analisa e processa automaticamente:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Identifica voz humana vs. ruído</li>
+                  <li>• Remove reverberação e eco</li>
+                  <li>• Equaliza frequências</li>
+                  <li>• Normaliza volume</li>
+                  <li>• Aplica compressão inteligente</li>
+                </ul>
+                <p class="text-xs text-gray-600 mt-2">⏱️ Tempo: 1-3 minutos dependendo do tamanho</p>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <p class="font-semibold text-purple-900 mb-2">Passo 3: Preview e Ajustes</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Use player para comparar "Before" vs "After"</li>
+                  <li>• Ajuste intensidade com slider (se disponível)</li>
+                  <li>• Ouça com fone para avaliar qualidade</li>
+                  <li>• Se insatisfeito, tente novamente com áudio editado</li>
+                </ul>
+              </div>
+
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                <p class="font-semibold text-orange-900 mb-2">Passo 4: Download</p>
+                <p class="text-sm text-gray-700 mb-2">Baixe resultado processado:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Formato: WAV (alta qualidade) ou MP3</li>
+                  <li>• Sample rate: 44.1kHz ou original</li>
+                  <li>• Mantenha backup do áudio original</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Dicas para Melhores Resultados</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>
+                <strong>✓ Qualidade de entrada importa:</strong> Quanto melhor o áudio original, melhor o resultado final
+              </li>
+              <li>
+                <strong>✓ Funciona melhor com voz única:</strong> Para múltiplas vozes ou música, resultados variam
+              </li>
+              <li>
+                <strong>✓ Não é mágica:</strong> Não recupera completamente áudio muito distorcido ou com clipping
+              </li>
+              <li>
+                <strong>✓ Use em áudio mono ou converta stereo→mono:</strong> Melhor performance com voz centralizada
+              </li>
+              <li>
+                <strong>✓ Pré-edição ajuda:</strong> Corte silêncios longos e seções sem voz antes do Enhance
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg border-2 border-green-300">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Showcase: Antes e Depois</h3>
+            <p class="text-sm text-gray-700 mb-3">Cenários onde Adobe Podcast Enhance brilha:</p>
+            <div class="space-y-3">
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-gray-900 mb-1">📱 Gravação de Celular → Studio Quality</p>
+                <p class="text-xs text-gray-600">Transforma áudio gravado em AirPods/celular em som profissional de microfone condensador</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-gray-900 mb-1">🏢 Home Office com Ruído → Podcast Limpo</p>
+                <p class="text-xs text-gray-600">Remove ar-condicionado, ventilador, cachorro latindo ao fundo</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-gray-900 mb-1">🎤 Microfone USB Barato → Qualidade Pro</p>
+                <p class="text-xs text-gray-600">Corrige problemas de frequência e adiciona "warmth" de microfone caro</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-gray-900 mb-1">🏠 Sala com Eco → Som Tratado</p>
+                <p class="text-xs text-gray-600">Remove reverberação excessiva de ambientes sem tratamento acústico</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">✂️ Descript Studio Sound: Edição Baseada em Texto</h2>
+
+          <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">📝</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">Descript</h3>
+                <p class="text-gray-600">descript.com</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              <strong>Editor revolucionário</strong> que trata áudio/vídeo como documento de texto. Edite falando, não cortando waveforms.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ Recursos Únicos:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• Studio Sound (enhancement 1-clique)</li>
+                  <li>• Edição baseada em transcrição</li>
+                  <li>• Overdub (clone de voz integrado)</li>
+                  <li>• Filler word removal automático</li>
+                  <li>• Multi-track timeline</li>
+                  <li>• Screen recording integrado</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">💰 Planos:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>Free:</strong> 1h transcrição/mês</li>
+                  <li>• <strong>Creator ($12):</strong> 10h/mês</li>
+                  <li>• <strong>Pro ($24):</strong> 30h/mês</li>
+                  <li>• Studio Sound em todos os planos</li>
+                  <li>• Overdub a partir do Creator</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Workflow Descript: Edição Revolucionária</h3>
+
+            <div class="space-y-4">
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <p class="font-semibold text-purple-900 mb-2">1. Importar e Transcrever</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Faça upload de áudio ou vídeo</li>
+                  <li>• IA transcreve automaticamente (99%+ precisão)</li>
+                  <li>• Identifica speakers automaticamente</li>
+                  <li>• Sincroniza transcrição com timeline</li>
+                </ul>
+                <p class="text-xs text-gray-600 mt-2">⏱️ Tempo: ~1x duração do áudio (10 min áudio = ~10 min processamento)</p>
+              </div>
+
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="font-semibold text-blue-900 mb-2">2. Aplicar Studio Sound</p>
+                <p class="text-sm text-gray-700 mb-2">Enhancement automático similar ao Adobe Podcast:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Selecione tracks de áudio</li>
+                  <li>• Clique em "Studio Sound" (ícone de microfone)</li>
+                  <li>• Toggle on para aplicar</li>
+                  <li>• Ajuste intensidade com slider (0-100%)</li>
+                </ul>
+                <div class="bg-white p-3 rounded mt-2 text-xs">
+                  <p class="font-semibold text-gray-900">Ajustes Disponíveis:</p>
+                  <p class="text-gray-700">• Amount: Intensidade do efeito (padrão 100%)</p>
+                  <p class="text-gray-700">• EQ: Equalização adicional se necessário</p>
+                </div>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <p class="font-semibold text-green-900 mb-2">3. Editar Como Texto</p>
+                <p class="text-sm text-gray-700 mb-2">O diferencial revolucionário do Descript:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• <strong>Delete palavras:</strong> Selecione texto e aperte Delete → áudio é cortado</li>
+                  <li>• <strong>Reordene frases:</strong> Arraste e solte texto para reorganizar</li>
+                  <li>• <strong>Corrija erros:</strong> Digite correção e IA gera novo áudio (Overdub)</li>
+                  <li>• <strong>Remove filler words:</strong> Clique "Remove filler words" → "uhm", "ah" somem</li>
+                </ul>
+              </div>
+
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                <p class="font-semibold text-orange-900 mb-2">4. Refinamentos Finais</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Ajuste volume por palavra/frase (highlight + slider)</li>
+                  <li>• Adicione música de fundo da biblioteca</li>
+                  <li>• Aplique fade in/out</li>
+                  <li>• Exporte áudio ou vídeo final</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Recursos Avançados do Descript</h3>
+            <div class="space-y-3">
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-purple-900 mb-2">🎙️ Overdub (Voice Cloning Integrado)</p>
+                <p class="text-sm text-gray-700 mb-2">Clone sua voz dentro do Descript:</p>
+                <ul class="text-xs text-gray-600 space-y-1 ml-4">
+                  <li>1. Grave 10 minutos lendo scripts fornecidos</li>
+                  <li>2. IA cria clone de voz personalizado</li>
+                  <li>3. Use para corrigir erros sem regravar</li>
+                  <li>4. Digite texto e voz clonada "fala" automaticamente</li>
+                </ul>
+              </div>
+
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-blue-900 mb-2">🔇 Silêncio Inteligente</p>
+                <p class="text-sm text-gray-700">Detecta e encurta automaticamente pausas longas entre frases (mantém ritmo natural)</p>
+              </div>
+
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-green-900 mb-2">👥 Speaker Detection</p>
+                <p class="text-sm text-gray-700">Identifica diferentes vozes e as separa em tracks (perfeito para entrevistas e podcasts)</p>
+              </div>
+
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-orange-900 mb-2">📹 Screen Recording + Edição</p>
+                <p class="text-sm text-gray-700">Grave tela, webcam e áudio simultaneamente. Edite tudo no mesmo workflow baseado em texto.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Outras Ferramentas de Edição com IA</h2>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🎚️</span>
+                <h4 class="font-bold text-gray-900">iZotope RX</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Software profissional de restauração de áudio</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Pós-produção avançada, cinema, TV</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• De-noise, de-click, de-hum</p>
+                <p>• Spectral repair (edição visual)</p>
+                <p>• Dialogue isolate</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> $399 (Elements) - $1,199 (Advanced)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🎵</span>
+                <h4 class="font-bold text-gray-900">Auphonic</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Processamento automático para podcasts</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Podcasters, publicação automática</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Loudness normalization (LUFS)</p>
+                <p>• Noise reduction e filtering</p>
+                <p>• Multi-track leveling</p>
+                <p>• Distribuição automática RSS</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (2h/mês) - $11-89/mês</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🔊</span>
+                <h4 class="font-bold text-gray-900">Cleanvoice AI</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Remoção automática de filler words e silêncios</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Edição rápida de podcasts</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Remove "uhm", "ah", stuttering</p>
+                <p>• Corta silêncios longos</p>
+                <p>• Detecta/remove mouth sounds</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> €10/mês (30h) - €60/mês (300h)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🎙️</span>
+                <h4 class="font-bold text-gray-900">Krisp</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Cancelamento de ruído em tempo real</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Chamadas online, gravações ao vivo</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Funciona em tempo real durante gravação</p>
+                <p>• Integra com Zoom, Meet, Discord</p>
+                <p>• Remove eco e ruído bidirecional</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (60 min/dia) - $8/mês (ilimitado)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🎬</span>
+                <h4 class="font-bold text-gray-900">Adobe Audition (Remix)</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">DAW profissional com IA integrada</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Profissionais Creative Cloud</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Remix (ajusta duração musical)</p>
+                <p>• Auto-ducking (abaixa música sob voz)</p>
+                <p>• Essential Sound panel</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> $22.99/mês (ou CC All Apps $59.99)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🔓</span>
+                <h4 class="font-bold text-gray-900">Audacity (Plugins)</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Editor open-source com plugins de IA</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Iniciantes, orçamento zero</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• 100% gratuito e open-source</p>
+                <p>• Noise reduction built-in</p>
+                <p>• Plugins: OpenVINO, Intel AI</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Grátis</p>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Escolhendo a Ferramenta Certa</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-blue-100">
+                  <tr>
+                    <th class="p-2 text-left">Ferramenta</th>
+                    <th class="p-2 text-left">Uso Ideal</th>
+                    <th class="p-2 text-left">Facilidade</th>
+                    <th class="p-2 text-left">Custo</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Adobe Podcast</td>
+                    <td class="p-2">Enhancement rápido</td>
+                    <td class="p-2">⭐⭐⭐⭐⭐</td>
+                    <td class="p-2 text-green-700">FREE</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Descript</td>
+                    <td class="p-2">Edição completa + transcrição</td>
+                    <td class="p-2">⭐⭐⭐⭐⭐</td>
+                    <td class="p-2 text-yellow-700">$12-24/mês</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">iZotope RX</td>
+                    <td class="p-2">Restauração profissional</td>
+                    <td class="p-2">⭐⭐⭐</td>
+                    <td class="p-2 text-red-700">$399-1199</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Auphonic</td>
+                    <td class="p-2">Workflow automático podcast</td>
+                    <td class="p-2">⭐⭐⭐⭐</td>
+                    <td class="p-2 text-yellow-700">$11-89/mês</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Cleanvoice</td>
+                    <td class="p-2">Filler words + silêncios</td>
+                    <td class="p-2">⭐⭐⭐⭐⭐</td>
+                    <td class="p-2 text-yellow-700">€10-60/mês</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 font-semibold">Audacity</td>
+                    <td class="p-2">Edição básica grátis</td>
+                    <td class="p-2">⭐⭐⭐</td>
+                    <td class="p-2 text-green-700">FREE</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Workflow Profissional de Edição de Áudio</h2>
+
+          <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-2 border-green-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Pipeline Recomendado (Para Podcasts/Narrações)</h3>
+
+            <div class="space-y-3">
+              <div class="flex items-center gap-4 p-4 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900">Gravação</p>
+                  <p class="text-sm text-gray-600">Use melhor microfone disponível, ambiente silencioso, nível adequado (-18dB a -12dB)</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900">Pré-Edição (Opcional)</p>
+                  <p class="text-sm text-gray-600">Corte início/fim, remova seções indesejadas grandes (em Audacity ou DAW)</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900">Enhancement IA</p>
+                  <p class="text-sm text-gray-600">Adobe Podcast Enhance OU Descript Studio Sound (escolha um)</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900">Edição de Conteúdo</p>
+                  <p class="text-sm text-gray-600">Descript: remova filler words, corte erros, reorganize se necessário</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-12 h-12 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold">5</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900">Música e Efeitos</p>
+                  <p class="text-sm text-gray-600">Adicione intro/outro musical, sound effects, transições</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-12 h-12 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold">6</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900">Normalização Final</p>
+                  <p class="text-sm text-gray-600">Auphonic OU Adobe Audition para loudness padrão (-16 LUFS para streaming)</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-12 h-12 bg-gray-500 text-white rounded-full flex items-center justify-center font-bold">7</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900">Export e Publicação</p>
+                  <p class="text-sm text-gray-600">MP3 320kbps ou WAV 44.1kHz/16-bit dependendo da plataforma</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Checklist de Qualidade de Áudio</h3>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+                <input type="checkbox" class="w-5 h-5">
+                <span>Sem ruído de fundo perceptível</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+                <input type="checkbox" class="w-5 h-5">
+                <span>Volume consistente (não alterna entre alto/baixo)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+                <input type="checkbox" class="w-5 h-5">
+                <span>Voz clara e inteligível (sem distorção)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+                <input type="checkbox" class="w-5 h-5">
+                <span>Pausas naturais (não muito longas nem muito curtas)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+                <input type="checkbox" class="w-5 h-5">
+                <span>Música de fundo não compete com voz (6-12dB abaixo)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+                <input type="checkbox" class="w-5 h-5">
+                <span>Sem clipping ou picos acima de 0dB</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+                <input type="checkbox" class="w-5 h-5">
+                <span>Loudness adequado para plataforma (-16 LUFS típico)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+                <input type="checkbox" class="w-5 h-5">
+                <span>Testado em fones E speakers</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Dicas Avançadas e Truques</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">🎚️ Layering de IA Tools</h4>
+              <p class="text-sm text-gray-700 mb-2">Combine ferramentas para melhor resultado:</p>
+              <ol class="text-xs text-gray-600 space-y-1">
+                <li>1. Adobe Podcast para limpeza inicial</li>
+                <li>2. Descript para edição de conteúdo</li>
+                <li>3. iZotope RX para detalhes finais</li>
+              </ol>
+            </div>
+
+            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">🔊 Preserve Dinâmica</h4>
+              <p class="text-sm text-gray-700 mb-2">Não comprima demais:</p>
+              <p class="text-xs text-gray-600">Variação de volume (sussurros vs. fala normal) adiciona emoção. Evite "brick wall" limiting.</p>
+            </div>
+
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">🎧 A/B Testing</h4>
+              <p class="text-sm text-gray-700 mb-2">Compare versões:</p>
+              <p class="text-xs text-gray-600">Exporte "antes" e "depois" e compare lado-a-lado. Às vezes menos processamento é melhor.</p>
+            </div>
+
+            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">📐 Room Tone</h4>
+              <p class="text-sm text-gray-700 mb-2">Grave silêncio do ambiente:</p>
+              <p class="text-xs text-gray-600">30s de "silêncio" no local. Use para preencher cortes e manter consistência de ruído de fundo.</p>
+            </div>
+
+            <div class="bg-pink-50 p-5 rounded-lg border-l-4 border-pink-500">
+              <h4 class="font-bold text-pink-900 mb-2">🔁 Batch Processing</h4>
+              <p class="text-sm text-gray-700 mb-2">Para podcasts regulares:</p>
+              <p class="text-xs text-gray-600">Configure preset/template com seus settings e processe múltiplos episódios de uma vez.</p>
+            </div>
+
+            <div class="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
+              <h4 class="font-bold text-indigo-900 mb-2">💾 Backup de Originais</h4>
+              <p class="text-sm text-gray-700 mb-2">SEMPRE mantenha áudio bruto:</p>
+              <p class="text-xs text-gray-600">Processamento de IA é destrutivo. Guarde originais para possíveis re-edições futuras.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Exercício Prático</h2>
+        <p class="text-gray-700 mb-6">Domine o workflow de edição de áudio:</p>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 1: Antes e Depois</p>
+              <p class="text-sm text-gray-600">Grave áudio em ambiente ruidoso. Processe com Adobe Podcast Enhance. Compare resultados.</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 2: Edição Baseada em Texto</p>
+              <p class="text-sm text-gray-600">Use Descript: importe áudio, remova filler words, reorganize 2 frases, exporte final.</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 3: Podcast Completo</p>
+              <p class="text-sm text-gray-600">Crie mini-podcast de 2-3 minutos: intro musical + narração limpa + outro (workflow completo)</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 4: Comparativo de Ferramentas</p>
+              <p class="text-sm text-gray-600">Processe mesmo áudio com Adobe Podcast, Descript Studio Sound e Audacity. Documente diferenças.</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-6.2-clonagem-voz.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="../" class="content-button content-button-primary">
+          Concluir Módulo →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 6.3
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 6.1: Criação de Músicas com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 6</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 6</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 6.1</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">🎵 Aula 6.1</span>
+          <span class="badge badge-tecnico">90 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Criação de Músicas com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Domine ferramentas de geração musical: Suno AI, Udio, MusicGen e técnicas de prompting para diferentes gêneros.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🎼 A Revolução da Música Generativa</h2>
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500 mb-6">
+            <p class="text-gray-700 mb-4">
+              As ferramentas de IA musical evoluíram de simples geradores de loops para sistemas capazes de criar composições completas com:
+            </p>
+            <ul class="text-gray-700 space-y-2">
+              <li>✓ <strong>Letras coerentes</strong> em múltiplos idiomas</li>
+              <li>✓ <strong>Vozes sintéticas realistas</strong> com emoção e expressão</li>
+              <li>✓ <strong>Produção musical profissional</strong> com mix e master automáticos</li>
+              <li>✓ <strong>Estilos e gêneros diversos</strong> desde clássico até experimental</li>
+              <li>✓ <strong>Estruturas musicais complexas</strong> (intro, verso, refrão, ponte, outro)</li>
+            </ul>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg border-2 border-blue-300">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Casos de Uso Práticos</h3>
+            <div class="grid md:grid-cols-2 gap-3">
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-blue-900">🎥 Trilhas para Vídeos</p>
+                <p class="text-sm text-gray-600">Background music perfeita para seus projetos</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-purple-900">🎮 Audio para Games</p>
+                <p class="text-sm text-gray-600">Temas, ambientes e efeitos musicais</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-pink-900">🎤 Demos e Protótipos</p>
+                <p class="text-sm text-gray-600">Testes rápidos antes de produção final</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-orange-900">📱 Conteúdo de Mídia Social</p>
+                <p class="text-sm text-gray-600">Músicas originais livres de copyright</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎵 Suno AI: O Líder da Música Generativa</h2>
+
+          <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg border-2 border-purple-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">🎹</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">Suno AI</h3>
+                <p class="text-gray-600">app.suno.ai</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              <strong>A ferramenta mais avançada</strong> para geração de músicas completas com letras e vozes em alta qualidade.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ Recursos:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• Músicas de até 4 minutos</li>
+                  <li>• Letras em 50+ idiomas</li>
+                  <li>• Vozes masculinas e femininas</li>
+                  <li>• Controle de estrutura musical</li>
+                  <li>• Extend (estender músicas)</li>
+                  <li>• Remix e variações</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">💰 Planos:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>Free:</strong> 50 créditos/dia (~10 músicas)</li>
+                  <li>• <strong>Pro ($10/mês):</strong> 500 créditos/mês</li>
+                  <li>• <strong>Premier ($30/mês):</strong> 2000 créditos</li>
+                  <li>• Uso comercial no Pro+</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Anatomia de um Prompt Suno</h3>
+            <p class="text-gray-700 mb-4">Um prompt eficaz no Suno combina 3 elementos:</p>
+
+            <div class="space-y-4">
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <p class="font-semibold text-purple-900 mb-2">1. Descrição do Gênero e Estilo</p>
+                <p class="text-sm text-gray-700 mb-2">Define a base musical:</p>
+                <div class="bg-white p-3 rounded font-mono text-xs">
+                  [upbeat electronic pop], [melodic indie folk], [aggressive metal],<br>
+                  [smooth jazz], [epic orchestral], [lo-fi hip hop]
+                </div>
+              </div>
+
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="font-semibold text-blue-900 mb-2">2. Características Vocais e Produção</p>
+                <p class="text-sm text-gray-700 mb-2">Refina a qualidade e atmosfera:</p>
+                <div class="bg-white p-3 rounded font-mono text-xs">
+                  male vocals, female vocals, raspy voice, powerful voice,<br>
+                  whispered, harmonies, vocoder, auto-tune, a cappella,<br>
+                  clean production, lo-fi, ambient, energetic
+                </div>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <p class="font-semibold text-green-900 mb-2">3. Emoção e Atmosfera</p>
+                <p class="text-sm text-gray-700 mb-2">Transmite o sentimento desejado:</p>
+                <div class="bg-white p-3 rounded font-mono text-xs">
+                  uplifting, melancholic, aggressive, relaxing, mysterious,<br>
+                  romantic, nostalgic, triumphant, dark, dreamy
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-lg border-2 border-green-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Exemplos de Prompts por Gênero</h3>
+
+            <div class="space-y-4">
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-gray-900 mb-2">🎸 Rock Alternativo</p>
+                <div class="bg-gray-50 p-3 rounded font-mono text-sm mb-2">
+                  [alternative rock, guitar-driven, energetic], powerful male vocals,<br>
+                  driving drums, distorted guitar riffs, anthemic chorus
+                </div>
+                <p class="text-xs text-gray-600"><strong>Letras:</strong> "We're breaking through the noise / Finding our own voice / No turning back now..."</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-gray-900 mb-2">🎹 Pop Eletrônico</p>
+                <div class="bg-gray-50 p-3 rounded font-mono text-sm mb-2">
+                  [synth-pop, upbeat, danceable], female vocals with auto-tune,<br>
+                  catchy melody, pulsing bass, bright synths, modern production
+                </div>
+                <p class="text-xs text-gray-600"><strong>Letras:</strong> "Dancing in the neon lights / Everything feels so right / Lost in the rhythm tonight..."</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-gray-900 mb-2">🎺 Jazz Suave</p>
+                <div class="bg-gray-50 p-3 rounded font-mono text-sm mb-2">
+                  [smooth jazz, mellow, sophisticated], soft female vocals,<br>
+                  piano, upright bass, brush drums, warm and intimate
+                </div>
+                <p class="text-xs text-gray-600"><strong>Letras:</strong> "Moonlight on the water / Whispers in the night / You and I together..."</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-gray-900 mb-2">🎻 Orquestral Épico</p>
+                <div class="bg-gray-50 p-3 rounded font-mono text-sm mb-2">
+                  [epic orchestral, cinematic, dramatic], full orchestra,<br>
+                  powerful brass, sweeping strings, thunderous percussion, heroic
+                </div>
+                <p class="text-xs text-gray-600"><strong>Sem letras</strong> - perfeito para trilhas instrumentais</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-gray-900 mb-2">🎤 Hip Hop/Trap</p>
+                <div class="bg-gray-50 p-3 rounded font-mono text-sm mb-2">
+                  [hip hop trap, hard-hitting, modern], confident rap vocals,<br>
+                  808 bass, hi-hat rolls, dark synths, aggressive flow
+                </div>
+                <p class="text-xs text-gray-600"><strong>Letras:</strong> "Started from the bottom, now we here / Hustle every day, make it crystal clear..."</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-gray-900 mb-2">🌙 Lo-Fi Chill</p>
+                <div class="bg-gray-50 p-3 rounded font-mono text-sm mb-2">
+                  [lo-fi hip hop, relaxing, study beats], no vocals,<br>
+                  mellow piano, dusty drums, vinyl crackle, jazzy chords, chill
+                </div>
+                <p class="text-xs text-gray-600"><strong>Instrumental</strong> - ideal para background music</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Workflow Suno Passo-a-Passo</h3>
+            <ol class="space-y-3 text-gray-700">
+              <li>
+                <strong>1. Defina o objetivo:</strong> Trilha de fundo? Música com letra? Qual emoção?
+              </li>
+              <li>
+                <strong>2. Escolha o modo:</strong>
+                <ul class="ml-6 mt-1 text-sm space-y-1">
+                  <li>• <strong>Simple:</strong> Descreva em linguagem natural</li>
+                  <li>• <strong>Custom:</strong> Controle total (lyrics + style tags)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>3. Escreva o prompt:</strong> Combine gênero + vocal + emoção
+              </li>
+              <li>
+                <strong>4. Adicione letras (opcional):</strong> No modo Custom, cole ou gere letras
+              </li>
+              <li>
+                <strong>5. Gere 2 variações:</strong> Suno cria automaticamente 2 versões
+              </li>
+              <li>
+                <strong>6. Avalie e refine:</strong> Escolha a melhor ou regenere com ajustes
+              </li>
+              <li>
+                <strong>7. Estenda se necessário:</strong> Use "Continue" para alongar a música
+              </li>
+              <li>
+                <strong>8. Download:</strong> Baixe em MP3 ou WAV (assinantes)
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎸 Udio: Qualidade e Controle Criativo</h2>
+
+          <div class="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-lg border-2 border-orange-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">🎧</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">Udio</h3>
+                <p class="text-gray-600">udio.com</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              Principal concorrente do Suno, conhecido por <strong>qualidade de áudio superior</strong> e maior fidelidade aos prompts.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ Diferenciais:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• Qualidade de áudio excepcional</li>
+                  <li>• Melhor precisão em gêneros específicos</li>
+                  <li>• Instrumentais mais detalhados</li>
+                  <li>• Upload de referências (Pro)</li>
+                  <li>• Remixing avançado</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">💰 Planos:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>Free:</strong> 1200 gerações/mês</li>
+                  <li>• <strong>Standard ($10/mês):</strong> 1200 extras</li>
+                  <li>• <strong>Pro ($30/mês):</strong> Ilimitado</li>
+                  <li>• Licença comercial incluída</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Recursos Únicos do Udio</h3>
+            <div class="space-y-3">
+              <div class="bg-orange-50 p-4 rounded-lg">
+                <p class="font-semibold text-orange-900 mb-2">🎼 Audio Upload (Pro)</p>
+                <p class="text-sm text-gray-700">Faça upload de melodias ou beats como referência e a IA criará variações mantendo elementos-chave.</p>
+              </div>
+              <div class="bg-red-50 p-4 rounded-lg">
+                <p class="font-semibold text-red-900 mb-2">🔀 Remix Tools</p>
+                <p class="text-sm text-gray-700">Modifique seções específicas da música (verso, refrão) sem regerar tudo.</p>
+              </div>
+              <div class="bg-pink-50 p-4 rounded-lg">
+                <p class="font-semibold text-pink-900 mb-2">🎚️ Stem Separation</p>
+                <p class="text-sm text-gray-700">Separe vocals, bateria, baixo e outros instrumentos para edição individual.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Exemplo de Workflow Udio</h3>
+            <div class="space-y-3 text-sm">
+              <div class="bg-white p-3 rounded">
+                <p class="font-semibold text-gray-900">Cenário: Criar trilha épica para trailer</p>
+              </div>
+              <div class="bg-white p-3 rounded">
+                <p class="font-semibold text-blue-900 mb-1">Prompt:</p>
+                <p class="font-mono text-xs text-gray-700">epic orchestral trailer music, powerful brass, dramatic strings, thunderous percussion, build-up to climax, no vocals, cinematic, Hans Zimmer style</p>
+              </div>
+              <div class="bg-white p-3 rounded">
+                <p class="font-semibold text-blue-900 mb-1">Processo:</p>
+                <ol class="text-gray-700 space-y-1">
+                  <li>1. Gera versão inicial (32 segundos)</li>
+                  <li>2. Estende para 90 segundos</li>
+                  <li>3. Usa Remix para intensificar clímax</li>
+                  <li>4. Exporta stems para ajustes finais no DAW</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🤖 MusicGen (Meta): Código Aberto e Gratuito</h2>
+
+          <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg border-2 border-blue-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">🔬</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">MusicGen</h3>
+                <p class="text-gray-600">Modelo open-source da Meta AI</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              Alternativa gratuita e open-source para gerar música instrumental. Ideal para desenvolvedores e uso em larga escala.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ Vantagens:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• 100% gratuito</li>
+                  <li>• Sem restrições comerciais</li>
+                  <li>• Roda localmente</li>
+                  <li>• API disponível</li>
+                  <li>• Customizável</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">⚠️ Limitações:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• Apenas instrumental</li>
+                  <li>• Qualidade inferior ao Suno/Udio</li>
+                  <li>• Requer conhecimento técnico</li>
+                  <li>• Músicas mais curtas (30s)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Como Usar MusicGen</h3>
+            <div class="space-y-4">
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <p class="font-semibold text-blue-900 mb-2">Opção 1: Hugging Face (Fácil)</p>
+                <p class="text-sm text-gray-700 mb-2">Use direto no navegador:</p>
+                <ol class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>1. Acesse huggingface.co/spaces/facebook/MusicGen</li>
+                  <li>2. Digite prompt em inglês</li>
+                  <li>3. Escolha modelo (small/medium/large)</li>
+                  <li>4. Gere e baixe</li>
+                </ol>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg">
+                <p class="font-semibold text-green-900 mb-2">Opção 2: Google Colab (Intermediário)</p>
+                <p class="text-sm text-gray-700 mb-2">Para uso em lote:</p>
+                <div class="bg-white p-3 rounded font-mono text-xs mt-2">
+                  # Busque "MusicGen Colab" no Google<br>
+                  # Execute células do notebook<br>
+                  # Gere múltiplas músicas de uma vez
+                </div>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <p class="font-semibold text-purple-900 mb-2">Opção 3: Local/API (Avançado)</p>
+                <p class="text-sm text-gray-700 mb-2">Instale e rode localmente:</p>
+                <div class="bg-white p-3 rounded font-mono text-xs mt-2">
+                  pip install audiocraft<br>
+                  python generate_music.py --prompt "happy upbeat electronic"
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Técnicas Avançadas de Prompting Musical</h2>
+
+          <div class="bg-gradient-to-r from-pink-50 to-purple-50 p-6 rounded-lg border-2 border-pink-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Estratégias para Resultados Melhores</h3>
+
+            <div class="space-y-4">
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-pink-900 mb-2">1. Seja Específico com Instrumentação</p>
+                <div class="grid md:grid-cols-2 gap-2 text-sm">
+                  <div class="bg-red-50 p-3 rounded">
+                    <p class="font-semibold text-red-800 mb-1">❌ Vago:</p>
+                    <p class="font-mono text-xs">"rock music"</p>
+                  </div>
+                  <div class="bg-green-50 p-3 rounded">
+                    <p class="font-semibold text-green-800 mb-1">✓ Específico:</p>
+                    <p class="font-mono text-xs">"rock with distorted electric guitar, driving bass, powerful drums, organ"</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-purple-900 mb-2">2. Use Referências de Artistas (Com Cautela)</p>
+                <div class="text-sm text-gray-700">
+                  <p class="mb-2">Funciona: "in the style of 80s synthpop" ou "Pink Floyd-esque atmospheric rock"</p>
+                  <p class="text-xs text-gray-600">⚠️ Não copie exatamente - use como inspiração de estilo/época</p>
+                </div>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-indigo-900 mb-2">3. Controle Energia e Tempo</p>
+                <div class="bg-gray-50 p-3 rounded font-mono text-xs space-y-1">
+                  <p>• Energia: upbeat, energetic, mellow, calm, aggressive, gentle</p>
+                  <p>• Tempo: fast-paced (140+ BPM), moderate, slow tempo (60-80 BPM)</p>
+                  <p>• Dinâmica: building intensity, consistent energy, dynamic changes</p>
+                </div>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-blue-900 mb-2">4. Defina Estrutura Musical</p>
+                <div class="bg-gray-50 p-3 rounded text-xs">
+                  <p class="mb-1"><strong>No Custom Mode (Suno):</strong></p>
+                  <p class="font-mono">Use tags para estrutura:</p>
+                  <p class="font-mono ml-3">[Intro]<br>[Verse 1]<br>[Chorus]<br>[Verse 2]<br>[Chorus]<br>[Bridge]<br>[Chorus]<br>[Outro]</p>
+                </div>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-bold text-teal-900 mb-2">5. Combine Estilos para Originalidade</p>
+                <div class="space-y-2 text-xs">
+                  <div class="bg-teal-50 p-3 rounded">
+                    <p class="font-semibold">Exemplo: Jazz + Hip Hop</p>
+                    <p class="font-mono">"jazz rap fusion, smooth saxophone, boom bap drums, vinyl crackle, laid-back flow"</p>
+                  </div>
+                  <div class="bg-blue-50 p-3 rounded">
+                    <p class="font-semibold">Exemplo: Country + Electronic</p>
+                    <p class="font-mono">"country EDM, banjo with synth bass, electronic drums, twangy vocals, festival energy"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Dicas para Qualidade Consistente</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>
+                <strong>✓ Regenere múltiplas vezes:</strong> As primeiras tentativas nem sempre são as melhores
+              </li>
+              <li>
+                <strong>✓ Ajuste iterativamente:</strong> Refine o prompt baseado nos resultados anteriores
+              </li>
+              <li>
+                <strong>✓ Salve prompts que funcionam:</strong> Crie uma biblioteca pessoal de templates
+              </li>
+              <li>
+                <strong>✓ Teste em contexto:</strong> Sempre ouça a música no projeto final (sincronizada com vídeo)
+              </li>
+              <li>
+                <strong>✓ Combine com edição tradicional:</strong> Use as músicas geradas como base e refine em DAW
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚖️ Direitos Autorais e Uso Comercial</h2>
+
+          <div class="bg-red-50 p-6 rounded-lg border-2 border-red-300 mb-6">
+            <h3 class="text-xl font-bold text-red-900 mb-3">⚠️ Importante: Leia os Termos</h3>
+            <p class="text-gray-700 mb-4">
+              As regras de copyright variam por plataforma e tipo de conta:
+            </p>
+            <div class="space-y-3 text-sm">
+              <div class="bg-white p-4 rounded">
+                <p class="font-bold text-gray-900 mb-2">Suno AI:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>Free:</strong> Apenas uso pessoal e não-comercial</li>
+                  <li>• <strong>Pro/Premier:</strong> Direitos comerciais completos para músicas geradas</li>
+                  <li>• Você mantém propriedade das letras que criar</li>
+                </ul>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-bold text-gray-900 mb-2">Udio:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>Todos os planos:</strong> Licença comercial incluída</li>
+                  <li>• Você possui os direitos da música gerada</li>
+                  <li>• Atribuição não obrigatória (mas recomendada)</li>
+                </ul>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-bold text-gray-900 mb-2">MusicGen (Meta):</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>Open-source:</strong> Uso comercial permitido</li>
+                  <li>• Licença CC-BY-NC 4.0 (verificar versão específica)</li>
+                  <li>• Sem restrições de atribuição</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Boas Práticas</h3>
+            <ul class="text-gray-700 space-y-2">
+              <li>✓ Sempre verifique os termos antes de uso comercial</li>
+              <li>✓ Mantenha documentação de qual ferramenta/plano você usou</li>
+              <li>✓ Para projetos cliente, prefira planos Pro com direitos claros</li>
+              <li>✓ Considere registrar composições originais importantes</li>
+              <li>✓ Seja transparente sobre uso de IA quando relevante</li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Exercício Prático</h2>
+        <p class="text-gray-700 mb-6">Crie 3 músicas diferentes para seu portfólio:</p>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Música 1: Trilha de Fundo Corporativa</p>
+              <p class="text-sm text-gray-600">Upbeat, profissional, instrumental - Use no Suno (30-60s)</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Música 2: Música com Letra</p>
+              <p class="text-sm text-gray-600">Escolha um gênero favorito e crie letra completa - Suno ou Udio</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Música 3: Estilo Híbrido Experimental</p>
+              <p class="text-sm text-gray-600">Combine 2+ gêneros improváveis (ex: jazz metal, country trap)</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Bonus: Compare as 3 Ferramentas</p>
+              <p class="text-sm text-gray-600">Use o mesmo prompt no Suno, Udio e MusicGen - documente diferenças</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="./" class="content-button content-button-secondary">
+          ← Voltar ao Módulo
+        </a>
+        <a href="aula-6.2-clonagem-voz.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 6.1
+    </div>
+  </footer>
+
+</body>
+</html>
