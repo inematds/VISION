@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 4.5: VFX com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 4</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 4</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 4.5</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">✨ Aula 4.5</span>
+          <span class="badge badge-tecnico">120 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          VFX cinematográfico com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Crie efeitos visuais de Hollywood: remover objetos, trocar céus, color grading e composições impossíveis.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            VFX (Visual Effects) sempre foram exclusividade de estúdios com orçamentos milionários. IA democratizou completamente essa indústria. Hoje, você pode remover objetos indesejados, trocar céus, aplicar color grading cinematográfico e criar composições impossíveis em minutos. Nesta aula, você dominará as ferramentas que transformam vídeos comuns em obras cinematográficas.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Dominar ferramentas de VFX com IA para elevar a qualidade visual dos seus vídeos ao nível profissional, criando efeitos que antes exigiam equipes especializadas.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Categorias de VFX com IA</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-red-50 to-red-100 p-5 rounded-lg border-l-4 border-red-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">🗑️ Object Removal (Remoção de objetos)</h3>
+              <p class="text-sm text-gray-700 mb-2">Apagar elementos indesejados do vídeo como mágica</p>
+              <div class="bg-white p-3 rounded text-xs mt-2">
+                <strong>Casos de uso:</strong> Remover pessoas do fundo, apagar logos, limpar fios/equipamentos, remover imperfeições
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">🌅 Sky Replacement (Substituição de céu)</h3>
+              <p class="text-sm text-gray-700 mb-2">Transformar dia nublado em pôr do sol épico</p>
+              <div class="bg-white p-3 rounded text-xs mt-2">
+                <strong>Casos de uso:</strong> Melhorar clima do vídeo, criar atmosferas dramáticas, consistência visual entre takes
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">🎨 AI Color Grading (Colorização IA)</h3>
+              <p class="text-sm text-gray-700 mb-2">Aplicar looks cinematográficos com um clique</p>
+              <div class="bg-white p-3 rounded text-xs mt-2">
+                <strong>Casos de uso:</strong> Looks de filmes famosos, correção automática de cor, matching entre câmeras diferentes
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">➕ Object Addition (Adição de elementos)</h3>
+              <p class="text-sm text-gray-700 mb-2">Inserir objetos 3D, efeitos e elementos sintéticos</p>
+              <div class="bg-white p-3 rounded text-xs mt-2">
+                <strong>Casos de uso:</strong> Adicionar produtos, criar ambientes impossíveis, efeitos fantásticos, hologramas
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">🔄 Style Transfer (Transferência de estilo)</h3>
+              <p class="text-sm text-gray-700 mb-2">Transformar vídeo real em arte, cartoon ou outros estilos</p>
+              <div class="bg-white p-3 rounded text-xs mt-2">
+                <strong>Casos de uso:</strong> Vídeos artísticos, animação rotoscópica, estilização de marca, efeitos psicodélicos
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Ferramentas essenciais de VFX IA</h2>
+
+          <div class="space-y-5">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-400">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-gray-900">Runway ML</h3>
+                <span class="badge badge-intermediario">All-in-one</span>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Suite completa de VFX com IA. Da remoção de objetos a green screen automático.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-3 mb-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-blue-900 mb-2">Features principais:</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Inpainting:</strong> Remove objetos automaticamente</li>
+                    <li>• <strong>Green Screen:</strong> Remove fundo sem chroma key</li>
+                    <li>• <strong>Super Slow-mo:</strong> 8x mais frames com IA</li>
+                    <li>• <strong>Frame Interpolation:</strong> Suaviza movimentos</li>
+                    <li>• <strong>Depth Map:</strong> Gera mapa de profundidade</li>
+                    <li>• <strong>Motion Tracking:</strong> Rastreia objetos</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-green-700 mb-2">Melhor para:</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>✓ Produção profissional completa</li>
+                    <li>✓ Múltiplos efeitos no mesmo projeto</li>
+                    <li>✓ Workflows integrados</li>
+                    <li>✓ Qualidade cinematográfica</li>
+                  </ul>
+                  <div class="mt-3 p-2 bg-blue-50 rounded text-xs">
+                    <strong>Preço:</strong> $12-$76/mês (baseado em créditos)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-2 border-purple-400">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-gray-900">Topaz Video AI</h3>
+                <span class="badge badge-tecnico">Desktop power</span>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Software desktop para upscaling, denoising e enhancement de vídeo. Processamento local (sem limites).
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-3 mb-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-purple-900 mb-2">Superpoderes:</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Upscale:</strong> 480p → 4K realista</li>
+                    <li>• <strong>Denoise:</strong> Remove ruído sem blur</li>
+                    <li>• <strong>Deinterlace:</strong> Converte vídeos antigos</li>
+                    <li>• <strong>Frame rate conversion:</strong> 24fps → 60fps suave</li>
+                    <li>• <strong>Stabilization:</strong> IA estabiliza tremidos</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-green-700 mb-2">Melhor para:</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>✓ Restaurar vídeos antigos</li>
+                    <li>✓ Aumentar qualidade de footage</li>
+                    <li>✓ Processamento batch</li>
+                    <li>✓ Sem limites de créditos</li>
+                  </ul>
+                  <div class="mt-3 p-2 bg-purple-50 rounded text-xs">
+                    <strong>Preço:</strong> $299 one-time (perpétuo)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-2 border-green-400">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-gray-900">DaVinci Resolve (AI Tools)</h3>
+                <span class="badge badge-intermediario">Grátis</span>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Editor profissional com ferramentas IA integradas. Usado em Hollywood. Versão gratuita completa.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-3 mb-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-green-900 mb-2">AI Features:</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Magic Mask:</strong> Rotoscopia automática de pessoas/objetos</li>
+                    <li>• <strong>Object Removal:</strong> Clone stamp inteligente</li>
+                    <li>• <strong>Face Refinement:</strong> Beauty automático</li>
+                    <li>• <strong>Speed Warp:</strong> Retiming inteligente</li>
+                    <li>• <strong>Smart Reframe:</strong> Auto crop para social media</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-green-700 mb-2">Melhor para:</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>✓ Workflow completo (edit + VFX + color)</li>
+                    <li>✓ Projetos profissionais sérios</li>
+                    <li>✓ Curva de aprendizado vale a pena</li>
+                    <li>✓ 100% grátis (sem watermark!)</li>
+                  </ul>
+                  <div class="mt-3 p-2 bg-green-50 rounded text-xs">
+                    <strong>Preço:</strong> FREE (Studio: $295 one-time)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-2 border-orange-400">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-gray-900">Unscreen.com</h3>
+                <span class="badge badge-tecnico">Especialista</span>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Remove background de vídeos automaticamente. Nada de green screen necessário.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-3 mb-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-orange-900 mb-2">Como funciona:</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>1. Upload do vídeo (qualquer fundo)</li>
+                    <li>2. IA remove fundo automaticamente</li>
+                    <li>3. Download com alpha channel (transparente)</li>
+                    <li>4. Use em qualquer editor</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-green-700 mb-2">Melhor para:</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>✓ Quando não tem green screen</li>
+                    <li>✓ Composições rápidas</li>
+                    <li>✓ Footage já gravado</li>
+                    <li>✓ Super fácil de usar</li>
+                  </ul>
+                  <div class="mt-3 p-2 bg-orange-50 rounded text-xs">
+                    <strong>Preço:</strong> Free (baixa res), Pro $9/mês
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Tutorial 1: Remover objetos com Runway</h2>
+
+          <div class="space-y-5">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 1: Upload e seleção</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>1.1</strong> Acesse runway.ml → Tools → Inpainting</li>
+                <li><strong>1.2</strong> Upload do vídeo (max 30 segundos no plano básico)</li>
+                <li><strong>1.3</strong> Escolha o frame onde objeto aparece primeiro</li>
+                <li><strong>1.4</strong> IA analisa vídeo automaticamente</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 2: Pintar máscara</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>2.1</strong> Selecione brush tool</li>
+                <li><strong>2.2</strong> Pinte sobre o objeto a remover (cuidado nas bordas)</li>
+                <li><strong>2.3</strong> Use tamanho de brush apropriado:
+                  <ul class="ml-6 text-sm space-y-1 mt-1">
+                    <li>• Objetos grandes: brush grande</li>
+                    <li>• Detalhes finos: brush pequeno</li>
+                    <li>• Feather edges: 20-30%</li>
+                  </ul>
+                </li>
+                <li><strong>2.4</strong> Preview da máscara (vermelho = área a remover)</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 3: Tracking automático</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>3.1</strong> Clique "Track" → IA rastreia objeto em todos os frames</li>
+                <li><strong>3.2</strong> Review tracking (scrub timeline)</li>
+                <li><strong>3.3</strong> Se tracking perdeu objeto, corrija manualmente em keyframes</li>
+                <li><strong>3.4</strong> Interpolação automática entre keyframes</li>
+              </ol>
+              <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-sm mt-3">
+                <strong>Dica:</strong> Para objetos em movimento rápido, adicione keyframes a cada 10-15 frames
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-orange-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 4: Inpainting (preenchimento IA)</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>4.1</strong> Clique "Generate"</li>
+                <li><strong>4.2</strong> IA analisa área ao redor e preenche intelligentemente</li>
+                <li><strong>4.3</strong> Tempo: 2-5 minutos (depende duração do vídeo)</li>
+                <li><strong>4.4</strong> Preview resultado completo</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-red-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 5: Refinar e exportar</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>5.1</strong> Se não ficou perfeito:
+                  <ul class="ml-6 text-sm space-y-1 mt-1">
+                    <li>• Ajuste máscaras em frames problemáticos</li>
+                    <li>• Re-generate apenas esses frames</li>
+                    <li>• Use "Blend" para suavizar bordas</li>
+                  </ul>
+                </li>
+                <li><strong>5.2</strong> Export em máxima qualidade</li>
+                <li><strong>5.3</strong> Opcional: upscale resultado (Topaz Video AI)</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-5 rounded-lg border-2 border-blue-400 mt-5">
+            <h4 class="font-bold text-blue-900 mb-2">💡 Casos de uso práticos:</h4>
+            <ul class="text-sm text-gray-700 space-y-1">
+              <li>• Remover turistas de footage de viagem</li>
+              <li>• Apagar microfone que entrou no frame</li>
+              <li>• Limpar logos/marcas indesejadas</li>
+              <li>• Remover fios de segurança em stunts</li>
+              <li>• Apagar placas de carro (privacidade)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Tutorial 2: Sky Replacement (DaVinci Resolve)</h2>
+
+          <div class="space-y-5">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 1: Preparação</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>1.1</strong> Importe vídeo para DaVinci Resolve</li>
+                <li><strong>1.2</strong> Vá para a aba "Color" (bottom tabs)</li>
+                <li><strong>1.3</strong> Selecione o clip na timeline</li>
+                <li><strong>1.4</strong> Baixe sky replacement pack (gratuitos no site da Blackmagic)</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 2: Mascarar o céu</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>2.1</strong> Window → Magic Mask → Sky (IA detecta céu)</li>
+                <li><strong>2.2</strong> Ajuste threshold se necessário (slider sensitivity)</li>
+                <li><strong>2.3</strong> Refine edges: Blur 5-10px, Feather 3-5px</li>
+                <li><strong>2.4</strong> Track forward → IA rastreia céu em todo vídeo</li>
+              </ol>
+              <div class="bg-blue-50 p-3 rounded text-sm mt-3">
+                <strong>Shortcut:</strong> Shift + H = mostrar/esconder máscara
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 3: Adicionar novo céu</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>3.1</strong> Add Node (clique direito no node graph)</li>
+                <li><strong>3.2</strong> Conecte à máscara do céu</li>
+                <li><strong>3.3</strong> Background → Import sky image/video</li>
+                <li><strong>3.4</strong> Ajuste position/scale para combinar perspectiva</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-orange-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 4: Blend realista</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>4.1</strong> Color match: Sample color do vídeo original</li>
+                <li><strong>4.2</strong> Apply similar tone ao novo céu</li>
+                <li><strong>4.3</strong> Adicionar atmospheric haze (blur gradiente)</li>
+                <li><strong>4.4</strong> Light wrap edges (glow sutil nas bordas)</li>
+              </ol>
+              <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-sm mt-3">
+                <strong>Pro tip:</strong> Adicione grain matching para parecer filmado junto
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-red-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 5: Iluminação consistente</h3>
+              <p class="text-gray-700 mb-3">
+                Para realismo máximo, ajuste a iluminação do foreground para combinar com o novo céu:
+              </p>
+              <ul class="text-gray-700 space-y-2">
+                <li>• <strong>Golden hour sky:</strong> Adicione warmth (+10 temperature)</li>
+                <li>• <strong>Stormy sky:</strong> Reduza saturação, adicione coolness</li>
+                <li>• <strong>Sunset:</strong> Orange/magenta tint nas sombras</li>
+                <li>• <strong>Night sky:</strong> Redução drástica de exposure, blue tint</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Color Grading cinematográfico com IA</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">O que é Color Grading?</h3>
+              <p class="text-gray-700 mb-3">
+                Processo de ajustar cores do vídeo para criar mood específico e visual profissional. Diferença entre vídeo amador e cinematográfico está 80% no color grading.
+              </p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Color Correction:</strong> Balancear exposição e branco. Tornar vídeo "correto" tecnicamente.
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Color Grading:</strong> Aplicar look artístico. Criar mood e estética específica.
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border-2 border-gray-300">
+              <h4 class="font-bold text-gray-900 mb-4">Looks cinematográficos populares:</h4>
+
+              <div class="space-y-3">
+                <div class="bg-gradient-to-r from-orange-50 to-yellow-50 p-4 rounded border-l-4 border-orange-500">
+                  <h5 class="font-bold text-orange-900">Teal & Orange (blockbuster)</h5>
+                  <p class="text-sm text-gray-700">Pele alaranjada + sombras teal/cyan. Usado em 70% dos filmes de ação.</p>
+                  <div class="text-xs mt-2 bg-white p-2 rounded">
+                    <strong>Como:</strong> Shadows → +20 Cyan | Highlights → +15 Orange | Midtones → +10 Warmth
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-4 rounded border-l-4 border-blue-500">
+                  <h5 class="font-bold text-blue-900">Bleach Bypass (gritty)</h5>
+                  <p class="text-sm text-gray-700">Baixa saturação, alto contraste. Look de guerra/drama.</p>
+                  <div class="text-xs mt-2 bg-white p-2 rounded">
+                    <strong>Como:</strong> Saturation -30 | Contrast +20 | Crush blacks | Lift shadows
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-pink-50 to-purple-50 p-4 rounded border-l-4 border-pink-500">
+                  <h5 class="font-bold text-pink-900">Neon Noir (cyberpunk)</h5>
+                  <p class="text-sm text-gray-700">Pretos profundos + cores neon saturadas. Blade Runner vibes.</p>
+                  <div class="text-xs mt-2 bg-white p-2 rounded">
+                    <strong>Como:</strong> Crush blacks to 0 | Saturate neons +50 | Add purple/magenta shadows
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded border-l-4 border-green-500">
+                  <h5 class="font-bold text-green-900">Moody Film (indie darling)</h5>
+                  <p class="text-sm text-gray-700">Pretos elevados (milky), cores dessaturadas. A24 aesthetic.</p>
+                  <div class="text-xs mt-2 bg-white p-2 rounded">
+                    <strong>Como:</strong> Lift blacks +15 | Saturation -20 | Add slight green tint | Soft contrast
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-purple-50 p-5 rounded-lg border-2 border-purple-400">
+              <h4 class="font-bold text-purple-900 mb-3">🤖 Ferramentas IA para color grading:</h4>
+              <div class="space-y-2 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Colourlab AI:</strong> Analisa vídeo e sugere grades automáticos. Match reference image.
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>FilmConvert Nitrate:</strong> Emula film stocks famosos (Kodak, Fuji). 1-click film look.
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>DaVinci Neural Engine:</strong> IA nativa que analisa e corrige automaticamente.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">✨ Efeitos VFX criativos</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">Hologramas & HUDs</h4>
+              <p class="text-sm text-gray-700 mb-3">Interfaces futurísticas e elementos sci-fi</p>
+              <div class="text-xs bg-white p-2 rounded">
+                <strong>Como:</strong> CapCut → Effects → Tech/Cyber → Overlay blend mode + tracking
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">Clone Effect</h4>
+              <p class="text-sm text-gray-700 mb-3">Aparecer múltiplas vezes na mesma cena</p>
+              <div class="text-xs bg-white p-2 rounded">
+                <strong>Como:</strong> Grave em tripé → Masking + layering → Match lighting entre takes
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">Particle Systems</h4>
+              <p class="text-sm text-gray-700 mb-3">Fumaça, fogo, faíscas, magia</p>
+              <div class="text-xs bg-white p-2 rounded">
+                <strong>Fonte:</strong> ActionVFX.com (library enorme) → Composite com blend modes
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">3D Camera Tracking</h4>
+              <p class="text-sm text-gray-700 mb-3">Adicionar objetos 3D que seguem câmera</p>
+              <div class="text-xs bg-white p-2 rounded">
+                <strong>Tool:</strong> Runway 3D Camera → Export data → Import to Blender/C4D
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-red-50 to-red-100 p-5 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">Time Remapping</h4>
+              <p class="text-sm text-gray-700 mb-3">Bullet time, speed ramps complexos</p>
+              <div class="text-xs bg-white p-2 rounded">
+                <strong>Workflow:</strong> Topaz Slow-mo AI (gera frames) → DaVinci (remap curves)
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-pink-50 to-pink-100 p-5 rounded-lg border-l-4 border-pink-500">
+              <h4 class="font-bold text-pink-900 mb-2">Face Swap IA</h4>
+              <p class="text-sm text-gray-700 mb-3">Trocar rostos em vídeo (ética em mente)</p>
+              <div class="text-xs bg-white p-2 rounded">
+                <strong>Tool:</strong> DeepFaceLab, Runway face swap → Sempre divulgar uso
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Workflow VFX profissional</h2>
+
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg mb-4">
+            <h3 class="text-xl font-bold mb-3">Pipeline completo: Pre → Production → Post</h3>
+          </div>
+
+          <div class="space-y-3">
+            <div class="bg-white p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">Pre-production (Planejamento VFX)</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Storyboard com VFX plates marcados</li>
+                <li>• Shot list especificando efeitos necessários</li>
+                <li>• Reference gathering (vídeos de inspiração)</li>
+                <li>• Teste de efeitos em baixa resolução</li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">Production (Filming for VFX)</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Filme em máxima qualidade possível (4K+)</li>
+                <li>• Use tripé quando for fazer masking/compositing</li>
+                <li>• Tracking markers em cena (bolinhas coloridas)</li>
+                <li>• Capture clean plates (cena sem atores/objetos)</li>
+                <li>• Log footage (flat profile) para máximo color grading</li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">Post-production (VFX Pipeline)</h4>
+              <ol class="text-sm text-gray-700 space-y-1">
+                <li>1. <strong>Organization:</strong> Organize footage por scenes/shots</li>
+                <li>2. <strong>Proxy workflow:</strong> Edit com arquivos leves</li>
+                <li>3. <strong>Rough cut:</strong> Lock edit antes de VFX</li>
+                <li>4. <strong>VFX shots:</strong> Exporte apenas shots com VFX</li>
+                <li>5. <strong>Apply effects:</strong> Use ferramentas especializadas</li>
+                <li>6. <strong>Review & iterate:</strong> 2-3 rounds de refinamento</li>
+                <li>7. <strong>Color grade:</strong> DEPOIS de todos VFX prontos</li>
+                <li>8. <strong>Final export:</strong> Máxima qualidade</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Dicas profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Boas práticas</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Sempre trabalhe com backups</li>
+                <li>• Salve versões (project_v1, v2, v3)</li>
+                <li>• Organize assets em pastas claras</li>
+                <li>• Use proxies para footage pesado</li>
+                <li>• Teste efeitos antes de aplicar em tudo</li>
+                <li>• Color grade por último</li>
+                <li>• Export em ProRes/DNxHD (lossless)</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Erros comuns</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• VFX demais (menos é mais)</li>
+                <li>• Ignorar color matching</li>
+                <li>• Masking mal feito (bordas duras)</li>
+                <li>• Não adicionar motion blur</li>
+                <li>• Esquecer grain/noise matching</li>
+                <li>• Iluminação inconsistente</li>
+                <li>• Exportar em qualidade baixa</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Projeto Prático Final</h2>
+        <p class="text-gray-700 mb-6">Crie um showreel de VFX com múltiplos efeitos:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Filme 5 shots diferentes (30-60s total)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Shot 1: Object removal (remover algo do vídeo)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Shot 2: Sky replacement (céu dramático)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Shot 3: Green screen composite (background impossível)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Shot 4: Clone effect ou efeito criativo</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Shot 5: Particle effects (fogo/fumaça/faíscas)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Aplicar color grading cinematográfico unificado em todos</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Montar showreel com música épica e before/after splits</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-4.4-edicao-viral-capcut.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="../" class="content-button content-button-primary">
+          Concluir Módulo →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 4.5
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 4.3: Vídeos com Avatares IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 4</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 4</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 4.3</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">👤 Aula 4.3</span>
+          <span class="badge badge-tecnico">100 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Transformando vídeos em avatares com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Domine HeyGen, D-ID e Synthesia para criar apresentadores virtuais ultrarrealistas para seus vídeos.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Avatares IA permitem criar vídeos com apresentadores virtuais que parecem reais, falam em múltiplos idiomas e nunca precisam de pausas. São perfeitos para cursos online, vídeos corporativos, marketing e conteúdo educacional em escala. As tecnologias de 2025 são tão realistas que é quase impossível distinguir de humanos reais.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Aprender a criar e personalizar avatares IA para produção profissional de vídeos em escala, reduzindo custos e aumentando produtividade.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Casos de Uso de Avatares IA</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">📚 Educação & Cursos</h3>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Aulas online automatizadas</li>
+                <li>• Múltiplos idiomas sem regravar</li>
+                <li>• Atualizar conteúdo sem refilmar</li>
+                <li>• Personalização em escala</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">🏢 Corporativo</h3>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Treinamentos internos</li>
+                <li>• Onboarding de funcionários</li>
+                <li>• Comunicados da liderança</li>
+                <li>• Apresentações de vendas</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">📱 Marketing Digital</h3>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Vídeos de vendas personalizados</li>
+                <li>• Depoimentos escaláveis</li>
+                <li>• Anúncios em múltiplos idiomas</li>
+                <li>• Conteúdo para redes sociais</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">📺 Mídia & Notícias</h3>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Resumos de notícias automatizados</li>
+                <li>• Apresentadores virtuais 24/7</li>
+                <li>• Multilíngue em tempo real</li>
+                <li>• Conteúdo gerado dinamicamente</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Principais Plataformas</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-2 border-purple-300">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-gray-900">HeyGen</h3>
+                <span class="badge badge-intermediario">Líder do mercado</span>
+              </div>
+              <p class="text-gray-700 mb-4">
+                A plataforma mais popular e completa para criação de avatares. Interface intuitiva, avatares ultrarrealistas e recursos avançados de personalização.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-3 mb-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-green-700 mb-2">✅ Vantagens</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• 100+ avatares prontos</li>
+                    <li>• Criar avatar personalizado</li>
+                    <li>• 40+ idiomas com lip-sync perfeito</li>
+                    <li>• Clonagem de voz incluída</li>
+                    <li>• Templates profissionais</li>
+                    <li>• API para automação</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-red-700 mb-2">⚠️ Limitações</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Preço mais alto</li>
+                    <li>• Créditos mensais limitados</li>
+                    <li>• Avatar custom caro ($$$)</li>
+                  </ul>
+                  <div class="mt-3 p-2 bg-blue-50 rounded text-xs">
+                    <strong>Preço:</strong> A partir de $24/mês
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-blue-900 text-white p-3 rounded">
+                <p class="text-sm"><strong>Melhor para:</strong> Produção profissional em escala, empresas médias/grandes, cursos online premium</p>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-gray-900">D-ID</h3>
+                <span class="badge badge-tecnico">Tecnologia avançada</span>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Pioneira em tecnologia de deep learning para animação facial. Excelente para transformar fotos estáticas em vídeos falantes.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-3 mb-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-green-700 mb-2">✅ Vantagens</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Animar qualquer foto</li>
+                    <li>• API poderosa</li>
+                    <li>• Expressões faciais realistas</li>
+                    <li>• Integração com GPT</li>
+                    <li>• Processamento rápido</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-red-700 mb-2">⚠️ Limitações</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Menos avatares prontos</li>
+                    <li>• Interface menos intuitiva</li>
+                    <li>• Foco maior em API</li>
+                  </ul>
+                  <div class="mt-3 p-2 bg-blue-50 rounded text-xs">
+                    <strong>Preço:</strong> A partir de $5.9/mês (Creator)
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-blue-900 text-white p-3 rounded">
+                <p class="text-sm"><strong>Melhor para:</strong> Desenvolvedores, automação, integração com sistemas, animação de fotos históricas</p>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-2 border-green-300">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold text-gray-900">Synthesia</h3>
+                <span class="badge badge-intermediario">Enterprise</span>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Solução enterprise com foco em treinamento corporativo e produção em larga escala. Usado por grandes empresas globalmente.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-3 mb-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-green-700 mb-2">✅ Vantagens</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• 140+ avatares diversos</li>
+                    <li>• 120+ idiomas</li>
+                    <li>• Templates corporativos</li>
+                    <li>• Colaboração em equipe</li>
+                    <li>• Suporte premium</li>
+                    <li>• Conformidade GDPR/SOC2</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-bold text-red-700 mb-2">⚠️ Limitações</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Mais caro do mercado</li>
+                    <li>• Planos enterprise only</li>
+                    <li>• Menos flexível para creators</li>
+                  </ul>
+                  <div class="mt-3 p-2 bg-blue-50 rounded text-xs">
+                    <strong>Preço:</strong> A partir de $29/mês (Starter)
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-green-900 text-white p-3 rounded">
+                <p class="text-sm"><strong>Melhor para:</strong> Grandes empresas, treinamento corporativo global, compliance rigoroso</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Tutorial: Criando seu primeiro vídeo com HeyGen</h2>
+
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 1: Setup e escolha do avatar</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>1.1</strong> Crie conta no HeyGen (heygen.com)</li>
+                <li><strong>1.2</strong> Clique em "Create Video" → "Choose Avatar"</li>
+                <li><strong>1.3</strong> Navegue pela biblioteca de 100+ avatares</li>
+                <li><strong>1.4</strong> Filtre por:
+                  <ul class="ml-6 mt-1 text-sm space-y-1">
+                    <li>• Gênero (masculino/feminino/neutro)</li>
+                    <li>• Etnia e representatividade</li>
+                    <li>• Estilo (casual, formal, profissional)</li>
+                    <li>• Idade aparente</li>
+                  </ul>
+                </li>
+                <li><strong>1.5</strong> Preview do avatar antes de selecionar</li>
+              </ol>
+              <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-sm mt-4">
+                <strong>Dica Pro:</strong> Escolha avatar que combine com seu público-alvo. Para B2B corporativo, use avatares formais. Para educação jovem, avatares mais casuais.
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 2: Script e voz</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>2.1</strong> Escreva ou cole seu script no editor</li>
+                <li><strong>2.2</strong> Escolha o idioma (40+ disponíveis)</li>
+                <li><strong>2.3</strong> Selecione a voz:
+                  <ul class="ml-6 mt-1 text-sm space-y-1">
+                    <li>• Vozes prontas (centenas de opções)</li>
+                    <li>• Vozes clonadas (upload de áudio)</li>
+                    <li>• Ajustar tom e velocidade</li>
+                  </ul>
+                </li>
+                <li><strong>2.4</strong> Use marcadores SSML para controle fino:
+                  <div class="bg-white p-2 rounded mt-2 text-xs">
+                    <code>&lt;break time="1s"/&gt;</code> - Pausas<br>
+                    <code>&lt;emphasis level="strong"&gt;texto&lt;/emphasis&gt;</code> - Ênfase<br>
+                    <code>&lt;prosody rate="slow"&gt;texto&lt;/prosody&gt;</code> - Velocidade
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 3: Personalização visual</h3>
+              <div class="space-y-3">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-semibold mb-2">Background (Fundo)</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Cores sólidas (branding)</li>
+                    <li>• Gradientes modernos</li>
+                    <li>• Upload de imagem custom</li>
+                    <li>• Vídeo de fundo (loops)</li>
+                    <li>• Templates temáticos</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-semibold mb-2">Elementos gráficos</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Adicionar logo da marca</li>
+                    <li>• Texto e títulos animados</li>
+                    <li>• Formas e ícones</li>
+                    <li>• Imagens de produto</li>
+                    <li>• Call-to-action buttons</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-semibold mb-2">Posicionamento do avatar</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Circle crop (foto de perfil)</li>
+                    <li>• Meio corpo</li>
+                    <li>• Corpo inteiro</li>
+                    <li>• Lateral esquerda/direita</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-orange-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 4: Múltiplas cenas</h3>
+              <p class="text-gray-700 mb-3">Para vídeos mais longos, divida em cenas:</p>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>4.1</strong> Clique em "Add Scene"</li>
+                <li><strong>4.2</strong> Cada cena pode ter:
+                  <ul class="ml-6 mt-1 text-sm">
+                    <li>• Avatar diferente</li>
+                    <li>• Background diferente</li>
+                    <li>• Script próprio</li>
+                    <li>• Duração independente</li>
+                  </ul>
+                </li>
+                <li><strong>4.3</strong> Adicione transições suaves entre cenas</li>
+                <li><strong>4.4</strong> Timeline view para organizar fluxo</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-red-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 5: Gerar e exportar</h3>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>5.1</strong> Preview completo antes de gerar</li>
+                <li><strong>5.2</strong> Clique em "Generate Video"</li>
+                <li><strong>5.3</strong> Tempo de processamento: 3-10 minutos</li>
+                <li><strong>5.4</strong> Qualidade de exportação:
+                  <ul class="ml-6 mt-1 text-sm">
+                    <li>• 720p (rápido, redes sociais)</li>
+                    <li>• 1080p (recomendado)</li>
+                    <li>• 4K (planos premium)</li>
+                  </ul>
+                </li>
+                <li><strong>5.5</strong> Download ou compartilhar link direto</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Criando avatar personalizado (Custom Avatar)</h2>
+
+          <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-lg mb-6">
+            <p class="text-gray-700 mb-4">
+              Quer que VOCÊ seja o avatar? Crie uma cópia digital sua que pode falar qualquer texto, em qualquer idioma, 24/7.
+            </p>
+            <div class="bg-yellow-100 p-4 rounded border-l-4 border-yellow-500">
+              <strong>Investimento:</strong> $$$+ (varia por plataforma). HeyGen: ~$499 one-time. D-ID: incluído em planos superiores.
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-white p-5 rounded-lg border border-gray-300">
+              <h4 class="font-bold text-gray-900 mb-3">Requisitos técnicos</h4>
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <h5 class="font-semibold mb-2">🎥 Vídeo necessário:</h5>
+                  <ul class="text-gray-700 space-y-1">
+                    <li>• 2-5 minutos de gravação</li>
+                    <li>• Fundo neutro (verde/branco)</li>
+                    <li>• Iluminação uniforme</li>
+                    <li>• 1080p ou superior</li>
+                    <li>• Olhar para câmera</li>
+                    <li>• Falar script fornecido</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-semibold mb-2">🎤 Áudio necessário:</h5>
+                  <ul class="text-gray-700 space-y-1">
+                    <li>• 30+ minutos de fala</li>
+                    <li>• Ambiente silencioso</li>
+                    <li>• Microfone de qualidade</li>
+                    <li>• Tom natural conversacional</li>
+                    <li>• Múltiplas emoções</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border border-gray-300">
+              <h4 class="font-bold text-gray-900 mb-3">Processo de criação</h4>
+              <ol class="text-gray-700 space-y-2">
+                <li><strong>1.</strong> Grave o vídeo seguindo guidelines da plataforma</li>
+                <li><strong>2.</strong> Upload do vídeo e áudio</li>
+                <li><strong>3.</strong> Processamento IA (24-72 horas)</li>
+                <li><strong>4.</strong> Review e aprovação</li>
+                <li><strong>5.</strong> Avatar pronto para uso ilimitado</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Técnicas avançadas</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">1. Personalização em massa</h4>
+              <p class="text-sm text-gray-700 mb-2">
+                Use variáveis dinâmicas para criar milhares de vídeos personalizados:
+              </p>
+              <div class="bg-white p-3 rounded text-xs">
+                <p>"Olá {{nome}}, bem-vindo à {{empresa}}! Seu pedido #{{numero}} está a caminho."</p>
+                <p class="mt-2 text-gray-600">CSV com dados → API → Vídeos únicos para cada cliente</p>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">2. Tradução multilíngue</h4>
+              <p class="text-sm text-gray-700 mb-2">
+                Grave em um idioma, exporte em 40+:
+              </p>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>✓ Lip-sync automático em cada idioma</li>
+                <li>✓ Mesmas expressões e timing</li>
+                <li>✓ Vozes nativas de cada país</li>
+                <li>✓ Localização cultural automática</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">3. Integração com workflows</h4>
+              <div class="text-sm text-gray-700 space-y-2">
+                <p><strong>Zapier/Make:</strong> Automação completa</p>
+                <p><strong>API Rest:</strong> Integração com sistemas próprios</p>
+                <p><strong>Webhooks:</strong> Notificações quando vídeo fica pronto</p>
+                <p><strong>Batch processing:</strong> Gerar 100+ vídeos simultâneos</p>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">4. Hybrid approach</h4>
+              <p class="text-sm text-gray-700 mb-2">
+                Combine avatar IA com elementos reais:
+              </p>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Avatar + screen recordings (tutoriais)</li>
+                <li>• Avatar + B-roll cinematográfico</li>
+                <li>• Avatar + animações motion graphics</li>
+                <li>• Avatar + apresentação real (entrevista)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚠️ Ética e considerações legais</h2>
+
+          <div class="bg-red-50 p-6 rounded-lg border-2 border-red-300 mb-4">
+            <h4 class="font-bold text-red-900 mb-3">🚫 Nunca faça:</h4>
+            <ul class="text-gray-700 space-y-2">
+              <li>• Criar avatar de pessoa sem consentimento explícito</li>
+              <li>• Usar para desinformação ou deepfakes maliciosos</li>
+              <li>• Personificar celebridades ou figuras públicas</li>
+              <li>• Violar direitos de imagem</li>
+              <li>• Criar conteúdo enganoso ou fraudulento</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg border-2 border-green-300">
+            <h4 class="font-bold text-green-900 mb-3">✅ Boas práticas:</h4>
+            <ul class="text-gray-700 space-y-2">
+              <li>• Divulgue que é conteúdo gerado por IA quando apropriado</li>
+              <li>• Use apenas avatares com licença ou criados por você</li>
+              <li>• Respeite leis de proteção de dados (LGPD/GDPR)</li>
+              <li>• Obtenha contratos de uso de imagem por escrito</li>
+              <li>• Adicione disclaimers quando necessário</li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Projeto Prático</h2>
+        <p class="text-gray-700 mb-6">Crie uma série de vídeos educacionais com avatar:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Escolher plataforma (HeyGen, D-ID ou Synthesia)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Selecionar avatar apropriado para o público</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Escrever scripts para 3 vídeos de 1-2 minutos</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar visual branding consistente (logo, cores, templates)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Gerar os 3 vídeos com múltiplas cenas</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>BÔNUS: Traduzir um vídeo para 2+ idiomas</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-4.2-runwayml-avancado.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="aula-4.4-edicao-viral-capcut.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 4.3
+    </div>
+  </footer>
+
+</body>
+</html>

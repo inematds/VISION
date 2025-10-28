@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 4.2: RunwayML Avançado - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 4</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 4</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 4.2</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">🚀 Aula 4.2</span>
+          <span class="badge badge-tecnico">120 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Dominando o RunwayML Gen-3
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Técnicas avançadas para criar vídeos profissionais com a ferramenta líder do mercado.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Runway Gen-3 é a ferramenta mais avançada para geração de vídeos com IA em 2025. Com controles precisos, qualidade cinematográfica e versatilidade sem igual, é a escolha de profissionais para projetos sérios. Nesta aula, vamos além do básico e exploramos técnicas profissionais.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Dominar técnicas avançadas do Runway para criar vídeos de qualidade profissional para clientes e projetos comerciais.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎬 Modos do Runway Gen-3</h2>
+
+          <div class="space-y-4">
+            <div class="border-l-4 border-purple-500 bg-purple-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">📝 Text-to-Video</h3>
+              <p class="text-gray-700 mb-3">Gera vídeos completamente do zero a partir de descrições textuais.</p>
+              <div class="bg-white p-4 rounded mt-3">
+                <p class="text-sm font-semibold mb-2">Melhor para:</p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Conceitos abstratos e artísticos</li>
+                  <li>• Cenas impossíveis de filmar</li>
+                  <li>• B-roll criativo</li>
+                  <li>• Protótipos rápidos</li>
+                </ul>
+                <p class="text-sm text-gray-600 mt-3"><strong>Duração:</strong> 5 ou 10 segundos</p>
+              </div>
+            </div>
+
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">🖼️ Image-to-Video</h3>
+              <p class="text-gray-700 mb-3">Anima uma imagem estática com controle preciso do movimento.</p>
+              <div class="bg-white p-4 rounded mt-3">
+                <p class="text-sm font-semibold mb-2">Melhor para:</p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Animar fotos de produtos</li>
+                  <li>• Dar vida a concept art</li>
+                  <li>• Criar parallax effects</li>
+                  <li>• Animação de personagens</li>
+                </ul>
+                <p class="text-sm text-gray-600 mt-3"><strong>Duração:</strong> 5 ou 10 segundos</p>
+              </div>
+            </div>
+
+            <div class="border-l-4 border-green-500 bg-green-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">🎞️ Video-to-Video</h3>
+              <p class="text-gray-700 mb-3">Transforma vídeos existentes aplicando novos estilos e elementos.</p>
+              <div class="bg-white p-4 rounded mt-3">
+                <p class="text-sm font-semibold mb-2">Melhor para:</p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Estilização artística</li>
+                  <li>• Adicionar efeitos VFX</li>
+                  <li>• Mudar ambientes</li>
+                  <li>• Rotoscopia criativa</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Anatomia de um Prompt Perfeito</h2>
+
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg mb-6">
+            <h3 class="text-xl font-bold mb-4">Estrutura Recomendada:</h3>
+            <div class="bg-white p-4 rounded border-2 border-gray-300">
+              <code class="text-sm">
+                [Tipo de shot] of [Sujeito] [Ação] [Ambiente] [Iluminação] [Estilo] [Movimento de câmera] [Qualidade]
+              </code>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-gray-50 p-5 rounded-lg">
+              <h4 class="font-bold text-gray-900 mb-2">1. Tipo de Shot 📹</h4>
+              <p class="text-sm text-gray-700 mb-2">Especifica o enquadramento:</p>
+              <div class="grid md:grid-cols-3 gap-2 text-xs">
+                <div class="bg-white p-2 rounded">• Close-up</div>
+                <div class="bg-white p-2 rounded">• Medium shot</div>
+                <div class="bg-white p-2 rounded">• Wide shot</div>
+                <div class="bg-white p-2 rounded">• Extreme close-up</div>
+                <div class="bg-white p-2 rounded">• Aerial view</div>
+                <div class="bg-white p-2 rounded">• POV (first person)</div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg">
+              <h4 class="font-bold text-gray-900 mb-2">2. Sujeito + Ação 🎭</h4>
+              <p class="text-sm text-gray-700 mb-2">Seja específico sobre o que acontece:</p>
+              <div class="bg-white p-3 rounded text-sm space-y-1">
+                <p>❌ Ruim: "pessoa andando"</p>
+                <p>✅ Bom: "young woman in red dress walking confidently through busy market"</p>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg">
+              <h4 class="font-bold text-gray-900 mb-2">3. Ambiente 🌍</h4>
+              <p class="text-sm text-gray-700 mb-2">Descreva o cenário em detalhes:</p>
+              <div class="grid md:grid-cols-2 gap-2 text-xs mt-2">
+                <div class="bg-white p-2 rounded">futuristic city at night</div>
+                <div class="bg-white p-2 rounded">cozy coffee shop interior</div>
+                <div class="bg-white p-2 rounded">misty forest at dawn</div>
+                <div class="bg-white p-2 rounded">desert landscape sunset</div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg">
+              <h4 class="font-bold text-gray-900 mb-2">4. Iluminação 💡</h4>
+              <p class="text-sm text-gray-700 mb-2">Controla o mood e qualidade visual:</p>
+              <div class="grid md:grid-cols-3 gap-2 text-xs">
+                <div class="bg-white p-2 rounded">golden hour lighting</div>
+                <div class="bg-white p-2 rounded">dramatic studio lighting</div>
+                <div class="bg-white p-2 rounded">soft natural light</div>
+                <div class="bg-white p-2 rounded">neon lighting</div>
+                <div class="bg-white p-2 rounded">cinematic lighting</div>
+                <div class="bg-white p-2 rounded">volumetric fog</div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg">
+              <h4 class="font-bold text-gray-900 mb-2">5. Movimento de Câmera 🎥</h4>
+              <p class="text-sm text-gray-700 mb-2">Defina como a câmera se move:</p>
+              <div class="grid md:grid-cols-2 gap-2 text-xs">
+                <div class="bg-white p-2 rounded">• slow zoom in</div>
+                <div class="bg-white p-2 rounded">• smooth tracking shot</div>
+                <div class="bg-white p-2 rounded">• orbiting around subject</div>
+                <div class="bg-white p-2 rounded">• crane shot moving up</div>
+                <div class="bg-white p-2 rounded">• handheld documentary style</div>
+                <div class="bg-white p-2 rounded">• dolly zoom effect</div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg">
+              <h4 class="font-bold text-gray-900 mb-2">6. Qualidade & Estilo 🎨</h4>
+              <p class="text-sm text-gray-700 mb-2">Termos que aumentam qualidade:</p>
+              <div class="bg-white p-3 rounded text-sm">
+                cinematic, 4K, professional, high quality, detailed, sharp focus, shallow depth of field, film grain, anamorphic lens
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔥 Exemplos de Prompts Profissionais</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-semibold text-purple-900 mb-2">📱 Anúncio de Produto</h4>
+              <div class="bg-white p-3 rounded text-sm mb-2">
+                "Close-up shot of sleek smartphone rotating slowly on reflective surface, studio lighting with dramatic shadows, luxury product photography style, smooth 360-degree rotation, 4K, professional commercial"
+              </div>
+              <p class="text-xs text-gray-600">⏱️ Duração: 10s | 🎯 Uso: E-commerce, ads</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-semibold text-blue-900 mb-2">🏢 Corporativo / Tech</h4>
+              <div class="bg-white p-3 rounded text-sm mb-2">
+                "Wide aerial shot of modern glass office building at sunrise, camera slowly descending, golden hour lighting, urban skyline background, cinematic establishing shot, professional corporate video style"
+              </div>
+              <p class="text-xs text-gray-600">⏱️ Duração: 10s | 🎯 Uso: Corporate video, intro</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-semibold text-green-900 mb-2">🎬 Narrativa Cinematográfica</h4>
+              <div class="bg-white p-3 rounded text-sm mb-2">
+                "Medium shot of person walking away through misty forest path, camera following from behind, atmospheric fog, morning light filtering through trees, melancholic mood, shallow depth of field, cinematic film grain"
+              </div>
+              <p class="text-xs text-gray-600">⏱️ Duração: 10s | 🎯 Uso: Short film, storytelling</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-semibold text-orange-900 mb-2">🎨 Arte & Experimental</h4>
+              <div class="bg-white p-3 rounded text-sm mb-2">
+                "Extreme close-up of paint flowing and mixing in water, vibrant colors swirling, macro photography, dramatic side lighting, slow motion, abstract art style, high detail, mesmerizing fluid dynamics"
+              </div>
+              <p class="text-xs text-gray-600">⏱️ Duração: 10s | 🎯 Uso: Music video, art project</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚙️ Configurações Avançadas</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-blue-50 p-5 rounded-lg">
+              <h4 class="font-bold text-blue-900 mb-3">Duration (Duração)</h4>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>• <strong>5 segundos:</strong> Testes rápidos, loops</li>
+                <li>• <strong>10 segundos:</strong> Cenas completas, melhor qualidade</li>
+              </ul>
+              <div class="bg-white p-2 rounded text-xs mt-3">
+                <strong>Dica:</strong> 10s usa mais créditos mas vale a pena para projetos profissionais
+              </div>
+            </div>
+
+            <div class="bg-purple-50 p-5 rounded-lg">
+              <h4 class="font-bold text-purple-900 mb-3">Seed Control</h4>
+              <p class="text-sm text-gray-700 mb-2">Gera variações consistentes do mesmo vídeo.</p>
+              <div class="bg-white p-2 rounded text-xs">
+                <strong>Como usar:</strong> Copie o seed de um resultado que gostou e use em novos prompts para manter consistência visual
+              </div>
+            </div>
+
+            <div class="bg-green-50 p-5 rounded-lg">
+              <h4 class="font-bold text-green-900 mb-3">Motion Control</h4>
+              <p class="text-sm text-gray-700 mb-2">Ajusta intensidade do movimento.</p>
+              <ul class="text-xs text-gray-700 space-y-1 mt-2">
+                <li>• <strong>Low:</strong> Movimentos sutis</li>
+                <li>• <strong>Medium:</strong> Balanceado</li>
+                <li>• <strong>High:</strong> Ação intensa</li>
+              </ul>
+            </div>
+
+            <div class="bg-orange-50 p-5 rounded-lg">
+              <h4 class="font-bold text-orange-900 mb-3">Style Reference</h4>
+              <p class="text-sm text-gray-700 mb-2">Upload uma imagem de referência de estilo.</p>
+              <div class="bg-white p-2 rounded text-xs">
+                Útil para manter consistência visual em múltiplos clips de um projeto
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎓 Técnicas Profissionais</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 mb-2">1. Chaining (Encadeamento de Clips)</h4>
+              <p class="text-sm text-gray-700 mb-3">
+                Use o último frame de um vídeo como imagem inicial do próximo para criar transições suaves.
+              </p>
+              <div class="bg-white p-3 rounded text-xs">
+                <strong>Workflow:</strong> Vídeo 1 (10s) → Exportar frame final → Usar como input do Vídeo 2 → Resultado: transição perfeita de 20s
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 mb-2">2. Upscaling Estratégico</h4>
+              <p class="text-sm text-gray-700 mb-3">
+                Gere em resolução padrão, escolha o melhor resultado, então upscale para 4K.
+              </p>
+              <div class="bg-yellow-50 p-2 rounded text-xs">
+                Economiza créditos testando variações antes do upscale final
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 mb-2">3. Hybrid Approach</h4>
+              <p class="text-sm text-gray-700 mb-3">
+                Combine filmagens reais com elementos gerados por IA no mesmo projeto.
+              </p>
+              <div class="bg-white p-3 rounded text-xs space-y-1">
+                <p>• Filme em chroma key</p>
+                <p>• Gere background com IA</p>
+                <p>• Composite no After Effects/DaVinci</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Projeto Prático</h2>
+        <p class="text-gray-700 mb-6">Crie uma sequência de 30 segundos usando chaining:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Planejar 3 cenas conectadas (10s cada)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Gerar cena 1 com prompt detalhado</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Extrair frame final da cena 1</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Usar como input para cena 2 (Image-to-Video)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Repetir processo para cena 3</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Montar sequência final de 30s com transições suaves</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-4.1-mascotes-animados.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="aula-4.3-videos-avatares.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 4.2
+    </div>
+  </footer>
+
+</body>
+</html>
