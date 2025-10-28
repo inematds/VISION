@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 4.4: Workflows profissionais - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 4</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 4</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 4.4</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">⚙️ Aula 4.4</span>
+          <span class="badge badge-tecnico">80 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Workflows profissionais de produção
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Organize seu processo criativo como os profissionais e multiplique sua produtividade.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Um workflow bem estruturado é a diferença entre produtores que entregam consistentemente e aqueles que lutam a cada projeto. Nesta aula final do Módulo 4, você aprenderá a organizar seu processo de ponta a ponta.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Criar um sistema de produção escalável que funcione para qualquer tipo de vídeo.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📁 Estrutura de Pastas Profissional</h2>
+
+          <div class="bg-gray-50 p-6 rounded-lg border-2 border-gray-300 font-mono text-sm mb-4">
+            <pre>📁 Nome-do-Projeto/
+├── 📁 01-Pre-Producao/
+│   ├── roteiro.docx
+│   ├── storyboard.pdf
+│   └── referencias/
+├── 📁 02-Assets/
+│   ├── imagens/
+│   ├── videos-brutos/
+│   ├── audio/
+│   └── graficos/
+├── 📁 03-Projetos-Editor/
+│   ├── projeto-capcut.cproj
+│   └── backup/
+├── 📁 04-Exports/
+│   ├── youtube-16x9.mp4
+│   ├── instagram-9x16.mp4
+│   └── masters/
+└── 📁 05-Entrega/
+    ├── video-final.mp4
+    └── thumbnails/</pre>
+          </div>
+
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="text-sm text-gray-700"><strong>💡 Dica:</strong> Crie um template dessa estrutura e duplique para cada projeto novo. Economiza tempo e mantém consistência.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔄 Workflow Completo: Ideação → Publicação</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl font-bold text-purple-600">1</span>
+                <h3 class="text-lg font-bold text-gray-900">Ideação & Planejamento</h3>
+              </div>
+              <ul class="text-sm text-gray-700 space-y-1 ml-8">
+                <li>• Defina objetivo e público-alvo</li>
+                <li>• Use ChatGPT para brainstorm de ideias</li>
+                <li>• Crie roteiro ou outline</li>
+                <li>• Pesquise referências visuais</li>
+                <li>• Estime tempo/recursos necessários</li>
+              </ul>
+              <p class="text-xs text-gray-600 mt-2 ml-8">⏱️ Tempo: 20-30% do projeto total</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl font-bold text-blue-600">2</span>
+                <h3 class="text-lg font-bold text-gray-900">Produção de Assets</h3>
+              </div>
+              <ul class="text-sm text-gray-700 space-y-1 ml-8">
+                <li>• Gere imagens com IA (DALL-E, Midjourney)</li>
+                <li>• Crie vídeos (Runway, Pika)</li>
+                <li>• Produza narração (ElevenLabs)</li>
+                <li>• Selecione música/SFX</li>
+                <li>• Organize tudo nas pastas corretas</li>
+              </ul>
+              <p class="text-xs text-gray-600 mt-2 ml-8">⏱️ Tempo: 30-40% do projeto</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl font-bold text-green-600">3</span>
+                <h3 class="text-lg font-bold text-gray-900">Edição & Montagem</h3>
+              </div>
+              <ul class="text-sm text-gray-700 space-y-1 ml-8">
+                <li>• Importe assets para editor</li>
+                <li>• Monte rough cut (estrutura básica)</li>
+                <li>• Adicione transições e efeitos</li>
+                <li>• Sincronize áudio com vídeo</li>
+                <li>• Adicione legendas automáticas</li>
+              </ul>
+              <p class="text-xs text-gray-600 mt-2 ml-8">⏱️ Tempo: 20-30% do projeto</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl font-bold text-orange-600">4</span>
+                <h3 class="text-lg font-bold text-gray-900">Pós-Produção & Polish</h3>
+              </div>
+              <ul class="text-sm text-gray-700 space-y-1 ml-8">
+                <li>• Correção de cor + grading</li>
+                <li>• Mixing de áudio (equalização, ducking)</li>
+                <li>• Ajustes finais de timing</li>
+                <li>• Adicione grafismos/lower thirds</li>
+                <li>• Revisão completa</li>
+              </ul>
+              <p class="text-xs text-gray-600 mt-2 ml-8">⏱️ Tempo: 10-15% do projeto</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-red-50 to-red-100 p-5 rounded-lg border-l-4 border-red-500">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl font-bold text-red-600">5</span>
+                <h3 class="text-lg font-bold text-gray-900">Exportação & Entrega</h3>
+              </div>
+              <ul class="text-sm text-gray-700 space-y-1 ml-8">
+                <li>• Exporte master em alta qualidade</li>
+                <li>• Crie versões por plataforma</li>
+                <li>• Gere thumbnails atraentes</li>
+                <li>• Prepare descrições/hashtags</li>
+                <li>• Faça backup dos arquivos</li>
+              </ul>
+              <p class="text-xs text-gray-600 mt-2 ml-8">⏱️ Tempo: 5-10% do projeto</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📊 Otimização por Plataforma</h2>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-gray-100">
+                  <th class="border p-3 text-left">Plataforma</th>
+                  <th class="border p-3">Aspect Ratio</th>
+                  <th class="border p-3">Duração Ideal</th>
+                  <th class="border p-3">Resolução</th>
+                  <th class="border p-3">Especial</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-3 font-semibold">YouTube</td>
+                  <td class="border p-3 text-center">16:9</td>
+                  <td class="border p-3 text-center">8-15 min</td>
+                  <td class="border p-3 text-center">1080p/4K</td>
+                  <td class="border p-3 text-xs">Thumbnail + Intro forte</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border p-3 font-semibold">TikTok</td>
+                  <td class="border p-3 text-center">9:16</td>
+                  <td class="border p-3 text-center">15-60s</td>
+                  <td class="border p-3 text-center">1080x1920</td>
+                  <td class="border p-3 text-xs">Hook nos primeiros 3s</td>
+                </tr>
+                <tr>
+                  <td class="border p-3 font-semibold">Instagram Reels</td>
+                  <td class="border p-3 text-center">9:16</td>
+                  <td class="border p-3 text-center">15-90s</td>
+                  <td class="border p-3 text-center">1080x1920</td>
+                  <td class="border p-3 text-xs">Legendas hardcoded</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border p-3 font-semibold">Instagram Feed</td>
+                  <td class="border p-3 text-center">1:1 ou 4:5</td>
+                  <td class="border p-3 text-center">30-60s</td>
+                  <td class="border p-3 text-center">1080x1080</td>
+                  <td class="border p-3 text-xs">Estética consistente</td>
+                </tr>
+                <tr>
+                  <td class="border p-3 font-semibold">LinkedIn</td>
+                  <td class="border p-3 text-center">16:9 ou 1:1</td>
+                  <td class="border p-3 text-center">30-90s</td>
+                  <td class="border p-3 text-center">1080p</td>
+                  <td class="border p-3 text-xs">Tom profissional</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border p-3 font-semibold">Twitter/X</td>
+                  <td class="border p-3 text-center">16:9</td>
+                  <td class="border p-3 text-center">20-45s</td>
+                  <td class="border p-3 text-center">720p-1080p</td>
+                  <td class="border p-3 text-xs">Direto ao ponto</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Automações que Economizam Tempo</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">📋 Templates de Projeto</h4>
+              <p class="text-sm text-gray-700 mb-2">Crie templates no seu editor com:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Intros/outros padrão</li>
+                <li>• Lower thirds pré-configurados</li>
+                <li>• Color grading favorito salvo</li>
+                <li>• Estrutura de timeline organizada</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">🎨 Presets de Exportação</h4>
+              <p class="text-sm text-gray-700 mb-2">Salve presets para cada plataforma:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• YouTube 1080p H.264</li>
+                <li>• Instagram Reels 9:16</li>
+                <li>• Master ProRes 4K</li>
+                <li>• LinkedIn 1:1</li>
+              </ul>
+            </div>
+
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">🤖 Batch Processing</h4>
+              <p class="text-sm text-gray-700 mb-2">Processe múltiplos vídeos de uma vez:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Upscaling em lote (Topaz)</li>
+                <li>• Transcrições múltiplas (Descript)</li>
+                <li>• Background removal (Runway)</li>
+              </ul>
+            </div>
+
+            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">📅 Calendário de Conteúdo</h4>
+              <p class="text-sm text-gray-700 mb-2">Planeje com antecedência:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Use Notion/Trello/Asana</li>
+                <li>• Batch create (grave 4-5 vídeos num dia)</li>
+                <li>• Agende postagens (Buffer, Later)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Métricas e Melhoria Contínua</h2>
+
+          <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg border-2 border-blue-300">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">O que Medir:</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-blue-900 mb-2">⏱️ Tempo de Produção</p>
+                <p class="text-xs text-gray-700">Quantas horas do conceito ao upload? Meta: reduzir 10-20% a cada mês.</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-purple-900 mb-2">📊 Engajamento</p>
+                <p class="text-xs text-gray-700">View rate, watch time, CTR. Identifique padrões nos vídeos que performam melhor.</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-green-900 mb-2">💰 ROI de Tempo</p>
+                <p class="text-xs text-gray-700">Views/hora investida. Foque nos formatos mais eficientes.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🏆 Checklist do Profissional</h2>
+
+          <div class="space-y-2">
+            <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-3 rounded border">
+              <input type="checkbox" class="w-5 h-5">
+              <span class="text-gray-700">Tenho estrutura de pastas padronizada</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-3 rounded border">
+              <input type="checkbox" class="w-5 h-5">
+              <span class="text-gray-700">Uso templates para acelerar edição</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-3 rounded border">
+              <input type="checkbox" class="w-5 h-5">
+              <span class="text-gray-700">Tenho presets de export por plataforma</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-3 rounded border">
+              <input type="checkbox" class="w-5 h-5">
+              <span class="text-gray-700">Faço backup automático de projetos</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-3 rounded border">
+              <input type="checkbox" class="w-5 h-5">
+              <span class="text-gray-700">Monitoro métricas para melhorar</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-3 rounded border">
+              <input type="checkbox" class="w-5 h-5">
+              <span class="text-gray-700">Planejo conteúdo com antecedência</span>
+            </label>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg shadow-lg p-8 mb-8 border-2 border-green-400">
+        <div class="text-center">
+          <span class="text-5xl mb-4 block">🎉</span>
+          <h2 class="text-3xl font-bold text-gray-900 mb-3">Parabéns!</h2>
+          <p class="text-lg text-gray-700 mb-4">
+            Você concluiu o <strong>Módulo 4: Edição e Pós-produção</strong>!
+          </p>
+          <p class="text-gray-600 mb-6">
+            Agora você domina ferramentas de edição com IA, legendas, efeitos especiais e workflows profissionais. Está pronto para o projeto final integrado!
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-4.3-efeitos-especiais.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="../mod5-projeto-final/" class="content-button content-button-primary">
+          Módulo 5: Projeto Final →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 4.4
+    </div>
+  </footer>
+
+</body>
+</html>
