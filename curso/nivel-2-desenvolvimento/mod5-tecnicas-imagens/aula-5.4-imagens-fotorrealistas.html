@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 5.4: Gerando imagens fotorrealistas - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 5</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 5</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 5.4</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">📷 Aula 5.4</span>
+          <span class="badge badge-tecnico">120 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Gerando imagens fotorrealistas
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Domine técnicas avançadas de iluminação, composição e prompting para criar imagens indistinguíveis de fotografias reais.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Fotorrealismo em IA não é apenas sobre resolução alta - é sobre entender os fundamentos da fotografia profissional: iluminação, composição, profundidade de campo, temperatura de cor e detalhes que fazem uma imagem parecer autêntica. Nesta aula, você aprenderá a criar imagens que rivalizem com fotografias profissionais de câmeras de alta qualidade.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de gerar imagens fotorrealistas profissionais que podem ser usadas em projetos comerciais, marketing e publicidade.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📸 Fundamentos do Fotorrealismo</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">💡 Iluminação Profissional</h3>
+              <p class="text-gray-700 mb-3">A iluminação é o fator mais importante para fotorrealismo:</p>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-white p-3 rounded">
+                  <strong>Natural Light:</strong> Luz do sol, golden hour, blue hour
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Studio Light:</strong> Softbox, key light, fill light, rim light
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Ambient Light:</strong> Iluminação de ambiente interno/externo
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Dramatic Light:</strong> High contrast, chiaroscuro, spotlight
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">📐 Composição e Enquadramento</h3>
+              <div class="space-y-2 text-sm text-gray-700">
+                <div class="bg-white p-3 rounded">
+                  <strong>Regra dos Terços:</strong> Dividir imagem em 9 partes iguais, posicionar elementos importantes nas interseções
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Leading Lines:</strong> Linhas que guiam o olhar do observador
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Depth of Field:</strong> Controle de foco (bokeh, shallow focus, deep focus)
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong>Perspective:</strong> Ângulo de câmera (eye level, bird's eye, worm's eye)
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">🎨 Cor e Tonalidade</h3>
+              <div class="grid md:grid-cols-2 gap-2 text-xs text-gray-700">
+                <div class="bg-white p-2 rounded">Color grading profissional</div>
+                <div class="bg-white p-2 rounded">Temperatura de cor (warm/cool)</div>
+                <div class="bg-white p-2 rounded">White balance correto</div>
+                <div class="bg-white p-2 rounded">Color harmony e paletas</div>
+                <div class="bg-white p-2 rounded">Saturação balanceada</div>
+                <div class="bg-white p-2 rounded">Contraste apropriado</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-l-4 border-orange-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">🔍 Detalhes Técnicos</h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>• <strong>Texture realism:</strong> Pele, tecidos, materiais devem ter textura natural</li>
+                <li>• <strong>Proper shadows:</strong> Sombras coerentes com fonte de luz</li>
+                <li>• <strong>Reflections:</strong> Reflexos realistas em superfícies brilhantes</li>
+                <li>• <strong>Noise/Grain:</strong> Grão sutil de câmera (evitar imagem artificial demais)</li>
+                <li>• <strong>Motion blur:</strong> Para cenas dinâmicas</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Ferramentas para Fotorrealismo</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-2 border-purple-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Midjourney v6+ 🎨</h3>
+              <p class="text-sm text-gray-700 mb-3">Líder absoluto em fotorrealismo</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Vantagens:</strong> Qualidade superior, entende nuances fotográficas</div>
+                <div class="bg-white p-2 rounded"><strong>Best for:</strong> Retratos, fotografia comercial, lifestyle</div>
+                <div class="bg-white p-2 rounded"><strong>Parâmetros:</strong> --v 6, --style raw, --q 2</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Leonardo.AI (PhotoReal) 📷</h3>
+              <p class="text-sm text-gray-700 mb-3">Modelo especializado em realismo</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Vantagens:</strong> Controle fino, rápido, preço acessível</div>
+                <div class="bg-white p-2 rounded"><strong>Best for:</strong> Product photography, studio shots</div>
+                <div class="bg-white p-2 rounded"><strong>Modelo:</strong> Leonardo Diffusion XL + PhotoReal v2</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-2 border-green-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Stable Diffusion SDXL 🎯</h3>
+              <p class="text-sm text-gray-700 mb-3">Máximo controle e customização</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Vantagens:</strong> Gratuito, infinitas possibilidades</div>
+                <div class="bg-white p-2 rounded"><strong>Best for:</strong> Projetos customizados, workflow complexo</div>
+                <div class="bg-white p-2 rounded"><strong>Modelos:</strong> Realistic Vision, Juggernaut XL, DreamShaper</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-2 border-orange-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">DALL-E 3 (ChatGPT) 🤖</h3>
+              <p class="text-sm text-gray-700 mb-3">Integração natural com prompts longos</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Vantagens:</strong> Entende contexto complexo, fácil de usar</div>
+                <div class="bg-white p-2 rounded"><strong>Best for:</strong> Conceitos complexos, ideação rápida</div>
+                <div class="bg-white p-2 rounded"><strong>Acesso:</strong> ChatGPT Plus, API</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Estrutura de Prompt Fotorrealista</h2>
+
+          <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Template Profissional</h3>
+            <div class="bg-white p-4 rounded border border-gray-300">
+              <code class="text-sm bg-gray-100 p-3 rounded block leading-relaxed">
+                [subject/main element], [action/pose], [environment/setting], [lighting description], [camera angle], [lens/focal length], [depth of field], [photography style], [time of day], [weather/atmosphere], professional photography, photorealistic, high detail, 8K, sharp focus
+              </code>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">1. Subject (Assunto Principal)</h3>
+              <p class="text-sm text-gray-700 mb-2">Seja extremamente específico:</p>
+              <div class="grid md:grid-cols-2 gap-2 text-xs">
+                <div class="bg-white p-2 rounded">
+                  <strong>Ruim:</strong> "uma pessoa"
+                </div>
+                <div class="bg-white p-2 rounded bg-green-50">
+                  <strong>Bom:</strong> "30-year-old woman with long brown hair, blue eyes, wearing white linen dress"
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Ruim:</strong> "carro"
+                </div>
+                <div class="bg-white p-2 rounded bg-green-50">
+                  <strong>Bom:</strong> "2023 black Mercedes-Benz S-Class sedan, glossy paint"
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">2. Lighting (Iluminação)</h3>
+              <p class="text-sm text-gray-700 mb-2">A alma do fotorrealismo:</p>
+              <div class="space-y-2">
+                <div class="bg-white p-3 rounded text-xs">
+                  <strong>Golden Hour:</strong> "warm golden hour lighting, soft natural light, sunset glow"
+                </div>
+                <div class="bg-white p-3 rounded text-xs">
+                  <strong>Studio:</strong> "professional studio lighting, key light from left, fill light, rim light, white background"
+                </div>
+                <div class="bg-white p-3 rounded text-xs">
+                  <strong>Natural Indoor:</strong> "natural window light from the right, soft shadows, bright ambient lighting"
+                </div>
+                <div class="bg-white p-3 rounded text-xs">
+                  <strong>Dramatic:</strong> "dramatic side lighting, high contrast, chiaroscuro, moody atmosphere"
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">3. Camera Technical Details</h3>
+              <p class="text-sm text-gray-700 mb-2">Especificações que definem a estética:</p>
+              <div class="grid md:grid-cols-2 gap-2 text-xs">
+                <div class="bg-white p-2 rounded">
+                  <strong>Retrato:</strong> 85mm f/1.4, shallow depth of field, bokeh background
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Paisagem:</strong> 24mm wide angle, f/8, deep depth of field, everything in focus
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Produto:</strong> 100mm macro, f/5.6, sharp detail, studio setup
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Street:</strong> 35mm, f/2.8, natural candid style, documentary photography
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">4. Camera Angle & Perspective</h3>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <strong>Eye Level:</strong>
+                  <span class="text-gray-600">Perspectiva natural, altura dos olhos</span>
+                </div>
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <strong>Low Angle (Worm's Eye):</strong>
+                  <span class="text-gray-600">De baixo para cima, majestoso</span>
+                </div>
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <strong>High Angle (Bird's Eye):</strong>
+                  <span class="text-gray-600">De cima para baixo, vista aérea</span>
+                </div>
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <strong>Dutch Angle:</strong>
+                  <span class="text-gray-600">Câmera inclinada, dramático</span>
+                </div>
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <strong>Close-up / Portrait:</strong>
+                  <span class="text-gray-600">Foco no rosto/detalhe</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">5. Photography Style Reference</h3>
+              <div class="grid md:grid-cols-2 gap-2 text-xs">
+                <div class="bg-white p-2 rounded">Commercial photography</div>
+                <div class="bg-white p-2 rounded">Editorial fashion photography</div>
+                <div class="bg-white p-2 rounded">National Geographic style</div>
+                <div class="bg-white p-2 rounded">Annie Leibovitz style portrait</div>
+                <div class="bg-white p-2 rounded">Minimalist product photography</div>
+                <div class="bg-white p-2 rounded">Cinematic still photography</div>
+                <div class="bg-white p-2 rounded">Documentary street photography</div>
+                <div class="bg-white p-2 rounded">Architectural photography</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📸 Exemplos Práticos de Prompts</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-gray-900 mb-2">Portrait Photography</h4>
+              <div class="bg-white p-3 rounded text-sm">
+                <code class="bg-gray-100 p-2 rounded block text-xs leading-relaxed">
+                  Beautiful 25-year-old asian woman with long black hair, natural makeup, wearing casual white t-shirt, soft genuine smile, looking at camera, professional portrait photography, natural window light from left creating soft shadows, 85mm lens f/1.8, shallow depth of field with creamy bokeh background, warm color grading, high detail skin texture, photorealistic, 8K quality --ar 2:3 --v 6 --style raw
+                </code>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-gray-900 mb-2">Product Photography</h4>
+              <div class="bg-white p-3 rounded text-sm">
+                <code class="bg-gray-100 p-2 rounded block text-xs leading-relaxed">
+                  Luxury gold wristwatch with black leather strap, floating in mid-air, white studio background, professional product photography, three-point studio lighting setup, key light from top-left, subtle rim light highlighting edges, macro 100mm lens, f/8 for sharp detail throughout, reflective surface showing environment, commercial photography style, ultra high resolution, photorealistic --ar 1:1 --v 6
+                </code>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-gray-900 mb-2">Landscape Photography</h4>
+              <div class="bg-white p-3 rounded text-sm">
+                <code class="bg-gray-100 p-2 rounded block text-xs leading-relaxed">
+                  Majestic mountain landscape at golden hour, snow-capped peaks reflecting warm sunset light, clear alpine lake in foreground perfectly mirroring mountains, pine forest on sides, dramatic clouds in sky, natural outdoor photography, 24mm wide angle lens, f/11 for deep depth of field, everything in sharp focus, rich color saturation, National Geographic style, breathtaking vista, photorealistic, 8K resolution --ar 16:9 --v 6
+                </code>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-gray-900 mb-2">Food Photography</h4>
+              <div class="bg-white p-3 rounded text-sm">
+                <code class="bg-gray-100 p-2 rounded block text-xs leading-relaxed">
+                  Gourmet burger with melted cheese, fresh lettuce, tomato and sesame seed bun, served on rustic wooden board, natural morning light from window creating soft shadows, blurred restaurant background, shot from 45-degree angle, 50mm lens f/2.8, shallow depth of field with foreground in sharp focus, warm color grading, appetizing presentation, commercial food photography style, high detail texture, photorealistic --ar 4:5 --v 6
+                </code>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-pink-50 to-pink-100 p-6 rounded-lg border-l-4 border-pink-500">
+              <h4 class="font-bold text-gray-900 mb-2">Lifestyle / Editorial</h4>
+              <div class="bg-white p-3 rounded text-sm">
+                <code class="bg-gray-100 p-2 rounded block text-xs leading-relaxed">
+                  Young professional woman working on laptop in modern minimalist home office, bright spacious room with large windows, natural daylight flooding in, potted plants in background, wearing casual business attire, focused expression, shot from side angle capturing profile, 35mm lens, f/2.0, soft bokeh background, light and airy atmosphere, editorial lifestyle photography, authentic moment, photorealistic, high quality --ar 3:2 --v 6 --style raw
+                </code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚙️ Parâmetros Avançados Midjourney</h2>
+
+          <div class="space-y-3">
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900 mb-2">--style raw</h4>
+              <p class="text-sm text-gray-700">Reduz estilização artística do Midjourney, resulta em imagens mais fotográficas e menos "artsy". Essencial para fotorrealismo.</p>
+              <code class="text-xs bg-gray-100 p-2 rounded block mt-2">Uso: adicione --style raw ao final do prompt</code>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900 mb-2">--q 2 (Quality)</h4>
+              <p class="text-sm text-gray-700">Aumenta tempo de processamento mas melhora significativamente a qualidade. Vale a pena para imagens finais.</p>
+              <code class="text-xs bg-gray-100 p-2 rounded block mt-2">--q 1 (padrão), --q 2 (melhor qualidade)</code>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900 mb-2">--ar (Aspect Ratio)</h4>
+              <p class="text-sm text-gray-700">Escolha proporção baseada no uso final:</p>
+              <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="bg-white p-2 rounded">--ar 1:1 (quadrado, Instagram post)</div>
+                <div class="bg-white p-2 rounded">--ar 4:5 (vertical, Instagram/Pinterest)</div>
+                <div class="bg-white p-2 rounded">--ar 16:9 (horizontal, widescreen)</div>
+                <div class="bg-white p-2 rounded">--ar 2:3 (retrato vertical clássico)</div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900 mb-2">--s (Stylization)</h4>
+              <p class="text-sm text-gray-700">Controla quanto de interpretação artística. Para fotorrealismo, use valores baixos (0-50).</p>
+              <code class="text-xs bg-gray-100 p-2 rounded block mt-2">--s 0 (muito realista), --s 100 (padrão), --s 1000 (muito artístico)</code>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900 mb-2">--c (Chaos)</h4>
+              <p class="text-sm text-gray-700">Variação entre gerações. Use 0 para consistência máxima em fotorrealismo.</p>
+              <code class="text-xs bg-gray-100 p-2 rounded block mt-2">--c 0 (consistente), --c 100 (mais variado)</code>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500 mt-4">
+            <p class="text-sm font-semibold text-gray-900 mb-2">Combinação ideal para máximo fotorrealismo:</p>
+            <code class="text-sm bg-white p-3 rounded block">
+              [seu prompt] --v 6 --style raw --q 2 --s 0 --c 0 --ar [proporção]
+            </code>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Casos de Uso Profissionais</h2>
+
+          <div class="space-y-3">
+            <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-500">
+              <h4 class="font-semibold text-gray-900">📱 Marketing e Publicidade</h4>
+              <p class="text-sm text-gray-700">Criar imagens de campanha sem fotógrafo, modelos ou location. Teste A/B com múltiplas variações rapidamente.</p>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+              <h4 class="font-semibold text-gray-900">🏢 Real Estate Virtual Staging</h4>
+              <p class="text-sm text-gray-700">Mobiliar e decorar ambientes vazios. Criar diferentes estilos de decoração para o mesmo espaço.</p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+              <h4 class="font-semibold text-gray-900">🛍️ E-commerce Product Shots</h4>
+              <p class="text-sm text-gray-700">Gerar fotos de produtos em diferentes contextos e cenários sem refotografar. Lifestyle shots profissionais.</p>
+            </div>
+
+            <div class="bg-orange-50 p-4 rounded border-l-4 border-orange-500">
+              <h4 class="font-semibold text-gray-900">👗 Fashion & Modeling</h4>
+              <p class="text-sm text-gray-700">Criar lookbooks, catálogos e campanhas. Testar roupas em diferentes modelos e contextos virtualmente.</p>
+            </div>
+
+            <div class="bg-pink-50 p-4 rounded border-l-4 border-pink-500">
+              <h4 class="font-semibold text-gray-900">🎨 Concept Art & Previsualization</h4>
+              <p class="text-sm text-gray-700">Pre-visualização fotorrealista para filmes, comerciais e projetos arquitetônicos antes de produção real.</p>
+            </div>
+
+            <div class="bg-indigo-50 p-4 rounded border-l-4 border-indigo-500">
+              <h4 class="font-semibold text-gray-900">📰 Editorial & Journalism</h4>
+              <p class="text-sm text-gray-700">Ilustrações fotorrealistas para artigos, quando fotografia real não está disponível ou é impraticável.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Dicas Profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Melhores Práticas</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Sempre especifique equipamento de câmera (lente, abertura)</li>
+                <li>• Descreva iluminação em detalhes (tipo, direção, qualidade)</li>
+                <li>• Use termos técnicos de fotografia no prompt</li>
+                <li>• Mencione fotógrafos famosos como referência de estilo</li>
+                <li>• Especifique textura e materiais com precisão</li>
+                <li>• Adicione "photorealistic, 8K, high detail" no final</li>
+                <li>• Use --style raw no Midjourney para fotorrealismo</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Termos muito artísticos ("magical", "dreamy", "fantasy")</li>
+                <li>• Esquecer de especificar iluminação</li>
+                <li>• Prompts vagos ou genéricos</li>
+                <li>• Misturar estilos contraditórios</li>
+                <li>• Ignorar proporções realistas</li>
+                <li>• Esquecer detalhes técnicos de câmera</li>
+                <li>• Usar --stylize alto demais (reduz realismo)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500 mt-4">
+            <h4 class="font-bold text-gray-900 mb-2">🎯 Checklist de Qualidade Fotorrealista</h4>
+            <div class="grid md:grid-cols-2 gap-2 text-sm text-gray-700">
+              <div>✓ Iluminação coerente e realista</div>
+              <div>✓ Sombras corretas e proporcionais</div>
+              <div>✓ Texturas detalhadas e naturais</div>
+              <div>✓ Cores balanceadas (não saturadas demais)</div>
+              <div>✓ Profundidade de campo apropriada</div>
+              <div>✓ Perspectiva e proporções corretas</div>
+              <div>✓ Reflexos e brilhos realistas</div>
+              <div>✓ Detalhes finos visíveis em zoom</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔧 Troubleshooting</h2>
+
+          <div class="space-y-3">
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Imagem parece artificial ou "muito perfeita"</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Adicione imperfeições naturais: "subtle skin imperfections", "natural texture", "slight film grain". Use --style raw e --s 0.</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Iluminação inconsistente ou falsa</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Seja muito específico sobre fonte de luz: direção (from left, from above), tipo (natural sunlight, studio softbox), qualidade (soft, hard, diffused).</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Cores muito saturadas ou irreais</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Especifique "natural color grading", "realistic color palette", "balanced saturation". Evite palavras como "vibrant" ou "vivid" a não ser que seja intencional.</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Detalhes anatômicos incorretos (mãos, olhos)</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Gere múltiplas versões e escolha a melhor. Use inpainting para corrigir detalhes específicos. No Midjourney v6+, especifique "anatomically correct, natural proportions".</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Falta profundidade ou parece "flat"</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Especifique depth of field apropriado (shallow para retratos, deep para paisagens). Adicione elementos em foreground e background. Mencione "cinematic depth".</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Projeto Prático</h2>
+        <p class="text-gray-700 mb-6">Crie um portfólio fotorrealista profissional:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Gerar retrato profissional estilo editorial (golden hour lighting)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar product shot de luxo com iluminação de estúdio</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Produzir paisagem natural estilo National Geographic</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Gerar food photography profissional de restaurante</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar lifestyle shot editorial para revista</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Produzir architectural photography de interior design</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Documentar todos os prompts e parâmetros usados</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-5.3-personagens-consistentes.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="aula-5.5-mockups-profissionais.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 5.4
+    </div>
+  </footer>
+
+</body>
+</html>

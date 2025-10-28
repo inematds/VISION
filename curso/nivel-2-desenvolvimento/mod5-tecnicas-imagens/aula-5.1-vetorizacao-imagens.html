@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 5.1: Vetorização de imagens com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 5</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 5</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 5.1</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">🎨 Aula 5.1</span>
+          <span class="badge badge-tecnico">90 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Vetorização de imagens com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Aprenda a converter imagens raster em vetores escaláveis usando ferramentas de IA e técnicas profissionais.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Vetorização é o processo de converter imagens bitmap (raster) em gráficos vetoriais escaláveis. Com IA, este processo que antes levava horas pode ser feito em minutos, mantendo qualidade profissional. Imagens vetoriais são infinitamente escaláveis, ideais para logos, ilustrações e designs que precisam funcionar em múltiplos tamanhos.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de vetorizar qualquer imagem usando IA e preparar arquivos profissionais para impressão e design.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔄 Raster vs Vetor: Entendendo a Diferença</h2>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-red-50 p-6 rounded-lg border-2 border-red-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">📸 Imagens Raster (Bitmap)</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li>• Composta por pixels individuais</li>
+                <li>• Perde qualidade ao aumentar tamanho</li>
+                <li>• Formatos: JPG, PNG, GIF, WEBP</li>
+                <li>• Ideal para: fotos, imagens complexas</li>
+                <li>• Tamanho de arquivo maior</li>
+              </ul>
+              <div class="bg-white p-3 rounded mt-4 text-xs">
+                <strong>Exemplo:</strong> Foto de câmera, screenshot, arte digital pintada
+              </div>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-lg border-2 border-green-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">📐 Imagens Vetoriais</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li>• Composta por fórmulas matemáticas</li>
+                <li>• Escalável sem perder qualidade</li>
+                <li>• Formatos: SVG, AI, EPS, PDF</li>
+                <li>• Ideal para: logos, ícones, ilustrações</li>
+                <li>• Tamanho de arquivo menor</li>
+              </ul>
+              <div class="bg-white p-3 rounded mt-4 text-xs">
+                <strong>Exemplo:</strong> Logotipos, ícones, tipografia, ilustrações flat
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-4 rounded border-l-4 border-yellow-500">
+            <p class="text-sm text-gray-700"><strong>Quando vetorizar?</strong> Logos em baixa resolução, ilustrações que precisam escalar, designs para impressão em grande formato, ícones para aplicativos.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Ferramentas de Vetorização com IA</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-2 border-purple-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Vectorizer.AI 🎯</h3>
+              <p class="text-sm text-gray-700 mb-3">A melhor ferramenta de vetorização automática do mercado</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Vantagens:</strong> Resultados incríveis, fácil de usar, gratuito para uso básico</div>
+                <div class="bg-white p-2 rounded"><strong>Melhor para:</strong> Logos, ilustrações simples, ícones</div>
+                <div class="bg-white p-2 rounded"><strong>Formatos:</strong> SVG, PDF, EPS, DXF</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Adobe Illustrator + AI 🎨</h3>
+              <p class="text-sm text-gray-700 mb-3">Ferramenta profissional com recursos de IA integrados</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Vantagens:</strong> Controle total, edição avançada, Image Trace aprimorado</div>
+                <div class="bg-white p-2 rounded"><strong>Melhor para:</strong> Projetos complexos, ajustes finos</div>
+                <div class="bg-white p-2 rounded"><strong>Requer:</strong> Assinatura Creative Cloud</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-2 border-green-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Vector Magic ⚡</h3>
+              <p class="text-sm text-gray-700 mb-3">Solução desktop e online para vetorização precisa</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Vantagens:</strong> Qualidade consistente, interface simples</div>
+                <div class="bg-white p-2 rounded"><strong>Melhor para:</strong> Lotes de imagens, workflow automatizado</div>
+                <div class="bg-white p-2 rounded"><strong>Preço:</strong> Licença única ou assinatura</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-2 border-orange-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Inkscape (Gratuito) 🆓</h3>
+              <p class="text-sm text-gray-700 mb-3">Alternativa gratuita ao Illustrator com trace bitmap</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Vantagens:</strong> 100% gratuito, open source, multiplataforma</div>
+                <div class="bg-white p-2 rounded"><strong>Melhor para:</strong> Iniciantes, projetos sem orçamento</div>
+                <div class="bg-white p-2 rounded"><strong>Limitação:</strong> Menos automático que soluções pagas</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">👣 Tutorial: Vetorização com Vectorizer.AI</h2>
+
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 1: Preparar a Imagem Original</h3>
+              <p class="text-gray-700 mb-3">Antes de vetorizar, otimize a imagem:</p>
+              <ul class="space-y-2 text-gray-700 ml-4">
+                <li>✓ <strong>Resolução:</strong> Mínimo 300 DPI para melhores resultados</li>
+                <li>✓ <strong>Contraste:</strong> Aumente o contraste se necessário</li>
+                <li>✓ <strong>Fundo:</strong> Remova ou simplifique o fundo</li>
+                <li>✓ <strong>Limpeza:</strong> Remova ruídos e artefatos</li>
+                <li>✓ <strong>Formato:</strong> PNG ou JPG de alta qualidade</li>
+              </ul>
+              <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-sm mt-3">
+                <strong>Dica:</strong> Use Remove.bg para remover fundos antes da vetorização
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 2: Upload para Vectorizer.AI</h3>
+              <ol class="space-y-2 text-gray-700">
+                <li><strong>1.</strong> Acesse vectorizer.ai</li>
+                <li><strong>2.</strong> Clique em "Upload Image" ou arraste a imagem</li>
+                <li><strong>3.</strong> Aguarde o processamento automático (10-30 segundos)</li>
+                <li><strong>4.</strong> A ferramenta detectará automaticamente as melhores configurações</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 3: Ajustar Configurações</h3>
+              <div class="space-y-3">
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <h4 class="font-semibold text-gray-900 mb-2">Mode (Modo)</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Auto:</strong> Deixa a IA decidir (recomendado)</li>
+                    <li>• <strong>Logo:</strong> Otimizado para logos e ícones</li>
+                    <li>• <strong>Photo:</strong> Para imagens fotográficas complexas</li>
+                    <li>• <strong>Clipart:</strong> Ilustrações simples com cores chapadas</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <h4 class="font-semibold text-gray-900 mb-2">Detail Level (Nível de detalhe)</h4>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Low:</strong> Menos pontos, arquivo menor, mais simples</li>
+                    <li>• <strong>Medium:</strong> Balanceado (padrão)</li>
+                    <li>• <strong>High:</strong> Máximo detalhe, arquivo maior</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white p-4 rounded border border-gray-300">
+                  <h4 class="font-semibold text-gray-900 mb-2">Colors (Cores)</h4>
+                  <p class="text-sm text-gray-700">Escolha quantas cores manter no resultado final. Menos cores = arquivo mais simples e leve.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 4: Download e Uso</h3>
+              <div class="space-y-3">
+                <p class="text-gray-700">Escolha o formato apropriado para seu projeto:</p>
+                <ul class="text-sm text-gray-700 space-y-2">
+                  <li><strong>SVG:</strong> Web, edição fácil, menor tamanho (recomendado)</li>
+                  <li><strong>PDF:</strong> Impressão, compartilhamento universal</li>
+                  <li><strong>EPS:</strong> Adobe Illustrator, impressão profissional</li>
+                  <li><strong>DXF:</strong> CAD, corte a laser, CNC</li>
+                  <li><strong>PNG:</strong> Preview raster em alta resolução</li>
+                </ul>
+                <div class="bg-blue-50 p-3 rounded mt-3 text-sm">
+                  <strong>Dica profissional:</strong> Baixe sempre em SVG para máxima flexibilidade. Você pode convertê-lo depois para outros formatos conforme necessário.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Vetorização no Adobe Illustrator</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Image Trace (Rastreamento de Imagem)</h3>
+              <ol class="space-y-2 text-sm text-gray-700">
+                <li><strong>1.</strong> Importe a imagem (File > Place)</li>
+                <li><strong>2.</strong> Selecione a imagem</li>
+                <li><strong>3.</strong> Vá em Window > Image Trace</li>
+                <li><strong>4.</strong> Escolha um preset ou customize:</li>
+              </ol>
+
+              <div class="mt-4 space-y-2">
+                <div class="bg-white p-3 rounded">
+                  <strong class="text-gray-900">High Fidelity Photo:</strong>
+                  <p class="text-xs text-gray-700">Para fotos com máximo detalhe</p>
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong class="text-gray-900">Low Fidelity Photo:</strong>
+                  <p class="text-xs text-gray-700">Foto estilizada, menos cores</p>
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong class="text-gray-900">3 Colors / 6 Colors:</strong>
+                  <p class="text-xs text-gray-700">Ideal para logos e ilustrações simples</p>
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong class="text-gray-900">Black and White Logo:</strong>
+                  <p class="text-xs text-gray-700">Logos monocromáticos, silhuetas</p>
+                </div>
+              </div>
+
+              <div class="mt-4 bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-sm">
+                <strong>Configurações avançadas:</strong>
+                <ul class="mt-2 space-y-1">
+                  <li>• <strong>Paths:</strong> Controla a complexidade dos caminhos</li>
+                  <li>• <strong>Corners:</strong> Define quão angulosos são os cantos</li>
+                  <li>• <strong>Noise:</strong> Remove pequenos artefatos</li>
+                  <li>• <strong>Ignore White:</strong> Trata branco como transparente</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Pós-processamento no Illustrator</h3>
+              <p class="text-gray-700 mb-3">Após vetorizar, otimize o resultado:</p>
+              <ol class="space-y-2 text-sm text-gray-700">
+                <li><strong>1.</strong> Clique em "Expand" para converter em paths editáveis</li>
+                <li><strong>2.</strong> Use Object > Path > Simplify para reduzir pontos</li>
+                <li><strong>3.</strong> Ajuste cores manualmente se necessário</li>
+                <li><strong>4.</strong> Remova elementos indesejados com Direct Selection Tool (A)</li>
+                <li><strong>5.</strong> Agrupe elementos relacionados (Ctrl/Cmd + G)</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Casos de Uso Profissionais</h2>
+
+          <div class="space-y-3">
+            <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-500">
+              <h4 class="font-semibold text-gray-900">📱 Logos e Identidade Visual</h4>
+              <p class="text-sm text-gray-700">Vetorize logos antigos em baixa resolução para uso em materiais impressos e digitais. Resultado escalável infinitamente.</p>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+              <h4 class="font-semibold text-gray-900">🎨 Ilustrações para Web</h4>
+              <p class="text-sm text-gray-700">Converta arte digital em SVG para sites responsivos. Ícones, ilustrações e elementos gráficos com tamanho de arquivo mínimo.</p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+              <h4 class="font-semibold text-gray-900">🖨️ Impressão em Grande Formato</h4>
+              <p class="text-sm text-gray-700">Prepare imagens para banners, outdoors e plotagem. Vetores garantem qualidade perfeita em qualquer tamanho.</p>
+            </div>
+
+            <div class="bg-orange-50 p-4 rounded border-l-4 border-orange-500">
+              <h4 class="font-semibold text-gray-900">✂️ Corte e Gravação a Laser</h4>
+              <p class="text-sm text-gray-700">Vetorize desenhos para máquinas CNC, cortadoras a laser e plotters de recorte. Formato DXF ou SVG.</p>
+            </div>
+
+            <div class="bg-pink-50 p-4 rounded border-l-4 border-pink-500">
+              <h4 class="font-semibold text-gray-900">👕 Estamparia e Bordado</h4>
+              <p class="text-sm text-gray-700">Prepare designs para serigrafia, sublimação e máquinas de bordar. Vetores simplificam o processo de produção.</p>
+            </div>
+
+            <div class="bg-indigo-50 p-4 rounded border-l-4 border-indigo-500">
+              <h4 class="font-semibold text-gray-900">🎬 Motion Graphics</h4>
+              <p class="text-sm text-gray-700">Importe vetores SVG para After Effects, Lottie ou animação web. Animações suaves e responsivas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Dicas Profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Melhores Práticas</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Sempre trabalhe com imagem de maior resolução disponível</li>
+                <li>• Remova fundos antes de vetorizar para melhor resultado</li>
+                <li>• Simplifique cores complexas antes da vetorização</li>
+                <li>• Teste diferentes níveis de detalhe</li>
+                <li>• Salve sempre uma versão original não vetorizada</li>
+                <li>• Use SVG para web, EPS para impressão</li>
+                <li>• Nomeie layers e grupos no arquivo final</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Vetorizar fotos complexas (use apenas se necessário)</li>
+                <li>• Excesso de detalhe (arquivo grande e lento)</li>
+                <li>• Ignorar limpeza pós-vetorização</li>
+                <li>• Esquecer de expandir paths antes de editar</li>
+                <li>• Usar formatos inadequados para cada uso</li>
+                <li>• Vetorizar imagens muito pixelizadas (procure original maior)</li>
+                <li>• Não testar em diferentes tamanhos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500 mt-4">
+            <h4 class="font-bold text-blue-900 mb-2">🎯 Workflow Profissional Recomendado</h4>
+            <ol class="text-sm text-gray-700 space-y-2">
+              <li><strong>1.</strong> Preparação: Remover fundo, aumentar contraste, limpar ruídos</li>
+              <li><strong>2.</strong> Vetorização: Usar Vectorizer.AI para resultado rápido e preciso</li>
+              <li><strong>3.</strong> Refinamento: Abrir SVG no Illustrator para ajustes finos</li>
+              <li><strong>4.</strong> Otimização: Simplificar paths, ajustar cores, organizar layers</li>
+              <li><strong>5.</strong> Exportação: Salvar em múltiplos formatos conforme necessidade do projeto</li>
+              <li><strong>6.</strong> Teste: Verificar resultado em diferentes tamanhos e contextos</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔧 Troubleshooting Comum</h2>
+
+          <div class="space-y-3">
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Resultado com muitos pontos/nodes</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Reduza o nível de detalhe nas configurações ou use Object > Path > Simplify no Illustrator. Tente vetorizar com menos cores.</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Cores incorretas ou estranhas</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Ajuste manualmente no Illustrator usando a ferramenta de seleção de cores. Limite o número de cores no processo de vetorização.</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Bordas serrilhadas ou irregulares</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Use imagem original de maior resolução. Aumente o contraste antes de vetorizar. Ajuste configurações de "corners" e "paths".</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Arquivo SVG muito pesado</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Simplifique paths, reduza número de cores, remova elementos desnecessários. Use ferramentas como SVGOMG para otimização adicional.</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Detalhes pequenos desaparecendo</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Aumente o nível de detalhe ou use modo "High Fidelity". Considere se o detalhe é realmente necessário para seu uso final.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Projeto Prático</h2>
+        <p class="text-gray-700 mb-6">Vetorize diferentes tipos de imagens e prepare um portfólio:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Vetorizar um logo em baixa resolução usando Vectorizer.AI</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar uma ilustração vetorial a partir de foto no Illustrator</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Vetorizar um ícone complexo e simplificar para uso web</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Preparar arquivo vetorial para impressão (EPS/PDF)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar set de ícones vetoriais para um projeto</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Exportar vetores em 3 formatos diferentes (SVG, EPS, PDF)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="../" class="content-button content-button-secondary">
+          ← Voltar ao Módulo
+        </a>
+        <a href="aula-5.2-manipulacao-avancada.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 5.1
+    </div>
+  </footer>
+
+</body>
+</html>

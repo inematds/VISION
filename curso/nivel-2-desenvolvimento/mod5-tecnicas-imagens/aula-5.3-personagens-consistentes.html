@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 5.3: Criando personagens consistentes - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 5</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 5</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 5.3</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">👤 Aula 5.3</span>
+          <span class="badge badge-tecnico">120 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Criando personagens consistentes
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Domine técnicas avançadas para gerar o mesmo personagem em múltiplas poses, cenários e estilos usando IA.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Um dos maiores desafios na geração de imagens com IA é manter consistência de personagens. Seja para criar histórias em quadrinhos, storyboards, mascotes de marca ou séries de conteúdo, você precisa que o mesmo personagem apareça reconhecível em diferentes situações. Nesta aula, você aprenderá todas as técnicas profissionais para alcançar consistência perfeita.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de criar character sheets profissionais e manter o mesmo personagem consistente em dezenas ou centenas de imagens diferentes.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 O Desafio da Consistência</h2>
+
+          <div class="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-lg border-l-4 border-red-500 mb-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Por que é difícil?</h3>
+            <p class="text-gray-700 mb-3">Modelos de IA são treinados para gerar variedade, não consistência:</p>
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>• Cada geração é única e aleatória por design</li>
+              <li>• Pequenas mudanças no prompt criam personagens diferentes</li>
+              <li>• Mesmo prompt pode gerar resultados variados</li>
+              <li>• Detalhes faciais, roupas e proporções mudam facilmente</li>
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Soluções Profissionais</h3>
+            <div class="grid md:grid-cols-2 gap-3 text-sm text-gray-700">
+              <div class="bg-white p-3 rounded">
+                <strong>Character Reference:</strong> Usar imagem de referência
+              </div>
+              <div class="bg-white p-3 rounded">
+                <strong>Seed Locking:</strong> Fixar o seed para consistência
+              </div>
+              <div class="bg-white p-3 rounded">
+                <strong>Fine-tuning:</strong> Treinar modelo com seu personagem
+              </div>
+              <div class="bg-white p-3 rounded">
+                <strong>ControlNet:</strong> Controle estrutural preciso
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Ferramentas e Métodos</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-2 border-purple-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Midjourney --cref 🎨</h3>
+              <p class="text-sm text-gray-700 mb-3">Character Reference - A melhor ferramenta atual</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Uso:</strong> --cref [URL da imagem]</div>
+                <div class="bg-white p-2 rounded"><strong>Controle:</strong> --cw 0-100 (força da referência)</div>
+                <div class="bg-white p-2 rounded"><strong>Resultado:</strong> 90-95% de consistência</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Leonardo.AI Character Reference 🎯</h3>
+              <p class="text-sm text-gray-700 mb-3">Interface visual intuitiva para consistência</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Feature:</strong> Character Reference no canvas</div>
+                <div class="bg-white p-2 rounded"><strong>Vantagem:</strong> Fácil de usar, interface visual</div>
+                <div class="bg-white p-2 rounded"><strong>Resultado:</strong> 85-90% de consistência</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-2 border-green-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Stable Diffusion + LoRA 🎨</h3>
+              <p class="text-sm text-gray-700 mb-3">Treinamento personalizado do seu personagem</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Método:</strong> Fine-tune com 15-30 imagens</div>
+                <div class="bg-white p-2 rounded"><strong>Vantagem:</strong> Controle total, 100% consistência</div>
+                <div class="bg-white p-2 rounded"><strong>Requer:</strong> Conhecimento técnico, GPU</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-2 border-orange-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Consistent Character (ConsistentChar) ⚡</h3>
+              <p class="text-sm text-gray-700 mb-3">Ferramenta especializada em consistência</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Foco:</strong> Manter características faciais</div>
+                <div class="bg-white p-2 rounded"><strong>Uso:</strong> Upload de referência + prompt</div>
+                <div class="bg-white p-2 rounded"><strong>Ideal:</strong> Retratos e personagens humanos</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📋 Tutorial: Character Sheet Profissional</h2>
+
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 1: Criar Imagem Base (Master)</h3>
+              <p class="text-gray-700 mb-3">Comece gerando a versão definitiva do seu personagem:</p>
+
+              <div class="bg-white p-4 rounded border border-gray-300 mb-3">
+                <p class="text-sm font-semibold mb-2">Prompt estruturado ideal:</p>
+                <code class="text-xs bg-gray-100 p-2 rounded block">
+                  character design sheet, [descrição detalhada do personagem], front view, neutral pose, white background, professional character turnaround, consistent design, animation reference, [estilo artístico] --ar 1:1 --v 6
+                </code>
+              </div>
+
+              <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-sm">
+                <strong>Elementos obrigatórios na descrição:</strong>
+                <ul class="mt-2 space-y-1 ml-4">
+                  <li>• Gênero, idade aproximada, etnia</li>
+                  <li>• Cor e estilo de cabelo (detalhado)</li>
+                  <li>• Cor dos olhos e características faciais</li>
+                  <li>• Roupas específicas (cores, estilo, detalhes)</li>
+                  <li>• Acessórios marcantes</li>
+                  <li>• Proporções corporais</li>
+                  <li>• Estilo artístico desejado</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 2: Gerar Múltiplas Vistas (Turnaround)</h3>
+              <p class="text-gray-700 mb-3">Use a imagem base como referência para criar vistas adicionais:</p>
+
+              <div class="space-y-3">
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <strong class="text-sm">Vista Frontal (Front View):</strong>
+                  <code class="text-xs bg-gray-100 p-2 rounded block mt-1">
+                    --cref [URL base] front view, standing straight, facing camera --cw 100
+                  </code>
+                </div>
+
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <strong class="text-sm">Vista Lateral (Side View):</strong>
+                  <code class="text-xs bg-gray-100 p-2 rounded block mt-1">
+                    --cref [URL base] side profile view, standing straight, 90 degrees angle --cw 100
+                  </code>
+                </div>
+
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <strong class="text-sm">Vista Traseira (Back View):</strong>
+                  <code class="text-xs bg-gray-100 p-2 rounded block mt-1">
+                    --cref [URL base] back view, rear angle, standing straight --cw 100
+                  </code>
+                </div>
+
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <strong class="text-sm">Vista 3/4:</strong>
+                  <code class="text-xs bg-gray-100 p-2 rounded block mt-1">
+                    --cref [URL base] three-quarter view, 45 degree angle --cw 100
+                  </code>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 3: Expression Sheet (Folha de Expressões)</h3>
+              <p class="text-gray-700 mb-3">Crie diferentes expressões faciais mantendo o personagem:</p>
+
+              <div class="grid grid-cols-2 gap-2 text-sm">
+                <div class="bg-white p-2 rounded">😊 Happy / Feliz</div>
+                <div class="bg-white p-2 rounded">😢 Sad / Triste</div>
+                <div class="bg-white p-2 rounded">😠 Angry / Bravo</div>
+                <div class="bg-white p-2 rounded">😮 Surprised / Surpreso</div>
+                <div class="bg-white p-2 rounded">😨 Scared / Assustado</div>
+                <div class="bg-white p-2 rounded">🤔 Thoughtful / Pensativo</div>
+                <div class="bg-white p-2 rounded">😴 Tired / Cansado</div>
+                <div class="bg-white p-2 rounded">😎 Confident / Confiante</div>
+              </div>
+
+              <div class="bg-white p-3 rounded border border-gray-300 mt-3">
+                <strong class="text-sm">Prompt para expressões:</strong>
+                <code class="text-xs bg-gray-100 p-2 rounded block mt-1">
+                  --cref [URL base] close-up portrait, [expressão] expression, emotional, detailed face --cw 100
+                </code>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 4: Action Poses (Poses de Ação)</h3>
+              <p class="text-gray-700 mb-3">Gere o personagem em diferentes ações e poses dinâmicas:</p>
+
+              <div class="space-y-2 text-sm">
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <span>Walking / Caminhando</span>
+                  <span class="text-gray-500">dynamic walking pose</span>
+                </div>
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <span>Running / Correndo</span>
+                  <span class="text-gray-500">running motion, action pose</span>
+                </div>
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <span>Sitting / Sentado</span>
+                  <span class="text-gray-500">sitting on chair, relaxed</span>
+                </div>
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <span>Pointing / Apontando</span>
+                  <span class="text-gray-500">pointing finger forward</span>
+                </div>
+                <div class="bg-white p-2 rounded flex justify-between">
+                  <span>Waving / Acenando</span>
+                  <span class="text-gray-500">waving hello, friendly gesture</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 5: Contextualizações (Diferentes Cenários)</h3>
+              <p class="text-gray-700 mb-3">Teste seu personagem em diferentes ambientes e situações:</p>
+
+              <div class="grid md:grid-cols-2 gap-2 text-xs">
+                <div class="bg-white p-2 rounded">
+                  <strong>Indoor:</strong> inside office, at home, in classroom
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Outdoor:</strong> in park, city street, beach
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Weather:</strong> sunny day, rainy weather, snowy scene
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Time:</strong> daytime, sunset, night scene
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Activities:</strong> working, exercising, eating
+                </div>
+                <div class="bg-white p-2 rounded">
+                  <strong>Social:</strong> with friends, alone, in crowd
+                </div>
+              </div>
+
+              <div class="bg-blue-50 p-3 rounded mt-3 text-sm">
+                <strong>Dica:</strong> Sempre use --cref com --cw 80-100 para máxima consistência
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Tutorial: Leonardo.AI Character Reference</h2>
+
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Setup Inicial</h3>
+              <ol class="space-y-2 text-gray-700">
+                <li><strong>1.</strong> Acesse Leonardo.AI e vá para Image Generation</li>
+                <li><strong>2.</strong> Gere sua primeira imagem do personagem (base)</li>
+                <li><strong>3.</strong> Salve esta imagem - será sua referência principal</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Usando Character Reference</h3>
+              <ol class="space-y-3 text-gray-700">
+                <li><strong>1.</strong> Clique em "Image Guidance" ou "Character Reference"</li>
+                <li><strong>2.</strong> Upload da imagem base do seu personagem</li>
+                <li><strong>3.</strong> Ajuste "Character Strength" (0-100):
+                  <ul class="text-sm ml-6 mt-2 space-y-1">
+                    <li>• 100: Máxima fidelidade (mesma pose pode repetir)</li>
+                    <li>• 70-90: Balanceado (recomendado)</li>
+                    <li>• 50-70: Mais liberdade criativa</li>
+                  </ul>
+                </li>
+                <li><strong>4.</strong> Escreva prompt descrevendo nova cena/pose</li>
+                <li><strong>5.</strong> Mantenha descrição básica do personagem no prompt também</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Prompt Template Recomendado</h3>
+              <div class="bg-white p-4 rounded border border-gray-300">
+                <code class="text-xs bg-gray-100 p-2 rounded block">
+                  [nome do personagem], [descrição breve do personagem], [nova ação/pose], [cenário], [iluminação], [estilo], high quality, detailed
+                </code>
+                <p class="text-xs text-gray-600 mt-3">Exemplo:</p>
+                <code class="text-xs bg-gray-100 p-2 rounded block mt-1">
+                  Sarah the explorer, young woman with red hair and green jacket, hiking in the mountains, golden hour lighting, adventure photography style, high quality, detailed
+                </code>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Dicas para Melhores Resultados</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li>✓ Use múltiplas imagens de referência se disponível</li>
+                <li>✓ Mantenha o mesmo modelo de IA (Leonardo Diffusion XL, por exemplo)</li>
+                <li>✓ Seja consistente com palavras-chave do personagem</li>
+                <li>✓ Evite prompts muito longos (foco no essencial)</li>
+                <li>✓ Gere 4-8 variações e escolha a melhor</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔬 Técnica Avançada: LoRA Training</h2>
+
+          <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500 mb-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">O que é LoRA?</h3>
+            <p class="text-gray-700 mb-3">Low-Rank Adaptation - método de fine-tuning que treina um modelo para reconhecer especificamente seu personagem.</p>
+            <div class="bg-white p-4 rounded">
+              <strong class="text-sm">Vantagens:</strong>
+              <ul class="text-sm text-gray-700 mt-2 space-y-1">
+                <li>• 100% de consistência garantida</li>
+                <li>• Funciona com qualquer prompt</li>
+                <li>• Controle total sobre o personagem</li>
+                <li>• Pode ser compartilhado e reutilizado</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Processo de Treinamento</h3>
+              <ol class="space-y-2 text-sm text-gray-700">
+                <li><strong>1.</strong> Preparar dataset: 15-30 imagens do personagem em diferentes poses</li>
+                <li><strong>2.</strong> Tag/caption cada imagem descrevendo pose e ação</li>
+                <li><strong>3.</strong> Upload para plataforma de treinamento (Replicate, RunPod, etc.)</li>
+                <li><strong>4.</strong> Configurar parâmetros de treinamento</li>
+                <li><strong>5.</strong> Treinar por 1000-3000 steps (depende do dataset)</li>
+                <li><strong>6.</strong> Testar e ajustar se necessário</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Plataformas para LoRA Training</h3>
+              <div class="grid md:grid-cols-2 gap-3">
+                <div class="bg-white p-3 rounded">
+                  <strong class="text-sm">Civitai</strong>
+                  <p class="text-xs text-gray-600 mt-1">Comunidade com tutoriais e modelos prontos</p>
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong class="text-sm">Replicate</strong>
+                  <p class="text-xs text-gray-600 mt-1">Training fácil, pago por uso</p>
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong class="text-sm">Kohya_ss</strong>
+                  <p class="text-xs text-gray-600 mt-1">Interface local, gratuito (requer GPU)</p>
+                </div>
+                <div class="bg-white p-3 rounded">
+                  <strong class="text-sm">TheLastBen</strong>
+                  <p class="text-xs text-gray-600 mt-1">Google Colab notebooks gratuitos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-4 rounded border-l-4 border-yellow-500 mt-4">
+            <p class="text-sm text-gray-700"><strong>Nota:</strong> LoRA training é técnica avançada que requer conhecimento técnico e GPU. Para a maioria dos projetos, Character Reference no Midjourney ou Leonardo é suficiente.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Casos de Uso Profissionais</h2>
+
+          <div class="space-y-3">
+            <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-500">
+              <h4 class="font-semibold text-gray-900">📚 Histórias em Quadrinhos / Mangá</h4>
+              <p class="text-sm text-gray-700">Manter personagens consistentes através de dezenas ou centenas de painéis. Character sheets permitem criar narrativas visuais coesas.</p>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+              <h4 class="font-semibold text-gray-900">📱 Mascotes de Marca</h4>
+              <p class="text-sm text-gray-700">Criar mascote reconhecível em múltiplas situações: redes sociais, campanhas, produtos, eventos. Consistência = reconhecimento de marca.</p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+              <h4 class="font-semibold text-gray-900">🎬 Storyboards e Animação</h4>
+              <p class="text-sm text-gray-700">Pre-visualização de filmes, comerciais e animações. Character sheets aceleram aprovação de conceitos e planejamento de produção.</p>
+            </div>
+
+            <div class="bg-orange-50 p-4 rounded border-l-4 border-orange-500">
+              <h4 class="font-semibold text-gray-900">🎮 Concept Art para Games</h4>
+              <p class="text-sm text-gray-700">Desenvolver personagens de jogos em diferentes situações: combate, exploração, cutscenes, expressões emocionais.</p>
+            </div>
+
+            <div class="bg-pink-50 p-4 rounded border-l-4 border-pink-500">
+              <h4 class="font-semibold text-gray-900">📖 Livros Infantis Ilustrados</h4>
+              <p class="text-sm text-gray-700">Criar protagonistas que aparecem em múltiplas páginas e cenários. Consistência visual mantém imersão das crianças.</p>
+            </div>
+
+            <div class="bg-indigo-50 p-4 rounded border-l-4 border-indigo-500">
+              <h4 class="font-semibold text-gray-900">🎥 Influenciadores Virtuais</h4>
+              <p class="text-sm text-gray-700">Criar persona digital consistente para Instagram, TikTok e YouTube. Personagem reconhecível em diferentes conteúdos e situações.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Dicas Profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Melhores Práticas</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Crie descrição detalhada e única do personagem</li>
+                <li>• Documente todos os prompts que funcionaram</li>
+                <li>• Use características visuais marcantes (cabelo único, roupas específicas)</li>
+                <li>• Mantenha consistência de estilo artístico</li>
+                <li>• Sempre use --cw 80+ no Midjourney para consistência</li>
+                <li>• Salve todas as imagens boas para referência futura</li>
+                <li>• Crie naming convention para organizar assets</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Mudar descrição do personagem entre gerações</li>
+                <li>• Usar características genéricas demais</li>
+                <li>• Trocar de ferramenta/modelo no meio do projeto</li>
+                <li>• Esquecer de salvar imagens de referência</li>
+                <li>• Usar --cw muito baixo (perde consistência)</li>
+                <li>• Não testar character sheet antes de projeto grande</li>
+                <li>• Ignorar pequenas inconsistências (corrigir logo)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500 mt-4">
+            <h4 class="font-bold text-blue-900 mb-2">🎯 Workflow Profissional</h4>
+            <ol class="text-sm text-gray-700 space-y-2">
+              <li><strong>1.</strong> Brainstorm: Definir personalidade, aparência, estilo</li>
+              <li><strong>2.</strong> Master Image: Criar versão definitiva do personagem</li>
+              <li><strong>3.</strong> Character Sheet: Turnaround completo (front, side, back, 3/4)</li>
+              <li><strong>4.</strong> Expression Sheet: 6-8 expressões principais</li>
+              <li><strong>5.</strong> Action Poses: 5-10 poses dinâmicas essenciais</li>
+              <li><strong>6.</strong> Context Tests: Testar em 3-5 cenários diferentes</li>
+              <li><strong>7.</strong> Documentation: Salvar todos os prompts e configurações</li>
+              <li><strong>8.</strong> Production: Usar character reference em todas as gerações</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔧 Troubleshooting</h2>
+
+          <div class="space-y-3">
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Rosto muda entre gerações</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Aumente --cw para 90-100. Use close-up da face como referência adicional. Seja muito específico sobre características faciais no prompt.</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Roupa muda de cor ou estilo</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Descreva roupa com detalhes específicos (cor exata, tipo de tecido, acessórios). Adicione "wearing [descrição exata da roupa]" no prompt.</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Proporções corporais inconsistentes</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Especifique altura e build no prompt. Use full body reference. Considere usar ControlNet com pose skeleton para controle exato.</p>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-500">
+              <h4 class="font-semibold text-gray-900">Problema: Personagem parece diferente em novos cenários</h4>
+              <p class="text-sm text-gray-700 mt-1"><strong>Solução:</strong> Use múltiplas imagens de referência. Mantenha iluminação similar. Não mude drasticamente o ângulo de câmera de uma vez.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Projeto Prático</h2>
+        <p class="text-gray-700 mb-6">Crie um character sheet completo profissional:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Desenvolver conceito completo do personagem (história, personalidade)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar master image (imagem base definitiva)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Gerar turnaround sheet (front, side, back, 3/4 views)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar expression sheet com 8 expressões diferentes</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Gerar 6-10 action poses dinâmicas</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Testar personagem em 5 cenários diferentes</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar mini história visual (4-6 quadros) usando o personagem</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Documentar todos os prompts e configurações usados</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-5.2-manipulacao-avancada.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="aula-5.4-imagens-fotorrealistas.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 5.3
+    </div>
+  </footer>
+
+</body>
+</html>

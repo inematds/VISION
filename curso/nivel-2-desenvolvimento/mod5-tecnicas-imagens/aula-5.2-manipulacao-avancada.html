@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 5.2: Manipulação avançada de imagens com IA - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 5</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 5</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 5.2</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">🎨 Aula 5.2</span>
+          <span class="badge badge-tecnico">120 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Manipulação avançada de imagens com IA
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Domine técnicas profissionais de inpainting, outpainting, style transfer e manipulação criativa usando IA.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📖 Introdução</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            A manipulação avançada de imagens com IA revolucionou a edição fotográfica. Tarefas que antes levavam horas em Photoshop agora podem ser feitas em minutos com resultados surpreendentes. Nesta aula, você aprenderá técnicas que transformarão completamente seu workflow criativo.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p class="text-gray-700"><strong>Objetivo:</strong> Ao final desta aula, você será capaz de manipular imagens profissionalmente usando técnicas avançadas de IA como inpainting, outpainting e transferência de estilo.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Técnicas Fundamentais</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">🖌️ Inpainting (Preenchimento Inteligente)</h3>
+              <p class="text-gray-700 mb-3">Técnica para remover, substituir ou adicionar elementos dentro de uma imagem existente.</p>
+              <div class="bg-white p-4 rounded">
+                <p class="text-sm text-gray-700"><strong>Casos de uso:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1 mt-2">
+                  <li>• Remover objetos indesejados (pessoas, cabos, marcas)</li>
+                  <li>• Substituir elementos (trocar roupa, mudar objetos)</li>
+                  <li>• Corrigir imperfeições (manchas, rugas, defeitos)</li>
+                  <li>• Adicionar novos elementos que se integrem perfeitamente</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">🔲 Outpainting (Expansão de Canvas)</h3>
+              <p class="text-gray-700 mb-3">Técnica para expandir uma imagem além de suas bordas originais, criando conteúdo novo.</p>
+              <div class="bg-white p-4 rounded">
+                <p class="text-sm text-gray-700"><strong>Casos de uso:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1 mt-2">
+                  <li>• Mudar proporção de imagem (quadrada para panorâmica)</li>
+                  <li>• Adicionar mais contexto a uma cena</li>
+                  <li>• Criar versões widescreen de imagens</li>
+                  <li>• Expandir horizontes e paisagens</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">🎨 Style Transfer (Transferência de Estilo)</h3>
+              <p class="text-gray-700 mb-3">Aplicar o estilo artístico de uma imagem em outra, mantendo o conteúdo original.</p>
+              <div class="bg-white p-4 rounded">
+                <p class="text-sm text-gray-700"><strong>Casos de uso:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1 mt-2">
+                  <li>• Transformar fotos em pinturas (Van Gogh, Monet, etc.)</li>
+                  <li>• Aplicar estilos de anime ou cartoon</li>
+                  <li>• Criar versões artísticas de produtos</li>
+                  <li>• Unificar estética de múltiplas imagens</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-l-4 border-orange-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">🔄 Image-to-Image (Transformação Guiada)</h3>
+              <p class="text-gray-700 mb-3">Usar uma imagem como base estrutural e modificá-la com prompts de texto.</p>
+              <div class="bg-white p-4 rounded">
+                <p class="text-sm text-gray-700"><strong>Casos de uso:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1 mt-2">
+                  <li>• Transformar dia em noite (ou vice-versa)</li>
+                  <li>• Mudar estações do ano</li>
+                  <li>• Alterar clima e atmosfera</li>
+                  <li>• Reimaginar cenários mantendo composição</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Ferramentas Profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-2 border-purple-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Adobe Firefly 🔥</h3>
+              <p class="text-sm text-gray-700 mb-3">Ferramentas de IA integradas ao Photoshop</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Generative Fill:</strong> Inpainting de altíssima qualidade</div>
+                <div class="bg-white p-2 rounded"><strong>Generative Expand:</strong> Outpainting preciso e natural</div>
+                <div class="bg-white p-2 rounded"><strong>Vantagem:</strong> Integração perfeita com Photoshop</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Leonardo.AI 🎯</h3>
+              <p class="text-sm text-gray-700 mb-3">Plataforma completa para manipulação criativa</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Canvas Editor:</strong> Inpainting e outpainting integrados</div>
+                <div class="bg-white p-2 rounded"><strong>Image Guidance:</strong> Controle preciso de transformações</div>
+                <div class="bg-white p-2 rounded"><strong>Vantagem:</strong> Interface intuitiva, resultados rápidos</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-2 border-green-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Stable Diffusion 🎨</h3>
+              <p class="text-sm text-gray-700 mb-3">Solução open-source com máximo controle</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>ControlNet:</strong> Controle estrutural preciso</div>
+                <div class="bg-white p-2 rounded"><strong>Inpaint/Outpaint:</strong> Customização total</div>
+                <div class="bg-white p-2 rounded"><strong>Vantagem:</strong> Gratuito, infinitas possibilidades</div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-lg border-2 border-orange-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Midjourney 🌟</h3>
+              <p class="text-sm text-gray-700 mb-3">Qualidade artística superior para transformações</p>
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2 rounded"><strong>Pan & Zoom:</strong> Outpainting direcionado</div>
+                <div class="bg-white p-2 rounded"><strong>Vary (Region):</strong> Inpainting seletivo</div>
+                <div class="bg-white p-2 rounded"><strong>Vantagem:</strong> Resultados artisticamente superiores</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🖌️ Tutorial: Inpainting com Adobe Firefly</h2>
+
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 1: Preparar Imagem no Photoshop</h3>
+              <ol class="space-y-2 text-gray-700">
+                <li><strong>1.</strong> Abra sua imagem no Adobe Photoshop</li>
+                <li><strong>2.</strong> Certifique-se de ter a versão mais recente do Photoshop (2024+)</li>
+                <li><strong>3.</strong> Verifique se o Generative Fill está habilitado (beta features)</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 2: Selecionar Área</h3>
+              <div class="space-y-3">
+                <p class="text-gray-700">Use uma das ferramentas de seleção:</p>
+                <ul class="text-sm text-gray-700 space-y-2 ml-4">
+                  <li>• <strong>Lasso Tool (L):</strong> Seleção livre à mão</li>
+                  <li>• <strong>Object Selection Tool (W):</strong> Seleção automática de objetos</li>
+                  <li>• <strong>Quick Selection Tool (W):</strong> Seleção por área</li>
+                  <li>• <strong>Pen Tool (P):</strong> Seleção precisa (mais trabalhoso)</li>
+                </ul>
+                <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500 text-sm mt-3">
+                  <strong>Dica:</strong> Faça uma seleção um pouco maior que o objeto para melhor blending
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 3: Generative Fill</h3>
+              <ol class="space-y-2 text-gray-700">
+                <li><strong>1.</strong> Com a área selecionada, clique no botão "Generative Fill" que aparece</li>
+                <li><strong>2.</strong> Digite um prompt descrevendo o que você quer:</li>
+              </ol>
+
+              <div class="mt-3 space-y-2">
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Para remover:</p>
+                  <code class="text-xs bg-gray-100 p-2 rounded block">Deixe o prompt vazio ou escreva "remove"</code>
+                </div>
+
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Para substituir:</p>
+                  <code class="text-xs bg-gray-100 p-2 rounded block">"red vintage car" ou "wooden table"</code>
+                </div>
+
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Para adicionar:</p>
+                  <code class="text-xs bg-gray-100 p-2 rounded block">"flying birds in the sky" ou "flowers on table"</code>
+                </div>
+              </div>
+
+              <p class="text-sm text-gray-700 mt-3"><strong>3.</strong> Pressione "Generate" e aguarde (5-15 segundos)</p>
+              <p class="text-sm text-gray-700"><strong>4.</strong> O Firefly gerará 3 variações diferentes</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 4: Escolher e Refinar</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li>• Navegue entre as 3 variações geradas</li>
+                <li>• Escolha a melhor ou clique "Generate" novamente para novas opções</li>
+                <li>• Cada geração cria uma nova camada (layer) automaticamente</li>
+                <li>• Ajuste opacidade ou use layer masks para blending manual</li>
+                <li>• Combine múltiplas gerações se necessário</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 5: Pós-processamento</h3>
+              <p class="text-gray-700 mb-3">Finalize com ajustes tradicionais:</p>
+              <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                <li>• Color matching: ajuste cores para combinar com a imagem</li>
+                <li>• Blur edges: suavize bordas se necessário</li>
+                <li>• Dodge & Burn: ajuste luz e sombra</li>
+                <li>• Sharpen: aumente nitidez se necessário</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📐 Tutorial: Outpainting com Leonardo.AI</h2>
+
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 1: Configurar Canvas</h3>
+              <ol class="space-y-2 text-gray-700">
+                <li><strong>1.</strong> Acesse Leonardo.AI e vá para "Canvas Editor"</li>
+                <li><strong>2.</strong> Faça upload da sua imagem</li>
+                <li><strong>3.</strong> A imagem será posicionada no centro do canvas</li>
+              </ol>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 2: Expandir Canvas</h3>
+              <div class="space-y-3">
+                <p class="text-gray-700">Defina a nova proporção:</p>
+                <ul class="text-sm text-gray-700 space-y-2">
+                  <li><strong>Horizontal:</strong> Arraste as bordas laterais para fora</li>
+                  <li><strong>Vertical:</strong> Arraste bordas superior/inferior</li>
+                  <li><strong>Todos os lados:</strong> Para adicionar contexto ao redor</li>
+                </ul>
+                <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-500 text-sm mt-3">
+                  <strong>Proporções comuns:</strong> 16:9 (widescreen), 4:5 (Instagram), 1:1 (quadrado), 9:16 (vertical)
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 3: Prompts de Direção</h3>
+              <p class="text-gray-700 mb-3">Escreva um prompt descrevendo o que deve aparecer nas áreas expandidas:</p>
+
+              <div class="space-y-2">
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Paisagem:</p>
+                  <code class="text-xs bg-gray-100 p-2 rounded block">"continue the forest landscape, more trees and mountains in the distance, same lighting and atmosphere"</code>
+                </div>
+
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Interior:</p>
+                  <code class="text-xs bg-gray-100 p-2 rounded block">"expand the room, show more furniture and walls, maintain modern minimalist style"</code>
+                </div>
+
+                <div class="bg-white p-3 rounded border border-gray-300">
+                  <p class="text-sm font-semibold mb-1">Retrato:</p>
+                  <code class="text-xs bg-gray-100 p-2 rounded block">"show full body, same person, same outfit, studio background"</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 4: Ajustar Configurações</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li><strong>Image Strength:</strong> 0.3-0.5 (quanto menor, mais criativo; maior, mais fiel)</li>
+                <li><strong>Prompt Strength:</strong> 6-8 (controle sobre o prompt)</li>
+                <li><strong>Steps:</strong> 30-50 (qualidade vs velocidade)</li>
+                <li><strong>Modelo:</strong> Escolha modelo apropriado (Leonardo Diffusion XL para realismo)</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Passo 5: Gerar e Iterar</h3>
+              <ol class="space-y-2 text-gray-700">
+                <li><strong>1.</strong> Clique em "Generate" e aguarde o resultado</li>
+                <li><strong>2.</strong> Se não ficou perfeito, ajuste o prompt ou configurações</li>
+                <li><strong>3.</strong> Você pode expandir em etapas (expandir um lado, depois outro)</li>
+                <li><strong>4.</strong> Use inpainting para corrigir detalhes específicos</li>
+                <li><strong>5.</strong> Download da imagem final em alta resolução</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Style Transfer Profissional</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Método 1: Midjourney Style Reference</h3>
+              <div class="space-y-3">
+                <p class="text-sm text-gray-700">Use o parâmetro --sref para aplicar estilo de uma imagem em outra:</p>
+                <div class="bg-white p-3 rounded">
+                  <code class="text-xs bg-gray-100 p-2 rounded block mb-2">/imagine [sua imagem URL] [seu prompt] --sref [imagem estilo URL] --sw 100</code>
+                  <p class="text-xs text-gray-600 mt-2">--sw controla a força do estilo (0-1000, padrão 100)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Método 2: Leonardo.AI Style Reference</h3>
+              <ol class="space-y-2 text-sm text-gray-700">
+                <li><strong>1.</strong> No Leonardo, use "Image Guidance"</li>
+                <li><strong>2.</strong> Upload sua imagem base (conteúdo)</li>
+                <li><strong>3.</strong> Upload imagem de referência (estilo)</li>
+                <li><strong>4.</strong> Ajuste "Style Strength" (quanto de estilo aplicar)</li>
+                <li><strong>5.</strong> Prompt descrevendo o resultado desejado</li>
+              </ol>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Método 3: Stable Diffusion ControlNet</h3>
+              <p class="text-sm text-gray-700 mb-2">Para máximo controle usando ControlNet:</p>
+              <ul class="text-xs text-gray-700 space-y-1 ml-4">
+                <li>• Canny: preserva bordas e estrutura</li>
+                <li>• Depth: mantém profundidade da cena</li>
+                <li>• OpenPose: preserva poses de pessoas</li>
+                <li>• Combine múltiplos ControlNets para controle total</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-4 rounded border-l-4 border-yellow-500 mt-4">
+            <h4 class="font-bold text-gray-900 mb-2">Estilos Artísticos Populares</h4>
+            <div class="grid grid-cols-2 gap-2 text-xs text-gray-700">
+              <div>• Van Gogh (impressionismo)</div>
+              <div>• Anime/Manga</div>
+              <div>• Watercolor (aquarela)</div>
+              <div>• Oil painting (pintura a óleo)</div>
+              <div>• Art Deco</div>
+              <div>• Cyberpunk</div>
+              <div>• Studio Ghibli</div>
+              <div>• Retro 80s</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Casos de Uso Criativos</h2>
+
+          <div class="space-y-3">
+            <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-500">
+              <h4 class="font-semibold text-gray-900">📸 Fotografia de Produto</h4>
+              <p class="text-sm text-gray-700">Remova fundos, adicione contexto, mude cenários, crie variações de ambiente sem refotografar.</p>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+              <h4 class="font-semibold text-gray-900">🏠 Real Estate</h4>
+              <p class="text-sm text-gray-700">Remova móveis, adicione decoração virtual, mude iluminação, transforme dia em noite, expanda cômodos pequenos.</p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+              <h4 class="font-semibold text-gray-900">🎬 Storyboards e Conceitos</h4>
+              <p class="text-sm text-gray-700">Crie variações de cenas, teste diferentes composições, adicione elementos narrativos rapidamente.</p>
+            </div>
+
+            <div class="bg-orange-50 p-4 rounded border-l-4 border-orange-500">
+              <h4 class="font-semibold text-gray-900">👗 Moda e E-commerce</h4>
+              <p class="text-sm text-gray-700">Troque cores de roupas, adicione acessórios, mude fundos, crie variações de produtos sem nova sessão de fotos.</p>
+            </div>
+
+            <div class="bg-pink-50 p-4 rounded border-l-4 border-pink-500">
+              <h4 class="font-semibold text-gray-900">🎨 Arte Conceitual</h4>
+              <p class="text-sm text-gray-700">Transforme esboços em renders, aplique estilos artísticos, crie variações criativas rapidamente.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Dicas Profissionais</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">✅ Melhores Práticas</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Sempre trabalhe em alta resolução</li>
+                <li>• Salve versões intermediárias</li>
+                <li>• Seja específico nos prompts</li>
+                <li>• Use seleções precisas para inpainting</li>
+                <li>• Ajuste iluminação para combinar com original</li>
+                <li>• Faça múltiplas gerações e escolha a melhor</li>
+                <li>• Combine IA com edição manual para perfeição</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">❌ Evite</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Prompts vagos ou genéricos</li>
+                <li>• Ignorar consistência de luz e sombra</li>
+                <li>• Outpainting muito agressivo de uma vez</li>
+                <li>• Esquecer de ajustar perspectiva</li>
+                <li>• Usar primeira geração sem testar outras</li>
+                <li>• Não verificar resultado em 100% zoom</li>
+                <li>• Esquecer de combinar cores e tonalidades</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Projeto Prático</h2>
+        <p class="text-gray-700 mb-6">Crie um portfólio de manipulações avançadas:</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Remover 3 objetos diferentes usando inpainting (Firefly)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Expandir imagem quadrada para formato 16:9 (Leonardo)</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Aplicar 3 estilos artísticos diferentes na mesma foto</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Transformar dia em noite usando image-to-image</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Criar antes/depois de produto com manipulação avançada</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5">
+            <span>Combinar inpainting + outpainting em um projeto complexo</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-5.1-vetorizacao-imagens.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="aula-5.3-personagens-consistentes.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 5.2
+    </div>
+  </footer>
+
+</body>
+</html>
