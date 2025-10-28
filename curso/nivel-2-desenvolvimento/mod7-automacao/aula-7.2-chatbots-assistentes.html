@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 7.2: Chatbots e Assistentes Virtuais - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 7</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 7</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 7.2</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">🤖 Aula 7.2</span>
+          <span class="badge badge-tecnico">95 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Chatbots e Assistentes Virtuais
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Crie assistentes inteligentes com ChatGPT API, Custom GPTs, e plataformas no-code. Atenda clientes, gere conteúdo e automatize tarefas.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">💬 A Era dos Assistentes Inteligentes</h2>
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border-l-4 border-blue-500 mb-6">
+            <p class="text-gray-700 mb-4">
+              Chatbots modernos com IA vão além de respostas automáticas: <strong>conversam naturalmente, entendem contexto e executam ações</strong>:
+            </p>
+            <ul class="text-gray-700 space-y-2">
+              <li>✓ <strong>Atendimento 24/7:</strong> Responde clientes instantaneamente, sem espera</li>
+              <li>✓ <strong>Lead qualification:</strong> Coleta dados e qualifica prospects automaticamente</li>
+              <li>✓ <strong>Content creation assistant:</strong> Ajuda criadores a gerar ideias e conteúdo</li>
+              <li>✓ <strong>Personalização em escala:</strong> Conversa adaptada para cada usuário</li>
+              <li>✓ <strong>Integração com sistemas:</strong> Acessa CRM, agenda, e-commerce, databases</li>
+              <li>✓ <strong>Multilíngue nativo:</strong> Conversa em qualquer idioma naturalmente</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg border-2 border-green-300">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Casos de Uso Reais para Criadores e Negócios</h3>
+            <div class="grid md:grid-cols-2 gap-3">
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-blue-900">📞 Atendimento ao Cliente</p>
+                <p class="text-xs text-gray-600">Responde FAQs, resolve problemas simples, escala para humano quando necessário</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-purple-900">🎓 Assistente de Curso</p>
+                <p class="text-xs text-gray-600">Tira dúvidas de alunos, recomenda aulas, envia lembretes</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-green-900">💼 Sales Assistant</p>
+                <p class="text-xs text-gray-600">Qualifica leads, agenda calls, apresenta produtos</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-orange-900">✍️ Content Generator</p>
+                <p class="text-xs text-gray-600">Gera posts, scripts, captions sob demanda</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-pink-900">📊 Analytics Reporter</p>
+                <p class="text-xs text-gray-600">Consulta métricas e gera relatórios em linguagem natural</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-indigo-900">🗓️ Scheduler Bot</p>
+                <p class="text-xs text-gray-600">Agenda reuniões, sincroniza calendário, envia lembretes</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🧠 Custom GPTs: Seu Assistente Personalizado em 5 Minutos</h2>
+
+          <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-lg border-2 border-green-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">✨</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">Custom GPTs (ChatGPT Plus)</h3>
+                <p class="text-gray-600">chat.openai.com/gpts/editor</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              <strong>A forma mais fácil</strong> de criar assistente IA sem código: configure instruções, conhecimento e ações em interface simples.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ Vantagens:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• Zero código necessário</li>
+                  <li>• Criação em 5-10 minutos</li>
+                  <li>• Upload de arquivos (PDFs, docs) como knowledge base</li>
+                  <li>• Web browsing e DALL-E integrados</li>
+                  <li>• Compartilhável via link</li>
+                  <li>• GPT Store (pode monetizar futuramente)</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">💰 Requisitos:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>ChatGPT Plus:</strong> $20/mês</li>
+                  <li>• OU <strong>ChatGPT Team:</strong> $30/user/mês</li>
+                  <li>• OU <strong>ChatGPT Enterprise:</strong> custom pricing</li>
+                  <li>• Plano Free NÃO tem acesso</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Como Criar seu Custom GPT</h3>
+
+            <div class="space-y-4">
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="font-semibold text-blue-900 mb-2">Passo 1: Acesse GPT Builder</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>1. Vá para chat.openai.com</li>
+                  <li>2. Clique "Explore GPTs" (sidebar)</li>
+                  <li>3. Clique "Create a GPT"</li>
+                  <li>4. Escolha "Create" ou "Configure"</li>
+                </ul>
+                <p class="text-xs text-gray-600 mt-2"><strong>Create:</strong> Conversacional (você descreve, IA configura). <strong>Configure:</strong> Manual (você preenche campos).</p>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <p class="font-semibold text-green-900 mb-2">Passo 2: Defina Personalidade e Instruções</p>
+                <p class="text-sm text-gray-700 mb-2">Configure como seu GPT deve se comportar:</p>
+                <div class="bg-white p-3 rounded mt-2 text-xs">
+                  <p class="font-semibold text-gray-900 mb-1">📝 Exemplo de Instructions:</p>
+                  <pre class="text-gray-700 whitespace-pre-wrap">Você é um assistente de criação de conteúdo especializado em vídeos virais.
+
+Seu objetivo: Ajudar criadores a gerar ideias, roteiros e hooks para vídeos.
+
+Tom: Criativo, enérgico, mas prático. Use exemplos reais.
+
+Quando usuário pedir ideia:
+1. Pergunte nicho e plataforma (TikTok, YouTube, Instagram)
+2. Sugira 5 ideias específicas com título + hook + estrutura
+3. Explique por que cada ideia tem potencial viral
+
+Sempre inclua:
+- Hook nos primeiros 3 segundos
+- Estrutura clara (intro, body, CTA)
+- Hashtags relevantes</pre>
+                </div>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <p class="font-semibold text-purple-900 mb-2">Passo 3: Upload de Knowledge Base (Opcional)</p>
+                <p class="text-sm text-gray-700 mb-2">Adicione documentos para contexto especializado:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Clique "Upload files" em Knowledge</li>
+                  <li>• Formatos: PDF, TXT, DOC, CSV (até 20 arquivos)</li>
+                  <li>• <strong>Exemplos:</strong> Manual da sua empresa, transcrições de curso, catálogo de produtos</li>
+                  <li>• GPT busca informações nesses arquivos automaticamente</li>
+                </ul>
+              </div>
+
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                <p class="font-semibold text-orange-900 mb-2">Passo 4: Habilite Capabilities</p>
+                <div class="space-y-2 text-sm text-gray-700 ml-4">
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" checked disabled class="w-4 h-4">
+                    <span><strong>Web Browsing:</strong> Busca informações online atualizadas</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" checked disabled class="w-4 h-4">
+                    <span><strong>DALL-E Image Generation:</strong> Cria imagens sob demanda</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" checked disabled class="w-4 h-4">
+                    <span><strong>Code Interpreter:</strong> Executa código Python, analisa dados</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-500">
+                <p class="font-semibold text-pink-900 mb-2">Passo 5: Teste e Publique</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Use "Preview" (lado direito) para testar conversas</li>
+                  <li>• Ajuste Instructions baseado em respostas</li>
+                  <li>• Quando satisfeito, clique "Save"</li>
+                  <li>• Escolha visibilidade: Only me, Anyone with link, Public (GPT Store)</li>
+                  <li>• Compartilhe link com usuários</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">🎬 Exemplos de Custom GPTs para Criadores</h3>
+
+            <div class="space-y-3">
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-semibold text-blue-900 mb-2">📱 "Viral Video Script Generator"</p>
+                <p class="text-xs text-gray-700 mb-2"><strong>Função:</strong> Gera roteiros para TikTok/Reels baseado em trends</p>
+                <p class="text-xs text-gray-600"><strong>Instructions:</strong> "Analise trends do TikTok e crie scripts de 30-60s com hook forte nos 3s iniciais. Inclua timing de cada cena."</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-semibold text-green-900 mb-2">🎨 "Thumbnail Designer Assistant"</p>
+                <p class="text-xs text-gray-700 mb-2"><strong>Função:</strong> Sugere conceitos de thumbnail e gera com DALL-E</p>
+                <p class="text-xs text-gray-600"><strong>Instructions:</strong> "Analise título do vídeo, sugira 3 conceitos de thumbnail com alto CTR, gere previews com DALL-E."</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-semibold text-purple-900 mb-2">💼 "Brand Voice Writer"</p>
+                <p class="text-xs text-gray-700 mb-2"><strong>Função:</strong> Escreve conteúdo no tom de voz da sua marca</p>
+                <p class="text-xs text-gray-600"><strong>Knowledge Base:</strong> Upload de 10-20 posts anteriores para aprender seu estilo</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-semibold text-orange-900 mb-2">📊 "Content Performance Analyst"</p>
+                <p class="text-xs text-gray-700 mb-2"><strong>Função:</strong> Analisa métricas e sugere melhorias</p>
+                <p class="text-xs text-gray-600"><strong>Instructions:</strong> "Quando usuário colar analytics, identifique padrões de sucesso/falha e sugira otimizações."</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <p class="font-semibold text-pink-900 mb-2">🎓 "Course Support Bot"</p>
+                <p class="text-xs text-gray-700 mb-2"><strong>Função:</strong> Responde dúvidas de alunos sobre curso</p>
+                <p class="text-xs text-gray-600"><strong>Knowledge Base:</strong> PDFs das aulas + FAQs. Sempre direciona aluno para aula específica.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Dicas para Custom GPTs Efetivos</h3>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>
+                <strong>✓ Instructions claras e específicas:</strong> Quanto mais detalhada, melhor a performance. Inclua exemplos de respostas ideais.
+              </li>
+              <li>
+                <strong>✓ Defina tom de voz:</strong> "Formal", "casual", "técnico", "enérgico"... Isso molda toda conversa.
+              </li>
+              <li>
+                <strong>✓ Use estruturas:</strong> "Sempre responda em: 1) Resumo 2) Explicação 3) Próximos passos"
+              </li>
+              <li>
+                <strong>✓ Adicione guardrails:</strong> "Nunca forneça informações sobre X. Se perguntado, responda Y."
+              </li>
+              <li>
+                <strong>✓ Itere baseado em uso:</strong> Teste com usuários reais, ajuste Instructions baseado em erros/confusões.
+              </li>
+              <li>
+                <strong>✓ Knowledge Base limitada:</strong> Max 20 arquivos. Foque em documentos essenciais e bem estruturados.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔌 ChatGPT API: Integração Programática</h2>
+
+          <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-lg border-2 border-indigo-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">🔌</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">OpenAI API</h3>
+                <p class="text-gray-600">platform.openai.com/docs</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              <strong>Para desenvolvedores:</strong> Integre ChatGPT em sites, apps, bots com código. Controle total, escalabilidade ilimitada.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ Quando usar API:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• Integração em website/app próprio</li>
+                  <li>• Conversas em WhatsApp/Telegram</li>
+                  <li>• Processar milhares de mensagens</li>
+                  <li>• Customização avançada de lógica</li>
+                  <li>• Controle de custos por uso</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">💰 Preços (Pay-as-you-go):</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>GPT-4o:</strong> $2.50 / 1M input tokens</li>
+                  <li>• <strong>GPT-4o mini:</strong> $0.15 / 1M input tokens</li>
+                  <li>• <strong>GPT-3.5 Turbo:</strong> $0.50 / 1M tokens</li>
+                  <li>• ~1 token = 4 caracteres em inglês</li>
+                  <li>• $5 inicial de crédito grátis</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Setup Básico da API</h3>
+
+            <div class="space-y-4">
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="font-semibold text-blue-900 mb-2">1. Criar Conta e API Key</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>1. Acesse platform.openai.com</li>
+                  <li>2. Crie conta (diferente do ChatGPT Plus)</li>
+                  <li>3. Adicione método de pagamento (cartão)</li>
+                  <li>4. Vá para API keys → Create new secret key</li>
+                  <li>5. <strong>COPIE e SALVE</strong> a key (aparece só uma vez)</li>
+                </ul>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <p class="font-semibold text-green-900 mb-2">2. Exemplo de Chamada (Python)</p>
+                <div class="bg-gray-900 text-gray-100 p-3 rounded mt-2 text-xs overflow-x-auto">
+                  <pre>import openai
+
+openai.api_key = "sk-..." # Sua API key
+
+response = openai.ChatCompletion.create(
+  model="gpt-4o-mini",
+  messages=[
+    {"role": "system", "content": "Você é assistente criativo para criadores de conteúdo."},
+    {"role": "user", "content": "Gere 3 ideias de vídeo sobre IA"}
+  ],
+  temperature=0.7
+)
+
+print(response.choices[0].message.content)</pre>
+                </div>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <p class="font-semibold text-purple-900 mb-2">3. Exemplo de Chamada (JavaScript)</p>
+                <div class="bg-gray-900 text-gray-100 p-3 rounded mt-2 text-xs overflow-x-auto">
+                  <pre>import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+const completion = await openai.chat.completions.create({
+  model: "gpt-4o-mini",
+  messages: [
+    { role: "system", content: "Você é assistente criativo." },
+    { role: "user", content: "Gere 3 ideias de vídeo sobre IA" }
+  ]
+});
+
+console.log(completion.choices[0].message.content);</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Conceitos Importantes da API</h3>
+            <div class="space-y-3 text-sm">
+              <div class="bg-white p-3 rounded">
+                <p class="font-semibold text-gray-900 mb-1">🎭 Roles (Papéis das Mensagens)</p>
+                <ul class="text-gray-700 space-y-1 text-xs ml-4">
+                  <li>• <strong>system:</strong> Instruções iniciais (define comportamento do assistente)</li>
+                  <li>• <strong>user:</strong> Mensagens do usuário</li>
+                  <li>• <strong>assistant:</strong> Respostas do ChatGPT (usado para contexto de conversas anteriores)</li>
+                </ul>
+              </div>
+
+              <div class="bg-white p-3 rounded">
+                <p class="font-semibold text-gray-900 mb-1">🌡️ Temperature (Criatividade)</p>
+                <p class="text-xs text-gray-700">0.0 = Determinístico, sempre mesma resposta. 1.0 = Criativo, respostas variadas. Padrão: 0.7</p>
+              </div>
+
+              <div class="bg-white p-3 rounded">
+                <p class="font-semibold text-gray-900 mb-1">💬 Context Window (Memória)</p>
+                <p class="text-xs text-gray-700">GPT-4o: 128k tokens (~100k palavras). Inclua mensagens anteriores no array para "memória" da conversa.</p>
+              </div>
+
+              <div class="bg-white p-3 rounded">
+                <p class="font-semibold text-gray-900 mb-1">🔧 Function Calling (Ações)</p>
+                <p class="text-xs text-gray-700">Defina funções que o GPT pode "chamar" (ex: buscar_clima, agendar_reuniao). GPT decide quando usar.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Plataformas No-Code de Chatbots</h2>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">💬</span>
+                <h4 class="font-bold text-gray-900">Voiceflow</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Designer visual de chatbots com IA</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Conversas complexas, multi-etapa</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Interface drag-and-drop tipo fluxograma</p>
+                <p>• Integra OpenAI, Anthropic</p>
+                <p>• Deploy em website, WhatsApp, Slack</p>
+                <p>• Knowledge base de documentos</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (sandbox) - $40+/mês</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🤖</span>
+                <h4 class="font-bold text-gray-900">Chatbase</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Chatbot treinado em seus dados</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Support bot em site</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Upload docs/PDFs/website para treinar</p>
+                <p>• Widget embed pronto</p>
+                <p>• GPT-4 powered</p>
+                <p>• Lead collection integrado</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (1 bot) - $19-99/mês</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">📱</span>
+                <h4 class="font-bold text-gray-900">ManyChat</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Chatbot para Instagram, WhatsApp, Facebook</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Marketing em redes sociais</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Automações de DM no Instagram</p>
+                <p>• Flows visuais no-code</p>
+                <p>• Broadcasts e sequences</p>
+                <p>• E-commerce integrations</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (1k contatos) - $15-145/mês</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">⚡</span>
+                <h4 class="font-bold text-gray-900">Botpress</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Plataforma open-source de chatbots</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Developers, customização</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Visual flow builder + código</p>
+                <p>• Self-hosted ou cloud</p>
+                <p>• Integra qualquer LLM</p>
+                <p>• Omnichannel (web, WhatsApp, Telegram...)</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (self-host) - $10+/mês (cloud)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🔮</span>
+                <h4 class="font-bold text-gray-900">Landbot</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Chatbot conversacional para websites</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Lead gen, surveys</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Builder visual intuitivo</p>
+                <p>• Templates de use cases</p>
+                <p>• Native WhatsApp integration</p>
+                <p>• Zapier/Make integration</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> $40-400+/mês</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">💎</span>
+                <h4 class="font-bold text-gray-900">Intercom (Fin AI)</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Customer support com AI integrada</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Empresas médias/grandes</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• AI agent treina em help center</p>
+                <p>• Resolve ~50% tickets automaticamente</p>
+                <p>• Handoff para humano suave</p>
+                <p>• CRM completo integrado</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> $74+/mês (Fin AI extra)</p>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Como Escolher Plataforma de Chatbot</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-blue-100">
+                  <tr>
+                    <th class="p-2 text-left">Necessidade</th>
+                    <th class="p-2 text-left">Plataforma Recomendada</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+                  <tr class="border-b">
+                    <td class="p-2">Support bot em website (treinar em docs)</td>
+                    <td class="p-2 font-semibold">Chatbase ou Voiceflow</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2">Automação de Instagram DM</td>
+                    <td class="p-2 font-semibold">ManyChat</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2">Assistente para uso pessoal/time</td>
+                    <td class="p-2 font-semibold">Custom GPT</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2">Lead qualification forms</td>
+                    <td class="p-2 font-semibold">Landbot ou Typeform AI</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2">Integração avançada em app próprio</td>
+                    <td class="p-2 font-semibold">OpenAI API direto</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2">Open-source, controle total</td>
+                    <td class="p-2 font-semibold">Botpress ou n8n</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Casos de Uso Práticos com Implementação</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-3">1. Support Bot para Curso Online</h4>
+              <div class="bg-white p-4 rounded mb-3">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Objetivo:</p>
+                <p class="text-xs text-gray-700">Responder dúvidas de alunos 24/7, reduzir tickets de suporte em 70%</p>
+              </div>
+              <div class="bg-white p-4 rounded mb-3">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Solução:</p>
+                <p class="text-xs text-gray-700 mb-2">Chatbase bot treinado em:</p>
+                <ul class="text-xs text-gray-600 ml-4 space-y-1">
+                  <li>• PDFs das aulas</li>
+                  <li>• FAQ document</li>
+                  <li>• Transcrições de vídeos</li>
+                </ul>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Implementação:</p>
+                <ol class="text-xs text-gray-700 space-y-1 ml-4">
+                  <li>1. Upload docs no Chatbase</li>
+                  <li>2. Configure "Escalate to human" se bot não souber responder</li>
+                  <li>3. Embed widget no site do curso</li>
+                  <li>4. Monitore conversas e adicione FAQs faltantes</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-3">2. Instagram Lead Qualification Bot</h4>
+              <div class="bg-white p-4 rounded mb-3">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Objetivo:</p>
+                <p class="text-xs text-gray-700">Quando alguém comentar "EBOOK" em post, enviar DM com questionário e qualificar lead</p>
+              </div>
+              <div class="bg-white p-4 rounded mb-3">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Solução:</p>
+                <p class="text-xs text-gray-700">ManyChat automation flow</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Flow:</p>
+                <ol class="text-xs text-gray-700 space-y-1 ml-4">
+                  <li>1. Trigger: Comment contains "EBOOK"</li>
+                  <li>2. Reply comment: "Enviando no DM 📩"</li>
+                  <li>3. Send DM: "Oi! Qual seu maior desafio com X?"</li>
+                  <li>4. Collect: Name, Email, Challenge</li>
+                  <li>5. Send: Link do ebook</li>
+                  <li>6. Add to Airtable: Lead info</li>
+                  <li>7. Notify Slack: New qualified lead</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-3">3. Content Ideation Slack Bot</h4>
+              <div class="bg-white p-4 rounded mb-3">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Objetivo:</p>
+                <p class="text-xs text-gray-700">Time pede ideias de conteúdo diretamente no Slack, bot gera com ChatGPT</p>
+              </div>
+              <div class="bg-white p-4 rounded mb-3">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Solução:</p>
+                <p class="text-xs text-gray-700">Slack App + OpenAI API (via Zapier ou código)</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Como funciona:</p>
+                <ol class="text-xs text-gray-700 space-y-1 ml-4">
+                  <li>1. User digita: "/ideia social media para Q4"</li>
+                  <li>2. Slack envia comando para Zapier webhook</li>
+                  <li>3. Zapier → OpenAI API com prompt customizado</li>
+                  <li>4. ChatGPT gera 5 ideias específicas</li>
+                  <li>5. Zapier posta resposta no Slack thread</li>
+                  <li>6. (Bonus) Salva ideias em Notion automaticamente</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-3">4. WhatsApp Product Recommender</h4>
+              <div class="bg-white p-4 rounded mb-3">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Objetivo:</p>
+                <p class="text-xs text-gray-700">Clientes mensageiam WhatsApp Business, bot recomenda produtos baseado em preferências</p>
+              </div>
+              <div class="bg-white p-4 rounded mb-3">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Solução:</p>
+                <p class="text-xs text-gray-700">Landbot WhatsApp + GPT integration</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="text-sm font-semibold text-gray-900 mb-2">Conversa:</p>
+                <div class="text-xs text-gray-700 space-y-2 ml-4">
+                  <p><strong>Bot:</strong> Oi! Procura qual tipo de produto? (Eletrônicos, Moda, Casa)</p>
+                  <p><strong>User:</strong> Eletrônicos</p>
+                  <p><strong>Bot:</strong> Qual seu orçamento? (até R$500, R$500-1000, +R$1000)</p>
+                  <p><strong>User:</strong> R$500-1000</p>
+                  <p><strong>Bot:</strong> [ChatGPT busca catálogo] Recomendo: [3 produtos com links]</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Best Practices para Chatbots Efetivos</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">👋 Defina Expectativas Claramente</h4>
+              <p class="text-sm text-gray-700">Primeira mensagem: "Sou um assistente IA. Posso ajudar com X, Y, Z. Para assuntos urgentes, fale com humano."</p>
+            </div>
+
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">🚪 Handoff para Humano Sempre Disponível</h4>
+              <p class="text-sm text-gray-700">Se bot não souber responder ou usuário pedir, transfira para suporte humano suavemente. Nunca "trave" usuário com bot.</p>
+            </div>
+
+            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">🎯 Foque em Use Cases Específicos</h4>
+              <p class="text-sm text-gray-700">Bot que faz "tudo" faz nada bem. Melhor: Bot especializado em FAQs ou Bot de agendamento separado de Bot de vendas.</p>
+            </div>
+
+            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">📊 Monitore e Itere</h4>
+              <p class="text-sm text-gray-700">Revise conversas semanalmente. Identifique perguntas que bot não soube responder. Adicione ao conhecimento/FAQs.</p>
+            </div>
+
+            <div class="bg-pink-50 p-5 rounded-lg border-l-4 border-pink-500">
+              <h4 class="font-bold text-pink-900 mb-2">💬 Tom de Voz Consistente</h4>
+              <p class="text-sm text-gray-700">Defina personalidade: amigável? formal? enérgico? Mantenha consistência em todas respostas. Isso constrói brand.</p>
+            </div>
+
+            <div class="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
+              <h4 class="font-bold text-indigo-900 mb-2">⚡ Respostas Rápidas</h4>
+              <p class="text-sm text-gray-700">Usuários esperam resposta em &lt;3 segundos. Use modelos rápidos (GPT-4o-mini) para latência baixa. Cache respostas comuns.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Exercício Prático</h2>
+        <p class="text-gray-700 mb-6">Crie seus próprios assistentes inteligentes:</p>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 1: Custom GPT Pessoal</p>
+              <p class="text-sm text-gray-600">Crie Custom GPT que ajuda você em seu trabalho. Defina instruções claras, teste 10 conversas, itere.</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 2: Support Bot com Chatbase</p>
+              <p class="text-sm text-gray-600">Crie conta no Chatbase. Faça upload de 3-5 documentos (PDFs ou texto). Teste bot com perguntas reais.</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 3: Primeira Chamada de API</p>
+              <p class="text-sm text-gray-600">Configure OpenAI API. Faça primeira chamada (Python ou JS). Crie mini-script que gera 5 ideias de conteúdo.</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 4: Instagram DM Bot (se tiver conta business)</p>
+              <p class="text-sm text-gray-600">Configure ManyChat. Crie flow simples: comentário keyword → DM automático. Teste em post real.</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="aula-7.1-automacao-zapier-make.html" class="content-button content-button-secondary">
+          ← Aula Anterior
+        </a>
+        <a href="../" class="content-button content-button-primary">
+          Concluir Módulo →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 7.2
+    </div>
+  </footer>
+
+</body>
+</html>

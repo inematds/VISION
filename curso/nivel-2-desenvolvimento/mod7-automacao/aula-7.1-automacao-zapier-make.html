@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 7.1: Automação com Zapier e Make - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 7</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 7</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 7.1</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-intermediario">⚡ Aula 7.1</span>
+          <span class="badge badge-tecnico">90 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Automação com Zapier e Make
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Crie workflows inteligentes que conectam IA, redes sociais, CRM e mais. Automatize criação de conteúdo, publicação e gestão.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🤖 A Revolução da Automação No-Code</h2>
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border-l-4 border-blue-500 mb-6">
+            <p class="text-gray-700 mb-4">
+              Plataformas de automação transformam tarefas manuais repetitivas em <strong>workflows automáticos inteligentes</strong>:
+            </p>
+            <ul class="text-gray-700 space-y-2">
+              <li>✓ <strong>Integre 5000+ apps:</strong> Google, OpenAI, Instagram, Notion, Airtable, Slack...</li>
+              <li>✓ <strong>Sem código:</strong> Interface visual drag-and-drop para criar automações</li>
+              <li>✓ <strong>IA integrada:</strong> ChatGPT, DALL-E, Midjourney direto nos workflows</li>
+              <li>✓ <strong>Triggers inteligentes:</strong> Reaja a eventos (novo email, post, formulário...)</li>
+              <li>✓ <strong>Ações encadeadas:</strong> Crie pipelines complexos de múltiplos passos</li>
+              <li>✓ <strong>Economize horas diárias:</strong> Automatize 70-90% de tarefas repetitivas</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg border-2 border-green-300">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Casos de Uso Profissionais para Criadores</h3>
+            <div class="grid md:grid-cols-2 gap-3">
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-blue-900">📱 Publicação Multi-Plataforma</p>
+                <p class="text-xs text-gray-600">Poste uma vez, publique em Instagram, TikTok, Twitter, LinkedIn automaticamente</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-purple-900">🎨 Geração de Conteúdo IA</p>
+                <p class="text-xs text-gray-600">Crie imagens, vídeos e textos com IA baseado em gatilhos</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-green-900">📊 Organização de Assets</p>
+                <p class="text-xs text-gray-600">Salve automaticamente posts, comentários, menções em Notion/Airtable</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-orange-900">💌 Email Marketing</p>
+                <p class="text-xs text-gray-600">Envie newsletters personalizadas com conteúdo gerado por IA</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-pink-900">🤝 CRM Automático</p>
+                <p class="text-xs text-gray-600">Registre leads, clientes, interações sem tocar em planilha</p>
+              </div>
+              <div class="bg-white p-4 rounded">
+                <p class="font-semibold text-indigo-900">📈 Relatórios e Analytics</p>
+                <p class="text-xs text-gray-600">Compile métricas de todas plataformas em um dashboard</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">⚡ Zapier: Automação para Todos</h2>
+
+          <div class="bg-gradient-to-r from-orange-50 to-yellow-50 p-6 rounded-lg border-2 border-orange-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">⚡</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">Zapier</h3>
+                <p class="text-gray-600">zapier.com</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              <strong>A plataforma mais popular</strong> de automação no-code. Interface simples, 6000+ integrações, ideal para iniciantes.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ Recursos:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• 6000+ apps integrados</li>
+                  <li>• Templates prontos (Zap Templates)</li>
+                  <li>• Multi-step Zaps (workflows complexos)</li>
+                  <li>• Filtros e lógica condicional</li>
+                  <li>• Webhooks e APIs customizadas</li>
+                  <li>• AI integrada (OpenAI, ChatGPT)</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">💰 Preços:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>Free:</strong> 100 tasks/mês, Zaps de 2 passos</li>
+                  <li>• <strong>Starter ($19.99):</strong> 750 tasks/mês</li>
+                  <li>• <strong>Professional ($49):</strong> 2,000 tasks/mês</li>
+                  <li>• <strong>Team ($69+):</strong> 50,000+ tasks/mês</li>
+                  <li>• <strong>Task:</strong> 1 ação executada = 1 task</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Como Criar seu Primeiro Zap</h3>
+
+            <div class="space-y-4">
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="font-semibold text-blue-900 mb-2">Passo 1: Escolha um Trigger (Gatilho)</p>
+                <p class="text-sm text-gray-700 mb-2">O evento que inicia a automação:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• <strong>Exemplos:</strong> Novo email no Gmail, Novo post no Instagram, Formulário submetido no Typeform</li>
+                  <li>• Clique "Create Zap" → Escolha app → Selecione trigger event</li>
+                  <li>• Conecte sua conta (OAuth)</li>
+                  <li>• Configure opções (ex: qual pasta do Gmail?)</li>
+                  <li>• Teste trigger para garantir que funciona</li>
+                </ul>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <p class="font-semibold text-green-900 mb-2">Passo 2: Adicione Actions (Ações)</p>
+                <p class="text-sm text-gray-700 mb-2">O que acontece quando trigger é ativado:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• <strong>Exemplos:</strong> Enviar para Notion, Criar imagem com DALL-E, Postar no Twitter</li>
+                  <li>• Clique "+" para adicionar action</li>
+                  <li>• Escolha app e tipo de ação</li>
+                  <li>• Mapeie dados do trigger para ação (drag campos)</li>
+                  <li>• Use "Custom Value" para adicionar texto fixo</li>
+                </ul>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <p class="font-semibold text-purple-900 mb-2">Passo 3: Adicione Lógica (Opcional)</p>
+                <p class="text-sm text-gray-700 mb-2">Controle fluxo com condições:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• <strong>Filters:</strong> "Só continue se..." (ex: email contém palavra-chave)</li>
+                  <li>• <strong>Paths:</strong> Crie ramificações (se A, faça X; se B, faça Y)</li>
+                  <li>• <strong>Delay:</strong> Espere X tempo antes de continuar</li>
+                  <li>• <strong>Formatter:</strong> Transforme dados (uppercase, data format, extract...)</li>
+                </ul>
+              </div>
+
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                <p class="font-semibold text-orange-900 mb-2">Passo 4: Teste e Publique</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Clique "Test" em cada passo para validar</li>
+                  <li>• Revise dados que serão enviados</li>
+                  <li>• Ajuste mapeamento se necessário</li>
+                  <li>• Clique "Publish" para ativar Zap</li>
+                  <li>• Monitore "Task History" para debugar erros</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border-2 border-blue-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">🎯 Exemplo Prático: Auto-publicação com IA</h3>
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Objetivo:</strong> Quando você adiciona ideia no Notion, gere imagem com DALL-E e poste no Instagram automaticamente.
+            </p>
+
+            <div class="space-y-3">
+              <div class="flex items-center gap-4 p-3 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900 text-sm">Trigger: Notion - New Database Item</p>
+                  <p class="text-xs text-gray-600">Database: "Content Ideas" → Quando Status = "Approved"</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-3 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900 text-sm">Action: OpenAI - Generate Image (DALL-E)</p>
+                  <p class="text-xs text-gray-600">Prompt: Campo "Image Prompt" do Notion</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-3 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900 text-sm">Action: Instagram - Create Media Object</p>
+                  <p class="text-xs text-gray-600">Image URL: Output do passo 2 → Caption: Campo "Caption" do Notion</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-3 bg-white rounded-lg">
+                <div class="flex-shrink-0 w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                <div class="flex-1">
+                  <p class="font-semibold text-gray-900 text-sm">Action: Notion - Update Database Item</p>
+                  <p class="text-xs text-gray-600">Mude Status para "Published" + adicione link do post</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg mt-4">
+              <p class="text-xs text-gray-700"><strong>Resultado:</strong> Você adiciona ideia no Notion pela manhã, à tarde a imagem foi gerada e postada no Instagram automaticamente!</p>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Dicas para Otimizar Zapier</h3>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>
+                <strong>✓ Use Templates:</strong> Explore "Zap Templates" - milhares de workflows prontos para copiar
+              </li>
+              <li>
+                <strong>✓ Combine múltiplas actions:</strong> 1 trigger pode ter 10+ ações (ex: post em 5 redes + salve no Drive + envie email)
+              </li>
+              <li>
+                <strong>✓ Filters economizam tasks:</strong> Use filters no início para não gastar tasks com dados irrelevantes
+              </li>
+              <li>
+                <strong>✓ Schedule triggers:</strong> Alguns triggers checam periodicamente (15 min no Free, 1-5 min no pago)
+              </li>
+              <li>
+                <strong>✓ Naming convention:</strong> Nomeie Zaps claramente: "[TRIGGER] → [ACTION]" (ex: "Gmail → Notion + Slack")
+              </li>
+              <li>
+                <strong>✓ Monitor task usage:</strong> Veja "Usage" no dashboard para não estourar limite mensal
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🔷 Make (Integromat): Automação Avançada</h2>
+
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-2 border-blue-300 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">🔷</span>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900">Make (anteriormente Integromat)</h3>
+                <p class="text-gray-600">make.com</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">
+              <strong>Automação visual poderosa</strong> com workflows complexos. Interface de fluxograma, lógica avançada, ideal para power users.
+            </p>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">✓ Diferenciais vs Zapier:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• Interface visual tipo fluxograma</li>
+                  <li>• Lógica complexa (loops, arrays, iterators)</li>
+                  <li>• Acesso a todos campos de APIs</li>
+                  <li>• Error handling avançado</li>
+                  <li>• Preço por operações (não por Zaps)</li>
+                  <li>• Mais controle técnico</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">💰 Preços:</p>
+                <ul class="text-gray-700 space-y-1">
+                  <li>• <strong>Free:</strong> 1,000 operations/mês</li>
+                  <li>• <strong>Core ($9):</strong> 10,000 ops/mês</li>
+                  <li>• <strong>Pro ($16):</strong> 10,000 ops/mês + features</li>
+                  <li>• <strong>Teams ($29+):</strong> 10,000+ ops/mês</li>
+                  <li>• <strong>Operation:</strong> 1 módulo executado = 1 op</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Como Criar Scenario no Make</h3>
+
+            <div class="space-y-4">
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="font-semibold text-blue-900 mb-2">Passo 1: Crie Novo Scenario</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Clique "Create a new scenario"</li>
+                  <li>• Arraste primeiro módulo para canvas</li>
+                  <li>• Escolha app trigger (ex: Google Sheets - Watch Rows)</li>
+                  <li>• Configure conexão e parâmetros</li>
+                  <li>• "Run once" para testar e capturar dados</li>
+                </ul>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                <p class="font-semibold text-green-900 mb-2">Passo 2: Adicione Módulos de Ação</p>
+                <p class="text-sm text-gray-700 mb-2">Construa workflow visualmente:</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Clique "+" após trigger para adicionar módulo</li>
+                  <li>• Escolha app e ação (ex: OpenAI - Create Completion)</li>
+                  <li>• Mapeie campos clicando neles (aparecem como pills)</li>
+                  <li>• Conecte múltiplos módulos criando fluxo visual</li>
+                </ul>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                <p class="font-semibold text-purple-900 mb-2">Passo 3: Use Ferramentas Avançadas</p>
+                <div class="space-y-2 text-sm text-gray-700 ml-4">
+                  <p><strong>• Routers:</strong> Crie múltiplos caminhos paralelos (A e B acontecem juntos)</p>
+                  <p><strong>• Filters:</strong> Adicione condições entre módulos (só passa se...)</p>
+                  <p><strong>• Iterators:</strong> Processe arrays item por item</p>
+                  <p><strong>• Aggregators:</strong> Combine múltiplos items em um</p>
+                  <p><strong>• Error handlers:</strong> O que fazer se módulo falhar</p>
+                </div>
+              </div>
+
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                <p class="font-semibold text-orange-900 mb-2">Passo 4: Teste e Agende</p>
+                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• "Run once" para testar fluxo completo</li>
+                  <li>• Inspecione dados de cada módulo (bubbles)</li>
+                  <li>• Configure scheduling (cada X minutos/horas/dias)</li>
+                  <li>• Toggle "ON" para ativar scenario</li>
+                  <li>• Monitore execuções em "History"</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-2 border-purple-300 mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">🎬 Exemplo Avançado: Pipeline de Criação de Conteúdo</h3>
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Objetivo:</strong> Sistema completo de criação de vídeos: gera script com ChatGPT, imagens com DALL-E, voz com ElevenLabs, monta no Google Drive.
+            </p>
+
+            <div class="bg-white p-4 rounded-lg mb-3">
+              <p class="font-semibold text-gray-900 mb-2 text-sm">Trigger: Google Sheets - Watch Rows</p>
+              <p class="text-xs text-gray-600">Planilha "Video Ideas" → detecta nova linha</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-3 mb-3">
+              <div class="bg-white p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="font-semibold text-blue-900 mb-1 text-sm">1. OpenAI - ChatGPT</p>
+                <p class="text-xs text-gray-600">Gera script baseado em tópico da planilha</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg border-l-4 border-green-500">
+                <p class="font-semibold text-green-900 mb-1 text-sm">2. Text Parser</p>
+                <p class="text-xs text-gray-600">Divide script em 5 cenas</p>
+              </div>
+            </div>
+
+            <div class="bg-blue-100 p-4 rounded-lg mb-3">
+              <p class="font-semibold text-blue-900 mb-2 text-sm">Iterator: Processa cada cena individualmente</p>
+              <div class="grid md:grid-cols-2 gap-2 ml-4">
+                <div class="bg-white p-3 rounded text-xs">
+                  <p class="font-semibold mb-1">3a. OpenAI DALL-E</p>
+                  <p class="text-gray-600">Gera imagem para cena</p>
+                </div>
+                <div class="bg-white p-3 rounded text-xs">
+                  <p class="font-semibold mb-1">3b. Google Drive</p>
+                  <p class="text-gray-600">Salva imagem em pasta</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-3 mb-3">
+              <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500">
+                <p class="font-semibold text-purple-900 mb-1 text-sm">4. ElevenLabs API</p>
+                <p class="text-xs text-gray-600">Gera narração do script completo</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg border-l-4 border-orange-500">
+                <p class="font-semibold text-orange-900 mb-1 text-sm">5. Google Drive</p>
+                <p class="text-xs text-gray-600">Salva áudio na mesma pasta</p>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg border-l-4 border-green-500">
+              <p class="font-semibold text-green-900 mb-1 text-sm">6. Slack - Send Message</p>
+              <p class="text-xs text-gray-600">Notifica você que assets estão prontos com link da pasta</p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded-lg mt-4">
+              <p class="text-xs text-gray-700"><strong>Resultado:</strong> Você escreve apenas o tópico, e o sistema gera automaticamente script + 5 imagens + narração. Pronto para montar no CapCut!</p>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Zapier vs Make: Qual Escolher?</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-blue-100">
+                  <tr>
+                    <th class="p-2 text-left">Critério</th>
+                    <th class="p-2 text-left">Zapier</th>
+                    <th class="p-2 text-left">Make</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Facilidade</td>
+                    <td class="p-2 text-green-700">⭐⭐⭐⭐⭐ Muito fácil</td>
+                    <td class="p-2 text-yellow-700">⭐⭐⭐ Curva aprendizado</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Integrações</td>
+                    <td class="p-2">6000+ apps</td>
+                    <td class="p-2">1500+ apps</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Preço Free</td>
+                    <td class="p-2">100 tasks/mês</td>
+                    <td class="p-2 text-green-700">1000 ops/mês</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Complexidade</td>
+                    <td class="p-2">Linear, simples</td>
+                    <td class="p-2 text-green-700">Avançada, visual</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 font-semibold">Melhor para</td>
+                    <td class="p-2">Iniciantes, workflows simples</td>
+                    <td class="p-2">Power users, lógica complexa</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 font-semibold">Controle API</td>
+                    <td class="p-2">Limitado</td>
+                    <td class="p-2 text-green-700">Total</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-gray-600 mt-3"><strong>Recomendação:</strong> Comece com Zapier para aprender conceitos. Migre para Make quando precisar de workflows mais complexos.</p>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🛠️ Outras Ferramentas de Automação</h2>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">⚙️</span>
+                <h4 class="font-bold text-gray-900">n8n</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Automação open-source self-hosted</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Desenvolvedores, controle total</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• 100% open-source e self-hosted</p>
+                <p>• Interface similar ao Make</p>
+                <p>• Sem limites de execução</p>
+                <p>• Customizável com código</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (self-host) - $20+/mês (cloud)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🔗</span>
+                <h4 class="font-bold text-gray-900">Pabbly Connect</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Alternativa barata ao Zapier</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Orçamento limitado</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• 1000+ integrações</p>
+                <p>• UNLIMITED execuções por mês</p>
+                <p>• Multi-step workflows</p>
+                <p>• Pagamento único anual</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (100 tasks) - $19/mês (ilimitado)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🌊</span>
+                <h4 class="font-bold text-gray-900">Activepieces</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Open-source alternativa ao Zapier</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Self-hosting, privacidade</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Open-source (MIT license)</p>
+                <p>• Interface moderna tipo Zapier</p>
+                <p>• AI integrada (OpenAI, Claude)</p>
+                <p>• Deploy fácil (Docker)</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (self-host) - $200+/mês (cloud)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🔌</span>
+                <h4 class="font-bold text-gray-900">IFTTT</h4>
+              </div>
+              <p class="text-sm text-gray-700 mb-2">Automação simples (If This Then That)</p>
+              <p class="text-xs text-gray-600 mb-2"><strong>Melhor para:</strong> Automações pessoais simples</p>
+              <div class="text-xs text-gray-700 space-y-1 mb-2">
+                <p>• Interface muito simples</p>
+                <p>• Foco em IoT e smart home</p>
+                <p>• Applets prontos para copiar</p>
+                <p>• Mobile-first</p>
+              </div>
+              <p class="text-xs text-gray-600"><strong>Preço:</strong> Free (5 applets) - $2.50-5/mês</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 10 Workflows Essenciais para Criadores</h2>
+
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">1. Auto-publicação Multi-Plataforma</h4>
+              <p class="text-sm text-gray-700 mb-2">Poste uma vez, publique em todas redes:</p>
+              <p class="text-xs text-gray-600">Trigger: Airtable/Notion (Status = "Ready") → Actions: Post no Instagram, TikTok, Twitter, LinkedIn, Facebook</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">2. Geração de Ideias de Conteúdo com IA</h4>
+              <p class="text-sm text-gray-700 mb-2">IA sugere 10 ideias semanalmente:</p>
+              <p class="text-xs text-gray-600">Trigger: Schedule (toda segunda 9h) → ChatGPT gera 10 ideias sobre "seu nicho" → Salva no Notion</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">3. Salvamento Automático de Menções</h4>
+              <p class="text-sm text-gray-700 mb-2">Nunca perca uma menção ou comentário:</p>
+              <p class="text-xs text-gray-600">Triggers: Instagram mention, Twitter mention, LinkedIn comment → Salva tudo em Airtable com link e timestamp</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">4. Newsletter Personalizada Automática</h4>
+              <p class="text-sm text-gray-700 mb-2">Email marketing com conteúdo gerado por IA:</p>
+              <p class="text-xs text-gray-600">Trigger: Schedule (toda sexta) → ChatGPT escreve newsletter sobre "tópico da semana" → Envia via ConvertKit/Mailchimp</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-pink-50 to-pink-100 p-5 rounded-lg border-l-4 border-pink-500">
+              <h4 class="font-bold text-pink-900 mb-2">5. CRM de Leads Automático</h4>
+              <p class="text-sm text-gray-700 mb-2">Capture e organize leads sem esforço:</p>
+              <p class="text-xs text-gray-600">Trigger: Formulário Typeform/Google Forms → Adiciona no Google Sheets + envia email de boas-vindas + notifica no Slack</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 p-5 rounded-lg border-l-4 border-indigo-500">
+              <h4 class="font-bold text-indigo-900 mb-2">6. Dashboard de Analytics Consolidado</h4>
+              <p class="text-sm text-gray-700 mb-2">Todas métricas em um lugar:</p>
+              <p class="text-xs text-gray-600">Trigger: Schedule (diariamente) → Busca métricas do Instagram, YouTube, TikTok → Adiciona em Google Sheets / Notion</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-red-50 to-red-100 p-5 rounded-lg border-l-4 border-red-500">
+              <h4 class="font-bold text-red-900 mb-2">7. Backup Automático de Posts</h4>
+              <p class="text-sm text-gray-700 mb-2">Salve todo conteúdo publicado:</p>
+              <p class="text-xs text-gray-600">Trigger: Novo post no Instagram/TikTok → Baixa imagem/vídeo + caption → Salva no Google Drive organizado por data</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 p-5 rounded-lg border-l-4 border-yellow-500">
+              <h4 class="font-bold text-yellow-900 mb-2">8. Respostas Automáticas Inteligentes</h4>
+              <p class="text-sm text-gray-700 mb-2">IA responde FAQs automaticamente:</p>
+              <p class="text-xs text-gray-600">Trigger: Novo DM/comentário → ChatGPT analisa mensagem → Se é FAQ, responde automaticamente. Se não, notifica você</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-teal-50 to-teal-100 p-5 rounded-lg border-l-4 border-teal-500">
+              <h4 class="font-bold text-teal-900 mb-2">9. Trending Topics Alert</h4>
+              <p class="text-sm text-gray-700 mb-2">Fique sabendo de trends antes da concorrência:</p>
+              <p class="text-xs text-gray-600">Trigger: Schedule (3x ao dia) → Busca trends no Twitter/Google Trends sobre "seu nicho" → Envia Slack/Email se relevante</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-5 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 mb-2">10. Remix de Conteúdo Automático</h4>
+              <p class="text-sm text-gray-700 mb-2">Transforme 1 post em 10 formatos:</p>
+              <p class="text-xs text-gray-600">Trigger: Novo vídeo YouTube → ChatGPT cria: thread Twitter, carrossel LinkedIn, caption Instagram, post blog → Salva no Notion</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">💡 Best Practices de Automação</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+              <h4 class="font-bold text-blue-900 mb-2">✅ Comece Simples</h4>
+              <p class="text-sm text-gray-700">Primeiro workflow: 1 trigger + 1 action simples (ex: email → Slack). Depois evolua para complexo.</p>
+            </div>
+
+            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
+              <h4 class="font-bold text-green-900 mb-2">🧪 Teste com Dados Reais</h4>
+              <p class="text-sm text-gray-700">Sempre teste workflow com dados reais antes de ativar. Verifique cada passo está funcionando.</p>
+            </div>
+
+            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
+              <h4 class="font-bold text-purple-900 mb-2">📋 Documente Workflows</h4>
+              <p class="text-sm text-gray-700">Crie README no Notion explicando o que cada workflow faz, triggers e ações. Você vai esquecer daqui 3 meses.</p>
+            </div>
+
+            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+              <h4 class="font-bold text-orange-900 mb-2">🔔 Configure Notificações</h4>
+              <p class="text-sm text-gray-700">Adicione notificação no Slack/Email ao fim de workflows importantes. Saiba quando executou com sucesso ou falhou.</p>
+            </div>
+
+            <div class="bg-pink-50 p-5 rounded-lg border-l-4 border-pink-500">
+              <h4 class="font-bold text-pink-900 mb-2">⚠️ Error Handling</h4>
+              <p class="text-sm text-gray-700">Configure o que acontece se algum passo falhar. Em Make, use Error Handlers. Em Zapier, ative notificações de erro.</p>
+            </div>
+
+            <div class="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
+              <h4 class="font-bold text-indigo-900 mb-2">📊 Monitore Performance</h4>
+              <p class="text-sm text-gray-700">Revise semanalmente: quais workflows estão rodando? Taxa de sucesso? Algum está consumindo muitas operations?</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Exercício Prático</h2>
+        <p class="text-gray-700 mb-6">Crie seus primeiros workflows de automação:</p>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 1: Primeiro Zap</p>
+              <p class="text-sm text-gray-600">Crie Zap simples: Google Forms → Google Sheets. Teste submetendo formulário.</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 2: IA no Workflow</p>
+              <p class="text-sm text-gray-600">Adicione ChatGPT: trigger de sua escolha → ChatGPT gera texto → salve no Notion. Teste e documente.</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 3: Multi-step Avançado</p>
+              <p class="text-sm text-gray-600">Crie workflow com 4+ passos incluindo: trigger, IA (ChatGPT/DALL-E), salvar em Drive, notificar Slack/Email.</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer hover:bg-white/50 p-3 rounded">
+            <input type="checkbox" class="w-5 h-5 mt-1">
+            <div>
+              <p class="font-semibold">Tarefa 4: Explore Make</p>
+              <p class="text-sm text-gray-600">Crie conta no Make. Recrie workflow do Zapier usando interface visual. Compare experiências.</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <a href="../" class="content-button content-button-secondary">
+          ← Voltar ao Módulo
+        </a>
+        <a href="aula-7.2-chatbots-assistentes.html" class="content-button content-button-primary">
+          Próxima Aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VISION • Aula 7.1
+    </div>
+  </footer>
+
+</body>
+</html>
