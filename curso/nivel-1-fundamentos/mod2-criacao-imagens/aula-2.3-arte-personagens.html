@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 2.3: Arte Conceitual e Personagens Consistentes - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 2</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 2.3</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">👤 Aula 2.3</span>
+          <span class="badge badge-tecnico">~120 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Arte Conceitual e Personagens Consistentes
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Aprenda a criar personagens que mantêm aparência consistente em múltiplas imagens, domine técnicas de estilo visual e explore arte conceitual com IA.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8 prose prose-lg max-w-none">
+
+        <!-- O desafio da consistência -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🎯 O Desafio da Consistência Visual</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Um dos maiores desafios na geração de imagens com IA é manter a consistência: gerar o mesmo personagem, com as mesmas características, em cenas e poses diferentes. Em 2026, várias ferramentas resolveram esse problema com abordagens distintas.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-6">
+            <h3 class="font-bold text-gray-900 mb-2">💡 Por que consistência importa</h3>
+            <p class="text-gray-700 text-sm">
+              Se você está criando um vídeo comercial, uma série de posts para redes sociais, ou um storyboard, precisa que seu personagem/mascote/produto seja reconhecível em todas as peças. Sem consistência, o conteúdo parece amador e desconexo.
+            </p>
+          </div>
+        </section>
+
+        <!-- Técnicas por ferramenta -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🛠️ Técnicas de Consistência por Ferramenta</h2>
+
+          <div class="space-y-4 mb-6">
+            <div class="bg-purple-50 border-l-4 border-purple-500 p-5 rounded">
+              <h3 class="font-bold text-gray-900 mb-2">Midjourney — Omni Reference</h3>
+              <p class="text-gray-700 text-sm mb-2">O recurso mais poderoso do Midjourney para consistência. Envie uma imagem de referência junto com seu prompt e o modelo manterá as características visuais do personagem. Funciona para rostos, roupas, poses e estilos.</p>
+              <div class="bg-white p-3 rounded font-mono text-xs mt-2">
+                /imagine [URL da imagem de referência] a woman walking through a park, golden hour --cref [URL] --cw 100
+              </div>
+            </div>
+            <div class="bg-green-50 border-l-4 border-green-500 p-5 rounded">
+              <h3 class="font-bold text-gray-900 mb-2">Leonardo AI — Phoenix + Character Engine</h3>
+              <p class="text-gray-700 text-sm mb-2">Leonardo AI oferece um sistema dedicado de criação de personagens. O modelo Phoenix gera personagens de alta qualidade, e o Character Engine permite salvar "personagens" que mantêm consistência automaticamente em novas gerações.</p>
+              <ul class="text-sm text-gray-700 mt-2 space-y-1">
+                <li>• Crie um personagem uma vez e reutilize infinitamente</li>
+                <li>• Ajuste pose, expressão e cena mantendo identidade</li>
+                <li>• Ideal para séries de conteúdo e storytelling visual</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded">
+              <h3 class="font-bold text-gray-900 mb-2">FLUX.2 — Multi-referência e IP-Adapter</h3>
+              <p class="text-gray-700 text-sm mb-2">Com FLUX.2 via ComfyUI, você pode usar IP-Adapter para transferir características visuais de imagens de referência. Suporta múltiplas referências simultâneas (rosto de uma, roupa de outra, estilo de uma terceira).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Estilos artísticos -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🎨 Estilos Artísticos com IA</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Uma das forças da IA é a capacidade de gerar imagens em virtualmente qualquer estilo artístico. Aqui estão os mais úteis para criadores de conteúdo:
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-500">
+              <h3 class="font-bold text-gray-900 mb-2">Fotorrealista</h3>
+              <p class="text-sm text-gray-700">Prompts: "photorealistic, Canon EOS R5, 85mm, shallow depth of field, natural lighting"</p>
+            </div>
+            <div class="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-500">
+              <h3 class="font-bold text-gray-900 mb-2">Anime / Manga</h3>
+              <p class="text-sm text-gray-700">Prompts: "anime style, Studio Ghibli inspired, cel shading, vibrant colors"</p>
+            </div>
+            <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+              <h3 class="font-bold text-gray-900 mb-2">Ilustração Digital</h3>
+              <p class="text-sm text-gray-700">Prompts: "digital illustration, concept art, artstation trending, detailed"</p>
+            </div>
+            <div class="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-500">
+              <h3 class="font-bold text-gray-900 mb-2">Arte Conceitual</h3>
+              <p class="text-sm text-gray-700">Prompts: "concept art, matte painting, environment design, cinematic"</p>
+            </div>
+            <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <h3 class="font-bold text-gray-900 mb-2">3D Render</h3>
+              <p class="text-sm text-gray-700">Prompts: "3D render, Octane render, isometric, volumetric lighting, clean"</p>
+            </div>
+            <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+              <h3 class="font-bold text-gray-900 mb-2">Flat Design / Vetorial</h3>
+              <p class="text-sm text-gray-700">Prompts: "flat design, vector illustration, minimal, clean lines, pastel colors"</p>
+            </div>
+          </div>
+
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded mb-6">
+            <h3 class="font-bold text-gray-900 mb-2">💡 Dica profissional</h3>
+            <p class="text-gray-700 text-sm">
+              Crie um "style guide" com prompts testados para cada estilo que você usa. Salve os prompts que deram os melhores resultados em um documento de referência. Isso economiza tempo e garante consistência entre projetos.
+            </p>
+          </div>
+        </section>
+
+        <!-- Workflow de personagem -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">📋 Workflow: Criando um Personagem Consistente</h2>
+
+          <div class="space-y-3 mb-6">
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+              <h3 class="font-bold text-gray-900 mb-1">Passo 1: Defina o personagem em texto</h3>
+              <p class="text-gray-700 text-sm">Escreva uma descrição detalhada: gênero, idade, etnia, cabelo, olhos, roupas, acessórios, personalidade visual.</p>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+              <h3 class="font-bold text-gray-900 mb-1">Passo 2: Gere a referência principal</h3>
+              <p class="text-gray-700 text-sm">Use Midjourney V7 ou FLUX.2 para gerar a imagem "canônica" do personagem. Gere várias variações e escolha a melhor.</p>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+              <h3 class="font-bold text-gray-900 mb-1">Passo 3: Crie um character sheet</h3>
+              <p class="text-gray-700 text-sm">Gere a mesma pessoa em múltiplos ângulos (frente, perfil, 3/4). Use o prompt: "character reference sheet, multiple angles, white background"</p>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+              <h3 class="font-bold text-gray-900 mb-1">Passo 4: Use referência para novas cenas</h3>
+              <p class="text-gray-700 text-sm">Com Omni Reference (Midjourney) ou Character Engine (Leonardo), use a imagem de referência para gerar o personagem em novas situações.</p>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+              <h3 class="font-bold text-gray-900 mb-1">Passo 5: Salve e organize</h3>
+              <p class="text-gray-700 text-sm">Organize todas as imagens do personagem em uma pasta dedicada. Mantenha a referência principal sempre acessível.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Entendo o desafio de consistência visual com IA</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Sei usar Omni Reference no Midjourney</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Conheço o Character Engine do Leonardo AI</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Sei gerar imagens em pelo menos 4 estilos diferentes</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Criei um personagem consistente com character sheet</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Tenho um style guide com meus prompts favoritos</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Navegação -->
+      <div class="flex justify-between items-center mt-8">
+        <a href="aula-2.2-flux-stable-diffusion.html" class="content-button content-button-secondary">
+          ← Aula 2.2
+        </a>
+        <a href="aula-2.4-mockups-fotorrealismo.html" class="content-button content-button-primary">
+          Próxima: Aula 2.4 →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2026 VISION
+    </div>
+  </footer>
+
+</body>
+</html>

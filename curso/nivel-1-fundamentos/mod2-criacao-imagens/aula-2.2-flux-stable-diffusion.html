@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 2.2: FLUX.2 e Stable Diffusion 3.5 — Open-source - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 2</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 2.2</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8 animate-fade-in">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          <span class="badge badge-iniciante">🔓 Aula 2.2</span>
+          <span class="badge badge-tecnico">~90 min</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          FLUX.2 e Stable Diffusion 3.5 — Open-source
+        </h1>
+
+        <p class="text-xl text-gray-600">
+          Explore o mundo dos modelos de imagem open-source: FLUX.2 da Black Forest Labs e Stable Diffusion 3.5. Aprenda a usar via Hugging Face, APIs e localmente com ComfyUI.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8 prose prose-lg max-w-none">
+
+        <!-- FLUX.2 -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🌊 FLUX.2 — O Gigante Open-source</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            FLUX.2, desenvolvido pela Black Forest Labs (fundada por ex-criadores do Stable Diffusion), é o modelo de imagem open-source mais avançado disponível em 2026.
+          </p>
+
+          <div class="space-y-4 mb-6">
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+              <h3 class="font-bold text-gray-900 mb-2">FLUX.2 dev — O modelo principal</h3>
+              <p class="text-gray-700 text-sm">32 bilhões de parâmetros. Qualidade comparável ao Midjourney V7 em muitos cenários. Suporta resolução até 4 megapixels. Ideal para produção em escala via API ou uso local com GPU potente (16GB+ VRAM recomendado para dev).</p>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+              <h3 class="font-bold text-gray-900 mb-2">FLUX.2 klein — Ultra-rápido</h3>
+              <p class="text-gray-700 text-sm">Versão otimizada que gera imagens em sub-1-segundo em GPUs com apenas 8GB VRAM. Perfeita para prototipagem rápida e uso local em hardware modesto. Qualidade ligeiramente inferior ao dev mas velocidade incomparável.</p>
+            </div>
+          </div>
+
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded mb-6">
+            <h3 class="font-bold text-gray-900 mb-2">💡 Por que FLUX.2 importa</h3>
+            <p class="text-gray-700 text-sm">
+              Com FLUX.2, você tem controle total: sem custos mensais, sem limites de geração, sem termos de uso restritivos, e pode treinar o modelo com seus próprios dados. Para produção comercial em volume, o custo por imagem é praticamente zero (apenas eletricidade/GPU).
+            </p>
+          </div>
+        </section>
+
+        <!-- Stable Diffusion 3.5 -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🎯 Stable Diffusion 3.5</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            A Stability AI continua relevante com o SD 3.5, que trouxe a nova arquitetura MMDiT (Multimodal Diffusion Transformer):
+          </p>
+
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full border-collapse bg-white rounded-lg overflow-hidden">
+              <thead>
+                <tr class="bg-gray-100">
+                  <th class="text-left p-3 font-semibold text-gray-900">Variante</th>
+                  <th class="text-left p-3 font-semibold text-gray-900">Parâmetros</th>
+                  <th class="text-left p-3 font-semibold text-gray-900">VRAM mínima</th>
+                  <th class="text-left p-3 font-semibold text-gray-900">Melhor uso</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr><td class="p-3 text-gray-700">SD 3.5 Large</td><td class="p-3 text-gray-700">8B</td><td class="p-3 text-gray-700">12GB</td><td class="p-3 text-gray-700">Máxima qualidade, uso profissional</td></tr>
+                <tr><td class="p-3 text-gray-700">SD 3.5 Medium</td><td class="p-3 text-gray-700">2.6B</td><td class="p-3 text-gray-700">8GB</td><td class="p-3 text-gray-700">Equilíbrio qualidade/velocidade</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded mb-6">
+            <h3 class="font-bold text-gray-900 mb-2">FLUX.2 vs SD 3.5: qual escolher?</h3>
+            <p class="text-gray-700 text-sm">
+              FLUX.2 geralmente produz imagens de maior qualidade e é mais rápido com FLUX klein. SD 3.5 tem a vantagem de um ecossistema mais maduro (mais extensões, LoRAs, e comunidade). Para iniciantes, recomendamos começar com FLUX.2 via Hugging Face e explorar SD 3.5 quando quiser mais controle com ComfyUI.
+            </p>
+          </div>
+        </section>
+
+        <!-- Como usar -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🚀 Como Usar: Local vs API vs Hugging Face</h2>
+
+          <div class="space-y-4 mb-6">
+            <div class="bg-green-50 border-l-4 border-green-500 p-5 rounded">
+              <h3 class="font-bold text-gray-900 mb-2">1. Hugging Face Spaces (mais fácil)</h3>
+              <p class="text-gray-700 text-sm mb-2">Acesse diretamente no navegador sem instalar nada. Vá para huggingface.co/spaces e busque por "FLUX" ou "Stable Diffusion". Digite seu prompt e gere. Pode ter fila nos horários de pico, mas é 100% gratuito.</p>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded">
+              <h3 class="font-bold text-gray-900 mb-2">2. API (para integração)</h3>
+              <p class="text-gray-700 text-sm mb-2">Use a API do Hugging Face, Replicate ou Black Forest Labs diretamente. Ideal para automações com n8n ou scripts. Paga por uso (centavos por imagem), mas sem filas e com resposta rápida.</p>
+            </div>
+            <div class="bg-purple-50 border-l-4 border-purple-500 p-5 rounded">
+              <h3 class="font-bold text-gray-900 mb-2">3. Local com ComfyUI (máximo controle)</h3>
+              <p class="text-gray-700 text-sm mb-2">Instale ComfyUI no seu computador, baixe o modelo e tenha controle total. Requer GPU NVIDIA com 8GB+ VRAM. Sem custos recorrentes, sem limites, sem filas. Curva de aprendizado maior, mas recompensadora.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ComfyUI básico -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">🔧 ComfyUI para Iniciantes</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            ComfyUI é uma interface visual baseada em nós (nodes) para rodar modelos de difusão localmente. Parece complexo à primeira vista, mas o conceito é simples:
+          </p>
+
+          <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded mb-4">
+            <h3 class="font-bold text-gray-900 mb-2">Fluxo básico de um workflow ComfyUI</h3>
+            <ol class="text-sm text-gray-700 space-y-2">
+              <li><strong>1. Loader</strong> — Carrega o modelo (FLUX.2 ou SD 3.5)</li>
+              <li><strong>2. CLIP Text Encode</strong> — Converte seu prompt em embeddings</li>
+              <li><strong>3. KSampler</strong> — Gera a imagem (processo de difusão)</li>
+              <li><strong>4. VAE Decode</strong> — Converte o resultado em imagem visível</li>
+              <li><strong>5. Save Image</strong> — Salva o resultado</li>
+            </ol>
+          </div>
+
+          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded mb-6">
+            <h3 class="font-bold text-gray-900 mb-2">⚠️ Para este curso</h3>
+            <p class="text-gray-700 text-sm">
+              ComfyUI será explorado com mais profundidade nos níveis 2 e 3. Neste nível, o foco é usar Hugging Face Spaces e APIs para gerar imagens com FLUX.2. Se você tem uma GPU potente e quer se antecipar, consulte a documentação oficial do ComfyUI no GitHub.
+            </p>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Entendo as diferenças entre FLUX.2 dev e klein</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Conheço as variantes do Stable Diffusion 3.5</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Sei as 3 formas de usar modelos open-source (HF, API, local)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Gerei pelo menos 3 imagens via Hugging Face Spaces</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
+                <span class="text-gray-700">Entendo o conceito básico do ComfyUI</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Navegação -->
+      <div class="flex justify-between items-center mt-8">
+        <a href="aula-2.1-midjourney-v7-v8.html" class="content-button content-button-secondary">
+          ← Aula 2.1
+        </a>
+        <a href="aula-2.3-arte-personagens.html" class="content-button content-button-primary">
+          Próxima: Aula 2.3 →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2026 VISION
+    </div>
+  </footer>
+
+</body>
+</html>

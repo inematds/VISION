@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 4.4: Finalização e Publicação - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 4</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 4</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 4.4</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8">
+        <span class="badge badge-iniciante mb-4">✂️ Módulo 4 • Aula 4</span>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          Finalização e Publicação
+        </h1>
+        <p class="text-xl text-gray-600">
+          Exporte, otimize e publique seus vídeos nas principais plataformas com estratégia.
+        </p>
+        <div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+          <span>⏱️ ~60 minutos</span>
+          <span>📊 Iniciante</span>
+          <span>🔄 Atualizado Abr/2026</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8">
+
+        <!-- Seção 1 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">📤 Configurações de Exportação</h2>
+          <p class="text-gray-700 mb-4">
+            A exportação é o último passo antes da publicação. Configurações erradas podem arruinar um
+            vídeo perfeito: arquivo muito pesado, qualidade baixa, formato incompatível. Vamos aprender
+            as configurações ideais para cada situação.
+          </p>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Configurações recomendadas por plataforma</h3>
+          <table class="w-full border-collapse mb-4">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2 text-left">Plataforma</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Resolução</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">FPS</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Bitrate</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Codec</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">YouTube</td>
+                <td class="border border-gray-200 px-4 py-2">1920x1080 (4K se possível)</td>
+                <td class="border border-gray-200 px-4 py-2">30 ou 60</td>
+                <td class="border border-gray-200 px-4 py-2">10-20 Mbps</td>
+                <td class="border border-gray-200 px-4 py-2">H.264 / H.265</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">TikTok</td>
+                <td class="border border-gray-200 px-4 py-2">1080x1920</td>
+                <td class="border border-gray-200 px-4 py-2">30</td>
+                <td class="border border-gray-200 px-4 py-2">5-10 Mbps</td>
+                <td class="border border-gray-200 px-4 py-2">H.264</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Instagram Reels</td>
+                <td class="border border-gray-200 px-4 py-2">1080x1920</td>
+                <td class="border border-gray-200 px-4 py-2">30</td>
+                <td class="border border-gray-200 px-4 py-2">5-10 Mbps</td>
+                <td class="border border-gray-200 px-4 py-2">H.264</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">LinkedIn</td>
+                <td class="border border-gray-200 px-4 py-2">1920x1080</td>
+                <td class="border border-gray-200 px-4 py-2">30</td>
+                <td class="border border-gray-200 px-4 py-2">8-12 Mbps</td>
+                <td class="border border-gray-200 px-4 py-2">H.264</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">WhatsApp Status</td>
+                <td class="border border-gray-200 px-4 py-2">720x1280</td>
+                <td class="border border-gray-200 px-4 py-2">30</td>
+                <td class="border border-gray-200 px-4 py-2">3-5 Mbps</td>
+                <td class="border border-gray-200 px-4 py-2">H.264</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 mb-4">
+            <h3 class="font-bold text-blue-800 mb-2">Resolução vs. Bitrate</h3>
+            <p class="text-blue-700">
+              <strong>Resolução</strong> define o tamanho do quadro (1080p, 4K). <strong>Bitrate</strong> define
+              a quantidade de dados por segundo - quanto maior, melhor a qualidade, mas maior o arquivo.
+              Para redes sociais, não adianta exportar em 4K se a plataforma comprime para 1080p.
+            </p>
+          </div>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Exportando no CapCut</h3>
+          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+            <li>Clique em <strong>Exportar</strong> (canto superior direito)</li>
+            <li>Selecione a resolução (1080p recomendado)</li>
+            <li>Escolha a taxa de quadros (30fps para a maioria dos casos)</li>
+            <li>Ajuste a qualidade (Alta ou Personalizada)</li>
+            <li>Formato: MP4 (mais universal)</li>
+            <li>Defina o nome e local de salvamento</li>
+            <li>Clique em <strong>Exportar</strong> e aguarde</li>
+          </ol>
+        </section>
+
+        <!-- Seção 2 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">🖼️ Thumbnails com IA</h2>
+          <p class="text-gray-700 mb-4">
+            A thumbnail (miniatura) é o elemento mais importante para atrair cliques. Estudos mostram que
+            90% dos vídeos de melhor desempenho no YouTube têm thumbnails personalizadas. Com IA, criar
+            thumbnails profissionais ficou simples e rápido.
+          </p>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Ferramentas de thumbnail com IA</h3>
+          <table class="w-full border-collapse mb-4">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2 text-left">Ferramenta</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Método</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Preço</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Canva + AI</td>
+                <td class="border border-gray-200 px-4 py-2">Templates + geração de imagens com IA</td>
+                <td class="border border-gray-200 px-4 py-2">Freemium</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Midjourney</td>
+                <td class="border border-gray-200 px-4 py-2">Gera imagens únicas para thumbnail</td>
+                <td class="border border-gray-200 px-4 py-2">$10/mês</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Thumbnail.ai</td>
+                <td class="border border-gray-200 px-4 py-2">Geração automática baseada no título</td>
+                <td class="border border-gray-200 px-4 py-2">Freemium</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Photopea + FLUX</td>
+                <td class="border border-gray-200 px-4 py-2">Editor gratuito + imagem IA</td>
+                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Elementos de uma thumbnail eficaz</h3>
+          <div class="grid md:grid-cols-2 gap-3 mb-4">
+            <div class="bg-orange-50 p-3 rounded-lg">
+              <strong class="text-orange-800">Rosto expressivo</strong>
+              <p class="text-orange-700 text-sm">Expressões fortes (surpresa, alegria) aumentam cliques em até 38%</p>
+            </div>
+            <div class="bg-orange-50 p-3 rounded-lg">
+              <strong class="text-orange-800">Texto curto (3-5 palavras)</strong>
+              <p class="text-orange-700 text-sm">Complementa o título, nunca o repete. Fonte grande e legível.</p>
+            </div>
+            <div class="bg-orange-50 p-3 rounded-lg">
+              <strong class="text-orange-800">Cores contrastantes</strong>
+              <p class="text-orange-700 text-sm">Amarelo, vermelho e azul se destacam no feed. Evite tons pastéis.</p>
+            </div>
+            <div class="bg-orange-50 p-3 rounded-lg">
+              <strong class="text-orange-800">Composição clara</strong>
+              <p class="text-orange-700 text-sm">O espectador precisa entender o que é em 1 segundo. Menos é mais.</p>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mb-4">
+            <h3 class="font-bold text-yellow-800 mb-2">Tamanho ideal da thumbnail</h3>
+            <p class="text-yellow-700">
+              <strong>YouTube:</strong> 1280x720px (16:9), formato JPG ou PNG, máx 2MB.
+              <strong>TikTok:</strong> Frame do próprio vídeo (o app seleciona).
+              <strong>Instagram:</strong> Quadrado 1080x1080px ou 9:16 para Reels.
+            </p>
+          </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">🔍 SEO Básico para Vídeo</h2>
+          <p class="text-gray-700 mb-4">
+            SEO (Search Engine Optimization) para vídeo ajuda seu conteúdo a ser encontrado por mais pessoas.
+            Algumas otimizações simples podem multiplicar suas visualizações.
+          </p>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Elementos de SEO para cada plataforma</h3>
+          <table class="w-full border-collapse mb-4">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2 text-left">Elemento</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">YouTube</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">TikTok</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Instagram</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Título</td>
+                <td class="border border-gray-200 px-4 py-2">60-70 chars, palavra-chave no início</td>
+                <td class="border border-gray-200 px-4 py-2">N/A (legenda)</td>
+                <td class="border border-gray-200 px-4 py-2">N/A (legenda)</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Descrição</td>
+                <td class="border border-gray-200 px-4 py-2">2-3 parágrafos + links + timestamps</td>
+                <td class="border border-gray-200 px-4 py-2">1-2 frases + hashtags</td>
+                <td class="border border-gray-200 px-4 py-2">1-2 frases + hashtags</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Tags/Hashtags</td>
+                <td class="border border-gray-200 px-4 py-2">10-15 tags relevantes</td>
+                <td class="border border-gray-200 px-4 py-2">3-5 hashtags trending</td>
+                <td class="border border-gray-200 px-4 py-2">5-10 hashtags nicho</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Legendas/CC</td>
+                <td class="border border-gray-200 px-4 py-2">Arquivo SRT (indexável)</td>
+                <td class="border border-gray-200 px-4 py-2">Burned-in (no vídeo)</td>
+                <td class="border border-gray-200 px-4 py-2">Burned-in ou auto</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
+            <h3 class="font-bold text-green-800 mb-2">Use o ChatGPT para SEO</h3>
+            <p class="text-green-700">
+              Peça ao ChatGPT: <em>"Gere título, descrição e 15 tags para YouTube sobre um vídeo que ensina a
+              criar imagens com IA usando Midjourney. Público: iniciantes brasileiros."</em>
+              A IA vai gerar todo o conteúdo de SEO otimizado em segundos.
+            </p>
+          </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">🚀 Fluxo de Publicação Multiplataforma</h2>
+          <p class="text-gray-700 mb-4">
+            Para maximizar seu alcance, publique em várias plataformas. Cada uma tem suas particularidades,
+            mas com uma boa estratégia, você pode adaptar um conteúdo para todos os canais.
+          </p>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Ordem recomendada de publicação</h3>
+          <ol class="list-decimal list-inside space-y-3 text-gray-700 mb-4">
+            <li><strong>YouTube (vídeo completo 16:9):</strong> Publique a versão completa primeiro. O YouTube
+            valoriza conteúdo original e indexa o vídeo no Google.</li>
+            <li><strong>TikTok (versão curta 9:16):</strong> Crie uma versão de 15-60s com os melhores momentos.
+            Publique nas primeiras 2h após o YouTube.</li>
+            <li><strong>Instagram Reels (versão curta 9:16):</strong> Use a mesma versão do TikTok ou adapte
+            levemente. Publique no mesmo dia.</li>
+            <li><strong>YouTube Shorts (versão curta 9:16):</strong> Publique uma versão curta diferente do TikTok
+            para evitar detecção de conteúdo duplicado.</li>
+            <li><strong>LinkedIn (versão profissional):</strong> Se relevante para seu nicho, adapte com tom mais formal.</li>
+          </ol>
+
+          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 mb-4">
+            <h3 class="font-bold text-blue-800 mb-2">Dica: Não publique exatamente o mesmo vídeo em todas as plataformas</h3>
+            <p class="text-blue-700">
+              Adapte o conteúdo: mude o hook (primeiros 3 segundos), ajuste o texto da legenda,
+              use hashtags específicas de cada plataforma. Isso melhora o desempenho no algoritmo
+              e evita penalização por conteúdo duplicado.
+            </p>
+          </div>
+        </section>
+
+        <!-- Seção 5 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">📅 Consistência e Agendamento</h2>
+          <p class="text-gray-700 mb-4">
+            Publicar consistentemente é mais importante do que publicar frequentemente. Um vídeo por semana
+            com qualidade é melhor do que três vídeos mediocres.
+          </p>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Ferramentas de agendamento</h3>
+          <table class="w-full border-collapse mb-4">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2 text-left">Ferramenta</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Plataformas</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Preço</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">YouTube Studio</td>
+                <td class="border border-gray-200 px-4 py-2">YouTube</td>
+                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Meta Business Suite</td>
+                <td class="border border-gray-200 px-4 py-2">Instagram, Facebook</td>
+                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Buffer</td>
+                <td class="border border-gray-200 px-4 py-2">Múltiplas plataformas</td>
+                <td class="border border-gray-200 px-4 py-2">Freemium</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Later</td>
+                <td class="border border-gray-200 px-4 py-2">Instagram, TikTok, Pinterest</td>
+                <td class="border border-gray-200 px-4 py-2">A partir de $25/mês</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Melhores horários para publicar (Brasil)</h3>
+          <table class="w-full border-collapse mb-4">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2 text-left">Plataforma</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Seg-Sex</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Sáb-Dom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">YouTube</td>
+                <td class="border border-gray-200 px-4 py-2">17h-20h</td>
+                <td class="border border-gray-200 px-4 py-2">10h-12h</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">TikTok</td>
+                <td class="border border-gray-200 px-4 py-2">11h-13h ou 19h-21h</td>
+                <td class="border border-gray-200 px-4 py-2">10h-14h</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Instagram</td>
+                <td class="border border-gray-200 px-4 py-2">12h-13h ou 18h-20h</td>
+                <td class="border border-gray-200 px-4 py-2">11h-14h</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Seção 6 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">📊 Analytics Básico</h2>
+          <p class="text-gray-700 mb-4">
+            Publicar é só metade do trabalho. Analisar os resultados é essencial para melhorar continuamente.
+            Veja as métricas mais importantes para cada plataforma.
+          </p>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Métricas essenciais</h3>
+          <table class="w-full border-collapse mb-4">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2 text-left">Métrica</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">O que mede</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Meta inicial</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">CTR (Click-Through Rate)</td>
+                <td class="border border-gray-200 px-4 py-2">% de pessoas que clicam após ver a thumbnail</td>
+                <td class="border border-gray-200 px-4 py-2">> 5%</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Retenção média</td>
+                <td class="border border-gray-200 px-4 py-2">% do vídeo que as pessoas assistem</td>
+                <td class="border border-gray-200 px-4 py-2">> 40%</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Taxa de engajamento</td>
+                <td class="border border-gray-200 px-4 py-2">Likes + comentários + compartilhamentos</td>
+                <td class="border border-gray-200 px-4 py-2">> 3%</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Tempo de visualização</td>
+                <td class="border border-gray-200 px-4 py-2">Total de minutos assistidos</td>
+                <td class="border border-gray-200 px-4 py-2">Crescente mês a mês</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Taxa de conversão</td>
+                <td class="border border-gray-200 px-4 py-2">Inscrições / novos seguidores por vídeo</td>
+                <td class="border border-gray-200 px-4 py-2">Crescente</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 mb-4">
+            <h3 class="font-bold text-purple-800 mb-2">Análise com IA</h3>
+            <p class="text-purple-700">
+              Cole os dados do YouTube Analytics no ChatGPT e peça: <em>"Analise esses dados de desempenho
+              dos meus últimos 10 vídeos e me diga padrões, o que está funcionando e sugestões de melhoria."</em>
+              A IA identifica tendências que seriam difíceis de perceber manualmente.
+            </p>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="mb-6">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Sei configurar a exportação ideal para cada plataforma</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Criei uma thumbnail com IA para meu vídeo</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Entendo os fundamentos de SEO para vídeo</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Conheço o fluxo de publicação multiplataforma</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Sei quais são os melhores horários para publicar</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Conheço as métricas essenciais de analytics</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Exportei meu vídeo e publiquei em pelo menos uma plataforma</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Navegação -->
+      <div class="flex justify-between items-center mt-12">
+        <a href="aula-4.3-efeitos-especiais-vfx.html" class="content-button content-button-secondary">
+          ← Aula 4.3
+        </a>
+        <a href="../mod5-projeto-final/aula-5.1-planejamento.html" class="content-button content-button-primary">
+          Aula 5.1 →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">&copy; 2026 VISION</div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 8.2: ElevenLabs v3 — Clonagem, Music e SFX - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 8</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 2</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 8</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 8.2</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8">
+        <span class="badge badge-tecnico mb-4">🔵 Nível 2</span>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          ElevenLabs v3 — Clonagem, Music e SFX
+        </h1>
+        <p class="text-xl text-gray-600">
+          O ecossistema completo de áudio com IA: voz ultrarrealista, clonagem, música licenciada e efeitos sonoros de última geração.
+        </p>
+        <p class="text-sm text-gray-500 mt-2">~90 minutos &bull; Atualizado em Abril 2026</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8">
+
+        <!-- Introdução -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎙️ O ecossistema ElevenLabs em 2026</h2>
+        <p class="text-gray-700 mb-4">
+          A ElevenLabs se consolidou como a plataforma mais completa de áudio com IA do mercado. O que começou como um serviço de text-to-speech evoluiu para um ecossistema inteiro que inclui síntese de voz, clonagem, geração de música, efeitos sonoros, transcrição e agentes conversacionais.
+        </p>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 rounded-r-lg">
+          <p class="text-blue-800 font-semibold mb-2">🏢 Produtos ElevenLabs (Abril 2026)</p>
+          <ul class="text-blue-700 space-y-1">
+            <li>🗣️ <strong>Eleven v3 TTS</strong> — Text-to-speech mais expressivo já criado</li>
+            <li>🎤 <strong>Voice Cloning</strong> — Clonagem profissional de voz</li>
+            <li>🎵 <strong>Eleven Music</strong> — Geração de música licenciada</li>
+            <li>🔊 <strong>SFX v2</strong> — Efeitos sonoros de última geração</li>
+            <li>💬 <strong>Conversational AI 2.0</strong> — Agentes de voz com MCP</li>
+            <li>📝 <strong>Scribe v2</strong> — Transcrição speech-to-text atualizada</li>
+          </ul>
+        </div>
+
+        <!-- Eleven v3 TTS -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🗣️ Eleven v3 TTS — A voz mais expressiva</h2>
+        <p class="text-gray-700 mb-4">
+          O Eleven v3 é o modelo de text-to-speech mais expressivo já criado. A grande evolução está nas <strong>nuances emocionais</strong>: o modelo consegue reproduzir suspiros, sussurros, risadas e variações de tom que tornam a fala praticamente indistinguível de uma voz humana real.
+        </p>
+
+        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-purple-800 font-semibold mb-2">🎭 Recursos do Eleven v3</p>
+          <ul class="text-purple-700 space-y-1">
+            <li>✅ <strong>Suspiros, sussurros e risadas</strong> naturais no meio da fala</li>
+            <li>✅ <strong>Audio tags</strong> para controle de tom: <code>&lt;happy&gt;</code>, <code>&lt;sad&gt;</code>, <code>&lt;whisper&gt;</code></li>
+            <li>✅ <strong>29 idiomas</strong> com pronúncia nativa</li>
+            <li>✅ <strong>Latência ultrabaixa</strong> para streaming em tempo real</li>
+            <li>✅ Vozes pré-definidas e <strong>vozes customizadas</strong></li>
+          </ul>
+        </div>
+
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Audio Tags para controle de tom</h3>
+        <p class="text-gray-700 mb-4">
+          Uma das funcionalidades mais poderosas do v3 são os <strong>audio tags</strong>. Você pode inserir marcações diretamente no texto para controlar o tom emocional da fala:
+        </p>
+        <div class="bg-gray-100 rounded-lg p-4 mb-6 font-mono text-sm">
+          <p class="text-gray-800">"Bom dia a todos! &lt;happy&gt;Estou muito feliz com o resultado!&lt;/happy&gt;</p>
+          <p class="text-gray-800">&lt;whisper&gt;Mas preciso contar um segredo...&lt;/whisper&gt;</p>
+          <p class="text-gray-800">&lt;sad&gt;Infelizmente, nem tudo saiu como planejado.&lt;/sad&gt;"</p>
+        </div>
+
+        <!-- Voice Cloning -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🎤 Voice Cloning — Replicando sua voz</h2>
+        <p class="text-gray-700 mb-4">
+          A clonagem de voz permite criar uma réplica digital da sua própria voz (ou de outra pessoa com consentimento). Com poucos minutos de amostra de áudio, o sistema cria uma voz que mantém timbre, ritmo e características únicas.
+        </p>
+
+        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-green-800 font-semibold mb-2">✅ Usos legítimos da clonagem de voz</p>
+          <ul class="text-green-700 space-y-1">
+            <li>🎙️ Narrar vídeos com sua voz sem gravar cada vez</li>
+            <li>🌍 Dublar seu conteúdo em outros idiomas mantendo sua voz</li>
+            <li>♿ Acessibilidade: dar voz a quem perdeu a capacidade de falar</li>
+            <li>📚 Criar audiolivros com voz consistente</li>
+            <li>📺 Manter consistência vocal em séries de conteúdo</li>
+          </ul>
+        </div>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-red-800 font-semibold mb-1">⚠️ Diretrizes éticas obrigatórias</p>
+          <p class="text-red-700 mb-2">A clonagem de voz é uma tecnologia poderosa que exige responsabilidade:</p>
+          <ul class="text-red-700 space-y-1">
+            <li>❌ <strong>NUNCA</strong> clone a voz de outra pessoa sem consentimento explícito por escrito</li>
+            <li>❌ <strong>NUNCA</strong> use vozes clonadas para enganar, fraudar ou desinformar</li>
+            <li>❌ <strong>NUNCA</strong> crie conteúdo que simule declarações que a pessoa nunca fez</li>
+            <li>✅ <strong>SEMPRE</strong> informe quando uma voz é gerada por IA</li>
+            <li>✅ <strong>SEMPRE</strong> tenha documentação de consentimento</li>
+          </ul>
+        </div>
+
+        <!-- Eleven Music -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🎵 Eleven Music — Música licenciada com IA</h2>
+        <p class="text-gray-700 mb-4">
+          O Eleven Music é a resposta da ElevenLabs ao Suno e Udio, com um diferencial importante: toda música gerada já vem com <strong>licença comercial incluída</strong>. O foco é em trilhas instrumentais e músicas de fundo para criadores de conteúdo.
+        </p>
+
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-indigo-800 font-semibold mb-2">🎼 Vantagens do Eleven Music</p>
+          <ul class="text-indigo-700 space-y-1">
+            <li>✅ Licença comercial incluída em todos os planos</li>
+            <li>✅ Integração nativa com os outros produtos ElevenLabs</li>
+            <li>✅ Trilhas otimizadas para conteúdo (não compete com música "artística")</li>
+            <li>✅ Geração rápida de variações e loops</li>
+          </ul>
+        </div>
+
+        <!-- SFX v2 -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🔊 SFX v2 — Efeitos sonoros de última geração</h2>
+        <p class="text-gray-700 mb-4">
+          O SFX v2 gera efeitos sonoros realistas a partir de descrições textuais. De "porta de madeira rangendo" a "multidão aplaudindo em estádio", a qualidade é impressionante e os efeitos podem ser usados diretamente em produções.
+        </p>
+
+        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-orange-800 font-semibold mb-2">🎚️ Recursos do SFX v2</p>
+          <ul class="text-orange-700 space-y-1">
+            <li>✅ Geração por descrição textual em linguagem natural</li>
+            <li>✅ <strong>Looping automático</strong> — cria efeitos que repetem sem corte</li>
+            <li>✅ <strong>Separação de stems</strong> — isole camadas do efeito</li>
+            <li>✅ Controle de duração (1 segundo a 30 segundos)</li>
+            <li>✅ Alta qualidade (48kHz)</li>
+          </ul>
+        </div>
+
+        <!-- Conversational AI 2.0 -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">💬 Conversational AI 2.0 — Agentes de voz</h2>
+        <p class="text-gray-700 mb-4">
+          O Conversational AI 2.0 permite criar agentes de voz interativos. Com integração via <strong>MCP (Model Context Protocol)</strong>, esses agentes podem acessar dados externos, ferramentas e APIs enquanto mantêm uma conversa natural por voz.
+        </p>
+
+        <div class="bg-cyan-50 border-l-4 border-cyan-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-cyan-800 font-semibold mb-2">🤖 Capacidades do Conversational AI 2.0</p>
+          <ul class="text-cyan-700 space-y-1">
+            <li>✅ <strong>Integrações MCP</strong> — conecte com qualquer serviço externo</li>
+            <li>✅ <strong>Reconhecimento de emoção</strong> — detecta tom do interlocutor</li>
+            <li>✅ Respostas em tempo real com latência mínima</li>
+            <li>✅ Suporte a múltiplos idiomas na mesma conversa</li>
+            <li>✅ <strong>HIPAA compliance</strong> para uso empresarial na área de saúde</li>
+          </ul>
+        </div>
+
+        <!-- Scribe v2 -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">📝 Scribe v2 — Transcrição atualizada</h2>
+        <p class="text-gray-700 mb-4">
+          O Scribe v2 é o modelo de speech-to-text da ElevenLabs. Ideal para transcrever entrevistas, podcasts e vídeos com alta precisão, incluindo identificação de falantes e timestamps automáticos.
+        </p>
+
+        <!-- Preços -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">💰 Planos e preços</h2>
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full border-collapse border border-gray-300 text-sm">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-300 px-4 py-3 text-left">Plano</th>
+                <th class="border border-gray-300 px-4 py-3 text-left">Preço</th>
+                <th class="border border-gray-300 px-4 py-3 text-left">Caracteres/mês</th>
+                <th class="border border-gray-300 px-4 py-3 text-left">Recursos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3 font-semibold">Free</td>
+                <td class="border border-gray-300 px-4 py-3">Grátis</td>
+                <td class="border border-gray-300 px-4 py-3">10.000</td>
+                <td class="border border-gray-300 px-4 py-3">TTS básico, 3 vozes clonadas, SFX limitado</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-300 px-4 py-3 font-semibold">Starter</td>
+                <td class="border border-gray-300 px-4 py-3">$5/mês</td>
+                <td class="border border-gray-300 px-4 py-3">30.000</td>
+                <td class="border border-gray-300 px-4 py-3">TTS v3, 10 vozes clonadas, SFX, Music</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3 font-semibold">Creator</td>
+                <td class="border border-gray-300 px-4 py-3">$22/mês</td>
+                <td class="border border-gray-300 px-4 py-3">100.000</td>
+                <td class="border border-gray-300 px-4 py-3">Tudo do Starter + uso comercial + Scribe</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-300 px-4 py-3 font-semibold">Pro</td>
+                <td class="border border-gray-300 px-4 py-3">$99/mês</td>
+                <td class="border border-gray-300 px-4 py-3">500.000</td>
+                <td class="border border-gray-300 px-4 py-3">Tudo + API, Conversational AI, prioridade</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3 font-semibold">Enterprise</td>
+                <td class="border border-gray-300 px-4 py-3">Sob consulta</td>
+                <td class="border border-gray-300 px-4 py-3">Customizado</td>
+                <td class="border border-gray-300 px-4 py-3">HIPAA, SLA, suporte dedicado, volume</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Prática -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🛠️ Prática: Clonando sua voz e criando um vídeo narrado</h2>
+        <p class="text-gray-700 mb-4">
+          Vamos colocar tudo em prática: clonar sua voz e usá-la para narrar um vídeo com trilha sonora e efeitos sonoros gerados por IA.
+        </p>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 1: Prepare sua amostra de voz</p>
+          <p class="text-yellow-700">Grave pelo menos 1 minuto de áudio limpo da sua voz. Fale naturalmente, com boa dicção. Use um ambiente silencioso e um microfone decente (até o microfone do celular funciona se o ambiente for quieto).</p>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 2: Clone sua voz</p>
+          <p class="text-yellow-700">No ElevenLabs, vá em "Voices" > "Add Voice" > "Instant Voice Cloning". Faça upload da sua amostra de áudio e dê um nome. Aceite os termos de uso (confirmando que é sua própria voz ou que tem consentimento).</p>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 3: Gere a narração</p>
+          <p class="text-yellow-700">Escreva o roteiro do seu vídeo e gere a narração usando sua voz clonada. Use audio tags para controlar a emoção nos trechos-chave. Exporte em alta qualidade (MP3 ou WAV).</p>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 4: Gere trilha e efeitos</p>
+          <p class="text-yellow-700">Use o Eleven Music para criar uma trilha de fundo e o SFX v2 para gerar efeitos sonoros relevantes. Exporte tudo separadamente.</p>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 5: Monte no editor</p>
+          <p class="text-yellow-700">Importe narração, trilha e efeitos no seu editor de vídeo. Ajuste os volumes: narração em destaque (~-6dB), trilha de fundo mais baixa (~-18dB), efeitos pontualmente (~-12dB). Exporte o vídeo final.</p>
+        </div>
+
+        <!-- Checklist -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">✅ Checklist da aula</h2>
+        <div class="bg-gray-50 rounded-lg p-6">
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2">
+              <span class="text-gray-400 mt-1">☐</span>
+              <span class="text-gray-700">Criar conta na ElevenLabs e explorar o painel</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-gray-400 mt-1">☐</span>
+              <span class="text-gray-700">Testar o Eleven v3 TTS com audio tags</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-gray-400 mt-1">☐</span>
+              <span class="text-gray-700">Clonar sua própria voz (com áudio de pelo menos 1 min)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-gray-400 mt-1">☐</span>
+              <span class="text-gray-700">Gerar uma narração com a voz clonada</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-gray-400 mt-1">☐</span>
+              <span class="text-gray-700">Criar uma trilha musical com Eleven Music</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-gray-400 mt-1">☐</span>
+              <span class="text-gray-700">Gerar pelo menos 5 efeitos sonoros com SFX v2</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-gray-400 mt-1">☐</span>
+              <span class="text-gray-700">Montar um vídeo narrado com trilha e efeitos</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Navegação -->
+      <div class="flex justify-between items-center mt-12">
+        <a href="aula-8.1-suno-udio-musica.html" class="content-button content-button-secondary">
+          ← Aula anterior
+        </a>
+        <a href="aula-8.3-edicao-audio-sound-design.html" class="content-button content-button-primary">
+          Próxima aula →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2026 VISION
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 10.1: n8n 2.0 — Agentes com LangChain - VISION</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../css/vision-styles.css">
+</head>
+<body class="bg-gray-50">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-3">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+        </a>
+        <a href="./" class="text-gray-600 hover:text-gray-900">← Módulo 10</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+
+    <nav class="breadcrumb mb-8">
+      <a href="../../../">Início</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../../">Curso</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="../">Nível 3</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="./">Módulo 10</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Aula 10.1</span>
+    </nav>
+
+    <article class="max-w-4xl mx-auto">
+
+      <div class="mb-8">
+        <span class="badge badge-masterclass mb-4">⚙️ Módulo 10 • Aula 1</span>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          n8n 2.0 — Agentes com LangChain
+        </h1>
+        <p class="text-xl text-gray-600">
+          Domine a plataforma de automação mais AI-native do mercado e crie agentes inteligentes que pensam, agem e iteram.
+        </p>
+        <div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+          <span>⏱️ ~120 minutos</span>
+          <span>📊 Avançado</span>
+          <span>🔄 Atualizado Abr/2026</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8">
+
+        <!-- Seção 1 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">🚀 n8n 2.0: A Revolução da Automação com IA</h2>
+          <p class="text-gray-700 mb-4">
+            Lançado em janeiro de 2026, o n8n 2.0 se consolidou como a plataforma de automação mais AI-native do mercado. Enquanto outras ferramentas adicionaram IA como recurso complementar, o n8n foi reconstruído desde o núcleo com inteligência artificial como prioridade, oferecendo integração nativa com LangChain e aproximadamente 70 nós dedicados exclusivamente a funcionalidades de IA.
+          </p>
+
+          <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 mb-4">
+            <h3 class="font-bold text-purple-800 mb-2">Por que o n8n 2.0 é diferente?</h3>
+            <p class="text-purple-700">
+              O n8n não é apenas uma ferramenta de automação com IA bolted-on. Ele foi projetado para que agentes de IA sejam cidadãos de primeira classe dentro dos workflows. Isso significa que um agente pode tomar decisões, executar ações, avaliar resultados e iterar — tudo dentro de um único fluxo visual.
+            </p>
+          </div>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Principais características do n8n 2.0</h3>
+          <table class="w-full border-collapse mb-4">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2 text-left">Recurso</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Integração LangChain Nativa</td>
+                <td class="border border-gray-200 px-4 py-2">~70 nós dedicados de IA, incluindo agentes, chains, memory e tools</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">ReAct Reasoning Loop</td>
+                <td class="border border-gray-200 px-4 py-2">Ciclo Think → Act → Observe → Iterate para tomada de decisão inteligente</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Memória Persistente</td>
+                <td class="border border-gray-200 px-4 py-2">Agentes mantêm contexto entre execuções, aprendendo ao longo do tempo</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Multi-LLM</td>
+                <td class="border border-gray-200 px-4 py-2">Suporte a OpenAI, Claude, Ollama (local) e dezenas de outros provedores</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">RAG Integrado</td>
+                <td class="border border-gray-200 px-4 py-2">Retrieval-Augmented Generation com bancos vetoriais (Pinecone, Qdrant, Supabase)</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Code Sandbox</td>
+                <td class="border border-gray-200 px-4 py-2">Execução segura de código JavaScript/Python dentro dos workflows</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Self-hosted ou Cloud</td>
+                <td class="border border-gray-200 px-4 py-2">Gratuito para self-hosted, planos pagos para cloud com execuções ilimitadas</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Seção 2 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">🧠 O Ciclo ReAct: Como Agentes Pensam</h2>
+          <p class="text-gray-700 mb-4">
+            O coração dos agentes no n8n 2.0 é o loop de raciocínio ReAct (Reasoning + Acting). Diferente de uma automação tradicional que segue passos fixos, um agente ReAct avalia cada situação e decide o próximo passo dinamicamente.
+          </p>
+
+          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 mb-6">
+            <h3 class="font-bold text-blue-800 mb-2">O Ciclo ReAct em 4 Etapas</h3>
+            <ol class="list-decimal list-inside text-blue-700 space-y-2">
+              <li><strong>Think (Pensar):</strong> O agente analisa a tarefa e decide qual ferramenta usar</li>
+              <li><strong>Act (Agir):</strong> Executa a ação escolhida (chamar API, consultar banco, gerar texto)</li>
+              <li><strong>Observe (Observar):</strong> Avalia o resultado da ação executada</li>
+              <li><strong>Iterate (Iterar):</strong> Se o resultado não for satisfatório, volta ao passo 1 com novo contexto</li>
+            </ol>
+          </div>
+
+          <p class="text-gray-700 mb-4">
+            Na prática, isso significa que seu agente pode, por exemplo, tentar gerar um post para LinkedIn, avaliar se o tom está adequado, reescrever se necessário, e só publicar quando estiver satisfeito com o resultado. Tudo isso sem intervenção humana.
+          </p>
+
+          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mb-4">
+            <h3 class="font-bold text-yellow-800 mb-2">Memória Persistente entre Execuções</h3>
+            <p class="text-yellow-700">
+              Os agentes n8n podem armazenar memória em bancos vetoriais. Isso permite que um agente "lembre" de interações passadas, aprenda preferências do usuário e melhore suas respostas ao longo do tempo. Use Window Buffer Memory para conversas curtas ou Zep/Motorhead para memória de longo prazo.
+            </p>
+          </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">🔧 Passo a Passo: Seu Primeiro Agente de Conteúdo</h2>
+          <p class="text-gray-700 mb-4">
+            Vamos construir um workflow prático: a partir de um artigo publicado no CMS, o agente gera automaticamente um post para LinkedIn, uma thread para X (Twitter), um roteiro de vídeo curto e um snippet para newsletter.
+          </p>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Arquitetura do Workflow</h3>
+          <div class="bg-gray-50 p-6 rounded-lg mb-6">
+            <ol class="list-decimal list-inside space-y-3 text-gray-700">
+              <li><strong>Trigger — Webhook/RSS:</strong> Monitora o CMS (WordPress, Ghost, etc.) para novos artigos publicados</li>
+              <li><strong>Extract — HTTP Request:</strong> Busca o conteúdo completo do artigo via API</li>
+              <li><strong>Summarize — AI Agent:</strong> Agente LangChain resume o artigo, extrai pontos-chave e tom da marca</li>
+              <li><strong>Generate — 4x AI Chains em paralelo:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                  <li>LinkedIn: post profissional com hook, 3 insights e CTA</li>
+                  <li>X/Twitter: thread de 5-7 tweets com emojis e hashtags</li>
+                  <li>Vídeo: roteiro de 60s com introdução, desenvolvimento e CTA</li>
+                  <li>Newsletter: snippet de 2 parágrafos com link</li>
+                </ul>
+              </li>
+              <li><strong>Review — AI Agent:</strong> Agente revisor verifica tom, consistência e qualidade de cada peça</li>
+              <li><strong>Publish — API Calls:</strong> Publica automaticamente em cada plataforma (ou envia para aprovação)</li>
+              <li><strong>Report — Email/Slack:</strong> Envia relatório com tudo que foi gerado e publicado</li>
+            </ol>
+          </div>
+
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Configurando o Agente no n8n</h3>
+          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+            <li>Abra o n8n e crie um novo workflow</li>
+            <li>Adicione um nó <strong>Webhook</strong> como trigger</li>
+            <li>Conecte um nó <strong>HTTP Request</strong> para buscar o artigo</li>
+            <li>Adicione o nó <strong>AI Agent</strong> (encontre em "AI" no painel de nós)</li>
+            <li>Configure o LLM: selecione OpenAI GPT-4o ou Claude 3.5 Sonnet</li>
+            <li>Defina o System Prompt com instruções de tom e formato da marca</li>
+            <li>Adicione <strong>Tools</strong> ao agente: Calculator, Code, Wikipedia, HTTP Request</li>
+            <li>Configure <strong>Memory</strong>: Window Buffer Memory com janela de 10 mensagens</li>
+            <li>Use nós <strong>Split in Batches</strong> para processar múltiplas plataformas em paralelo</li>
+            <li>Conecte nós de saída para cada plataforma (LinkedIn API, X API, etc.)</li>
+          </ol>
+
+          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
+            <h3 class="font-bold text-green-800 mb-2">Dica: Self-hosted vs Cloud</h3>
+            <p class="text-green-700">
+              Para criadores individuais, o n8n self-hosted (Docker) é gratuito e suficiente. Para equipes ou produção 24/7, considere o n8n Cloud que oferece execuções ilimitadas, monitoramento e uptime garantido. Comece com self-hosted para aprender e migre quando precisar de escala.
+            </p>
+          </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">📊 Comparativo: n8n vs Make vs Zapier para IA</h2>
+          <p class="text-gray-700 mb-4">
+            Cada plataforma tem seus pontos fortes. Veja como elas se comparam especificamente para funcionalidades de IA e criação de conteúdo.
+          </p>
+
+          <table class="w-full border-collapse mb-4">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2 text-left">Critério</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">n8n 2.0</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Make.com</th>
+                <th class="border border-gray-200 px-4 py-2 text-left">Zapier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Nós de IA nativos</td>
+                <td class="border border-gray-200 px-4 py-2">~70 (LangChain)</td>
+                <td class="border border-gray-200 px-4 py-2">~15 (Maia)</td>
+                <td class="border border-gray-200 px-4 py-2">~10 (AI by Zapier)</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Agentes autônomos</td>
+                <td class="border border-gray-200 px-4 py-2">✅ ReAct completo</td>
+                <td class="border border-gray-200 px-4 py-2">✅ Agent Builder</td>
+                <td class="border border-gray-200 px-4 py-2">✅ Zapier Agents</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Memória persistente</td>
+                <td class="border border-gray-200 px-4 py-2">✅ Nativo</td>
+                <td class="border border-gray-200 px-4 py-2">⚠️ Limitado</td>
+                <td class="border border-gray-200 px-4 py-2">⚠️ Limitado</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">RAG / Vector DB</td>
+                <td class="border border-gray-200 px-4 py-2">✅ Nativo</td>
+                <td class="border border-gray-200 px-4 py-2">❌</td>
+                <td class="border border-gray-200 px-4 py-2">❌</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Multi-LLM</td>
+                <td class="border border-gray-200 px-4 py-2">✅ OpenAI, Claude, Ollama+</td>
+                <td class="border border-gray-200 px-4 py-2">✅ OpenAI, Claude</td>
+                <td class="border border-gray-200 px-4 py-2">✅ OpenAI (nativo)</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Integrações de apps</td>
+                <td class="border border-gray-200 px-4 py-2">~400+</td>
+                <td class="border border-gray-200 px-4 py-2">~1.500+</td>
+                <td class="border border-gray-200 px-4 py-2">~8.000+</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Execução de código</td>
+                <td class="border border-gray-200 px-4 py-2">✅ JS/Python sandbox</td>
+                <td class="border border-gray-200 px-4 py-2">⚠️ Limitado</td>
+                <td class="border border-gray-200 px-4 py-2">✅ Code by Zapier</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Self-hosted gratuito</td>
+                <td class="border border-gray-200 px-4 py-2">✅</td>
+                <td class="border border-gray-200 px-4 py-2">❌</td>
+                <td class="border border-gray-200 px-4 py-2">❌</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Curva de aprendizado</td>
+                <td class="border border-gray-200 px-4 py-2">Intermediária-Alta</td>
+                <td class="border border-gray-200 px-4 py-2">Intermediária</td>
+                <td class="border border-gray-200 px-4 py-2">Baixa</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 font-semibold">Melhor para</td>
+                <td class="border border-gray-200 px-4 py-2">Agentes complexos, RAG, devs</td>
+                <td class="border border-gray-200 px-4 py-2">Automações visuais, criadores</td>
+                <td class="border border-gray-200 px-4 py-2">Automações simples, iniciantes</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Seção 5 -->
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">💡 Casos de Uso para Criadores de Conteúdo</h2>
+          <p class="text-gray-700 mb-4">
+            Além do workflow de repurposing que construímos, aqui estão outros cenários poderosos que você pode automatizar com agentes n8n:
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h4 class="font-bold text-purple-800 mb-1">🔍 Monitoramento de Tendências</h4>
+              <p class="text-purple-700 text-sm">Agente monitora Google Trends, Reddit e X, identifica tópicos em alta no seu nicho e sugere ideias de conteúdo diariamente.</p>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h4 class="font-bold text-purple-800 mb-1">📧 Newsletter Automatizada</h4>
+              <p class="text-purple-700 text-sm">Agente coleta seus melhores posts da semana, resume-os, adiciona curadoria e monta uma newsletter completa pronta para envio.</p>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h4 class="font-bold text-purple-800 mb-1">🎬 Pipeline de Vídeo</h4>
+              <p class="text-purple-700 text-sm">A partir de um roteiro, gera voiceover via ElevenLabs, imagens via FLUX, monta storyboard e envia para edição final.</p>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h4 class="font-bold text-purple-800 mb-1">📊 Relatório de Performance</h4>
+              <p class="text-purple-700 text-sm">Agente coleta métricas de todas as plataformas, analisa performance e gera relatório semanal com insights e recomendações.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="mb-6">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Entendo o que é o n8n 2.0 e suas vantagens para IA</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Compreendo o ciclo ReAct (Think → Act → Observe → Iterate)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Sei configurar um agente LangChain no n8n com memory e tools</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Construí o workflow de repurposing (artigo → multi-plataforma)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Conheço as diferenças entre n8n, Make e Zapier para IA</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" class="mt-1">
+                <span class="text-gray-700">Identifiquei pelo menos 2 casos de uso para minha produção</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Navegação -->
+      <div class="flex justify-between items-center mt-12">
+        <a href="../../nivel-2-desenvolvimento/mod9-vibe-coding/aula-9.4-v0-replit-apps.html" class="content-button content-button-secondary">
+          ← Aula 9.4
+        </a>
+        <a href="aula-10.2-make-zapier-agents.html" class="content-button content-button-primary">
+          Aula 10.2 →
+        </a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+    <div class="container mx-auto px-4 text-center text-gray-600">&copy; 2026 VISION</div>
+  </footer>
+
+</body>
+</html>
