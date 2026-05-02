@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 10.3: Pipelines Autônomos de Conteúdo · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 10.3: Pipelines Autônomos de Conteúdo · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 10.3: Pipelines Autônomos de Conteúdo · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 10.3: Pipelines Autônomos de Conteúdo · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,383 +80,345 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 3</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 10</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 10.3</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-masterclass mb-4">🔄 Módulo 10 • Aula 3</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 3</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 10</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 10.3</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full">🔄 Módulo 10 • Aula 3</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           Pipelines Autônomos de Conteúdo
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Construa sistemas que monitoram, criam, agendam, publicam e reportam conteúdo automaticamente 24/7.
         </p>
-        <div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
-          <span>⏱️ ~120 minutos</span>
-          <span>📊 Avançado</span>
-          <span>🔄 Atualizado Abr/2026</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- Seção 1 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🤖 Agentes de IA para Criação de Conteúdo</h2>
-          <p class="text-gray-700 mb-4">
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~120 minutos</span>
+<span>📊 Avançado</span>
+<span>🔄 Atualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🤖</span> Agentes de IA para Criação de Conteúdo</h2></div>
+<p class="text-neutral-300 mb-4">
             Um pipeline autônomo de conteúdo é um sistema completo que opera com mínima intervenção humana. Ele monitora tendências, gera conteúdo original, formata para cada plataforma, agenda publicações em horários otimizados, detecta engajamento e gera relatórios de performance — tudo automaticamente.
           </p>
-
-          <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 mb-4">
-            <h3 class="font-bold text-purple-800 mb-2">De um único brief para 6 formatos</h3>
-            <p class="text-purple-700">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">De um único brief para 6 formatos</h3>
+<p class="text-purple-700">
               A partir de um único briefing ou ideia, um pipeline autônomo pode gerar: blog post completo, email marketing, caption para redes sociais, copy para anúncios pagos, roteiro de vídeo curto e snippet para newsletter. Tudo formatado e otimizado para cada plataforma.
             </p>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">As 6 etapas de um pipeline autônomo</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Etapa</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">O que faz</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Ferramentas</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">1. Monitoramento</td>
-                <td class="border border-gray-200 px-4 py-2">Detecta tendências, notícias e oportunidades no nicho</td>
-                <td class="border border-gray-200 px-4 py-2">Google Trends, RSS, X API</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">2. Geração</td>
-                <td class="border border-gray-200 px-4 py-2">Cria conteúdo original baseado nas tendências detectadas</td>
-                <td class="border border-gray-200 px-4 py-2">GPT-4o, Claude, Gemini</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">3. Formatação</td>
-                <td class="border border-gray-200 px-4 py-2">Adapta o conteúdo para cada plataforma (tom, tamanho, formato)</td>
-                <td class="border border-gray-200 px-4 py-2">LLM + templates</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">4. Agendamento</td>
-                <td class="border border-gray-200 px-4 py-2">Publica nos horários de pico de cada plataforma</td>
-                <td class="border border-gray-200 px-4 py-2">Buffer, Hootsuite, APIs nativas</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">5. Engajamento</td>
-                <td class="border border-gray-200 px-4 py-2">Detecta comentários relevantes e flagga para resposta</td>
-                <td class="border border-gray-200 px-4 py-2">Webhooks, social listening</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">6. Relatórios</td>
-                <td class="border border-gray-200 px-4 py-2">Gera relatórios de performance com insights e recomendações</td>
-                <td class="border border-gray-200 px-4 py-2">Analytics APIs, Google Sheets</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- Seção 2 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🧩 NoimosAI: O Agente de Marketing Mais Completo</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">As 6 etapas de um pipeline autônomo</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Etapa</th>
+<th class="text-left p-3 font-semibold text-neutral-100">O que faz</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Ferramentas</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">1. Monitoramento</td>
+<td class="p-3 text-neutral-300">Detecta tendências, notícias e oportunidades no nicho</td>
+<td class="p-3 text-neutral-300">Google Trends, RSS, X API</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">2. Geração</td>
+<td class="p-3 text-neutral-300">Cria conteúdo original baseado nas tendências detectadas</td>
+<td class="p-3 text-neutral-300">GPT-4o, Claude, Gemini</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">3. Formatação</td>
+<td class="p-3 text-neutral-300">Adapta o conteúdo para cada plataforma (tom, tamanho, formato)</td>
+<td class="p-3 text-neutral-300">LLM + templates</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">4. Agendamento</td>
+<td class="p-3 text-neutral-300">Publica nos horários de pico de cada plataforma</td>
+<td class="p-3 text-neutral-300">Buffer, Hootsuite, APIs nativas</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">5. Engajamento</td>
+<td class="p-3 text-neutral-300">Detecta comentários relevantes e flagga para resposta</td>
+<td class="p-3 text-neutral-300">Webhooks, social listening</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">6. Relatórios</td>
+<td class="p-3 text-neutral-300">Gera relatórios de performance com insights e recomendações</td>
+<td class="p-3 text-neutral-300">Analytics APIs, Google Sheets</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🧩</span> NoimosAI: O Agente de Marketing Mais Completo</h2></div>
+<p class="text-neutral-300 mb-4">
             O NoimosAI se posiciona como o agente de marketing com IA mais abrangente do mercado em 2026. Ele combina análise de concorrentes, rastreamento de tendências, geração de conteúdo e criação de roteiros de vídeo e storyboards em uma única plataforma.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Capacidades do NoimosAI</h3>
-          <div class="grid md:grid-cols-2 gap-4 mb-4">
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <h4 class="font-bold text-blue-800 mb-1">🔍 Análise de Concorrentes</h4>
-              <p class="text-blue-700 text-sm">Monitora estratégias de conteúdo dos concorrentes, identifica gaps e oportunidades que você pode explorar.</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <h4 class="font-bold text-blue-800 mb-1">📈 Rastreamento de Tendências</h4>
-              <p class="text-blue-700 text-sm">Acompanha tendências do seu nicho em tempo real e sugere tópicos com alto potencial de engajamento.</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <h4 class="font-bold text-blue-800 mb-1">🎬 Roteiros de Vídeo</h4>
-              <p class="text-blue-700 text-sm">Gera roteiros completos para vídeos curtos e longos, incluindo hooks, storytelling e CTAs.</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <h4 class="font-bold text-blue-800 mb-1">🎨 Storyboards</h4>
-              <p class="text-blue-700 text-sm">Cria storyboards visuais com descrições de cena, ângulos de câmera e instruções de edição.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Seção 3 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🔗 Gumloop: Pipelines de Social Media Sem Código</h2>
-          <p class="text-gray-700 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Capacidades do NoimosAI</h3>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">🔍 Análise de Concorrentes</h4>
+<p class="text-neutral-300 text-sm">Monitora estratégias de conteúdo dos concorrentes, identifica gaps e oportunidades que você pode explorar.</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">📈 Rastreamento de Tendências</h4>
+<p class="text-neutral-300 text-sm">Acompanha tendências do seu nicho em tempo real e sugere tópicos com alto potencial de engajamento.</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">🎬 Roteiros de Vídeo</h4>
+<p class="text-neutral-300 text-sm">Gera roteiros completos para vídeos curtos e longos, incluindo hooks, storytelling e CTAs.</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">🎨 Storyboards</h4>
+<p class="text-neutral-300 text-sm">Cria storyboards visuais com descrições de cena, ângulos de câmera e instruções de edição.</p>
+</div>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🔗</span> Gumloop: Pipelines de Social Media Sem Código</h2></div>
+<p class="text-neutral-300 mb-4">
             O Gumloop é uma plataforma no-code focada especificamente em construir pipelines de conteúdo para redes sociais. Sua interface visual permite criar fluxos complexos de produção de conteúdo sem escrever uma linha de código.
           </p>
-
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
-            <h3 class="font-bold text-green-800 mb-2">Ideal para social media managers</h3>
-            <p class="text-green-700">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Ideal para social media managers</h3>
+<p class="text-neutral-300">
               Enquanto o n8n e Make.com são plataformas de automação generalistas, o Gumloop foi construído do zero para social media. Isso significa que templates, integrações e fluxos são otimizados especificamente para criação e publicação de conteúdo em redes sociais.
             </p>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Recursos do Gumloop</h3>
-          <ul class="space-y-2 text-gray-700 mb-4">
-            <li><strong>Pipeline visual:</strong> Arraste e conecte blocos para criar fluxos de produção de conteúdo</li>
-            <li><strong>Templates prontos:</strong> Dezenas de pipelines pré-construídos para Instagram, TikTok, YouTube e LinkedIn</li>
-            <li><strong>IA integrada:</strong> Geração de texto, imagens e legendas sem sair da plataforma</li>
-            <li><strong>Agendamento nativo:</strong> Publicação automática nos melhores horários por plataforma</li>
-            <li><strong>Analytics:</strong> Métricas de performance integradas ao fluxo de produção</li>
-          </ul>
-        </section>
-
-        <!-- Seção 4 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">📊 Impacto Real: Números e Resultados</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Recursos do Gumloop</h3>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li><strong>Pipeline visual:</strong> Arraste e conecte blocos para criar fluxos de produção de conteúdo</li>
+<li><strong>Templates prontos:</strong> Dezenas de pipelines pré-construídos para Instagram, TikTok, YouTube e LinkedIn</li>
+<li><strong>IA integrada:</strong> Geração de texto, imagens e legendas sem sair da plataforma</li>
+<li><strong>Agendamento nativo:</strong> Publicação automática nos melhores horários por plataforma</li>
+<li><strong>Analytics:</strong> Métricas de performance integradas ao fluxo de produção</li>
+</ul>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">📊</span> Impacto Real: Números e Resultados</h2></div>
+<p class="text-neutral-300 mb-4">
             O impacto de pipelines autônomos na produtividade de criadores de conteúdo é transformador. Veja os números reportados por criadores que implementaram sistemas similares:
           </p>
-
-          <div class="grid md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-purple-50 p-6 rounded-lg text-center">
-              <div class="text-3xl font-bold text-purple-800 mb-2">50+ h/semana</div>
-              <p class="text-purple-700 text-sm">Tempo recuperado em tarefas repetitivas de criação e publicação</p>
-            </div>
-            <div class="bg-purple-50 p-6 rounded-lg text-center">
-              <div class="text-3xl font-bold text-purple-800 mb-2">80% reducao</div>
-              <p class="text-purple-700 text-sm">Redução de custos comparado a contratar equipe para o mesmo volume</p>
-            </div>
-            <div class="bg-purple-50 p-6 rounded-lg text-center">
-              <div class="text-3xl font-bold text-purple-800 mb-2">10x output</div>
-              <p class="text-purple-700 text-sm">Multiplicação do volume de conteúdo publicado por mês</p>
-            </div>
-          </div>
-
-          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mb-4">
-            <h3 class="font-bold text-yellow-800 mb-2">⚠️ Guardrails: O Humano Ainda É Essencial</h3>
-            <p class="text-yellow-700">
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+<div class="bg-purple-900/20 p-6 rounded-lg border border-purple-500/30 text-center">
+<div class="text-3xl font-bold text-neutral-100 mb-2">50+ h/semana</div>
+<p class="text-purple-700 text-sm">Tempo recuperado em tarefas repetitivas de criação e publicação</p>
+</div>
+<div class="bg-purple-900/20 p-6 rounded-lg border border-purple-500/30 text-center">
+<div class="text-3xl font-bold text-neutral-100 mb-2">80% reducao</div>
+<p class="text-purple-700 text-sm">Redução de custos comparado a contratar equipe para o mesmo volume</p>
+</div>
+<div class="bg-purple-900/20 p-6 rounded-lg border border-purple-500/30 text-center">
+<div class="text-3xl font-bold text-neutral-100 mb-2">10x output</div>
+<p class="text-purple-700 text-sm">Multiplicação do volume de conteúdo publicado por mês</p>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">⚠️ Guardrails: O Humano Ainda É Essencial</h3>
+<p class="text-neutral-300">
               Mesmo com automação total, é fundamental manter supervisão humana para: verificar tom e voz da marca, checar precisão factual de informações, aprovar conteúdo sensível e manter autenticidade. Configure checkpoints de aprovação nos pontos críticos do pipeline.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 5 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎬 Caso de Estudo: Pipeline de 1.000+ Clipes/Mês</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> Caso de Estudo: Pipeline de 1.000+ Clipes/Mês</h2></div>
+<p class="text-neutral-300 mb-4">
             Vamos analisar como construir um pipeline de produção de vídeos curtos em escala, capaz de gerar mais de 1.000 clipes por mês para múltiplas plataformas.
           </p>
-
-          <div class="bg-gray-50 p-6 rounded-lg mb-6">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">Arquitetura do Pipeline de Vídeo em Escala</h3>
-            <ol class="list-decimal list-inside space-y-3 text-gray-700">
-              <li><strong>Banco de ideias:</strong> Agente monitora 50+ fontes de tendências e alimenta planilha com ideias classificadas por potencial viral</li>
-              <li><strong>Roteirização:</strong> LLM gera 10 roteiros/dia baseado nas top ideias, com hooks, narrativa e CTAs otimizados</li>
-              <li><strong>Geração de mídia:</strong> Pipeline paralelo gera voiceover (ElevenLabs), imagens (FLUX/Midjourney) e clips de vídeo (Kling 3.0)</li>
-              <li><strong>Montagem:</strong> Template no CapCut/Shotcut com placeholders que recebem as mídias automaticamente via API</li>
-              <li><strong>Legendas e otimização:</strong> Auto-captions, thumbnails geradas por IA, títulos A/B testados</li>
-              <li><strong>Publicação multi-plataforma:</strong> Agendamento automático para YouTube Shorts, TikTok, Instagram Reels e LinkedIn</li>
-              <li><strong>Análise:</strong> Dashboard consolidado com métricas de todas as plataformas, identificando padrões de sucesso</li>
-            </ol>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Stack técnico recomendado</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Função</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Ferramenta</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Custo estimado/mês</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Orquestração</td>
-                <td class="border border-gray-200 px-4 py-2">n8n self-hosted</td>
-                <td class="border border-gray-200 px-4 py-2">$0 (servidor ~$20)</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">LLM principal</td>
-                <td class="border border-gray-200 px-4 py-2">Claude 3.5 Sonnet / GPT-4o</td>
-                <td class="border border-gray-200 px-4 py-2">$50-150</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Voz</td>
-                <td class="border border-gray-200 px-4 py-2">ElevenLabs</td>
-                <td class="border border-gray-200 px-4 py-2">$22-99</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Imagens</td>
-                <td class="border border-gray-200 px-4 py-2">FLUX via API</td>
-                <td class="border border-gray-200 px-4 py-2">$20-50</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Vídeo</td>
-                <td class="border border-gray-200 px-4 py-2">Kling 3.0 / Hailuo</td>
-                <td class="border border-gray-200 px-4 py-2">$30-100</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Publicação</td>
-                <td class="border border-gray-200 px-4 py-2">Buffer / APIs nativas</td>
-                <td class="border border-gray-200 px-4 py-2">$15-50</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
-            <h3 class="font-bold text-green-800 mb-2">Custo total: $137-469/mês para 1.000+ vídeos</h3>
-            <p class="text-green-700">
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-6">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Arquitetura do Pipeline de Vídeo em Escala</h3>
+<ol class="list-decimal list-inside space-y-3 text-neutral-300">
+<li><strong>Banco de ideias:</strong> Agente monitora 50+ fontes de tendências e alimenta planilha com ideias classificadas por potencial viral</li>
+<li><strong>Roteirização:</strong> LLM gera 10 roteiros/dia baseado nas top ideias, com hooks, narrativa e CTAs otimizados</li>
+<li><strong>Geração de mídia:</strong> Pipeline paralelo gera voiceover (ElevenLabs), imagens (FLUX/Midjourney) e clips de vídeo (Kling 3.0)</li>
+<li><strong>Montagem:</strong> Template no CapCut/Shotcut com placeholders que recebem as mídias automaticamente via API</li>
+<li><strong>Legendas e otimização:</strong> Auto-captions, thumbnails geradas por IA, títulos A/B testados</li>
+<li><strong>Publicação multi-plataforma:</strong> Agendamento automático para YouTube Shorts, TikTok, Instagram Reels e LinkedIn</li>
+<li><strong>Análise:</strong> Dashboard consolidado com métricas de todas as plataformas, identificando padrões de sucesso</li>
+</ol>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Stack técnico recomendado</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Função</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Ferramenta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Custo estimado/mês</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Orquestração</td>
+<td class="p-3 text-neutral-300">n8n self-hosted</td>
+<td class="p-3 text-neutral-300">$0 (servidor ~$20)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">LLM principal</td>
+<td class="p-3 text-neutral-300">Claude 3.5 Sonnet / GPT-4o</td>
+<td class="p-3 text-neutral-300">$50-150</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Voz</td>
+<td class="p-3 text-neutral-300">ElevenLabs</td>
+<td class="p-3 text-neutral-300">$22-99</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Imagens</td>
+<td class="p-3 text-neutral-300">FLUX via API</td>
+<td class="p-3 text-neutral-300">$20-50</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Vídeo</td>
+<td class="p-3 text-neutral-300">Kling 3.0 / Hailuo</td>
+<td class="p-3 text-neutral-300">$30-100</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Publicação</td>
+<td class="p-3 text-neutral-300">Buffer / APIs nativas</td>
+<td class="p-3 text-neutral-300">$15-50</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Custo total: $137-469/mês para 1.000+ vídeos</h3>
+<p class="text-neutral-300">
               Comparado ao custo de uma equipe tradicional de produção de conteúdo (editor, roteirista, designer, social media), esse pipeline representa uma economia de 80-95% com output significativamente maior.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 6 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🛠️ Exercício: Construindo Seu Pipeline Completo</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🛠️</span> Exercício: Construindo Seu Pipeline Completo</h2></div>
+<p class="text-neutral-300 mb-4">
             Escolha um dos cenários abaixo e construa um pipeline funcional usando as ferramentas aprendidas neste módulo:
           </p>
-
-          <div class="bg-gray-50 p-6 rounded-lg mb-4">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">Opção A: Pipeline de Blog + Social</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>Input: ideia de post em 1 frase</li>
-              <li>Output: artigo completo + posts para 3 redes sociais</li>
-              <li>Ferramenta: n8n ou Make.com</li>
-            </ul>
-          </div>
-
-          <div class="bg-gray-50 p-6 rounded-lg mb-4">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">Opção B: Pipeline de Newsletter Curada</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>Input: 10 fontes RSS do seu nicho</li>
-              <li>Output: newsletter semanal curada com resumos e análise</li>
-              <li>Ferramenta: n8n + OpenAI</li>
-            </ul>
-          </div>
-
-          <div class="bg-gray-50 p-6 rounded-lg mb-4">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">Opção C: Pipeline de Vídeo Curto</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>Input: tópico em alta no seu nicho</li>
-              <li>Output: roteiro + voiceover + imagens + agendamento</li>
-              <li>Ferramenta: n8n + ElevenLabs + FLUX</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="mb-6">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Entendo as 6 etapas de um pipeline autônomo de conteúdo</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Conheço o NoimosAI e suas capacidades para marketing com IA</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Sei usar o Gumloop para pipelines de social media sem código</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Compreendo a importância de guardrails e supervisão humana</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Estudei o caso de pipeline de 1.000+ clipes/mês</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Construí meu próprio pipeline funcional (exercício A, B ou C)</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-12">
-        <a href="aula-10.2-make-zapier-agents.html" class="content-button content-button-secondary">
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Opção A: Pipeline de Blog + Social</h3>
+<ul class="space-y-2 text-neutral-300">
+<li>Input: ideia de post em 1 frase</li>
+<li>Output: artigo completo + posts para 3 redes sociais</li>
+<li>Ferramenta: n8n ou Make.com</li>
+</ul>
+</div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Opção B: Pipeline de Newsletter Curada</h3>
+<ul class="space-y-2 text-neutral-300">
+<li>Input: 10 fontes RSS do seu nicho</li>
+<li>Output: newsletter semanal curada com resumos e análise</li>
+<li>Ferramenta: n8n + OpenAI</li>
+</ul>
+</div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Opção C: Pipeline de Vídeo Curto</h3>
+<ul class="space-y-2 text-neutral-300">
+<li>Input: tópico em alta no seu nicho</li>
+<li>Output: roteiro + voiceover + imagens + agendamento</li>
+<li>Ferramenta: n8n + ElevenLabs + FLUX</li>
+</ul>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Checklist da Aula</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Entendo as 6 etapas de um pipeline autônomo de conteúdo</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Conheço o NoimosAI e suas capacidades para marketing com IA</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Sei usar o Gumloop para pipelines de social media sem código</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Compreendo a importância de guardrails e supervisão humana</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Estudei o caso de pipeline de 1.000+ clipes/mês</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Construí meu próprio pipeline funcional (exercício A, B ou C)</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="aula-10.2-make-zapier-agents.html">
           ← Aula 10.2
         </a>
-        <a href="../mod11-monetizacao/aula-11.1-estrategias-monetizacao.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="../mod11-monetizacao/aula-11.1-estrategias-monetizacao.html">
           Aula 11.1 →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -471,6 +432,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

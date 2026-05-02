@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 5.3: Montagem e Edição · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 5.3: Montagem e Edição · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 5.3: Montagem e Edição · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 5.3: Montagem e Edição · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,411 +80,373 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 1</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 5</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 5.3</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-iniciante mb-4">🎓 Módulo 5 • Aula 3</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 1</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 5</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 5.3</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎓 Módulo 5 • Aula 3</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           Montagem e Edição
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Monte o vídeo final no CapCut combinando todos os assets gerados por IA.
         </p>
-        <div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
-          <span>⏱️ ~120 minutos</span>
-          <span>📊 Iniciante</span>
-          <span>🔄 Atualizado Abr/2026</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- Seção 1 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎬 Configurando o Projeto no CapCut</h2>
-          <p class="text-gray-700 mb-4">
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~120 minutos</span>
+<span>📊 Iniciante</span>
+<span>🔄 Atualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> Configurando o Projeto no CapCut</h2></div>
+<p class="text-neutral-300 mb-4">
             Antes de começar a montar, configure o projeto corretamente para evitar problemas depois.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Configuração inicial</h3>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-            <li>Abra o CapCut Desktop e crie um <strong>Novo Projeto</strong></li>
-            <li>Defina a proporção conforme sua plataforma principal:
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Configuração inicial</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Abra o CapCut Desktop e crie um <strong>Novo Projeto</strong></li>
+<li>Defina a proporção conforme sua plataforma principal:
               <ul class="list-disc list-inside ml-6 mt-1">
-                <li><strong>9:16</strong> para TikTok / Instagram Reels</li>
-                <li><strong>16:9</strong> para YouTube</li>
-                <li><strong>1:1</strong> para Instagram Feed</li>
-              </ul>
-            </li>
-            <li>Resolução: <strong>1080p</strong> (Full HD)</li>
-            <li>Taxa de quadros: <strong>30 FPS</strong></li>
-            <li>Importe todos os assets da pasta organizada na aula anterior</li>
-          </ol>
-
-          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 mb-4">
-            <h3 class="font-bold text-blue-800 mb-2">Dica: Comece pelo áudio</h3>
-            <p class="text-blue-700">
+<li><strong>9:16</strong> para TikTok / Instagram Reels</li>
+<li><strong>16:9</strong> para YouTube</li>
+<li><strong>1:1</strong> para Instagram Feed</li>
+</ul>
+</li>
+<li>Resolução: <strong>1080p</strong> (Full HD)</li>
+<li>Taxa de quadros: <strong>30 FPS</strong></li>
+<li>Importe todos os assets da pasta organizada na aula anterior</li>
+</ol>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Dica: Comece pelo áudio</h3>
+<p class="text-neutral-300">
               A melhor prática é montar o vídeo a partir do áudio. Coloque a narração na timeline
               primeiro, depois adicione os visuais sincronizados com a fala. Isso garante um ritmo
               natural e evita que o vídeo fique descasado.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 2 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🔊 Sincronização de Áudio</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🔊</span> Sincronização de Áudio</h2></div>
+<p class="text-neutral-300 mb-4">
             A sincronização entre áudio e visual é o que diferencia um vídeo amador de um profissional.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Montando as camadas de áudio</h3>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-            <li><strong>Faixa 1 - Narração:</strong> Arraste o arquivo de narração para a primeira faixa de áudio</li>
-            <li><strong>Faixa 2 - Música:</strong> Adicione a música de fundo na segunda faixa</li>
-            <li><strong>Volume da narração:</strong> Mantenha em 100%</li>
-            <li><strong>Volume da música:</strong> Reduza para 15-25% (deve ser sutil)</li>
-            <li><strong>Fade in/out da música:</strong> Adicione fade in de 1s no início e fade out de 2s no final</li>
-          </ol>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Sincronização visual com narração</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Trecho da narração</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Visual correspondente</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Técnica</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2">Hook (pergunta/afirmação)</td>
-                <td class="border border-gray-200 px-4 py-2">Imagem impactante ou close do produto</td>
-                <td class="border border-gray-200 px-4 py-2">Corte rápido ou zoom in</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2">Descrição do problema</td>
-                <td class="border border-gray-200 px-4 py-2">Cenário que representa o problema</td>
-                <td class="border border-gray-200 px-4 py-2">Tons mais escuros, transição suave</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2">Apresentação da solução</td>
-                <td class="border border-gray-200 px-4 py-2">Produto em destaque, revelação</td>
-                <td class="border border-gray-200 px-4 py-2">Transição impactante, tons claros</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2">Cada benefício mencionado</td>
-                <td class="border border-gray-200 px-4 py-2">Visual que ilustra o benefício + texto</td>
-                <td class="border border-gray-200 px-4 py-2">Corte no beat da música</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2">Call-to-action</td>
-                <td class="border border-gray-200 px-4 py-2">Logo + texto da CTA + produto</td>
-                <td class="border border-gray-200 px-4 py-2">Tela limpa, foco no texto</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mb-4">
-            <h3 class="font-bold text-yellow-800 mb-2">Corte no beat</h3>
-            <p class="text-yellow-700">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Montando as camadas de áudio</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Faixa 1 - Narração:</strong> Arraste o arquivo de narração para a primeira faixa de áudio</li>
+<li><strong>Faixa 2 - Música:</strong> Adicione a música de fundo na segunda faixa</li>
+<li><strong>Volume da narração:</strong> Mantenha em 100%</li>
+<li><strong>Volume da música:</strong> Reduza para 15-25% (deve ser sutil)</li>
+<li><strong>Fade in/out da música:</strong> Adicione fade in de 1s no início e fade out de 2s no final</li>
+</ol>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Sincronização visual com narração</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Trecho da narração</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Visual correspondente</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Técnica</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Hook (pergunta/afirmação)</td>
+<td class="p-3 text-neutral-300">Imagem impactante ou close do produto</td>
+<td class="p-3 text-neutral-300">Corte rápido ou zoom in</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Descrição do problema</td>
+<td class="p-3 text-neutral-300">Cenário que representa o problema</td>
+<td class="p-3 text-neutral-300">Tons mais escuros, transição suave</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Apresentação da solução</td>
+<td class="p-3 text-neutral-300">Produto em destaque, revelação</td>
+<td class="p-3 text-neutral-300">Transição impactante, tons claros</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Cada benefício mencionado</td>
+<td class="p-3 text-neutral-300">Visual que ilustra o benefício + texto</td>
+<td class="p-3 text-neutral-300">Corte no beat da música</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Call-to-action</td>
+<td class="p-3 text-neutral-300">Logo + texto da CTA + produto</td>
+<td class="p-3 text-neutral-300">Tela limpa, foco no texto</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Corte no beat</h3>
+<p class="text-neutral-300">
               Sincronize as transições entre cenas com as batidas da música de fundo. Isso cria um
               ritmo visual que mantém o espectador engajado. No CapCut, use o recurso de detecção
-              de beats: <strong>Áudio > Detectar Beats</strong>.
+              de beats: <strong>Áudio &gt; Detectar Beats</strong>.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 3 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🔄 Transições e Efeitos</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🔄</span> Transições e Efeitos</h2></div>
+<p class="text-neutral-300 mb-4">
             As transições conectam as cenas e mantêm o fluxo visual. Para um vídeo profissional,
             menos é mais - evite transições chamativas demais.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Transições recomendadas</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Transição</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Quando usar</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Duração</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Corte seco (Cut)</td>
-                <td class="border border-gray-200 px-4 py-2">Cenas rápidas, energia alta, TikTok</td>
-                <td class="border border-gray-200 px-4 py-2">0s (instantâneo)</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Cross Dissolve</td>
-                <td class="border border-gray-200 px-4 py-2">Mudança de tema, passagem de tempo</td>
-                <td class="border border-gray-200 px-4 py-2">0.3-0.5s</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Fade to Black</td>
-                <td class="border border-gray-200 px-4 py-2">Final do vídeo, separação de seções</td>
-                <td class="border border-gray-200 px-4 py-2">0.5-1s</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Zoom Transition</td>
-                <td class="border border-gray-200 px-4 py-2">Revelação de produto, destaque</td>
-                <td class="border border-gray-200 px-4 py-2">0.3-0.5s</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Slide/Wipe</td>
-                <td class="border border-gray-200 px-4 py-2">Mostrar benefícios em sequência</td>
-                <td class="border border-gray-200 px-4 py-2">0.3s</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
-            <h3 class="font-bold text-green-800 mb-2">Regra de ouro das transições</h3>
-            <p class="text-green-700">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Transições recomendadas</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Transição</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Quando usar</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Duração</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Corte seco (Cut)</td>
+<td class="p-3 text-neutral-300">Cenas rápidas, energia alta, TikTok</td>
+<td class="p-3 text-neutral-300">0s (instantâneo)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Cross Dissolve</td>
+<td class="p-3 text-neutral-300">Mudança de tema, passagem de tempo</td>
+<td class="p-3 text-neutral-300">0.3-0.5s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Fade to Black</td>
+<td class="p-3 text-neutral-300">Final do vídeo, separação de seções</td>
+<td class="p-3 text-neutral-300">0.5-1s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Zoom Transition</td>
+<td class="p-3 text-neutral-300">Revelação de produto, destaque</td>
+<td class="p-3 text-neutral-300">0.3-0.5s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Slide/Wipe</td>
+<td class="p-3 text-neutral-300">Mostrar benefícios em sequência</td>
+<td class="p-3 text-neutral-300">0.3s</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Regra de ouro das transições</h3>
+<p class="text-neutral-300">
               Use no máximo 2 tipos de transição em um vídeo curto. A consistência visual transmite
               profissionalismo. Corte seco + cross dissolve é uma combinação segura para quase
               qualquer tipo de vídeo.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 4 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">📝 Textos e Legendas</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">📝</span> Textos e Legendas</h2></div>
+<p class="text-neutral-300 mb-4">
             Textos na tela reforçam a mensagem e ajudam quem assiste sem som. Adicione texto
             estratégico para os pontos mais importantes do vídeo.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Tipos de texto a incluir</h3>
-          <div class="space-y-3 mb-4">
-            <div class="bg-gray-50 p-3 rounded">
-              <strong class="text-gray-800">Título/Hook (0-3s):</strong>
-              <span class="text-gray-600">Texto grande e chamativo que reforça o gancho. Ex: "Isso vai mudar TUDO"</span>
-            </div>
-            <div class="bg-gray-50 p-3 rounded">
-              <strong class="text-gray-800">Destaques de benefícios (15-25s):</strong>
-              <span class="text-gray-600">Palavras-chave que aparecem junto com a narração. Ex: "40h bateria"</span>
-            </div>
-            <div class="bg-gray-50 p-3 rounded">
-              <strong class="text-gray-800">CTA final (25-30s):</strong>
-              <span class="text-gray-600">Chamada para ação clara. Ex: "Link na bio" ou "Saiba mais"</span>
-            </div>
-            <div class="bg-gray-50 p-3 rounded">
-              <strong class="text-gray-800">Legendas automáticas:</strong>
-              <span class="text-gray-600">Gere com Auto-Captions do CapCut para todo o vídeo</span>
-            </div>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Estilizando textos no CapCut</h3>
-          <ul class="space-y-2 text-gray-700 mb-4">
-            <li><strong>Fonte:</strong> Use fontes sem serifa (Montserrat, Inter, Poppins) para modernidade</li>
-            <li><strong>Tamanho:</strong> Grande o suficiente para ler em mobile (mínimo 48px em 1080p)</li>
-            <li><strong>Cor:</strong> Branco com sombra escura para legibilidade sobre qualquer fundo</li>
-            <li><strong>Animação:</strong> Entrada suave (fade ou slide), evite animações distrativas</li>
-            <li><strong>Duração:</strong> Cada texto deve ficar visível por pelo menos 2 segundos</li>
-          </ul>
-        </section>
-
-        <!-- Seção 5 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎨 Consistência de Cor</h2>
-          <p class="text-gray-700 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Tipos de texto a incluir</h3>
+<div class="space-y-3 mb-4">
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600">
+<strong class="text-neutral-100">Título/Hook (0-3s):</strong>
+<span class="text-gray-600">Texto grande e chamativo que reforça o gancho. Ex: "Isso vai mudar TUDO"</span>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600">
+<strong class="text-neutral-100">Destaques de benefícios (15-25s):</strong>
+<span class="text-gray-600">Palavras-chave que aparecem junto com a narração. Ex: "40h bateria"</span>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600">
+<strong class="text-neutral-100">CTA final (25-30s):</strong>
+<span class="text-gray-600">Chamada para ação clara. Ex: "Link na bio" ou "Saiba mais"</span>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600">
+<strong class="text-neutral-100">Legendas automáticas:</strong>
+<span class="text-gray-600">Gere com Auto-Captions do CapCut para todo o vídeo</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Estilizando textos no CapCut</h3>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li><strong>Fonte:</strong> Use fontes sem serifa (Montserrat, Inter, Poppins) para modernidade</li>
+<li><strong>Tamanho:</strong> Grande o suficiente para ler em mobile (mínimo 48px em 1080p)</li>
+<li><strong>Cor:</strong> Branco com sombra escura para legibilidade sobre qualquer fundo</li>
+<li><strong>Animação:</strong> Entrada suave (fade ou slide), evite animações distrativas</li>
+<li><strong>Duração:</strong> Cada texto deve ficar visível por pelo menos 2 segundos</li>
+</ul>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🎨</span> Consistência de Cor</h2></div>
+<p class="text-neutral-300 mb-4">
             Como os assets foram gerados por diferentes ferramentas de IA, as cores e estilos podem
             variar entre cenas. O color grading unifica tudo.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Passos para consistência de cor</h3>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-            <li><strong>Escolha um LUT base:</strong> Aplique o mesmo filtro de cor em todos os clipes</li>
-            <li><strong>Ajuste individualmente:</strong> Corrija brilho e contraste de clipes que destoam</li>
-            <li><strong>Temperature match:</strong> Todos os clipes devem ter temperatura de cor similar (quente ou frio)</li>
-            <li><strong>Copie ajustes:</strong> Use a função "Copiar/Colar ajustes" entre clipes similares</li>
-            <li><strong>Teste em preview:</strong> Assista o vídeo completo e verifique se as transições de cor são suaves</li>
-          </ol>
-
-          <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 mb-4">
-            <h3 class="font-bold text-purple-800 mb-2">AI Color Match no CapCut</h3>
-            <p class="text-purple-700">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Passos para consistência de cor</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Escolha um LUT base:</strong> Aplique o mesmo filtro de cor em todos os clipes</li>
+<li><strong>Ajuste individualmente:</strong> Corrija brilho e contraste de clipes que destoam</li>
+<li><strong>Temperature match:</strong> Todos os clipes devem ter temperatura de cor similar (quente ou frio)</li>
+<li><strong>Copie ajustes:</strong> Use a função "Copiar/Colar ajustes" entre clipes similares</li>
+<li><strong>Teste em preview:</strong> Assista o vídeo completo e verifique se as transições de cor são suaves</li>
+</ol>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">AI Color Match no CapCut</h3>
+<p class="text-purple-700">
               O CapCut tem um recurso de <strong>AI Color Match</strong> que analisa um clipe de referência
               e aplica a mesma paleta de cores nos demais. Selecione seu clipe mais bonito como referência
               e aplique em todos os outros para uniformizar automaticamente.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 6 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">👁️ Preview e Feedback</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">👁️</span> Preview e Feedback</h2></div>
+<p class="text-neutral-300 mb-4">
             Antes de finalizar, revise o vídeo múltiplas vezes com olhar crítico.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Checklist de revisão pré-exportação</h3>
-          <div class="space-y-2 mb-4">
-            <div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
-              <span>🔊</span>
-              <div><strong>Áudio:</strong> A narração está clara? A música não abafa a voz? Há cliques ou ruídos?</div>
-            </div>
-            <div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
-              <span>⏰</span>
-              <div><strong>Timing:</strong> Cada visual aparece sincronizado com a narração correspondente?</div>
-            </div>
-            <div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
-              <span>🎨</span>
-              <div><strong>Cores:</strong> As cores estão consistentes entre cenas? Nenhum clipe destoa?</div>
-            </div>
-            <div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
-              <span>📝</span>
-              <div><strong>Textos:</strong> Todos os textos são legíveis? Sem erros de ortografia? Tempo suficiente de exibição?</div>
-            </div>
-            <div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
-              <span>🔄</span>
-              <div><strong>Transições:</strong> Suaves e naturais? Nenhuma transição abrupta ou estranha?</div>
-            </div>
-            <div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
-              <span>📱</span>
-              <div><strong>Mobile:</strong> Assista no celular - tudo é legível e visível na tela pequena?</div>
-            </div>
-            <div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
-              <span>⏱️</span>
-              <div><strong>Duração:</strong> O vídeo está dentro de 30-60 segundos? O ritmo é bom?</div>
-            </div>
-          </div>
-
-          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mb-4">
-            <h3 class="font-bold text-yellow-800 mb-2">Peça feedback externo</h3>
-            <p class="text-yellow-700">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Checklist de revisão pré-exportação</h3>
+<div class="space-y-2 mb-4">
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>🔊</span>
+<div><strong>Áudio:</strong> A narração está clara? A música não abafa a voz? Há cliques ou ruídos?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>⏰</span>
+<div><strong>Timing:</strong> Cada visual aparece sincronizado com a narração correspondente?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>🎨</span>
+<div><strong>Cores:</strong> As cores estão consistentes entre cenas? Nenhum clipe destoa?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>📝</span>
+<div><strong>Textos:</strong> Todos os textos são legíveis? Sem erros de ortografia? Tempo suficiente de exibição?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>🔄</span>
+<div><strong>Transições:</strong> Suaves e naturais? Nenhuma transição abrupta ou estranha?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>📱</span>
+<div><strong>Mobile:</strong> Assista no celular - tudo é legível e visível na tela pequena?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>⏱️</span>
+<div><strong>Duração:</strong> O vídeo está dentro de 30-60 segundos? O ritmo é bom?</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Peça feedback externo</h3>
+<p class="text-neutral-300">
               Envie o preview para 2-3 pessoas de confiança e peça feedback honesto. Pergunte especificamente:
               <em>"Você entendeu o que é o produto nos primeiros 5 segundos?"</em> e
               <em>"Você assistiria até o final se visse isso no seu feed?"</em>
-            </p>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="mb-6">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Configurei o projeto no CapCut com proporção e resolução corretas</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Importei todos os assets e organizei na timeline</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Sincronizei a narração com os visuais de cada cena</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Adicionei música de fundo com volume adequado e fade in/out</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Apliquei transições suaves entre as cenas</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Adicionei textos de destaque e legendas automáticas</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Unifiquei as cores com color grading/LUT</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Revisei o vídeo completo e corrigi problemas encontrados</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-12">
-        <a href="aula-5.2-producao-assets.html" class="content-button content-button-secondary">
+</p>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Checklist da Aula</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Configurei o projeto no CapCut com proporção e resolução corretas</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Importei todos os assets e organizei na timeline</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Sincronizei a narração com os visuais de cada cena</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Adicionei música de fundo com volume adequado e fade in/out</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Apliquei transições suaves entre as cenas</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Adicionei textos de destaque e legendas automáticas</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Unifiquei as cores com color grading/LUT</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Revisei o vídeo completo e corrigi problemas encontrados</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="aula-5.2-producao-assets.html">
           ← Aula 5.2
         </a>
-        <a href="aula-5.4-finalizacao-publicacao.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-5.4-finalizacao-publicacao.html">
           Aula 5.4 →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -499,6 +460,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

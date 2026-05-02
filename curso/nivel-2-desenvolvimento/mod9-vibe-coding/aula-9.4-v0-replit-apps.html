@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 9.4: v0, Replit Agent e apps sem código · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 9.4: v0, Replit Agent e apps sem código · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 9.4: v0, Replit Agent e apps sem código · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 9.4: v0, Replit Agent e apps sem código · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,359 +80,318 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 2</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 9</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 9.4</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-tecnico mb-4">🔵 Nível 2</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 2</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 9</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 9.4</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">🔵 Nível 2</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           v0, Replit Agent e apps sem código
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Prototipagem rápida, deploy na web e construção do seu dashboard criativo pessoal.
         </p>
-        <p class="text-sm text-gray-500 mt-2">~90 minutos &bull; Atualizado em Abril 2026</p>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- v0 -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎨 v0 by Vercel — Prototipagem de interfaces</h2>
-        <p class="text-gray-700 mb-4">
+<p class="text-sm text-neutral-500 mt-2">~90 minutos • Atualizado em Abril 2026</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- v0 -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4">🎨 v0 by Vercel — Prototipagem de interfaces</h2>
+<p class="text-neutral-300 mb-4">
           O <strong>v0</strong> é a ferramenta da Vercel focada em geração de interfaces. Alimentado por modelos da OpenAI, ele transforma descrições textuais em componentes React com Next.js e Tailwind CSS. Seu foco é exclusivamente no <strong>frontend</strong> — a interface visual.
         </p>
-
-        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-purple-800 font-semibold mb-2">🖼️ Recursos do v0</p>
-          <ul class="text-purple-700 space-y-1">
-            <li>✅ <strong>Texto para React/Next.js/Tailwind</strong> — componentes prontos para produção</li>
-            <li>✅ <strong>shadcn/ui integrado</strong> — componentes de design system de alta qualidade</li>
-            <li>✅ <strong>Preview em tempo real</strong> — veja o resultado enquanto descreve</li>
-            <li>✅ <strong>Código copiável</strong> — copie e cole diretamente no seu projeto</li>
-            <li>✅ <strong>Iteração rápida</strong> — refine via chat com contexto preservado</li>
-          </ul>
-        </div>
-
-        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-orange-800 font-semibold mb-2">⚠️ Limitações do v0</p>
-          <ul class="text-orange-700 space-y-1">
-            <li>❌ <strong>Apenas frontend</strong> — não gera backend, banco de dados ou APIs</li>
-            <li>❌ Não faz deploy direto — você precisa integrar o código em um projeto</li>
-            <li>❌ Foco em React — não gera código para outros frameworks</li>
-          </ul>
-        </div>
-
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-blue-800 font-semibold mb-1">💡 Melhor uso do v0 para criadores</p>
-          <p class="text-blue-700">O v0 brilha na criação de <strong>componentes de interface</strong>: cards de conteúdo, dashboards de métricas, formulários de contato, tabelas de preços, seções de landing page. Gere no v0, copie o código e integre no seu projeto Lovable, Bolt ou Cursor.</p>
-        </div>
-
-        <!-- Replit Agent -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">☁️ Replit Agent — 100% na nuvem</h2>
-        <p class="text-gray-700 mb-4">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🖼️ Recursos do v0</p>
+<ul class="text-purple-700 space-y-1">
+<li>✅ <strong>Texto para React/Next.js/Tailwind</strong> — componentes prontos para produção</li>
+<li>✅ <strong>shadcn/ui integrado</strong> — componentes de design system de alta qualidade</li>
+<li>✅ <strong>Preview em tempo real</strong> — veja o resultado enquanto descreve</li>
+<li>✅ <strong>Código copiável</strong> — copie e cole diretamente no seu projeto</li>
+<li>✅ <strong>Iteração rápida</strong> — refine via chat com contexto preservado</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">⚠️ Limitações do v0</p>
+<ul class="text-neutral-300 space-y-1">
+<li>❌ <strong>Apenas frontend</strong> — não gera backend, banco de dados ou APIs</li>
+<li>❌ Não faz deploy direto — você precisa integrar o código em um projeto</li>
+<li>❌ Foco em React — não gera código para outros frameworks</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-1">💡 Melhor uso do v0 para criadores</p>
+<p class="text-neutral-300">O v0 brilha na criação de <strong>componentes de interface</strong>: cards de conteúdo, dashboards de métricas, formulários de contato, tabelas de preços, seções de landing page. Gere no v0, copie o código e integre no seu projeto Lovable, Bolt ou Cursor.</p>
+</div>
+<!-- Replit Agent -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">☁️ Replit Agent — 100% na nuvem</h2>
+<p class="text-neutral-300 mb-4">
           O <strong>Replit Agent</strong> é a opção mais acessível para quem nunca programou. Tudo roda na nuvem — você não precisa instalar nada no computador. Com mais de <strong>50 milhões de execuções de código por mês</strong>, é a plataforma que mais democratiza a criação de software.
         </p>
-
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-green-800 font-semibold mb-2">🌐 Por que o Replit se destaca</p>
-          <ul class="text-green-700 space-y-1">
-            <li>✅ <strong>100% cloud</strong> — funciona em qualquer computador com navegador</li>
-            <li>✅ <strong>50M+ execuções/mês</strong> — plataforma massivamente adotada</li>
-            <li>✅ <strong>Gerencia tudo</strong> — setup, dependências, ambiente e deploy</li>
-            <li>✅ <strong>O mais acessível</strong> — ideal para quem nunca teve contato com código</li>
-            <li>✅ <strong>Deploy integrado</strong> — publique com 1 clique</li>
-            <li>✅ <strong>Multiplayer</strong> — colabore em tempo real com outras pessoas</li>
-          </ul>
-        </div>
-
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Como funciona o Replit Agent</h3>
-        <p class="text-gray-700 mb-4">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🌐 Por que o Replit se destaca</p>
+<ul class="text-neutral-300 space-y-1">
+<li>✅ <strong>100% cloud</strong> — funciona em qualquer computador com navegador</li>
+<li>✅ <strong>50M+ execuções/mês</strong> — plataforma massivamente adotada</li>
+<li>✅ <strong>Gerencia tudo</strong> — setup, dependências, ambiente e deploy</li>
+<li>✅ <strong>O mais acessível</strong> — ideal para quem nunca teve contato com código</li>
+<li>✅ <strong>Deploy integrado</strong> — publique com 1 clique</li>
+<li>✅ <strong>Multiplayer</strong> — colabore em tempo real com outras pessoas</li>
+</ul>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Como funciona o Replit Agent</h3>
+<p class="text-neutral-300 mb-4">
           O Replit Agent funciona como um "desenvolvedor pessoal" na nuvem. Você descreve o que quer, e ele:
         </p>
-        <ol class="text-gray-700 space-y-2 mb-6 ml-4 list-decimal">
-          <li>Cria o projeto com a estrutura adequada</li>
-          <li>Instala todas as dependências necessárias</li>
-          <li>Escreve o código completo (frontend + backend)</li>
-          <li>Configura o ambiente de execução</li>
-          <li>Testa e resolve erros automaticamente</li>
-          <li>Faz deploy e fornece um link público</li>
-        </ol>
-
-        <!-- Comparação -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">📊 Comparação: v0 vs Replit Agent vs Lovable vs Bolt.new</h2>
-        <div class="overflow-x-auto mb-8">
-          <table class="w-full border-collapse border border-gray-300 text-sm">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-300 px-4 py-3 text-left">Característica</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">v0</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Replit Agent</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Lovable</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Bolt.new</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Foco</td>
-                <td class="border border-gray-300 px-4 py-3">Frontend/UI</td>
-                <td class="border border-gray-300 px-4 py-3">Full-stack</td>
-                <td class="border border-gray-300 px-4 py-3">Full-stack</td>
-                <td class="border border-gray-300 px-4 py-3">Full-stack</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Backend</td>
-                <td class="border border-gray-300 px-4 py-3">Não</td>
-                <td class="border border-gray-300 px-4 py-3">Sim</td>
-                <td class="border border-gray-300 px-4 py-3">Via Supabase</td>
-                <td class="border border-gray-300 px-4 py-3">Sim</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Deploy</td>
-                <td class="border border-gray-300 px-4 py-3">Manual</td>
-                <td class="border border-gray-300 px-4 py-3">Integrado</td>
-                <td class="border border-gray-300 px-4 py-3">Integrado</td>
-                <td class="border border-gray-300 px-4 py-3">Manual</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Ambiente</td>
-                <td class="border border-gray-300 px-4 py-3">Web</td>
-                <td class="border border-gray-300 px-4 py-3">Cloud</td>
-                <td class="border border-gray-300 px-4 py-3">Web</td>
-                <td class="border border-gray-300 px-4 py-3">Web (WebContainers)</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Nível necessário</td>
-                <td class="border border-gray-300 px-4 py-3">Básico</td>
-                <td class="border border-gray-300 px-4 py-3">Nenhum</td>
-                <td class="border border-gray-300 px-4 py-3">Nenhum</td>
-                <td class="border border-gray-300 px-4 py-3">Básico</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Melhor para</td>
-                <td class="border border-gray-300 px-4 py-3">Componentes UI</td>
-                <td class="border border-gray-300 px-4 py-3">Apps completos</td>
-                <td class="border border-gray-300 px-4 py-3">MVPs rápidos</td>
-                <td class="border border-gray-300 px-4 py-3">Projetos customizados</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Prática: Mini-app -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🛠️ Prática: Gerador de ideias de conteúdo</h2>
-        <p class="text-gray-700 mb-4">
+<ol class="text-neutral-300 space-y-2 mb-6 ml-4 list-decimal">
+<li>Cria o projeto com a estrutura adequada</li>
+<li>Instala todas as dependências necessárias</li>
+<li>Escreve o código completo (frontend + backend)</li>
+<li>Configura o ambiente de execução</li>
+<li>Testa e resolve erros automaticamente</li>
+<li>Faz deploy e fornece um link público</li>
+</ol>
+<!-- Comparação -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">📊 Comparação: v0 vs Replit Agent vs Lovable vs Bolt.new</h2>
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Característica</th>
+<th class="text-left p-3 font-semibold text-neutral-100">v0</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Replit Agent</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Lovable</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Bolt.new</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Foco</td>
+<td class="p-3 text-neutral-300">Frontend/UI</td>
+<td class="p-3 text-neutral-300">Full-stack</td>
+<td class="p-3 text-neutral-300">Full-stack</td>
+<td class="p-3 text-neutral-300">Full-stack</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Backend</td>
+<td class="p-3 text-neutral-300">Não</td>
+<td class="p-3 text-neutral-300">Sim</td>
+<td class="p-3 text-neutral-300">Via Supabase</td>
+<td class="p-3 text-neutral-300">Sim</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Deploy</td>
+<td class="p-3 text-neutral-300">Manual</td>
+<td class="p-3 text-neutral-300">Integrado</td>
+<td class="p-3 text-neutral-300">Integrado</td>
+<td class="p-3 text-neutral-300">Manual</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Ambiente</td>
+<td class="p-3 text-neutral-300">Web</td>
+<td class="p-3 text-neutral-300">Cloud</td>
+<td class="p-3 text-neutral-300">Web</td>
+<td class="p-3 text-neutral-300">Web (WebContainers)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Nível necessário</td>
+<td class="p-3 text-neutral-300">Básico</td>
+<td class="p-3 text-neutral-300">Nenhum</td>
+<td class="p-3 text-neutral-300">Nenhum</td>
+<td class="p-3 text-neutral-300">Básico</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Melhor para</td>
+<td class="p-3 text-neutral-300">Componentes UI</td>
+<td class="p-3 text-neutral-300">Apps completos</td>
+<td class="p-3 text-neutral-300">MVPs rápidos</td>
+<td class="p-3 text-neutral-300">Projetos customizados</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Prática: Mini-app -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🛠️ Prática: Gerador de ideias de conteúdo</h2>
+<p class="text-neutral-300 mb-4">
           Vamos criar um app completo com o Replit Agent: um <strong>gerador de ideias de conteúdo</strong> que sugere tópicos, títulos e formatos baseados no seu nicho e nas tendências atuais.
         </p>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 1: Descreva o app</p>
-          <p class="text-yellow-700">No Replit, clique em "Create Repl" e use o Agent. Descreva:</p>
-          <div class="bg-white rounded p-3 mt-2 font-mono text-sm text-gray-800">
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 1: Descreva o app</p>
+<p class="text-neutral-300">No Replit, clique em "Create Repl" e use o Agent. Descreva:</p>
+<div class="bg-white rounded p-3 mt-2 font-mono text-sm text-neutral-100">
             "Crie um gerador de ideias de conteúdo. O usuário seleciona: nicho (tecnologia, lifestyle, educação, etc.), plataforma (YouTube, Instagram, TikTok), formato (vídeo longo, short, carrossel, story). O app usa a API do Claude para gerar 5 ideias com: título, descrição de 2 linhas, hashtags sugeridas e melhor horário para publicar. Interface moderna com cards para cada ideia e botão para gerar novas."
           </div>
-        </div>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 2: Configure a API</p>
-          <p class="text-yellow-700">O Replit Agent vai pedir sua chave de API da Anthropic (ou OpenAI). Adicione como variável de ambiente no Replit Secrets — nunca coloque chaves de API direto no código.</p>
-        </div>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 3: Teste e refine</p>
-          <p class="text-yellow-700">Teste com diferentes combinações de nicho/plataforma/formato. Peça ajustes: "Adicione um campo para o usuário descrever seu público-alvo", "Inclua uma pontuação de viralidade estimada para cada ideia", "Salve as ideias favoritas em uma lista."</p>
-        </div>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 4: Publique na web</p>
-          <p class="text-yellow-700">No Replit, clique em "Deploy" > "Autoscale". Seu app estará disponível em um link público (seu-projeto.replit.app) acessível de qualquer lugar. Compartilhe com sua equipe ou use no celular.</p>
-        </div>
-
-        <!-- Dashboard criativo -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🎛️ Combinando vibe coding com ferramentas de IA: Seu dashboard criativo</h2>
-        <p class="text-gray-700 mb-4">
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 2: Configure a API</p>
+<p class="text-neutral-300">O Replit Agent vai pedir sua chave de API da Anthropic (ou OpenAI). Adicione como variável de ambiente no Replit Secrets — nunca coloque chaves de API direto no código.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 3: Teste e refine</p>
+<p class="text-neutral-300">Teste com diferentes combinações de nicho/plataforma/formato. Peça ajustes: "Adicione um campo para o usuário descrever seu público-alvo", "Inclua uma pontuação de viralidade estimada para cada ideia", "Salve as ideias favoritas em uma lista."</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 4: Publique na web</p>
+<p class="text-neutral-300">No Replit, clique em "Deploy" &gt; "Autoscale". Seu app estará disponível em um link público (seu-projeto.replit.app) acessível de qualquer lugar. Compartilhe com sua equipe ou use no celular.</p>
+</div>
+<!-- Dashboard criativo -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🎛️ Combinando vibe coding com ferramentas de IA: Seu dashboard criativo</h2>
+<p class="text-neutral-300 mb-4">
           O verdadeiro poder do vibe coding aparece quando você combina múltiplas ferramentas de IA em uma interface unificada. Imagine um dashboard que centraliza tudo:
         </p>
-
-        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-indigo-800 font-semibold mb-2">🎯 Componentes do dashboard criativo</p>
-          <ul class="text-indigo-700 space-y-2">
-            <li>📊 <strong>Painel de métricas</strong> — visualização unificada de YouTube, Instagram, TikTok</li>
-            <li>💡 <strong>Gerador de ideias</strong> — sugestões de conteúdo baseadas em trends</li>
-            <li>📝 <strong>Escritor de roteiros</strong> — geração de roteiros com IA (Claude/GPT)</li>
-            <li>🎵 <strong>Gerador de trilha</strong> — integração com API do Suno</li>
-            <li>🖼️ <strong>Criador de thumbnails</strong> — templates e geração com IA</li>
-            <li>📅 <strong>Calendário editorial</strong> — agendamento visual</li>
-            <li>🔔 <strong>Alertas de trends</strong> — notificações de tendências no seu nicho</li>
-          </ul>
-        </div>
-
-        <div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-6 rounded-r-lg">
-          <p class="text-gray-800 font-semibold mb-1">📌 Comece pequeno</p>
-          <p class="text-gray-700">Você não precisa construir tudo de uma vez. Comece com o componente que mais impacta seu fluxo (ex: gerador de ideias), valide que funciona, e adicione novos módulos progressivamente. Cada módulo pode ser um projeto separado que você integra depois.</p>
-        </div>
-
-        <!-- O futuro -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🔮 O futuro: Agentes que constroem e mantêm suas ferramentas</h2>
-        <p class="text-gray-700 mb-4">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🎯 Componentes do dashboard criativo</p>
+<ul class="text-neutral-300 space-y-2">
+<li>📊 <strong>Painel de métricas</strong> — visualização unificada de YouTube, Instagram, TikTok</li>
+<li>💡 <strong>Gerador de ideias</strong> — sugestões de conteúdo baseadas em trends</li>
+<li>📝 <strong>Escritor de roteiros</strong> — geração de roteiros com IA (Claude/GPT)</li>
+<li>🎵 <strong>Gerador de trilha</strong> — integração com API do Suno</li>
+<li>🖼️ <strong>Criador de thumbnails</strong> — templates e geração com IA</li>
+<li>📅 <strong>Calendário editorial</strong> — agendamento visual</li>
+<li>🔔 <strong>Alertas de trends</strong> — notificações de tendências no seu nicho</li>
+</ul>
+</div>
+<div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-6 rounded-r-lg">
+<p class="text-neutral-100 font-semibold mb-1">📌 Comece pequeno</p>
+<p class="text-neutral-300">Você não precisa construir tudo de uma vez. Comece com o componente que mais impacta seu fluxo (ex: gerador de ideias), valide que funciona, e adicione novos módulos progressivamente. Cada módulo pode ser um projeto separado que você integra depois.</p>
+</div>
+<!-- O futuro -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🔮 O futuro: Agentes que constroem e mantêm suas ferramentas</h2>
+<p class="text-neutral-300 mb-4">
           A evolução natural do vibe coding são <strong>agentes autônomos</strong> que não apenas criam ferramentas, mas as mantêm, atualizam e expandem. Já estamos vendo os primeiros sinais:
         </p>
-
-        <ul class="text-gray-700 space-y-2 mb-6 ml-4">
-          <li>🤖 <strong>Background Agents do Cursor</strong> já trabalham autonomamente em tarefas</li>
-          <li>🔄 <strong>Replit Agent</strong> pode detectar bugs e corrigi-los sem intervenção</li>
-          <li>📡 <strong>Claude Code</strong> pode monitorar repositórios e sugerir melhorias</li>
-          <li>⚡ <strong>Devin (Cognition)</strong> foi o primeiro "desenvolvedor IA" autônomo</li>
-        </ul>
-
-        <div class="bg-cyan-50 border-l-4 border-cyan-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-cyan-800 font-semibold mb-1">🌍 O cenário em 2026+</p>
-          <p class="text-cyan-700">Em breve, você poderá dizer: "Mantenha meu dashboard de conteúdo atualizado. Quando uma nova trend surgir no TikTok relacionada ao meu nicho, gere 3 ideias de conteúdo e adicione ao meu calendário como rascunho." E um agente fará isso <strong>continuamente</strong>, sem intervenção manual.</p>
-        </div>
-
-        <!-- Projeto final -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🎓 Projeto final sugerido: Construa sua ferramenta</h2>
-        <p class="text-gray-700 mb-4">
+<ul class="text-neutral-300 space-y-2 mb-6 ml-4">
+<li>🤖 <strong>Background Agents do Cursor</strong> já trabalham autonomamente em tarefas</li>
+<li>🔄 <strong>Replit Agent</strong> pode detectar bugs e corrigi-los sem intervenção</li>
+<li>📡 <strong>Claude Code</strong> pode monitorar repositórios e sugerir melhorias</li>
+<li>⚡ <strong>Devin (Cognition)</strong> foi o primeiro "desenvolvedor IA" autônomo</li>
+</ul>
+<div class="bg-cyan-900/20 rounded-xl border border-cyan-500/30 p-4 mb-6">
+<p class="text-cyan-800 font-semibold mb-1">🌍 O cenário em 2026+</p>
+<p class="text-cyan-700">Em breve, você poderá dizer: "Mantenha meu dashboard de conteúdo atualizado. Quando uma nova trend surgir no TikTok relacionada ao meu nicho, gere 3 ideias de conteúdo e adicione ao meu calendário como rascunho." E um agente fará isso <strong>continuamente</strong>, sem intervenção manual.</p>
+</div>
+<!-- Projeto final -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🎓 Projeto final sugerido: Construa sua ferramenta</h2>
+<p class="text-neutral-300 mb-4">
           Para consolidar tudo que aprendeu neste módulo, propomos um desafio: <strong>construa uma ferramenta que resolva um problema real do seu fluxo de criação de conteúdo</strong>.
         </p>
-
-        <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-red-800 font-semibold mb-2">🏆 Requisitos do projeto final</p>
-          <ol class="text-red-700 space-y-2 list-decimal ml-4">
-            <li><strong>Identifique um problema real</strong> — algo que consome tempo ou esforço no seu dia a dia</li>
-            <li><strong>Escolha a ferramenta certa</strong> — Lovable para apps visuais, Claude Code para automações, Replit para apps na nuvem</li>
-            <li><strong>Construa um MVP funcional</strong> — não precisa ser perfeito, precisa funcionar</li>
-            <li><strong>Publique na web</strong> — faça deploy para poder acessar de qualquer lugar</li>
-            <li><strong>Use por 1 semana</strong> — teste no seu fluxo real e identifique melhorias</li>
-            <li><strong>Itere</strong> — peça à IA para fazer os ajustes necessários</li>
-          </ol>
-        </div>
-
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-8 rounded-r-lg">
-          <p class="text-green-800 font-semibold mb-2">💡 Ideias para o projeto final</p>
-          <ul class="text-green-700 space-y-1">
-            <li>📋 Gerador de roteiros otimizado para o seu formato de conteúdo</li>
-            <li>📊 Dashboard unificado de métricas das suas redes</li>
-            <li>🔄 Pipeline automático de repurposing (vídeo longo > shorts)</li>
-            <li>📅 Sistema de planejamento editorial com IA</li>
-            <li>🎨 Gerador de paletas de cores e identidade visual</li>
-            <li>💬 Bot de respostas automáticas inteligentes para comentários</li>
-            <li>📈 Analisador de concorrentes com relatório semanal</li>
-          </ul>
-        </div>
-
-        <!-- Checklist -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">✅ Checklist da aula</h2>
-        <div class="bg-gray-50 rounded-lg p-6">
-          <ul class="space-y-3">
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Criar conta no v0 e gerar pelo menos 3 componentes de interface</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Criar conta no Replit e explorar o Agent</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Construir o gerador de ideias de conteúdo</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Fazer deploy de pelo menos um app na web</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Planejar o projeto final: escolher problema, ferramenta e funcionalidades</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Iniciar a construção do projeto final</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Publicar o projeto final e testar no dia a dia</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-12">
-        <a href="aula-9.3-cursor-claude-code.html" class="content-button content-button-secondary">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🏆 Requisitos do projeto final</p>
+<ol class="text-neutral-300 space-y-2 list-decimal ml-4">
+<li><strong>Identifique um problema real</strong> — algo que consome tempo ou esforço no seu dia a dia</li>
+<li><strong>Escolha a ferramenta certa</strong> — Lovable para apps visuais, Claude Code para automações, Replit para apps na nuvem</li>
+<li><strong>Construa um MVP funcional</strong> — não precisa ser perfeito, precisa funcionar</li>
+<li><strong>Publique na web</strong> — faça deploy para poder acessar de qualquer lugar</li>
+<li><strong>Use por 1 semana</strong> — teste no seu fluxo real e identifique melhorias</li>
+<li><strong>Itere</strong> — peça à IA para fazer os ajustes necessários</li>
+</ol>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-8-lg">
+<p class="text-neutral-100 font-semibold mb-2">💡 Ideias para o projeto final</p>
+<ul class="text-neutral-300 space-y-1">
+<li>📋 Gerador de roteiros otimizado para o seu formato de conteúdo</li>
+<li>📊 Dashboard unificado de métricas das suas redes</li>
+<li>🔄 Pipeline automático de repurposing (vídeo longo &gt; shorts)</li>
+<li>📅 Sistema de planejamento editorial com IA</li>
+<li>🎨 Gerador de paletas de cores e identidade visual</li>
+<li>💬 Bot de respostas automáticas inteligentes para comentários</li>
+<li>📈 Analisador de concorrentes com relatório semanal</li>
+</ul>
+</div>
+<!-- Checklist -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">✅ Checklist da aula</h2>
+<div class="bg-gray-50 rounded-lg p-6">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Criar conta no v0 e gerar pelo menos 3 componentes de interface</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Criar conta no Replit e explorar o Agent</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Construir o gerador de ideias de conteúdo</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Fazer deploy de pelo menos um app na web</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Planejar o projeto final: escolher problema, ferramenta e funcionalidades</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Iniciar a construção do projeto final</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Publicar o projeto final e testar no dia a dia</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="aula-9.3-cursor-claude-code.html">
           ← Aula anterior
         </a>
-        <a href="../../nivel-3-especializacao/" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="../../nivel-3-especializacao/">
           Avançar para Nível 3 →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -447,6 +405,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

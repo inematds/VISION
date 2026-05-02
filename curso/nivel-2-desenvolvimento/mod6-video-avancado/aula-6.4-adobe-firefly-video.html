@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 6.4: Adobe Firefly Video Editor - Prompt to Edit, 30+ modelos e integração com Creative Cloud">
-  <title>Aula 6.4: Adobe Firefly Video e 30+ modelos · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 6.4: Adobe Firefly Video Editor - Prompt to Edit, 30+ modelos e integração com Creative Cloud" name="description"/>
+<title>Aula 6.4: Adobe Firefly Video e 30+ modelos · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,347 +80,313 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 2</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 6</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 6.4</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="badge badge-tecnico">Nível 2</span>
-          <span class="badge bg-gray-200 text-gray-700">~90 min</span>
-        </div>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 2</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 6</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 6.4</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">Nível 2</span>
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">~90 min</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           Adobe Firefly Video e 30+ Modelos
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Explore o Adobe Firefly Video Editor com Prompt to Edit, controle de câmera por referência, Quick Cut, Firefly Boards e acesso a mais de 30 modelos de terceiros integrados ao ecossistema Adobe.
         </p>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- Seção 1 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🔥 Adobe Firefly Video Editor</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🔥</span> Adobe Firefly Video Editor</h2></div>
+<p class="text-neutral-300 mb-4">
             A Adobe transformou o Firefly de um simples gerador de imagens em uma plataforma completa de edição de vídeo com IA. O <strong>Firefly Video Editor</strong> introduz funcionalidades que nenhum outro editor tradicional oferece nativamente.
           </p>
-          <p class="text-gray-700 mb-4">
+<p class="text-neutral-300 mb-4">
             O maior diferencial da Adobe não é apenas a qualidade da geração, mas a <strong>integração perfeita com o ecossistema Creative Cloud</strong> — Premiere Pro, After Effects, Photoshop e Illustrator.
           </p>
-
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg mb-6">
-            <p class="text-red-800 font-semibold mb-1">Vantagem competitiva: IP Indemnification</p>
-            <p class="text-red-700 text-sm">A Adobe oferece indenização por propriedade intelectual para conteúdo gerado com Firefly. Isso significa que se alguém processar você por violação de direitos autorais em conteúdo gerado pelo Firefly, a Adobe cobre os custos legais. Nenhum outro concorrente oferece essa proteção.</p>
-          </div>
-        </section>
-
-        <!-- Seção 2 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">✏️ Prompt to Edit</h2>
-          <p class="text-gray-700 mb-4">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4-lg mb-6">
+<p class="text-neutral-100 font-semibold mb-1">Vantagem competitiva: IP Indemnification</p>
+<p class="text-neutral-300 text-sm">A Adobe oferece indenização por propriedade intelectual para conteúdo gerado com Firefly. Isso significa que se alguém processar você por violação de direitos autorais em conteúdo gerado pelo Firefly, a Adobe cobre os custos legais. Nenhum outro concorrente oferece essa proteção.</p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">✏️</span> Prompt to Edit</h2></div>
+<p class="text-neutral-300 mb-4">
             O <strong>Prompt to Edit</strong> é a funcionalidade mais revolucionária do Firefly Video Editor. Em vez de usar controles tradicionais de edição, você simplesmente descreve o que quer mudar em linguagem natural:
           </p>
-
-          <div class="space-y-3 mb-6">
-            <div class="bg-gray-100 p-3 rounded-lg">
-              <p class="text-sm text-gray-500 mb-1">Prompt:</p>
-              <p class="text-gray-800 font-mono text-sm">"Mude o céu para um pôr do sol dramático com nuvens alaranjadas"</p>
-            </div>
-            <div class="bg-gray-100 p-3 rounded-lg">
-              <p class="text-sm text-gray-500 mb-1">Prompt:</p>
-              <p class="text-gray-800 font-mono text-sm">"Adicione neve caindo suavemente na cena"</p>
-            </div>
-            <div class="bg-gray-100 p-3 rounded-lg">
-              <p class="text-sm text-gray-500 mb-1">Prompt:</p>
-              <p class="text-gray-800 font-mono text-sm">"Transforme o dia em noite, mantendo a iluminação artificial das janelas"</p>
-            </div>
-            <div class="bg-gray-100 p-3 rounded-lg">
-              <p class="text-sm text-gray-500 mb-1">Prompt:</p>
-              <p class="text-gray-800 font-mono text-sm">"Remova a pessoa no fundo e preencha com o cenário"</p>
-            </div>
-          </div>
-
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-            <p class="text-blue-800 font-semibold mb-1">Como funciona por baixo</p>
-            <p class="text-blue-700 text-sm">O Prompt to Edit usa uma combinação de segmentação semântica (para entender "o que" editar), inpainting temporal (para manter consistência entre frames) e geração condicional (para aplicar a mudança descrita).</p>
-          </div>
-        </section>
-
-        <!-- Seção 3 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎥 Camera Motion Control</h2>
-          <p class="text-gray-700 mb-4">
+<div class="space-y-3 mb-6">
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-neutral-500 mb-1">Prompt:</p>
+<p class="text-neutral-100 font-mono text-sm">"Mude o céu para um pôr do sol dramático com nuvens alaranjadas"</p>
+</div>
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-neutral-500 mb-1">Prompt:</p>
+<p class="text-neutral-100 font-mono text-sm">"Adicione neve caindo suavemente na cena"</p>
+</div>
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-neutral-500 mb-1">Prompt:</p>
+<p class="text-neutral-100 font-mono text-sm">"Transforme o dia em noite, mantendo a iluminação artificial das janelas"</p>
+</div>
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-neutral-500 mb-1">Prompt:</p>
+<p class="text-neutral-100 font-mono text-sm">"Remova a pessoa no fundo e preencha com o cenário"</p>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Como funciona por baixo</p>
+<p class="text-neutral-300 text-sm">O Prompt to Edit usa uma combinação de segmentação semântica (para entender "o que" editar), inpainting temporal (para manter consistência entre frames) e geração condicional (para aplicar a mudança descrita).</p>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🎥</span> Camera Motion Control</h2></div>
+<p class="text-neutral-300 mb-4">
             O <strong>Camera Motion Control</strong> permite extrair o movimento de câmera de um vídeo de referência e aplicá-lo a um novo vídeo gerado por IA. Na prática:
           </p>
-          <ul class="space-y-2 text-gray-700 mb-4">
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">1.</span>
-              <span>Você carrega um vídeo de referência com o movimento de câmera desejado</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">2.</span>
-              <span>O Firefly analisa e extrai a trajetória de câmera (pan, tilt, dolly, zoom)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">3.</span>
-              <span>Você descreve uma cena nova via prompt</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">4.</span>
-              <span>O Firefly gera a nova cena com o exato movimento de câmera extraído</span>
-            </li>
-          </ul>
-
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
-            <p class="text-green-800 font-semibold mb-1">Caso de uso profissional</p>
-            <p class="text-green-700 text-sm">Gravou um movimento de câmera perfeito no set mas a cena não ficou boa? Extraia o movimento e aplique em uma cena gerada por IA. Ou use movimentos clássicos do cinema como referência para seus projetos.</p>
-          </div>
-        </section>
-
-        <!-- Seção 4 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">✂️ Quick Cut e Firefly Boards</h2>
-
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Quick Cut</h3>
-          <p class="text-gray-700 mb-4">
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">1.</span>
+<span>Você carrega um vídeo de referência com o movimento de câmera desejado</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">2.</span>
+<span>O Firefly analisa e extrai a trajetória de câmera (pan, tilt, dolly, zoom)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">3.</span>
+<span>Você descreve uma cena nova via prompt</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">4.</span>
+<span>O Firefly gera a nova cena com o exato movimento de câmera extraído</span>
+</li>
+</ul>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Caso de uso profissional</p>
+<p class="text-neutral-300 text-sm">Gravou um movimento de câmera perfeito no set mas a cena não ficou boa? Extraia o movimento e aplique em uma cena gerada por IA. Ou use movimentos clássicos do cinema como referência para seus projetos.</p>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">✂️</span> Quick Cut e Firefly Boards</h2></div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Quick Cut</h3>
+<p class="text-neutral-300 mb-4">
             O <strong>Quick Cut</strong> analisa automaticamente seu vídeo e sugere cortes, transições e ritmo baseados no conteúdo e no áudio. Ideal para:
           </p>
-          <ul class="space-y-2 text-gray-700 mb-6">
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">•</span>
-              <span>Montar primeiros cortes de entrevistas longas</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">•</span>
-              <span>Criar highlights de eventos e palestras</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">•</span>
-              <span>Gerar versões curtas (15s, 30s, 60s) de vídeos longos</span>
-            </li>
-          </ul>
-
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Firefly Boards</h3>
-          <p class="text-gray-700 mb-4">
+<ul class="space-y-2 text-neutral-300 mb-6">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Montar primeiros cortes de entrevistas longas</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Criar highlights de eventos e palestras</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Gerar versões curtas (15s, 30s, 60s) de vídeos longos</span>
+</li>
+</ul>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Firefly Boards</h3>
+<p class="text-neutral-300 mb-4">
             Os <strong>Firefly Boards</strong> são moodboards colaborativos alimentados por IA. Você pode:
           </p>
-          <ul class="space-y-2 text-gray-700 mb-4">
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">•</span>
-              <span>Coletar referências visuais e gerar variações com IA</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">•</span>
-              <span>Colaborar em tempo real com equipe</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">•</span>
-              <span>Transformar boards diretamente em projetos de vídeo</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-blue-500 font-bold">•</span>
-              <span>Manter consistência visual de marca entre projetos</span>
-            </li>
-          </ul>
-        </section>
-
-        <!-- Seção 5 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🌐 30+ Modelos de Terceiros</h2>
-          <p class="text-gray-700 mb-4">
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Coletar referências visuais e gerar variações com IA</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Colaborar em tempo real com equipe</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Transformar boards diretamente em projetos de vídeo</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Manter consistência visual de marca entre projetos</span>
+</li>
+</ul>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🌐</span> 30+ Modelos de Terceiros</h2></div>
+<p class="text-neutral-300 mb-4">
             Uma das maiores surpresas da Adobe em 2026 foi abrir o Firefly para modelos de terceiros. Agora você pode acessar mais de 30 modelos diretamente pela interface Adobe:
           </p>
-
-          <div class="overflow-x-auto mb-6">
-            <table class="w-full border-collapse border border-gray-300 text-sm">
-              <thead>
-                <tr class="bg-gray-100">
-                  <th class="border border-gray-300 p-3 text-left">Modelo</th>
-                  <th class="border border-gray-300 p-3 text-left">Empresa</th>
-                  <th class="border border-gray-300 p-3 text-left">Especialidade</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="border border-gray-300 p-3 font-semibold">FLUX.2</td>
-                  <td class="border border-gray-300 p-3">Black Forest Labs</td>
-                  <td class="border border-gray-300 p-3">Imagens fotorrealísticas de alta resolução</td>
-                </tr>
-                <tr class="bg-gray-50">
-                  <td class="border border-gray-300 p-3 font-semibold">Kling 3.0</td>
-                  <td class="border border-gray-300 p-3">Kuaishou</td>
-                  <td class="border border-gray-300 p-3">Vídeo com storyboard multi-plano</td>
-                </tr>
-                <tr>
-                  <td class="border border-gray-300 p-3 font-semibold">Google Imagen 4</td>
-                  <td class="border border-gray-300 p-3">Google</td>
-                  <td class="border border-gray-300 p-3">Imagens com texto integrado</td>
-                </tr>
-                <tr class="bg-gray-50">
-                  <td class="border border-gray-300 p-3 font-semibold">Runway Gen-4</td>
-                  <td class="border border-gray-300 p-3">Runway</td>
-                  <td class="border border-gray-300 p-3">Vídeo cinematográfico</td>
-                </tr>
-                <tr>
-                  <td class="border border-gray-300 p-3 font-semibold">Ideogram 3</td>
-                  <td class="border border-gray-300 p-3">Ideogram</td>
-                  <td class="border border-gray-300 p-3">Tipografia e design gráfico</td>
-                </tr>
-                <tr class="bg-gray-50">
-                  <td class="border border-gray-300 p-3 font-semibold">+ 25 outros</td>
-                  <td class="border border-gray-300 p-3">Diversos</td>
-                  <td class="border border-gray-300 p-3">Especializados em nichos (3D, anime, arquitetura, etc.)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
-            <p class="text-yellow-800 font-semibold mb-1">Custom Models para marcas</p>
-            <p class="text-yellow-700 text-sm">Empresas podem treinar Custom Models com seus próprios assets de marca (logos, produtos, estilo visual) e usá-los diretamente no Firefly. Isso garante consistência de marca em todo conteúdo gerado por IA.</p>
-          </div>
-        </section>
-
-        <!-- Seção 6 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🔗 Integração com Creative Cloud</h2>
-          <p class="text-gray-700 mb-4">
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Modelo</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Empresa</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Especialidade</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">FLUX.2</td>
+<td class="p-3 text-neutral-300">Black Forest Labs</td>
+<td class="p-3 text-neutral-300">Imagens fotorrealísticas de alta resolução</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Kling 3.0</td>
+<td class="p-3 text-neutral-300">Kuaishou</td>
+<td class="p-3 text-neutral-300">Vídeo com storyboard multi-plano</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Google Imagen 4</td>
+<td class="p-3 text-neutral-300">Google</td>
+<td class="p-3 text-neutral-300">Imagens com texto integrado</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Runway Gen-4</td>
+<td class="p-3 text-neutral-300">Runway</td>
+<td class="p-3 text-neutral-300">Vídeo cinematográfico</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Ideogram 3</td>
+<td class="p-3 text-neutral-300">Ideogram</td>
+<td class="p-3 text-neutral-300">Tipografia e design gráfico</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">+ 25 outros</td>
+<td class="p-3 text-neutral-300">Diversos</td>
+<td class="p-3 text-neutral-300">Especializados em nichos (3D, anime, arquitetura, etc.)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Custom Models para marcas</p>
+<p class="text-neutral-300 text-sm">Empresas podem treinar Custom Models com seus próprios assets de marca (logos, produtos, estilo visual) e usá-los diretamente no Firefly. Isso garante consistência de marca em todo conteúdo gerado por IA.</p>
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🔗</span> Integração com Creative Cloud</h2></div>
+<p class="text-neutral-300 mb-4">
             A grande vantagem da Adobe é a integração nativa com as ferramentas profissionais que a indústria já usa:
           </p>
-
-          <div class="grid md:grid-cols-2 gap-4 mb-6">
-            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h3 class="font-bold text-gray-900 mb-2">Premiere Pro</h3>
-              <p class="text-gray-700 text-sm">Gere B-roll com Firefly diretamente na timeline. Estenda clipes, altere fundos e adicione efeitos sem sair do editor.</p>
-            </div>
-            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <h3 class="font-bold text-gray-900 mb-2">After Effects</h3>
-              <p class="text-gray-700 text-sm">Integração para efeitos visuais, rotoscopia assistida por IA e composição avançada com layers gerados pelo Firefly.</p>
-            </div>
-            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h3 class="font-bold text-gray-900 mb-2">Photoshop</h3>
-              <p class="text-gray-700 text-sm">Generative Fill e Expand para criar frames de referência e storyboards para seus projetos de vídeo.</p>
-            </div>
-            <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
-              <h3 class="font-bold text-gray-900 mb-2">Topaz Upscaling</h3>
-              <p class="text-gray-700 text-sm">Integração com Topaz Video AI para upscaling de vídeos gerados de 1080p para 4K com qualidade profissional.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
-          <div class="space-y-3">
-            <label class="flex items-center gap-3 text-gray-700">
-              <input type="checkbox" class="w-5 h-5 rounded">
-              <span>Entendi o Firefly Video Editor e o Prompt to Edit</span>
-            </label>
-            <label class="flex items-center gap-3 text-gray-700">
-              <input type="checkbox" class="w-5 h-5 rounded">
-              <span>Conheço o Camera Motion Control por referência</span>
-            </label>
-            <label class="flex items-center gap-3 text-gray-700">
-              <input type="checkbox" class="w-5 h-5 rounded">
-              <span>Sei usar Quick Cut para edição automática</span>
-            </label>
-            <label class="flex items-center gap-3 text-gray-700">
-              <input type="checkbox" class="w-5 h-5 rounded">
-              <span>Conheço os Firefly Boards para moodboards</span>
-            </label>
-            <label class="flex items-center gap-3 text-gray-700">
-              <input type="checkbox" class="w-5 h-5 rounded">
-              <span>Entendi o marketplace de 30+ modelos de terceiros</span>
-            </label>
-            <label class="flex items-center gap-3 text-gray-700">
-              <input type="checkbox" class="w-5 h-5 rounded">
-              <span>Conheço a vantagem do IP Indemnification</span>
-            </label>
-            <label class="flex items-center gap-3 text-gray-700">
-              <input type="checkbox" class="w-5 h-5 rounded">
-              <span>Entendi a integração com Premiere Pro/After Effects</span>
-            </label>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-8">
-        <a href="aula-6.3-google-veo-flow.html" class="content-button content-button-secondary">
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30 border border-blue-200">
+<h3 class="font-bold text-neutral-100 mb-2">Premiere Pro</h3>
+<p class="text-neutral-300 text-sm">Gere B-roll com Firefly diretamente na timeline. Estenda clipes, altere fundos e adicione efeitos sem sair do editor.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30 border border-purple-200">
+<h3 class="font-bold text-neutral-100 mb-2">After Effects</h3>
+<p class="text-neutral-300 text-sm">Integração para efeitos visuais, rotoscopia assistida por IA e composição avançada com layers gerados pelo Firefly.</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30 border border-green-200">
+<h3 class="font-bold text-neutral-100 mb-2">Photoshop</h3>
+<p class="text-neutral-300 text-sm">Generative Fill e Expand para criar frames de referência e storyboards para seus projetos de vídeo.</p>
+</div>
+<div class="bg-primary/10 p-4 rounded-lg border border-primary/40 border border-orange-200">
+<h3 class="font-bold text-neutral-100 mb-2">Topaz Upscaling</h3>
+<p class="text-neutral-300 text-sm">Integração com Topaz Video AI para upscaling de vídeos gerados de 1080p para 4K com qualidade profissional.</p>
+</div>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Checklist da Aula</h2></div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Entendi o Firefly Video Editor e o Prompt to Edit</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Conheço o Camera Motion Control por referência</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Sei usar Quick Cut para edição automática</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Conheço os Firefly Boards para moodboards</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Entendi o marketplace de 30+ modelos de terceiros</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Conheço a vantagem do IP Indemnification</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Entendi a integração com Premiere Pro/After Effects</span>
+</label>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="content-button content-button-secondary" href="aula-6.3-google-veo-flow.html">
           ← Aula 6.3
         </a>
-        <a href="aula-6.5-luma-pika-avancado.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-6.5-luma-pika-avancado.html">
           Próxima aula →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -435,6 +400,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

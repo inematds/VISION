@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 2.1: Midjourney V7/V8 — Do Prompt à Imagem Perfeita · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 2.1: Midjourney V7/V8 — Do Prompt à Imagem Perfeita · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 2.1: Midjourney V7/V8 — Do Prompt à Imagem Perfeita · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 2.1: Midjourney V7/V8 — Do Prompt à Imagem Perfeita · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,286 +80,253 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 1</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 2</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 2.1</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8 animate-fade-in">
-        <div class="flex items-center gap-3 mb-4 flex-wrap">
-          <span class="badge badge-iniciante">🎨 Aula 2.1</span>
-          <span class="badge badge-tecnico">~120 min</span>
-        </div>
-
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 1</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 2</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 2.1</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8 animate-fade-in">
+<div class="flex items-center gap-3 mb-4 flex-wrap">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎨 Aula 2.1</span>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">~120 min</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Midjourney V8.1 — Do Prompt à Imagem Perfeita
         </h1>
-
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Domine o Midjourney V7 e conheça o V8 Alpha: interfaces, prompt engineering, Draft Mode, Omni Reference e geração de vídeo nativa.
         </p>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8 mb-8 prose prose-lg max-w-none">
-
-        <!-- Midjourney V7 -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">🎨 Midjourney V7 — Reconstruído do Zero</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+</div>
+<div class="rounded-lg p-8 mb-8 space-y-12">
+<!-- Midjourney V7 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎨</span> Midjourney V7 — Reconstruído do Zero</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
             O Midjourney V7 não foi uma atualização incremental — foi uma reconstrução completa do modelo. Lançado em 2025, trouxe mudanças fundamentais na forma como o Midjourney interpreta e executa prompts.
           </p>
-
-          <div class="space-y-4 mb-6">
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Interpretação literal de prompts</h3>
-              <p class="text-gray-700 text-sm">V7 segue instruções com precisão. Se você pede "3 gatos", recebe exatamente 3 gatos. Mãos, dedos e anatomia são renderizados corretamente. Textos em imagens são legíveis e precisos.</p>
-            </div>
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Renderização de texto</h3>
-              <p class="text-gray-700 text-sm">Pela primeira vez, o Midjourney renderiza texto de forma confiável dentro de imagens. Perfeito para logos, posters, capas e material de marketing.</p>
-            </div>
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Draft Mode</h3>
-              <p class="text-gray-700 text-sm">Gera variações rápidas em resolução menor para exploração criativa. 10x mais rápido que o modo normal. Ideal para testar ideias antes de gerar em alta resolução.</p>
-            </div>
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Omni Reference</h3>
-              <p class="text-gray-700 text-sm">Permite usar imagens de referência para manter consistência de personagens, estilos e objetos entre múltiplas gerações. Revolucionário para projetos com identidade visual coesa.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- V8 Alpha -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">⚡ Midjourney V8.1 Alpha — O Futuro Chegou</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+<div class="space-y-4 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Interpretação literal de prompts</h3>
+<p class="text-neutral-300 text-sm">V7 segue instruções com precisão. Se você pede "3 gatos", recebe exatamente 3 gatos. Mãos, dedos e anatomia são renderizados corretamente. Textos em imagens são legíveis e precisos.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Renderização de texto</h3>
+<p class="text-neutral-300 text-sm">Pela primeira vez, o Midjourney renderiza texto de forma confiável dentro de imagens. Perfeito para logos, posters, capas e material de marketing.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Draft Mode</h3>
+<p class="text-neutral-300 text-sm">Gera variações rápidas em resolução menor para exploração criativa. 10x mais rápido que o modo normal. Ideal para testar ideias antes de gerar em alta resolução.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Omni Reference</h3>
+<p class="text-neutral-300 text-sm">Permite usar imagens de referência para manter consistência de personagens, estilos e objetos entre múltiplas gerações. Revolucionário para projetos com identidade visual coesa.</p>
+</div>
+</div>
+</section>
+<!-- V8 Alpha -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">⚡</span> Midjourney V8.1 Alpha — O Futuro Chegou</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
             O V8 Alpha está em fase de testes e traz avanços impressionantes:
           </p>
-
-          <div class="overflow-x-auto mb-6">
-            <table class="w-full border-collapse bg-white rounded-lg overflow-hidden">
-              <thead>
-                <tr class="bg-gray-100">
-                  <th class="text-left p-3 font-semibold text-gray-900">Recurso</th>
-                  <th class="text-left p-3 font-semibold text-gray-900">V7</th>
-                  <th class="text-left p-3 font-semibold text-gray-900">V8 Alpha</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200">
-                <tr><td class="p-3 text-gray-700">Velocidade</td><td class="p-3 text-gray-700">Normal</td><td class="p-3 text-gray-700">4-5x mais rápido</td></tr>
-                <tr><td class="p-3 text-gray-700">Resolução nativa</td><td class="p-3 text-gray-700">1024x1024</td><td class="p-3 text-gray-700">2K HD nativo</td></tr>
-                <tr><td class="p-3 text-gray-700">Vídeo</td><td class="p-3 text-gray-700">Não disponível</td><td class="p-3 text-gray-700">10s a 60fps</td></tr>
-                <tr><td class="p-3 text-gray-700">Texto em imagem</td><td class="p-3 text-gray-700">Bom</td><td class="p-3 text-gray-700">Excelente</td></tr>
-                <tr><td class="p-3 text-gray-700">Consistência</td><td class="p-3 text-gray-700">Omni Reference</td><td class="p-3 text-gray-700">Aprimorado</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-6">
-            <h3 class="font-bold text-gray-900 mb-2">💡 V8 Alpha: geração de vídeo</h3>
-            <p class="text-gray-700 text-sm">
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Recurso</th>
+<th class="text-left p-3 font-semibold text-neutral-100">V7</th>
+<th class="text-left p-3 font-semibold text-neutral-100">V8 Alpha</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Velocidade</td><td class="p-3 text-neutral-300">Normal</td><td class="p-3 text-neutral-300">4-5x mais rápido</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Resolução nativa</td><td class="p-3 text-neutral-300">1024x1024</td><td class="p-3 text-neutral-300">2K HD nativo</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Vídeo</td><td class="p-3 text-neutral-300">Não disponível</td><td class="p-3 text-neutral-300">10s a 60fps</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Texto em imagem</td><td class="p-3 text-neutral-300">Bom</td><td class="p-3 text-neutral-300">Excelente</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Consistência</td><td class="p-3 text-neutral-300">Omni Reference</td><td class="p-3 text-neutral-300">Aprimorado</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 V8 Alpha: geração de vídeo</h3>
+<p class="text-neutral-300 text-sm">
               O V8 Alpha introduz text-to-video nativo de até 10 segundos a 60fps. Isso posiciona o Midjourney como concorrente direto de Kling e Runway no espaço de vídeo, além de imagens. Ainda em alpha, mas os resultados iniciais são promissores.
             </p>
-          </div>
-        </section>
-
-        <!-- Interfaces -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">🖥️ Como Usar: Discord vs Interface Web</h2>
-
-          <div class="grid md:grid-cols-2 gap-4 mb-6">
-            <div class="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
-              <h3 class="font-bold text-gray-900 mb-3">Discord (clássico)</h3>
-              <ul class="text-sm text-gray-700 space-y-2">
-                <li>• Comando /imagine + prompt</li>
-                <li>• Acesso a todos os parâmetros (--ar, --stylize, --chaos etc.)</li>
-                <li>• Comunidade ativa para inspiração</li>
-                <li>• Bom para quem já usa Discord</li>
-              </ul>
-            </div>
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h3 class="font-bold text-gray-900 mb-3">alpha.midjourney.com (recomendado)</h3>
-              <ul class="text-sm text-gray-700 space-y-2">
-                <li>• Interface visual moderna e intuitiva</li>
-                <li>• Galeria pessoal organizada</li>
-                <li>• Editor integrado para ajustes</li>
-                <li>• Melhor experiência para iniciantes</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- Prompt Engineering -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">✍️ Prompt Engineering para Midjourney</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+</div>
+</section>
+<!-- Interfaces -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🖥️</span> Como Usar: Discord vs Interface Web</h2></div>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-3">Discord (clássico)</h3>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• Comando /imagine + prompt</li>
+<li>• Acesso a todos os parâmetros (--ar, --stylize, --chaos etc.)</li>
+<li>• Comunidade ativa para inspiração</li>
+<li>• Bom para quem já usa Discord</li>
+</ul>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-3">alpha.midjourney.com (recomendado)</h3>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• Interface visual moderna e intuitiva</li>
+<li>• Galeria pessoal organizada</li>
+<li>• Editor integrado para ajustes</li>
+<li>• Melhor experiência para iniciantes</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Prompt Engineering -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">✍️</span> Prompt Engineering para Midjourney</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
             A arte de escrever bons prompts é a habilidade mais importante para gerar imagens de qualidade. Aqui está a estrutura recomendada:
           </p>
-
-          <div class="bg-gray-900 text-green-400 p-6 rounded-lg font-mono text-sm mb-6">
-            <p class="mb-2 text-gray-400">// Estrutura do prompt</p>
-            <p>[SUJEITO] + [AÇÃO/CENA] + [ESTILO] + [ILUMINAÇÃO] + [CÂMERA] + [PARÂMETROS]</p>
-            <br>
-            <p class="mb-2 text-gray-400">// Exemplo prático</p>
-            <p>A Brazilian woman in her 30s sitting at a modern coffee shop,</p>
-            <p>sipping espresso while reading on a tablet,</p>
-            <p>warm golden hour lighting through large windows,</p>
-            <p>photorealistic, Canon EOS R5 85mm f/1.4,</p>
-            <p>shallow depth of field --ar 16:9 --v 7</p>
-          </div>
-
-          <div class="space-y-4 mb-6">
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Parâmetros essenciais</h3>
-              <ul class="text-sm text-gray-700 space-y-1">
-                <li>• <code>--ar 16:9</code> — aspect ratio (proporção da imagem)</li>
-                <li>• <code>--v 7</code> — versão do modelo (use 7 para estabilidade)</li>
-                <li>• <code>--stylize 100</code> — 0-1000, controla quanto o MJ "interpreta" artisticamente</li>
-                <li>• <code>--chaos 20</code> — 0-100, variação entre resultados</li>
-                <li>• <code>--quality 2</code> — qualidade de renderização (1 ou 2)</li>
-                <li>• <code>--no [item]</code> — exclui elementos indesejados</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- Planos -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">💳 Planos e Preços</h2>
-
-          <div class="overflow-x-auto mb-6">
-            <table class="w-full border-collapse bg-white rounded-lg overflow-hidden">
-              <thead>
-                <tr class="bg-gray-100">
-                  <th class="text-left p-3 font-semibold text-gray-900">Plano</th>
-                  <th class="text-left p-3 font-semibold text-gray-900">Preço</th>
-                  <th class="text-left p-3 font-semibold text-gray-900">Gerações</th>
-                  <th class="text-left p-3 font-semibold text-gray-900">Recomendação</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200">
-                <tr><td class="p-3 text-gray-700">Basic</td><td class="p-3 text-gray-700">$10/mês</td><td class="p-3 text-gray-700">~200/mês</td><td class="p-3 text-gray-700">Para aprender e testar</td></tr>
-                <tr><td class="p-3 text-gray-700">Standard</td><td class="p-3 text-gray-700">$30/mês</td><td class="p-3 text-gray-700">Ilimitado (relaxed)</td><td class="p-3 text-gray-700">Para uso regular</td></tr>
-                <tr><td class="p-3 text-gray-700">Pro</td><td class="p-3 text-gray-700">$60/mês</td><td class="p-3 text-gray-700">Ilimitado + stealth</td><td class="p-3 text-gray-700">Para profissionais</td></tr>
-                <tr><td class="p-3 text-gray-700">Mega</td><td class="p-3 text-gray-700">$120/mês</td><td class="p-3 text-gray-700">Máximo fast hours</td><td class="p-3 text-gray-700">Para agências</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="mb-8">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Entendo as diferenças entre V7 e V8 Alpha</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Sei usar a interface web (alpha.midjourney.com)</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Domino a estrutura de prompt: sujeito + cena + estilo + parâmetros</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Conheço os parâmetros --ar, --v, --stylize, --chaos</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Sei usar Draft Mode para exploração rápida</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Entendo o Omni Reference para consistência</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Gerei pelo menos 5 imagens com prompts diferentes</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-8">
-        <a href="../mod1-introducao-ia/aula-1.4-ambiente-trabalho.html" class="content-button content-button-secondary">
+<div class="bg-gray-900 text-green-400 p-6 rounded-lg font-mono text-sm mb-6">
+<p class="mb-2 text-gray-400">// Estrutura do prompt</p>
+<p class="">[SUJEITO] + [AÇÃO/CENA] + [ESTILO] + [ILUMINAÇÃO] + [CÂMERA] + [PARÂMETROS]</p>
+<br/>
+<p class="mb-2 text-gray-400">// Exemplo prático</p>
+<p class="">A Brazilian woman in her 30s sitting at a modern coffee shop,</p>
+<p class="">sipping espresso while reading on a tablet,</p>
+<p class="">warm golden hour lighting through large windows,</p>
+<p class="">photorealistic, Canon EOS R5 85mm f/1.4,</p>
+<p class="">shallow depth of field --ar 16:9 --v 7</p>
+</div>
+<div class="space-y-4 mb-6">
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Parâmetros essenciais</h3>
+<ul class="text-sm text-neutral-300 space-y-1">
+<li>• <code>--ar 16:9</code> — aspect ratio (proporção da imagem)</li>
+<li>• <code>--v 7</code> — versão do modelo (use 7 para estabilidade)</li>
+<li>• <code>--stylize 100</code> — 0-1000, controla quanto o MJ "interpreta" artisticamente</li>
+<li>• <code>--chaos 20</code> — 0-100, variação entre resultados</li>
+<li>• <code>--quality 2</code> — qualidade de renderização (1 ou 2)</li>
+<li>• <code>--no [item]</code> — exclui elementos indesejados</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Planos -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">💳</span> Planos e Preços</h2></div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Plano</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Preço</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Gerações</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Recomendação</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Basic</td><td class="p-3 text-neutral-300">$10/mês</td><td class="p-3 text-neutral-300">~200/mês</td><td class="p-3 text-neutral-300">Para aprender e testar</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Standard</td><td class="p-3 text-neutral-300">$30/mês</td><td class="p-3 text-neutral-300">Ilimitado (relaxed)</td><td class="p-3 text-neutral-300">Para uso regular</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Pro</td><td class="p-3 text-neutral-300">$60/mês</td><td class="p-3 text-neutral-300">Ilimitado + stealth</td><td class="p-3 text-neutral-300">Para profissionais</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Mega</td><td class="p-3 text-neutral-300">$120/mês</td><td class="p-3 text-neutral-300">Máximo fast hours</td><td class="p-3 text-neutral-300">Para agências</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Checklist da Aula</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Entendo as diferenças entre V7 e V8 Alpha</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Sei usar a interface web (alpha.midjourney.com)</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Domino a estrutura de prompt: sujeito + cena + estilo + parâmetros</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Conheço os parâmetros --ar, --v, --stylize, --chaos</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Sei usar Draft Mode para exploração rápida</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Entendo o Omni Reference para consistência</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Gerei pelo menos 5 imagens com prompts diferentes</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="content-button content-button-secondary" href="../mod1-introducao-ia/aula-1.4-ambiente-trabalho.html">
           ← Aula 1.4
         </a>
-        <a href="aula-2.2-flux-stable-diffusion.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-2.2-flux-stable-diffusion.html">
           Próxima: Aula 2.2 →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -374,6 +340,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

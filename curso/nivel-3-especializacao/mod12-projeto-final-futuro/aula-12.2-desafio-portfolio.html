@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 12.2: Desafio Final — Portfólio Completo · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 12.2: Desafio Final — Portfólio Completo · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 12.2: Desafio Final — Portfólio Completo · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 12.2: Desafio Final — Portfólio Completo · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,442 +80,402 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 3</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 12</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 12.2</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-masterclass mb-4">🏆 Módulo 12 • Aula 2</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 3</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 12</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 12.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full">🏆 Módulo 12 • Aula 2</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           Desafio Final — Portfólio Completo
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Monte um portfólio profissional que demonstra todas as habilidades adquiridas nos 3 níveis do VISION.
         </p>
-        <div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
-          <span>⏱️ ~120 minutos</span>
-          <span>📊 Avançado</span>
-          <span>🔄 Atualizado Abr/2026</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- Seção 1 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 O Desafio</h2>
-          <p class="text-gray-700 mb-4">
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~120 minutos</span>
+<span>📊 Avançado</span>
+<span>🔄 Atualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎯</span> O Desafio</h2></div>
+<p class="text-neutral-300 mb-4">
             Este é o desafio final do curso VISION. Você vai criar um portfólio profissional completo que demonstra domínio em todas as áreas cobertas pelo curso: geração de imagens, criação de vídeos, produção de áudio, automação e desenvolvimento de ferramentas.
           </p>
-
-          <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 mb-4">
-            <h3 class="font-bold text-purple-800 mb-2">Requisitos do portfólio</h3>
-            <p class="text-purple-700 mb-2">Seu portfólio deve incluir, no mínimo:</p>
-            <ul class="text-purple-700 space-y-2">
-              <li>✅ <strong>5 imagens geradas por IA</strong> — Usando pelo menos 2 ferramentas diferentes (Midjourney, FLUX, DALL-E, etc.)</li>
-              <li>✅ <strong>3 vídeos criados com IA</strong> — Usando ferramentas diferentes (Kling, Runway, Hailuo, etc.)</li>
-              <li>✅ <strong>1 faixa musical</strong> — Criada com Suno ou ferramenta equivalente</li>
-              <li>✅ <strong>1 workflow automatizado</strong> — Pipeline funcional no n8n, Make ou Zapier</li>
-              <li>✅ <strong>1 ferramenta vibe-coded</strong> — App ou site funcional criado com v0, Replit, Cursor ou similar</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Seção 2 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🖼️ Requisito 1: 5 Imagens com IA</h2>
-          <p class="text-gray-700 mb-4">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Requisitos do portfólio</h3>
+<p class="text-purple-700 mb-2">Seu portfólio deve incluir, no mínimo:</p>
+<ul class="text-purple-700 space-y-2">
+<li>✅ <strong>5 imagens geradas por IA</strong> — Usando pelo menos 2 ferramentas diferentes (Midjourney, FLUX, DALL-E, etc.)</li>
+<li>✅ <strong>3 vídeos criados com IA</strong> — Usando ferramentas diferentes (Kling, Runway, Hailuo, etc.)</li>
+<li>✅ <strong>1 faixa musical</strong> — Criada com Suno ou ferramenta equivalente</li>
+<li>✅ <strong>1 workflow automatizado</strong> — Pipeline funcional no n8n, Make ou Zapier</li>
+<li>✅ <strong>1 ferramenta vibe-coded</strong> — App ou site funcional criado com v0, Replit, Cursor ou similar</li>
+</ul>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🖼️</span> Requisito 1: 5 Imagens com IA</h2></div>
+<p class="text-neutral-300 mb-4">
             Demonstre versatilidade na geração de imagens. Cada imagem deve ter um propósito claro e demonstrar uma técnica diferente.
           </p>
-
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Imagem</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Requisito</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Ferramenta sugerida</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Imagem 1</td>
-                <td class="border border-gray-200 px-4 py-2">Retrato fotorrealista de pessoa</td>
-                <td class="border border-gray-200 px-4 py-2">Midjourney v7 / FLUX</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Imagem 2</td>
-                <td class="border border-gray-200 px-4 py-2">Paisagem ou ambiente (estilo artístico)</td>
-                <td class="border border-gray-200 px-4 py-2">Midjourney / DALL-E 3</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Imagem 3</td>
-                <td class="border border-gray-200 px-4 py-2">Design de produto ou mockup</td>
-                <td class="border border-gray-200 px-4 py-2">FLUX / Ideogram</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Imagem 4</td>
-                <td class="border border-gray-200 px-4 py-2">Imagem com texto legível integrado</td>
-                <td class="border border-gray-200 px-4 py-2">Ideogram / FLUX</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Imagem 5</td>
-                <td class="border border-gray-200 px-4 py-2">Imagem editada com inpainting ou img2img</td>
-                <td class="border border-gray-200 px-4 py-2">ComfyUI / Photoshop AI</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 mb-4">
-            <h3 class="font-bold text-blue-800 mb-2">Para cada imagem, documente:</h3>
-            <ul class="text-blue-700 space-y-1">
-              <li>• Ferramenta utilizada e versão</li>
-              <li>• Prompt completo (ou descrição do processo)</li>
-              <li>• Parâmetros de geração (aspect ratio, style, seed, etc.)</li>
-              <li>• Número de tentativas até o resultado final</li>
-              <li>• Pós-processamento aplicado (se houver)</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Seção 3 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎬 Requisito 2: 3 Vídeos com IA</h2>
-          <p class="text-gray-700 mb-4">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Imagem</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Requisito</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Ferramenta sugerida</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Imagem 1</td>
+<td class="p-3 text-neutral-300">Retrato fotorrealista de pessoa</td>
+<td class="p-3 text-neutral-300">Midjourney v7 / FLUX</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Imagem 2</td>
+<td class="p-3 text-neutral-300">Paisagem ou ambiente (estilo artístico)</td>
+<td class="p-3 text-neutral-300">Midjourney / DALL-E 3</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Imagem 3</td>
+<td class="p-3 text-neutral-300">Design de produto ou mockup</td>
+<td class="p-3 text-neutral-300">FLUX / Ideogram</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Imagem 4</td>
+<td class="p-3 text-neutral-300">Imagem com texto legível integrado</td>
+<td class="p-3 text-neutral-300">Ideogram / FLUX</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Imagem 5</td>
+<td class="p-3 text-neutral-300">Imagem editada com inpainting ou img2img</td>
+<td class="p-3 text-neutral-300">ComfyUI / Photoshop AI</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Para cada imagem, documente:</h3>
+<ul class="text-neutral-300 space-y-1">
+<li>• Ferramenta utilizada e versão</li>
+<li>• Prompt completo (ou descrição do processo)</li>
+<li>• Parâmetros de geração (aspect ratio, style, seed, etc.)</li>
+<li>• Número de tentativas até o resultado final</li>
+<li>• Pós-processamento aplicado (se houver)</li>
+</ul>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> Requisito 2: 3 Vídeos com IA</h2></div>
+<p class="text-neutral-300 mb-4">
             Demonstre domínio na criação de vídeos com ferramentas diferentes. Cada vídeo deve ter pelo menos 15 segundos.
           </p>
-
-          <div class="grid md:grid-cols-3 gap-4 mb-4">
-            <div class="bg-purple-50 p-4 rounded-lg">
-              <h4 class="font-bold text-purple-800 mb-1">Vídeo 1: Image-to-Video</h4>
-              <p class="text-purple-700 text-sm">Parta de uma imagem estática e gere um vídeo com movimento. Use Kling 3.0 ou Runway Gen-4.</p>
-            </div>
-            <div class="bg-purple-50 p-4 rounded-lg">
-              <h4 class="font-bold text-purple-800 mb-1">Vídeo 2: Text-to-Video</h4>
-              <p class="text-purple-700 text-sm">Gere um vídeo apenas a partir de um prompt de texto. Use Hailuo ou Seedance.</p>
-            </div>
-            <div class="bg-purple-50 p-4 rounded-lg">
-              <h4 class="font-bold text-purple-800 mb-1">Vídeo 3: Produção editada</h4>
-              <p class="text-purple-700 text-sm">Combine múltiplos clips de IA com edição no CapCut. Adicione legendas, transições e música.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Seção 4 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎵 Requisito 3: 1 Faixa Musical</h2>
-          <p class="text-gray-700 mb-4">
+<div class="grid md:grid-cols-3 gap-4 mb-4">
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Vídeo 1: Image-to-Video</h4>
+<p class="text-purple-700 text-sm">Parta de uma imagem estática e gere um vídeo com movimento. Use Kling 3.0 ou Runway Gen-4.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Vídeo 2: Text-to-Video</h4>
+<p class="text-purple-700 text-sm">Gere um vídeo apenas a partir de um prompt de texto. Use Hailuo ou Seedance.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Vídeo 3: Produção editada</h4>
+<p class="text-purple-700 text-sm">Combine múltiplos clips de IA com edição no CapCut. Adicione legendas, transições e música.</p>
+</div>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎵</span> Requisito 3: 1 Faixa Musical</h2></div>
+<p class="text-neutral-300 mb-4">
             Crie uma faixa musical original usando ferramentas de IA. A música deve ter pelo menos 1 minuto de duração e demonstrar controle sobre estilo, mood e estrutura.
           </p>
-
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
-            <h3 class="font-bold text-green-800 mb-2">Critérios para a música</h3>
-            <ul class="text-green-700 space-y-1">
-              <li>• Duração mínima de 1 minuto</li>
-              <li>• Estilo musical coerente e intencional</li>
-              <li>• Pode ser instrumental ou com letra/vocalização</li>
-              <li>• Documente o prompt e parâmetros utilizados</li>
-              <li>• Bonus: use a música como trilha sonora de um dos seus vídeos</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Seção 5 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">⚙️ Requisito 4: 1 Workflow Automatizado</h2>
-          <p class="text-gray-700 mb-4">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Critérios para a música</h3>
+<ul class="text-neutral-300 space-y-1">
+<li>• Duração mínima de 1 minuto</li>
+<li>• Estilo musical coerente e intencional</li>
+<li>• Pode ser instrumental ou com letra/vocalização</li>
+<li>• Documente o prompt e parâmetros utilizados</li>
+<li>• Bonus: use a música como trilha sonora de um dos seus vídeos</li>
+</ul>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">⚙️</span> Requisito 4: 1 Workflow Automatizado</h2></div>
+<p class="text-neutral-300 mb-4">
             Demonstre capacidade de automação criando um workflow funcional que resolve um problema real de produção de conteúdo.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Sugestões de workflows</h3>
-          <ul class="space-y-2 text-gray-700 mb-4">
-            <li><strong>Pipeline de repurposing:</strong> Artigo → posts para 3 redes sociais</li>
-            <li><strong>Newsletter automática:</strong> Curadoria semanal de conteúdo do nicho</li>
-            <li><strong>Monitor de tendências:</strong> Detecta tópicos em alta e sugere conteúdo</li>
-            <li><strong>Pipeline de vídeo:</strong> Script → voiceover → imagens → montagem</li>
-            <li><strong>Relatório de analytics:</strong> Consolida métricas de múltiplas plataformas</li>
-          </ul>
-
-          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mb-4">
-            <h3 class="font-bold text-yellow-800 mb-2">Documentação do workflow</h3>
-            <p class="text-yellow-700">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Sugestões de workflows</h3>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li><strong>Pipeline de repurposing:</strong> Artigo → posts para 3 redes sociais</li>
+<li><strong>Newsletter automática:</strong> Curadoria semanal de conteúdo do nicho</li>
+<li><strong>Monitor de tendências:</strong> Detecta tópicos em alta e sugere conteúdo</li>
+<li><strong>Pipeline de vídeo:</strong> Script → voiceover → imagens → montagem</li>
+<li><strong>Relatório de analytics:</strong> Consolida métricas de múltiplas plataformas</li>
+</ul>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Documentação do workflow</h3>
+<p class="text-neutral-300">
               Inclua: screenshot do workflow completo, descrição de cada nó/módulo, credenciais necessárias (sem valores reais), instruções de uso e exemplo de output. Considere exportar o workflow como JSON para que outros possam importar.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 6 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">💻 Requisito 5: 1 Ferramenta Vibe-Coded</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">💻</span> Requisito 5: 1 Ferramenta Vibe-Coded</h2></div>
+<p class="text-neutral-300 mb-4">
             Crie uma ferramenta funcional usando técnicas de vibe coding. O app deve resolver um problema real para criadores de conteúdo.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Sugestões de ferramentas</h3>
-          <div class="grid md:grid-cols-2 gap-4 mb-4">
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <h4 class="font-bold text-blue-800 mb-1">Gerador de prompts</h4>
-              <p class="text-blue-700 text-sm">Interface onde o usuário seleciona estilo, assunto e parâmetros e recebe um prompt otimizado para Midjourney/FLUX.</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <h4 class="font-bold text-blue-800 mb-1">Calendário editorial</h4>
-              <p class="text-blue-700 text-sm">App com calendário visual para planejar conteúdo semanal com sugestões de temas.</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <h4 class="font-bold text-blue-800 mb-1">Calculator de custos</h4>
-              <p class="text-blue-700 text-sm">Calculadora que estima custos de API para produção de X vídeos por mês com diferentes ferramentas.</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <h4 class="font-bold text-blue-800 mb-1">Landing page</h4>
-              <p class="text-blue-700 text-sm">Página profissional para seu portfólio ou produto digital, construída com v0 ou Replit.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Seção 7 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">📋 Rubrica de Autoavaliação</h2>
-          <p class="text-gray-700 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Sugestões de ferramentas</h3>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Gerador de prompts</h4>
+<p class="text-neutral-300 text-sm">Interface onde o usuário seleciona estilo, assunto e parâmetros e recebe um prompt otimizado para Midjourney/FLUX.</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Calendário editorial</h4>
+<p class="text-neutral-300 text-sm">App com calendário visual para planejar conteúdo semanal com sugestões de temas.</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Calculator de custos</h4>
+<p class="text-neutral-300 text-sm">Calculadora que estima custos de API para produção de X vídeos por mês com diferentes ferramentas.</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Landing page</h4>
+<p class="text-neutral-300 text-sm">Página profissional para seu portfólio ou produto digital, construída com v0 ou Replit.</p>
+</div>
+</div>
+</section>
+<!-- Seção 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">📋</span> Rubrica de Autoavaliação</h2></div>
+<p class="text-neutral-300 mb-4">
             Use esta rubrica para avaliar a qualidade do seu portfólio antes de publicá-lo:
           </p>
-
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Critério</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Excelente (5)</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Bom (3)</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Precisa melhorar (1)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Qualidade visual</td>
-                <td class="border border-gray-200 px-4 py-2">Profissional, sem artefatos</td>
-                <td class="border border-gray-200 px-4 py-2">Boa, poucos problemas</td>
-                <td class="border border-gray-200 px-4 py-2">Artefatos visíveis</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Diversidade de ferramentas</td>
-                <td class="border border-gray-200 px-4 py-2">4+ ferramentas diferentes</td>
-                <td class="border border-gray-200 px-4 py-2">2-3 ferramentas</td>
-                <td class="border border-gray-200 px-4 py-2">1 ferramenta apenas</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Documentação</td>
-                <td class="border border-gray-200 px-4 py-2">Completa, com prompts e processo</td>
-                <td class="border border-gray-200 px-4 py-2">Parcial</td>
-                <td class="border border-gray-200 px-4 py-2">Sem documentação</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Criatividade</td>
-                <td class="border border-gray-200 px-4 py-2">Original e surpreendente</td>
-                <td class="border border-gray-200 px-4 py-2">Bom mas previsível</td>
-                <td class="border border-gray-200 px-4 py-2">Genérico</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Funcionalidade (workflow/app)</td>
-                <td class="border border-gray-200 px-4 py-2">Funciona perfeitamente</td>
-                <td class="border border-gray-200 px-4 py-2">Funciona com ajustes menores</td>
-                <td class="border border-gray-200 px-4 py-2">Não funciona</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Apresentação</td>
-                <td class="border border-gray-200 px-4 py-2">Organizado, profissional</td>
-                <td class="border border-gray-200 px-4 py-2">Razoável</td>
-                <td class="border border-gray-200 px-4 py-2">Desorganizado</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
-            <h3 class="font-bold text-green-800 mb-2">Pontuação: 25-30 = Excelente | 18-24 = Bom | Abaixo de 18 = Refinar</h3>
-            <p class="text-green-700">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Critério</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Excelente (5)</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Bom (3)</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Precisa melhorar (1)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Qualidade visual</td>
+<td class="p-3 text-neutral-300">Profissional, sem artefatos</td>
+<td class="p-3 text-neutral-300">Boa, poucos problemas</td>
+<td class="p-3 text-neutral-300">Artefatos visíveis</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Diversidade de ferramentas</td>
+<td class="p-3 text-neutral-300">4+ ferramentas diferentes</td>
+<td class="p-3 text-neutral-300">2-3 ferramentas</td>
+<td class="p-3 text-neutral-300">1 ferramenta apenas</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Documentação</td>
+<td class="p-3 text-neutral-300">Completa, com prompts e processo</td>
+<td class="p-3 text-neutral-300">Parcial</td>
+<td class="p-3 text-neutral-300">Sem documentação</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Criatividade</td>
+<td class="p-3 text-neutral-300">Original e surpreendente</td>
+<td class="p-3 text-neutral-300">Bom mas previsível</td>
+<td class="p-3 text-neutral-300">Genérico</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Funcionalidade (workflow/app)</td>
+<td class="p-3 text-neutral-300">Funciona perfeitamente</td>
+<td class="p-3 text-neutral-300">Funciona com ajustes menores</td>
+<td class="p-3 text-neutral-300">Não funciona</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Apresentação</td>
+<td class="p-3 text-neutral-300">Organizado, profissional</td>
+<td class="p-3 text-neutral-300">Razoável</td>
+<td class="p-3 text-neutral-300">Desorganizado</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Pontuação: 25-30 = Excelente | 18-24 = Bom | Abaixo de 18 = Refinar</h3>
+<p class="text-neutral-300">
               Se sua pontuação for inferior a 18, volte às aulas relevantes e melhore os itens com nota baixa. Um portfólio forte é seu cartão de visitas profissional.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 8 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🌐 Publicando Seu Portfólio Online</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 8 -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">🌐</span> Publicando Seu Portfólio Online</h2></div>
+<p class="text-neutral-300 mb-4">
             Um portfólio que ninguém vê não serve para nada. Publique-o em uma plataforma profissional:
           </p>
-
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Plataforma</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Melhor para</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Custo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Behance</td>
-                <td class="border border-gray-200 px-4 py-2">Portfólio visual (imagens e vídeos)</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Notion (público)</td>
-                <td class="border border-gray-200 px-4 py-2">Portfólio completo com documentação</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Site próprio (v0/Replit)</td>
-                <td class="border border-gray-200 px-4 py-2">Máximo profissionalismo e controle</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito-$10/mês</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">GitHub Pages</td>
-                <td class="border border-gray-200 px-4 py-2">Perfil técnico + portfólio web</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- Seção 9 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🤝 Peer Review</h2>
-          <p class="text-gray-700 mb-4">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Plataforma</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Melhor para</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Custo</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Behance</td>
+<td class="p-3 text-neutral-300">Portfólio visual (imagens e vídeos)</td>
+<td class="p-3 text-neutral-300">Gratuito</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Notion (público)</td>
+<td class="p-3 text-neutral-300">Portfólio completo com documentação</td>
+<td class="p-3 text-neutral-300">Gratuito</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Site próprio (v0/Replit)</td>
+<td class="p-3 text-neutral-300">Máximo profissionalismo e controle</td>
+<td class="p-3 text-neutral-300">Gratuito-$10/mês</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">GitHub Pages</td>
+<td class="p-3 text-neutral-300">Perfil técnico + portfólio web</td>
+<td class="p-3 text-neutral-300">Gratuito</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Seção 9 -->
+<section class="mb-16" id="topico-9">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">9</span><h2 class="text-2xl font-bold"><span class="mr-2">🤝</span> Peer Review</h2></div>
+<p class="text-neutral-300 mb-4">
             Compartilhe seu portfólio com outros alunos do VISION para receber feedback construtivo. O processo de peer review melhora a qualidade do seu trabalho e ajuda a desenvolver visão crítica.
           </p>
-
-          <div class="bg-gray-50 p-6 rounded-lg mb-4">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">Como fazer peer review</h3>
-            <ol class="list-decimal list-inside space-y-2 text-gray-700">
-              <li>Compartilhe o link do seu portfólio na comunidade VISION</li>
-              <li>Revise pelo menos 2 portfólios de outros alunos</li>
-              <li>Use a rubrica de avaliação para dar feedback estruturado</li>
-              <li>Seja construtivo: aponte pontos fortes E áreas de melhoria</li>
-              <li>Incorpore o feedback recebido e atualize seu portfólio</li>
-            </ol>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="mb-6">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Criei 5 imagens com IA usando pelo menos 2 ferramentas diferentes</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Produzi 3 vídeos com ferramentas diferentes de IA</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Criei 1 faixa musical com IA</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Construí 1 workflow automatizado funcional</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Desenvolvi 1 ferramenta com vibe coding</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Documentei todo o processo e prompts utilizados</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Avaliei meu portfólio com a rubrica (pontuação >= 18)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Publiquei o portfólio online</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Participei do processo de peer review</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-12">
-        <a href="aula-12.1-canal-automatizado.html" class="content-button content-button-secondary">
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Como fazer peer review</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300">
+<li>Compartilhe o link do seu portfólio na comunidade VISION</li>
+<li>Revise pelo menos 2 portfólios de outros alunos</li>
+<li>Use a rubrica de avaliação para dar feedback estruturado</li>
+<li>Seja construtivo: aponte pontos fortes E áreas de melhoria</li>
+<li>Incorpore o feedback recebido e atualize seu portfólio</li>
+</ol>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-10">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">10</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Checklist da Aula</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Criei 5 imagens com IA usando pelo menos 2 ferramentas diferentes</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Produzi 3 vídeos com ferramentas diferentes de IA</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Criei 1 faixa musical com IA</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Construí 1 workflow automatizado funcional</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Desenvolvi 1 ferramenta com vibe coding</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Documentei todo o processo e prompts utilizados</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Avaliei meu portfólio com a rubrica (pontuação &gt;= 18)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Publiquei o portfólio online</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Participei do processo de peer review</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="aula-12.1-canal-automatizado.html">
           ← Aula 12.1
         </a>
-        <a href="aula-12.3-proximos-passos-referencias.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-12.3-proximos-passos-referencias.html">
           Aula 12.3 →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -530,6 +489,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

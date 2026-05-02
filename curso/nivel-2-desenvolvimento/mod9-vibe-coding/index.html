@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Módulo 9: Vibe Coding — Crie Suas Próprias Ferramentas · VISION — Curso VISION de IA Audiovisual">
-  <title>Módulo 9: Vibe Coding — Crie Suas Próprias Ferramentas · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Módulo 9: Vibe Coding — Crie Suas Próprias Ferramentas · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Módulo 9: Vibe Coding — Crie Suas Próprias Ferramentas · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,164 +80,140 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 2</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Módulo 9</span>
-    </nav>
-
-    <div class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-tecnico mb-4">🔵 Módulo 9</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 2</a>
+<span class="breadcrumb-separator">/</span>
+<span>Módulo 9</span>
+</nav>
+<div class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">🔵 Módulo 9</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           Vibe Coding — Crie Suas Próprias Ferramentas
         </h1>
-        <p class="text-xl text-gray-600">
-          Duração: 8-10 horas &bull; 4 aulas
+<p class="text-xl text-neutral-400">
+          Duração: 8-10 horas • 4 aulas
         </p>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Sobre este módulo</h2>
-        <p class="text-gray-700 mb-4">
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md mb-8">
+<h2 class="text-2xl font-bold text-neutral-100 mb-4">Sobre este módulo</h2>
+<p class="text-neutral-300 mb-4">
           Aprenda a usar IA para criar suas próprias ferramentas, apps e automações sem precisar saber programar. De geradores de legendas a dashboards de analytics, o vibe coding permite que criadores de conteúdo construam soluções sob medida para seus fluxos de trabalho.
         </p>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-sm text-gray-500">0 de 4 aulas concluídas</p>
-      </div>
-
-      <div class="space-y-4">
-
-        <a href="aula-9.1-o-que-e-vibe-coding.html" class="level-card bg-white p-6 rounded-lg shadow-md block hover:shadow-lg transition">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-4">
-              <span class="text-3xl">💡</span>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">Aula 9.1: O que é Vibe Coding e por que importa</h3>
-                <p class="text-gray-600">Origem do conceito, mercado global e por que criadores de conteúdo precisam entender isso</p>
-                <p class="text-sm text-gray-500 mt-1">~60 minutos</p>
-              </div>
-            </div>
-            <span class="text-gray-400 text-2xl">→</span>
-          </div>
-        </a>
-
-        <a href="aula-9.2-lovable-bolt.html" class="level-card bg-white p-6 rounded-lg shadow-md block hover:shadow-lg transition">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-4">
-              <span class="text-3xl">🚀</span>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">Aula 9.2: Criando ferramentas com Lovable e Bolt.new</h3>
-                <p class="text-gray-600">Construa MVPs, landing pages e apps funcionais usando linguagem natural</p>
-                <p class="text-sm text-gray-500 mt-1">~120 minutos</p>
-              </div>
-            </div>
-            <span class="text-gray-400 text-2xl">→</span>
-          </div>
-        </a>
-
-        <a href="aula-9.3-cursor-claude-code.html" class="level-card bg-white p-6 rounded-lg shadow-md block hover:shadow-lg transition">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-4">
-              <span class="text-3xl">⚡</span>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">Aula 9.3: Cursor e Claude Code para automações</h3>
-                <p class="text-gray-600">IDEs com IA, agentes autônomos e automação de pipelines de conteúdo</p>
-                <p class="text-sm text-gray-500 mt-1">~120 minutos</p>
-              </div>
-            </div>
-            <span class="text-gray-400 text-2xl">→</span>
-          </div>
-        </a>
-
-        <a href="aula-9.4-v0-replit-apps.html" class="level-card bg-white p-6 rounded-lg shadow-md block hover:shadow-lg transition">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-4">
-              <span class="text-3xl">🌐</span>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">Aula 9.4: v0, Replit Agent e apps sem código</h3>
-                <p class="text-gray-600">Prototipagem rápida, deploy na web e construção de dashboards criativos</p>
-                <p class="text-sm text-gray-500 mt-1">~90 minutos</p>
-              </div>
-            </div>
-            <span class="text-gray-400 text-2xl">→</span>
-          </div>
-        </a>
-
-      </div>
-
-      <div class="flex justify-between items-center mt-12">
-        <a href="../" class="content-button content-button-secondary">
+<div class="progress-bar mb-2">
+<div class="progress-fill" style="width: 0%;"></div>
+</div>
+<p class="text-sm text-neutral-500">0 de 4 aulas concluídas</p>
+</div>
+<div class="space-y-4">
+<a class="level-card bg-white p-6 rounded-lg shadow-md block hover:shadow-lg transition" href="aula-9.1-o-que-e-vibe-coding.html">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-3xl">💡</span>
+<div>
+<h3 class="text-xl font-bold text-neutral-100">Aula 9.1: O que é Vibe Coding e por que importa</h3>
+<p class="text-neutral-400">Origem do conceito, mercado global e por que criadores de conteúdo precisam entender isso</p>
+<p class="text-sm text-neutral-500 mt-1">~60 minutos</p>
+</div>
+</div>
+<span class="text-gray-400 text-2xl">→</span>
+</div>
+</a>
+<a class="level-card bg-white p-6 rounded-lg shadow-md block hover:shadow-lg transition" href="aula-9.2-lovable-bolt.html">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-3xl">🚀</span>
+<div>
+<h3 class="text-xl font-bold text-neutral-100">Aula 9.2: Criando ferramentas com Lovable e Bolt.new</h3>
+<p class="text-neutral-400">Construa MVPs, landing pages e apps funcionais usando linguagem natural</p>
+<p class="text-sm text-neutral-500 mt-1">~120 minutos</p>
+</div>
+</div>
+<span class="text-gray-400 text-2xl">→</span>
+</div>
+</a>
+<a class="level-card bg-white p-6 rounded-lg shadow-md block hover:shadow-lg transition" href="aula-9.3-cursor-claude-code.html">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-3xl">⚡</span>
+<div>
+<h3 class="text-xl font-bold text-neutral-100">Aula 9.3: Cursor e Claude Code para automações</h3>
+<p class="text-neutral-400">IDEs com IA, agentes autônomos e automação de pipelines de conteúdo</p>
+<p class="text-sm text-neutral-500 mt-1">~120 minutos</p>
+</div>
+</div>
+<span class="text-gray-400 text-2xl">→</span>
+</div>
+</a>
+<a class="level-card bg-white p-6 rounded-lg shadow-md block hover:shadow-lg transition" href="aula-9.4-v0-replit-apps.html">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-3xl">🌐</span>
+<div>
+<h3 class="text-xl font-bold text-neutral-100">Aula 9.4: v0, Replit Agent e apps sem código</h3>
+<p class="text-neutral-400">Prototipagem rápida, deploy na web e construção de dashboards criativos</p>
+<p class="text-sm text-neutral-500 mt-1">~90 minutos</p>
+</div>
+</div>
+<span class="text-gray-400 text-2xl">→</span>
+</div>
+</a>
+</div>
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="../">
           ← Voltar ao Nível 2
         </a>
-        <a href="aula-9.1-o-que-e-vibe-coding.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-9.1-o-que-e-vibe-coding.html">
           Começar Módulo →
         </a>
-      </div>
-
-    </div>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</div>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -252,6 +227,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

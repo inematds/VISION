@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 9.2: Criando ferramentas com Lovable e Bolt.new · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 9.2: Criando ferramentas com Lovable e Bolt.new · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 9.2: Criando ferramentas com Lovable e Bolt.new · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 9.2: Criando ferramentas com Lovable e Bolt.new · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,369 +80,328 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 2</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 9</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 9.2</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-tecnico mb-4">🔵 Nível 2</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 2</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 9</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 9.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">🔵 Nível 2</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           Criando ferramentas com Lovable e Bolt.new
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Construa MVPs, landing pages e aplicações funcionais usando apenas linguagem natural.
         </p>
-        <p class="text-sm text-gray-500 mt-2">~120 minutos &bull; Atualizado em Abril 2026</p>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- Lovable -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">💜 Lovable — A plataforma para não-programadores</h2>
-        <p class="text-gray-700 mb-4">
+<p class="text-sm text-neutral-500 mt-2">~120 minutos • Atualizado em Abril 2026</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Lovable -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4">💜 Lovable — A plataforma para não-programadores</h2>
+<p class="text-neutral-300 mb-4">
           O <strong>Lovable</strong> (anteriormente GPT Engineer) é a plataforma mais recomendada para quem nunca escreveu uma linha de código. Ele combina linguagem natural com ferramentas visuais de design para gerar aplicações completas — código + interface — em minutos.
         </p>
-
-        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-purple-800 font-semibold mb-2">🏆 Por que o Lovable se destaca</p>
-          <ul class="text-purple-700 space-y-1">
-            <li>✅ <strong>Interface visual</strong> — veja o resultado em tempo real enquanto descreve</li>
-            <li>✅ <strong>Código + UI</strong> — gera tanto o frontend quanto a lógica</li>
-            <li>✅ <strong>Integração com Supabase</strong> — banco de dados e autenticação prontos</li>
-            <li>✅ <strong>Deploy com 1 clique</strong> — publique na web instantaneamente</li>
-            <li>✅ <strong>Ideal para MVPs</strong> — protótipos funcionais em horas, não semanas</li>
-            <li>✅ <strong>Edição visual</strong> — ajuste cores, layout e componentes sem código</li>
-          </ul>
-        </div>
-
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Como funciona o Lovable</h3>
-        <ol class="text-gray-700 space-y-2 mb-6 ml-4 list-decimal">
-          <li>Você descreve o que quer construir em linguagem natural</li>
-          <li>A IA gera uma primeira versão com interface e código</li>
-          <li>Você vê o resultado em tempo real no preview</li>
-          <li>Refine via chat: "mude a cor do botão para azul", "adicione um campo de email"</li>
-          <li>Quando satisfeito, publique com 1 clique</li>
-        </ol>
-
-        <!-- Bolt.new -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">⚡ Bolt.new — Código aberto e controle total</h2>
-        <p class="text-gray-700 mb-4">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🏆 Por que o Lovable se destaca</p>
+<ul class="text-purple-700 space-y-1">
+<li>✅ <strong>Interface visual</strong> — veja o resultado em tempo real enquanto descreve</li>
+<li>✅ <strong>Código + UI</strong> — gera tanto o frontend quanto a lógica</li>
+<li>✅ <strong>Integração com Supabase</strong> — banco de dados e autenticação prontos</li>
+<li>✅ <strong>Deploy com 1 clique</strong> — publique na web instantaneamente</li>
+<li>✅ <strong>Ideal para MVPs</strong> — protótipos funcionais em horas, não semanas</li>
+<li>✅ <strong>Edição visual</strong> — ajuste cores, layout e componentes sem código</li>
+</ul>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Como funciona o Lovable</h3>
+<ol class="text-neutral-300 space-y-2 mb-6 ml-4 list-decimal">
+<li>Você descreve o que quer construir em linguagem natural</li>
+<li>A IA gera uma primeira versão com interface e código</li>
+<li>Você vê o resultado em tempo real no preview</li>
+<li>Refine via chat: "mude a cor do botão para azul", "adicione um campo de email"</li>
+<li>Quando satisfeito, publique com 1 clique</li>
+</ol>
+<!-- Bolt.new -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">⚡ Bolt.new — Código aberto e controle total</h2>
+<p class="text-neutral-300 mb-4">
           O <strong>Bolt.new</strong>, criado pela StackBlitz, é uma plataforma de vibe coding com engine open-source. Diferente do Lovable, o Bolt oferece mais transparência sobre o código gerado e suporta tanto modelos de IA na nuvem quanto locais.
         </p>
-
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-blue-800 font-semibold mb-2">⚙️ Diferenciais do Bolt.new</p>
-          <ul class="text-blue-700 space-y-1">
-            <li>✅ <strong>Engine open-source</strong> — código do motor disponível no GitHub</li>
-            <li>✅ <strong>Modelos locais e cloud</strong> — use Claude, GPT-4 ou modelos locais</li>
-            <li>✅ <strong>Código transparente</strong> — veja e edite cada arquivo gerado</li>
-            <li>✅ <strong>WebContainers</strong> — roda Node.js diretamente no navegador</li>
-            <li>✅ <strong>Popular entre criadores técnicos</strong> — quem quer entender e controlar o resultado</li>
-            <li>✅ <strong>Suporte a múltiplos frameworks</strong> — React, Vue, Svelte, etc.</li>
-          </ul>
-        </div>
-
-        <!-- Comparação -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">📊 Comparação: Lovable vs Bolt.new</h2>
-        <div class="overflow-x-auto mb-8">
-          <table class="w-full border-collapse border border-gray-300 text-sm">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-300 px-4 py-3 text-left">Característica</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Lovable</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Bolt.new</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Nível técnico necessário</td>
-                <td class="border border-gray-300 px-4 py-3">Nenhum</td>
-                <td class="border border-gray-300 px-4 py-3">Básico (ajuda entender código)</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Edição visual</td>
-                <td class="border border-gray-300 px-4 py-3">Sim, integrada</td>
-                <td class="border border-gray-300 px-4 py-3">Limitada (foco no código)</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Banco de dados</td>
-                <td class="border border-gray-300 px-4 py-3">Supabase integrado</td>
-                <td class="border border-gray-300 px-4 py-3">Configuração manual</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Open source</td>
-                <td class="border border-gray-300 px-4 py-3">Não</td>
-                <td class="border border-gray-300 px-4 py-3">Sim (engine)</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Modelos de IA</td>
-                <td class="border border-gray-300 px-4 py-3">Proprietários (Claude)</td>
-                <td class="border border-gray-300 px-4 py-3">Múltiplos (cloud + local)</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Deploy</td>
-                <td class="border border-gray-300 px-4 py-3">1 clique (incluído)</td>
-                <td class="border border-gray-300 px-4 py-3">Netlify/Vercel (manual)</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Preço</td>
-                <td class="border border-gray-300 px-4 py-3">Free limitado / $20+/mês</td>
-                <td class="border border-gray-300 px-4 py-3">Free limitado / $20+/mês</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Melhor para</td>
-                <td class="border border-gray-300 px-4 py-3">Não-programadores, MVPs rápidos</td>
-                <td class="border border-gray-300 px-4 py-3">Criadores técnicos, projetos customizados</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Passo a passo Lovable -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🛠️ Passo a passo: Agendador de conteúdo com Lovable</h2>
-        <p class="text-gray-700 mb-4">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">⚙️ Diferenciais do Bolt.new</p>
+<ul class="text-neutral-300 space-y-1">
+<li>✅ <strong>Engine open-source</strong> — código do motor disponível no GitHub</li>
+<li>✅ <strong>Modelos locais e cloud</strong> — use Claude, GPT-4 ou modelos locais</li>
+<li>✅ <strong>Código transparente</strong> — veja e edite cada arquivo gerado</li>
+<li>✅ <strong>WebContainers</strong> — roda Node.js diretamente no navegador</li>
+<li>✅ <strong>Popular entre criadores técnicos</strong> — quem quer entender e controlar o resultado</li>
+<li>✅ <strong>Suporte a múltiplos frameworks</strong> — React, Vue, Svelte, etc.</li>
+</ul>
+</div>
+<!-- Comparação -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">📊 Comparação: Lovable vs Bolt.new</h2>
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Característica</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Lovable</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Bolt.new</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Nível técnico necessário</td>
+<td class="p-3 text-neutral-300">Nenhum</td>
+<td class="p-3 text-neutral-300">Básico (ajuda entender código)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Edição visual</td>
+<td class="p-3 text-neutral-300">Sim, integrada</td>
+<td class="p-3 text-neutral-300">Limitada (foco no código)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Banco de dados</td>
+<td class="p-3 text-neutral-300">Supabase integrado</td>
+<td class="p-3 text-neutral-300">Configuração manual</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Open source</td>
+<td class="p-3 text-neutral-300">Não</td>
+<td class="p-3 text-neutral-300">Sim (engine)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Modelos de IA</td>
+<td class="p-3 text-neutral-300">Proprietários (Claude)</td>
+<td class="p-3 text-neutral-300">Múltiplos (cloud + local)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Deploy</td>
+<td class="p-3 text-neutral-300">1 clique (incluído)</td>
+<td class="p-3 text-neutral-300">Netlify/Vercel (manual)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Preço</td>
+<td class="p-3 text-neutral-300">Free limitado / $20+/mês</td>
+<td class="p-3 text-neutral-300">Free limitado / $20+/mês</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Melhor para</td>
+<td class="p-3 text-neutral-300">Não-programadores, MVPs rápidos</td>
+<td class="p-3 text-neutral-300">Criadores técnicos, projetos customizados</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Passo a passo Lovable -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🛠️ Passo a passo: Agendador de conteúdo com Lovable</h2>
+<p class="text-neutral-300 mb-4">
           Vamos construir um aplicativo simples de agendamento de conteúdo usando o Lovable. O app terá um calendário visual, campos para título/descrição/plataforma, e uma lista de posts agendados.
         </p>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 1: Crie o projeto</p>
-          <p class="text-yellow-700">Acesse <strong>lovable.dev</strong>, faça login e clique em "New Project". No campo de prompt, descreva seu app:</p>
-          <div class="bg-white rounded p-3 mt-2 font-mono text-sm text-gray-800">
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 1: Crie o projeto</p>
+<p class="text-neutral-300">Acesse <strong>lovable.dev</strong>, faça login e clique em "New Project". No campo de prompt, descreva seu app:</p>
+<div class="bg-white rounded p-3 mt-2 font-mono text-sm text-neutral-100">
             "Crie um aplicativo de agendamento de conteúdo para redes sociais. Preciso de: um calendário mensal visual, formulário para criar posts (título, descrição, plataforma: YouTube/Instagram/TikTok, data/hora), lista de posts agendados com status, e filtro por plataforma. Design moderno, cores escuras."
           </div>
-        </div>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 2: Revise a primeira versão</p>
-          <p class="text-yellow-700">O Lovable vai gerar uma primeira versão em 30-60 segundos. Revise o preview e identifique ajustes. Não se preocupe em acertar tudo de primeira — a iteração é parte do processo.</p>
-        </div>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 3: Itere com feedback</p>
-          <p class="text-yellow-700">Use o chat para refinar: "Adicione um campo de hashtags", "O calendário deve mostrar os posts como pontos coloridos por plataforma", "Adicione um botão para duplicar um post para outra plataforma".</p>
-        </div>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 4: Conecte o banco de dados</p>
-          <p class="text-yellow-700">Para que os dados persistam, conecte o Supabase: "Conecte este app a um banco de dados Supabase para salvar os posts. Preciso de autenticação por email para que só eu acesse meus dados."</p>
-        </div>
-
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-yellow-800 font-semibold mb-2">📝 Passo 5: Publique</p>
-          <p class="text-yellow-700">Clique em "Deploy" para publicar. Você receberá um link público (lovable.app/seu-projeto) que pode acessar de qualquer dispositivo. Para um domínio customizado, configure nas opções de deploy.</p>
-        </div>
-
-        <!-- Passo a passo Bolt.new -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🛠️ Passo a passo: Landing page com Bolt.new</h2>
-        <p class="text-gray-700 mb-4">
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 2: Revise a primeira versão</p>
+<p class="text-neutral-300">O Lovable vai gerar uma primeira versão em 30-60 segundos. Revise o preview e identifique ajustes. Não se preocupe em acertar tudo de primeira — a iteração é parte do processo.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 3: Itere com feedback</p>
+<p class="text-neutral-300">Use o chat para refinar: "Adicione um campo de hashtags", "O calendário deve mostrar os posts como pontos coloridos por plataforma", "Adicione um botão para duplicar um post para outra plataforma".</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 4: Conecte o banco de dados</p>
+<p class="text-neutral-300">Para que os dados persistam, conecte o Supabase: "Conecte este app a um banco de dados Supabase para salvar os posts. Preciso de autenticação por email para que só eu acesse meus dados."</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 5: Publique</p>
+<p class="text-neutral-300">Clique em "Deploy" para publicar. Você receberá um link público (lovable.app/seu-projeto) que pode acessar de qualquer dispositivo. Para um domínio customizado, configure nas opções de deploy.</p>
+</div>
+<!-- Passo a passo Bolt.new -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🛠️ Passo a passo: Landing page com Bolt.new</h2>
+<p class="text-neutral-300 mb-4">
           Agora vamos criar uma landing page profissional usando o Bolt.new. Landing pages são perfeitas para promover seus cursos, produtos ou serviços.
         </p>
-
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-green-800 font-semibold mb-2">📝 Passo 1: Acesse o Bolt.new</p>
-          <p class="text-green-700">Acesse <strong>bolt.new</strong> e faça login. No prompt inicial, descreva sua landing page:</p>
-          <div class="bg-white rounded p-3 mt-2 font-mono text-sm text-gray-800">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 1: Acesse o Bolt.new</p>
+<p class="text-neutral-300">Acesse <strong>bolt.new</strong> e faça login. No prompt inicial, descreva sua landing page:</p>
+<div class="bg-white rounded p-3 mt-2 font-mono text-sm text-neutral-100">
             "Crie uma landing page moderna para um curso de criação de conteúdo com IA. Preciso de: hero section com título impactante e CTA, seção de benefícios com ícones, grade de módulos do curso, depoimentos de alunos, seção de preços com 3 planos, FAQ, e footer. Use React + Tailwind. Cores: gradiente azul para roxo."
           </div>
-        </div>
-
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-green-800 font-semibold mb-2">📝 Passo 2: Explore o código</p>
-          <p class="text-green-700">Diferente do Lovable, o Bolt mostra todos os arquivos gerados. Explore a estrutura: componentes React, estilos Tailwind, e a lógica. Mesmo sem entender tudo, familiarize-se com a organização.</p>
-        </div>
-
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-green-800 font-semibold mb-2">📝 Passo 3: Customize via chat</p>
-          <p class="text-green-700">"Troque os textos placeholder por conteúdo real sobre meu curso de edição de vídeo com IA. O preço do plano básico é R$97, o profissional R$197 e o VIP R$397." A IA atualiza o código e o preview em tempo real.</p>
-        </div>
-
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-green-800 font-semibold mb-2">📝 Passo 4: Deploy</p>
-          <p class="text-green-700">Exporte o projeto e faça deploy na Netlify ou Vercel (ambos gratuitos para projetos simples). O Bolt facilita a exportação com instruções específicas para cada plataforma.</p>
-        </div>
-
-        <!-- Dicas de prompting -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">💡 Dicas para prompts eficazes no vibe coding</h2>
-
-        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-indigo-800 font-semibold mb-2">🎯 Princípios de bons prompts</p>
-          <ul class="text-indigo-700 space-y-2">
-            <li><strong>1. Seja específico:</strong> "Quero um botão azul de 200px de largura" é melhor que "quero um botão bonito"</li>
-            <li><strong>2. Descreva o comportamento:</strong> "Quando clicar no botão, deve abrir um modal com formulário de contato"</li>
-            <li><strong>3. Dê contexto:</strong> "Este app é para criadores de conteúdo que precisam agendar posts em 3 plataformas"</li>
-            <li><strong>4. Itere em partes:</strong> Não peça tudo de uma vez. Comece com a estrutura básica e adicione funcionalidades incrementalmente</li>
-            <li><strong>5. Use referências:</strong> "Quero uma interface similar ao Notion" ou "O layout deve lembrar o Trello"</li>
-            <li><strong>6. Especifique tecnologias:</strong> "Use React + Tailwind + shadcn/ui para a interface"</li>
-          </ul>
-        </div>
-
-        <!-- Protótipo vs produção -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🏗️ "Protótipo funcional" vs "Pronto para produção"</h2>
-        <p class="text-gray-700 mb-4">
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 2: Explore o código</p>
+<p class="text-neutral-300">Diferente do Lovable, o Bolt mostra todos os arquivos gerados. Explore a estrutura: componentes React, estilos Tailwind, e a lógica. Mesmo sem entender tudo, familiarize-se com a organização.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 3: Customize via chat</p>
+<p class="text-neutral-300">"Troque os textos placeholder por conteúdo real sobre meu curso de edição de vídeo com IA. O preço do plano básico é R$97, o profissional R$197 e o VIP R$397." A IA atualiza o código e o preview em tempo real.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Passo 4: Deploy</p>
+<p class="text-neutral-300">Exporte o projeto e faça deploy na Netlify ou Vercel (ambos gratuitos para projetos simples). O Bolt facilita a exportação com instruções específicas para cada plataforma.</p>
+</div>
+<!-- Dicas de prompting -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">💡 Dicas para prompts eficazes no vibe coding</h2>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🎯 Princípios de bons prompts</p>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>1. Seja específico:</strong> "Quero um botão azul de 200px de largura" é melhor que "quero um botão bonito"</li>
+<li><strong>2. Descreva o comportamento:</strong> "Quando clicar no botão, deve abrir um modal com formulário de contato"</li>
+<li><strong>3. Dê contexto:</strong> "Este app é para criadores de conteúdo que precisam agendar posts em 3 plataformas"</li>
+<li><strong>4. Itere em partes:</strong> Não peça tudo de uma vez. Comece com a estrutura básica e adicione funcionalidades incrementalmente</li>
+<li><strong>5. Use referências:</strong> "Quero uma interface similar ao Notion" ou "O layout deve lembrar o Trello"</li>
+<li><strong>6. Especifique tecnologias:</strong> "Use React + Tailwind + shadcn/ui para a interface"</li>
+</ul>
+</div>
+<!-- Protótipo vs produção -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🏗️ "Protótipo funcional" vs "Pronto para produção"</h2>
+<p class="text-neutral-300 mb-4">
           Uma distinção crucial no vibe coding: o que você constrói em minutos é um <strong>protótipo funcional</strong>, não necessariamente um produto pronto para milhares de usuários. Entender essa diferença evita frustrações.
         </p>
-
-        <div class="overflow-x-auto mb-8">
-          <table class="w-full border-collapse border border-gray-300 text-sm">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-300 px-4 py-3 text-left">Aspecto</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Protótipo funcional</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Pronto para produção</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Funciona?</td>
-                <td class="border border-gray-300 px-4 py-3">Sim, para o cenário principal</td>
-                <td class="border border-gray-300 px-4 py-3">Sim, para todos os cenários</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Segurança</td>
-                <td class="border border-gray-300 px-4 py-3">Básica ou nenhuma</td>
-                <td class="border border-gray-300 px-4 py-3">Robusta, testada</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Escalabilidade</td>
-                <td class="border border-gray-300 px-4 py-3">1-10 usuários</td>
-                <td class="border border-gray-300 px-4 py-3">Milhares de usuários</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Tratamento de erros</td>
-                <td class="border border-gray-300 px-4 py-3">Mínimo</td>
-                <td class="border border-gray-300 px-4 py-3">Completo</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Tempo de criação</td>
-                <td class="border border-gray-300 px-4 py-3">Horas</td>
-                <td class="border border-gray-300 px-4 py-3">Semanas/meses</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Ideal para</td>
-                <td class="border border-gray-300 px-4 py-3">Uso pessoal, validação de ideia</td>
-                <td class="border border-gray-300 px-4 py-3">Produto comercial, SaaS</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-8 rounded-r-lg">
-          <p class="text-gray-800 font-semibold mb-1">📌 Dica prática</p>
-          <p class="text-gray-700">Para criadores de conteúdo, <strong>protótipos funcionais são suficientes</strong> na maioria dos casos. Você está construindo ferramentas para seu próprio uso (1-5 usuários), não para vender como SaaS. Não se preocupe em ter código "perfeito" — se funciona para você, está pronto.</p>
-        </div>
-
-        <!-- Checklist -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">✅ Checklist da aula</h2>
-        <div class="bg-gray-50 rounded-lg p-6">
-          <ul class="space-y-3">
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Criar conta no Lovable e explorar a interface</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Criar conta no Bolt.new e explorar a interface</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Construir o agendador de conteúdo no Lovable</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Construir a landing page no Bolt.new</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Praticar iteração via chat em ambas as plataformas</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Publicar pelo menos um projeto na web</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Identificar uma ferramenta que você precisa e planejar como construí-la</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-12">
-        <a href="aula-9.1-o-que-e-vibe-coding.html" class="content-button content-button-secondary">
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Aspecto</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Protótipo funcional</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Pronto para produção</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Funciona?</td>
+<td class="p-3 text-neutral-300">Sim, para o cenário principal</td>
+<td class="p-3 text-neutral-300">Sim, para todos os cenários</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Segurança</td>
+<td class="p-3 text-neutral-300">Básica ou nenhuma</td>
+<td class="p-3 text-neutral-300">Robusta, testada</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Escalabilidade</td>
+<td class="p-3 text-neutral-300">1-10 usuários</td>
+<td class="p-3 text-neutral-300">Milhares de usuários</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Tratamento de erros</td>
+<td class="p-3 text-neutral-300">Mínimo</td>
+<td class="p-3 text-neutral-300">Completo</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Tempo de criação</td>
+<td class="p-3 text-neutral-300">Horas</td>
+<td class="p-3 text-neutral-300">Semanas/meses</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Ideal para</td>
+<td class="p-3 text-neutral-300">Uso pessoal, validação de ideia</td>
+<td class="p-3 text-neutral-300">Produto comercial, SaaS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-8 rounded-r-lg">
+<p class="text-neutral-100 font-semibold mb-1">📌 Dica prática</p>
+<p class="text-neutral-300">Para criadores de conteúdo, <strong>protótipos funcionais são suficientes</strong> na maioria dos casos. Você está construindo ferramentas para seu próprio uso (1-5 usuários), não para vender como SaaS. Não se preocupe em ter código "perfeito" — se funciona para você, está pronto.</p>
+</div>
+<!-- Checklist -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">✅ Checklist da aula</h2>
+<div class="bg-gray-50 rounded-lg p-6">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Criar conta no Lovable e explorar a interface</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Criar conta no Bolt.new e explorar a interface</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Construir o agendador de conteúdo no Lovable</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Construir a landing page no Bolt.new</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Praticar iteração via chat em ambas as plataformas</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Publicar pelo menos um projeto na web</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Identificar uma ferramenta que você precisa e planejar como construí-la</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="aula-9.1-o-que-e-vibe-coding.html">
           ← Aula anterior
         </a>
-        <a href="aula-9.3-cursor-claude-code.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-9.3-cursor-claude-code.html">
           Próxima aula →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -457,6 +415,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

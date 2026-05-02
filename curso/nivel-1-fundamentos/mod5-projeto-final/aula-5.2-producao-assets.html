@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 5.2: Produção de Assets · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 5.2: Produção de Assets · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 5.2: Produção de Assets · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 5.2: Produção de Assets · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,318 +80,291 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 1</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 5</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 5.2</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-iniciante mb-4">🎓 Módulo 5 • Aula 2</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 1</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 5</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 5.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎓 Módulo 5 • Aula 2</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           Produção de Assets
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Gere todos os elementos visuais, áudios e vídeos do seu projeto usando ferramentas de IA.
         </p>
-        <div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
-          <span>⏱️ ~120 minutos</span>
-          <span>📊 Iniciante</span>
-          <span>🔄 Atualizado Abr/2026</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- Seção 1 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🖼️ Gerando Imagens do Produto</h2>
-          <p class="text-gray-700 mb-4">
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~120 minutos</span>
+<span>📊 Iniciante</span>
+<span>🔄 Atualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🖼️</span> Gerando Imagens do Produto</h2></div>
+<p class="text-neutral-300 mb-4">
             As imagens são a base visual do seu vídeo. Vamos gerar imagens de alta qualidade do produto
             em diferentes cenários e ângulos usando Midjourney e FLUX.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Imagens necessárias (típicas para 30s)</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Cena</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Tipo de imagem</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Prompt base</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Hero shot</td>
-                <td class="border border-gray-200 px-4 py-2">Produto em destaque, fundo premium</td>
-                <td class="border border-gray-200 px-4 py-2">"product photography, [produto], dramatic lighting, dark background"</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Contexto</td>
-                <td class="border border-gray-200 px-4 py-2">Produto sendo usado no dia a dia</td>
-                <td class="border border-gray-200 px-4 py-2">"person using [produto], lifestyle photography, natural light"</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Detalhe</td>
-                <td class="border border-gray-200 px-4 py-2">Close-up de detalhes e texturas</td>
-                <td class="border border-gray-200 px-4 py-2">"macro photography, [detalhe do produto], sharp focus"</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Cenário</td>
-                <td class="border border-gray-200 px-4 py-2">Fundo/ambiente para substituição</td>
-                <td class="border border-gray-200 px-4 py-2">"[descrição do cenário], wide shot, cinematic, --ar 16:9"</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 mb-4">
-            <h3 class="font-bold text-blue-800 mb-2">Midjourney vs. FLUX: Quando usar cada um</h3>
-            <ul class="text-blue-700 space-y-1">
-              <li>• <strong>Midjourney:</strong> Melhor para imagens estéticas, artísticas e de produto com iluminação dramática</li>
-              <li>• <strong>FLUX:</strong> Melhor para imagens com texto legível, composições específicas e realismo fotográfico</li>
-              <li>• <strong>Dica:</strong> Gere 3-4 variações de cada imagem e escolha a melhor</li>
-            </ul>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Fluxo de produção de imagens</h3>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-            <li>Revise seu storyboard e identifique cada imagem necessária</li>
-            <li>Escreva os prompts baseados nas descrições visuais do roteiro</li>
-            <li>Gere 3-4 variações para cada cena no Midjourney</li>
-            <li>Selecione as melhores e faça upscale (resolução máxima)</li>
-            <li>Se necessário, use FLUX para imagens que precisam de texto</li>
-            <li>Salve todas as imagens na pasta <code class="bg-gray-100 px-1 rounded">/assets/imagens/</code></li>
-            <li>Nomeie de forma organizada: <code class="bg-gray-100 px-1 rounded">cena01-hero.png</code>, <code class="bg-gray-100 px-1 rounded">cena02-contexto.png</code></li>
-          </ol>
-        </section>
-
-        <!-- Seção 2 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎥 Gerando Clipes de Vídeo</h2>
-          <p class="text-gray-700 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Imagens necessárias (típicas para 30s)</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Cena</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Tipo de imagem</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Prompt base</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Hero shot</td>
+<td class="p-3 text-neutral-300">Produto em destaque, fundo premium</td>
+<td class="p-3 text-neutral-300">"product photography, [produto], dramatic lighting, dark background"</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Contexto</td>
+<td class="p-3 text-neutral-300">Produto sendo usado no dia a dia</td>
+<td class="p-3 text-neutral-300">"person using [produto], lifestyle photography, natural light"</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Detalhe</td>
+<td class="p-3 text-neutral-300">Close-up de detalhes e texturas</td>
+<td class="p-3 text-neutral-300">"macro photography, [detalhe do produto], sharp focus"</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Cenário</td>
+<td class="p-3 text-neutral-300">Fundo/ambiente para substituição</td>
+<td class="p-3 text-neutral-300">"[descrição do cenário], wide shot, cinematic, --ar 16:9"</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Midjourney vs. FLUX: Quando usar cada um</h3>
+<ul class="text-neutral-300 space-y-1">
+<li>• <strong>Midjourney:</strong> Melhor para imagens estéticas, artísticas e de produto com iluminação dramática</li>
+<li>• <strong>FLUX:</strong> Melhor para imagens com texto legível, composições específicas e realismo fotográfico</li>
+<li>• <strong>Dica:</strong> Gere 3-4 variações de cada imagem e escolha a melhor</li>
+</ul>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Fluxo de produção de imagens</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Revise seu storyboard e identifique cada imagem necessária</li>
+<li>Escreva os prompts baseados nas descrições visuais do roteiro</li>
+<li>Gere 3-4 variações para cada cena no Midjourney</li>
+<li>Selecione as melhores e faça upscale (resolução máxima)</li>
+<li>Se necessário, use FLUX para imagens que precisam de texto</li>
+<li>Salve todas as imagens na pasta <code class="bg-gray-100 px-1 rounded">/assets/imagens/</code></li>
+<li>Nomeie de forma organizada: <code class="bg-gray-100 px-1 rounded">cena01-hero.png</code>, <code class="bg-gray-100 px-1 rounded">cena02-contexto.png</code></li>
+</ol>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🎥</span> Gerando Clipes de Vídeo</h2></div>
+<p class="text-neutral-300 mb-4">
             Clipes de vídeo gerados por IA adicionam dinamismo ao projeto. Use Kling 3.0 para vídeos
             realistas e Runway para efeitos mais artísticos.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Estratégias para vídeo IA no projeto</h3>
-          <div class="grid md:grid-cols-2 gap-4 mb-4">
-            <div class="bg-green-50 p-4 rounded-lg">
-              <h4 class="font-bold text-green-800 mb-2">Image-to-Video</h4>
-              <p class="text-green-700 text-sm">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Estratégias para vídeo IA no projeto</h3>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<h4 class="font-bold text-neutral-100 mb-2">Image-to-Video</h4>
+<p class="text-neutral-300 text-sm">
                 Use as imagens geradas no Midjourney como ponto de partida. Faça upload no Kling 3.0
                 e anime a cena com movimentos sutis: câmera lenta, zoom, movimento de objetos.
               </p>
-            </div>
-            <div class="bg-green-50 p-4 rounded-lg">
-              <h4 class="font-bold text-green-800 mb-2">Text-to-Video</h4>
-              <p class="text-green-700 text-sm">
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<h4 class="font-bold text-neutral-100 mb-2">Text-to-Video</h4>
+<p class="text-neutral-300 text-sm">
                 Para cenas mais dinâmicas, descreva a ação em texto e deixe a IA gerar o vídeo completo.
                 Ideal para cenas de transição e B-roll.
               </p>
-            </div>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Dicas para melhores resultados</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Ferramenta</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Duração ideal</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Dica principal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Kling 3.0</td>
-                <td class="border border-gray-200 px-4 py-2">5-10 segundos</td>
-                <td class="border border-gray-200 px-4 py-2">Descreva movimentos de câmera no prompt (pan, zoom, orbit)</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Runway Gen-4.5</td>
-                <td class="border border-gray-200 px-4 py-2">4-8 segundos</td>
-                <td class="border border-gray-200 px-4 py-2">Use imagem de referência para consistência visual</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Pika</td>
-                <td class="border border-gray-200 px-4 py-2">3-5 segundos</td>
-                <td class="border border-gray-200 px-4 py-2">Ótimo para efeitos criativos curtos de destaque</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mb-4">
-            <h3 class="font-bold text-yellow-800 mb-2">Não tente gerar tudo em vídeo</h3>
-            <p class="text-yellow-700">
+</div>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Dicas para melhores resultados</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Ferramenta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Duração ideal</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Dica principal</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Kling 3.0</td>
+<td class="p-3 text-neutral-300">5-10 segundos</td>
+<td class="p-3 text-neutral-300">Descreva movimentos de câmera no prompt (pan, zoom, orbit)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Runway Gen-4.5</td>
+<td class="p-3 text-neutral-300">4-8 segundos</td>
+<td class="p-3 text-neutral-300">Use imagem de referência para consistência visual</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Pika</td>
+<td class="p-3 text-neutral-300">3-5 segundos</td>
+<td class="p-3 text-neutral-300">Ótimo para efeitos criativos curtos de destaque</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Não tente gerar tudo em vídeo</h3>
+<p class="text-neutral-300">
               Para um vídeo de 30 segundos, 2-3 clipes de vídeo IA são suficientes. O restante pode ser
               composto de imagens estáticas com movimentos de câmera (zoom, pan) feitos no CapCut.
               Misturar imagens animadas com clipes de vídeo é a estratégia mais eficiente.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 3 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎙️ Gravando a Narração com ElevenLabs v3</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🎙️</span> Gravando a Narração com ElevenLabs v3</h2></div>
+<p class="text-neutral-300 mb-4">
             A narração dá vida ao seu vídeo. O ElevenLabs v3 (ElevenMusic) (ElevenMusic) gera vozes incrivelmente naturais em
             português brasileiro com controle fino de emoção, ritmo e entonação.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Passo a passo da narração</h3>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-            <li>Acesse o <strong>ElevenLabs > Text to Speech</strong></li>
-            <li>Selecione uma voz em português brasileiro (teste 3-4 vozes diferentes)</li>
-            <li>Cole o texto da narração do seu roteiro</li>
-            <li>Ajuste as configurações:
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Passo a passo da narração</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Acesse o <strong>ElevenLabs &gt; Text to Speech</strong></li>
+<li>Selecione uma voz em português brasileiro (teste 3-4 vozes diferentes)</li>
+<li>Cole o texto da narração do seu roteiro</li>
+<li>Ajuste as configurações:
               <ul class="list-disc list-inside ml-6 mt-1 space-y-1">
-                <li><strong>Stability:</strong> 50-70% (mais variação natural)</li>
-                <li><strong>Clarity:</strong> 75-85% (voz clara mas não robótica)</li>
-                <li><strong>Style:</strong> Ajuste conforme o tom do vídeo</li>
-              </ul>
-            </li>
-            <li>Gere a narração e ouça atentamente</li>
-            <li>Ajuste palavras ou frases que soarem estranhas</li>
-            <li>Exporte em MP3 ou WAV (alta qualidade)</li>
-          </ol>
-
-          <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 mb-4">
-            <h3 class="font-bold text-purple-800 mb-2">Dica: Pausas e ênfases</h3>
-            <p class="text-purple-700">
+<li><strong>Stability:</strong> 50-70% (mais variação natural)</li>
+<li><strong>Clarity:</strong> 75-85% (voz clara mas não robótica)</li>
+<li><strong>Style:</strong> Ajuste conforme o tom do vídeo</li>
+</ul>
+</li>
+<li>Gere a narração e ouça atentamente</li>
+<li>Ajuste palavras ou frases que soarem estranhas</li>
+<li>Exporte em MP3 ou WAV (alta qualidade)</li>
+</ol>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Dica: Pausas e ênfases</h3>
+<p class="text-purple-700">
               Use pontuação estratégica no texto para controlar a narração:
               <strong>Vírgulas</strong> = pausas curtas,
               <strong>Pontos</strong> = pausas longas,
               <strong>MAIÚSCULAS</strong> = ênfase,
               <strong>...</strong> = pausa dramática.
               Exemplo: <em>"E se eu te dissesse... que isso custa MENOS de 50 reais?"</em>
-            </p>
-          </div>
-        </section>
-
-        <!-- Seção 4 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎵 Criando Música de Fundo com Suno v5</h2>
-          <p class="text-gray-700 mb-4">
-            A música define a atmosfera emocional do vídeo. O Suno v5.5.5.5 gera músicas originais
+</p>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎵</span> Criando Música de Fundo com Suno v5</h2></div>
+<p class="text-neutral-300 mb-4">
+            A música define a atmosfera emocional do vídeo. O Suno v5.5 gera músicas originais
             que se encaixam perfeitamente no seu projeto.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Prompt para música de fundo</h3>
-          <div class="bg-gray-800 text-green-400 p-4 rounded-lg mb-4 text-sm overflow-x-auto">
-            <pre>Estilo: [energético/calmo/inspirador/corporativo]
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Prompt para música de fundo</h3>
+<div class="bg-gray-800 text-green-400 p-4 rounded-lg mb-4 text-sm overflow-x-auto">
+<pre>Estilo: [energético/calmo/inspirador/corporativo]
 BPM: [80-100 para calmo, 120-140 para energético]
 Instrumentos: [piano, synth, beats eletrônicos, violão]
 Mood: [motivacional, sofisticado, divertido, dramático]
 Duração: [30s ou 60s]
 Sem vocais (instrumental only)</pre>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Estilos musicais por tipo de vídeo</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Tipo de vídeo</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Estilo musical</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">BPM</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Produto tech/gadget</td>
-                <td class="border border-gray-200 px-4 py-2">Eletrônico, futurista, beats fortes</td>
-                <td class="border border-gray-200 px-4 py-2">120-130</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Produto de beleza</td>
-                <td class="border border-gray-200 px-4 py-2">Suave, elegante, piano + synth pad</td>
-                <td class="border border-gray-200 px-4 py-2">90-110</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Comida/Bebida</td>
-                <td class="border border-gray-200 px-4 py-2">Alegre, acústico, violão + percussão leve</td>
-                <td class="border border-gray-200 px-4 py-2">100-120</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Corporativo/SaaS</td>
-                <td class="border border-gray-200 px-4 py-2">Motivacional, orquestra leve + beats</td>
-                <td class="border border-gray-200 px-4 py-2">110-125</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Moda/Lifestyle</td>
-                <td class="border border-gray-200 px-4 py-2">Lo-fi, chill, beats suaves</td>
-                <td class="border border-gray-200 px-4 py-2">85-100</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
-            <h3 class="font-bold text-green-800 mb-2">Volume da música de fundo</h3>
-            <p class="text-green-700">
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Estilos musicais por tipo de vídeo</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Tipo de vídeo</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Estilo musical</th>
+<th class="text-left p-3 font-semibold text-neutral-100">BPM</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Produto tech/gadget</td>
+<td class="p-3 text-neutral-300">Eletrônico, futurista, beats fortes</td>
+<td class="p-3 text-neutral-300">120-130</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Produto de beleza</td>
+<td class="p-3 text-neutral-300">Suave, elegante, piano + synth pad</td>
+<td class="p-3 text-neutral-300">90-110</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Comida/Bebida</td>
+<td class="p-3 text-neutral-300">Alegre, acústico, violão + percussão leve</td>
+<td class="p-3 text-neutral-300">100-120</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Corporativo/SaaS</td>
+<td class="p-3 text-neutral-300">Motivacional, orquestra leve + beats</td>
+<td class="p-3 text-neutral-300">110-125</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Moda/Lifestyle</td>
+<td class="p-3 text-neutral-300">Lo-fi, chill, beats suaves</td>
+<td class="p-3 text-neutral-300">85-100</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Volume da música de fundo</h3>
+<p class="text-neutral-300">
               A música de fundo deve estar a -15dB a -20dB abaixo da narração. No CapCut, ajuste o
               volume da faixa de música para 15-25% do total. A música deve ser sentida, não ouvida
               conscientemente - ela complementa a narração, nunca compete com ela.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 5 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">📂 Organizando os Assets</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">📂</span> Organizando os Assets</h2></div>
+<p class="text-neutral-300 mb-4">
             Com todos os assets gerados, organize-os de forma clara antes de partir para a montagem.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Estrutura de pastas recomendada</h3>
-          <div class="bg-gray-800 text-green-400 p-4 rounded-lg mb-4 text-sm">
-            <pre>projeto-final/
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Estrutura de pastas recomendada</h3>
+<div class="bg-gray-800 text-green-400 p-4 rounded-lg mb-4 text-sm">
+<pre>projeto-final/
 ├── imagens/
 │   ├── cena01-hero-produto.png
 │   ├── cena02-contexto-uso.png
@@ -408,96 +380,86 @@ Sem vocais (instrumental only)</pre>
 ├── exports/
 │   └── (vídeos finalizados aqui)
 └── roteiro.txt</pre>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Checklist de qualidade dos assets</h3>
-          <div class="space-y-2 mb-4">
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">🖼️</span>
-              <div>
-                <strong>Imagens:</strong> Resolução mínima 1920x1080, sem artefatos visíveis, estilo consistente entre cenas
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Checklist de qualidade dos assets</h3>
+<div class="space-y-2 mb-4">
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🖼️</span>
+<div>
+<strong>Imagens:</strong> Resolução mínima 1920x1080, sem artefatos visíveis, estilo consistente entre cenas
               </div>
-            </div>
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">🎥</span>
-              <div>
-                <strong>Vídeos:</strong> Mínimo 720p, sem glitches, movimentos suaves, duração adequada para a cena
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🎥</span>
+<div>
+<strong>Vídeos:</strong> Mínimo 720p, sem glitches, movimentos suaves, duração adequada para a cena
               </div>
-            </div>
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">🎙️</span>
-              <div>
-                <strong>Narração:</strong> Áudio limpo, sem ruídos, pronúncia correta, tom adequado ao projeto
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🎙️</span>
+<div>
+<strong>Narração:</strong> Áudio limpo, sem ruídos, pronúncia correta, tom adequado ao projeto
               </div>
-            </div>
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">🎵</span>
-              <div>
-                <strong>Música:</strong> Duração compatível com o vídeo, sem vocais (instrumental), mood correto
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🎵</span>
+<div>
+<strong>Música:</strong> Duração compatível com o vídeo, sem vocais (instrumental), mood correto
               </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="mb-6">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Gerei todas as imagens necessárias (Midjourney/FLUX)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Gerei os clipes de vídeo (Kling 3.0/Runway)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Gravei a narração completa (ElevenLabs v3)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Criei a música de fundo (Suno v5)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Verifiquei a qualidade de todos os assets</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Organizei todos os arquivos em pastas nomeadas corretamente</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-12">
-        <a href="aula-5.1-planejamento.html" class="content-button content-button-secondary">
+</div>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Checklist da Aula</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Gerei todas as imagens necessárias (Midjourney/FLUX)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Gerei os clipes de vídeo (Kling 3.0/Runway)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Gravei a narração completa (ElevenLabs v3)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Criei a música de fundo (Suno v5)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Verifiquei a qualidade de todos os assets</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Organizei todos os arquivos em pastas nomeadas corretamente</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="aula-5.1-planejamento.html">
           ← Aula 5.1
         </a>
-        <a href="aula-5.3-montagem-edicao.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-5.3-montagem-edicao.html">
           Aula 5.3 →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -511,6 +473,5 @@ Sem vocais (instrumental only)</pre>
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

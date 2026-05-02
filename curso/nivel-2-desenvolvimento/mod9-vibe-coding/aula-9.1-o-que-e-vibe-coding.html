@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 9.1: O que é Vibe Coding e por que importa · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 9.1: O que é Vibe Coding e por que importa · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 9.1: O que é Vibe Coding e por que importa · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 9.1: O que é Vibe Coding e por que importa · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,318 +80,279 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 2</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 9</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 9.1</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-tecnico mb-4">🔵 Nível 2</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 2</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 9</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 9.1</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">🔵 Nível 2</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           O que é Vibe Coding e por que importa
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Entenda a revolução que permite qualquer pessoa criar software usando apenas linguagem natural.
         </p>
-        <p class="text-sm text-gray-500 mt-2">~60 minutos &bull; Atualizado em Abril 2026</p>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- Origem -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">🌟 A origem do termo "Vibe Coding"</h2>
-        <p class="text-gray-700 mb-4">
+<p class="text-sm text-neutral-500 mt-2">~60 minutos • Atualizado em Abril 2026</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Origem -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4">🌟 A origem do termo "Vibe Coding"</h2>
+<p class="text-neutral-300 mb-4">
           O termo <strong>"vibe coding"</strong> foi cunhado por <strong>Andrej Karpathy</strong>, ex-diretor de IA da Tesla e cofundador da OpenAI, em fevereiro de 2025. Em um post viral, ele descreveu uma nova forma de programar onde você simplesmente "conversa" com a IA, descrevendo o que quer em linguagem natural, e ela escreve o código por você.
         </p>
-
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-blue-800 font-semibold mb-2">💬 A frase original de Karpathy</p>
-          <p class="text-blue-700 italic">"There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."</p>
-          <p class="text-blue-600 text-sm mt-2">— Andrej Karpathy, fevereiro de 2025</p>
-        </div>
-
-        <p class="text-gray-700 mb-4">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">💬 A frase original de Karpathy</p>
+<p class="text-neutral-300 italic">"There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."</p>
+<p class="text-blue-600 text-sm mt-2">— Andrej Karpathy, fevereiro de 2025</p>
+</div>
+<p class="text-neutral-300 mb-4">
           O impacto foi tão grande que o Collins Dictionary escolheu <strong>"vibe coding"</strong> como a <strong>Palavra do Ano de 2025</strong>, consolidando o conceito na cultura mainstream.
         </p>
-
-        <!-- Definição -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">📖 Definição: O que é Vibe Coding?</h2>
-        <p class="text-gray-700 mb-4">
+<!-- Definição -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">📖 Definição: O que é Vibe Coding?</h2>
+<p class="text-neutral-300 mb-4">
           Vibe coding é a prática de <strong>usar inteligência artificial para escrever código a partir de instruções em linguagem natural</strong>. Em vez de aprender sintaxe de programação, você descreve o que quer construir — e a IA gera o código funcional.
         </p>
-
-        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-purple-800 font-semibold mb-2">🔄 Programação tradicional vs Vibe Coding</p>
-          <ul class="text-purple-700 space-y-2">
-            <li><strong>Tradicional:</strong> Aprenda sintaxe > Escreva código > Debug > Deploy</li>
-            <li><strong>Vibe Coding:</strong> Descreva o que quer > IA escreve o código > Teste > Itere com feedback</li>
-          </ul>
-        </div>
-
-        <p class="text-gray-700 mb-4">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🔄 Programação tradicional vs Vibe Coding</p>
+<ul class="text-purple-700 space-y-2">
+<li><strong>Tradicional:</strong> Aprenda sintaxe &gt; Escreva código &gt; Debug &gt; Deploy</li>
+<li><strong>Vibe Coding:</strong> Descreva o que quer &gt; IA escreve o código &gt; Teste &gt; Itere com feedback</li>
+</ul>
+</div>
+<p class="text-neutral-300 mb-4">
           Você não precisa entender cada linha de código. O foco está no <strong>resultado</strong>, não no processo. Isso democratiza a criação de software da mesma forma que ferramentas como Canva democratizaram o design gráfico.
         </p>
-
-        <!-- Mercado -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">📊 O mercado de vibe coding em números</h2>
-        <p class="text-gray-700 mb-4">
+<!-- Mercado -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">📊 O mercado de vibe coding em números</h2>
+<p class="text-neutral-300 mb-4">
           Os números mostram que o vibe coding não é uma tendência passageira — é uma transformação fundamental na forma como software é criado.
         </p>
-
-        <div class="overflow-x-auto mb-8">
-          <table class="w-full border-collapse border border-gray-300 text-sm">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-300 px-4 py-3 text-left">Métrica</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Valor</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Fonte</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Mercado global de AI coding</td>
-                <td class="border border-gray-300 px-4 py-3">$8,5 bilhões</td>
-                <td class="border border-gray-300 px-4 py-3">Estimativa 2026</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Devs nos EUA usando IA diariamente</td>
-                <td class="border border-gray-300 px-4 py-3">92%</td>
-                <td class="border border-gray-300 px-4 py-3">Stack Overflow Survey</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Código gerado por IA (total global)</td>
-                <td class="border border-gray-300 px-4 py-3">41%</td>
-                <td class="border border-gray-300 px-4 py-3">GitHub/Microsoft</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3 font-semibold">Usuários Replit que nunca escrevem código</td>
-                <td class="border border-gray-300 px-4 py-3">75%</td>
-                <td class="border border-gray-300 px-4 py-3">Replit Blog</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-8 rounded-r-lg">
-          <p class="text-green-800 font-semibold mb-1">💡 Dado surpreendente</p>
-          <p class="text-green-700"><strong>75% dos usuários do Replit nunca escrevem uma linha de código.</strong> Eles usam exclusivamente o agente de IA para construir seus projetos. Isso mostra que a barreira entre "programador" e "não-programador" está desaparecendo.</p>
-        </div>
-
-        <!-- Por que importa para criadores -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🎬 Por que isso importa para criadores de conteúdo?</h2>
-        <p class="text-gray-700 mb-4">
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Métrica</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Valor</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Fonte</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Mercado global de AI coding</td>
+<td class="p-3 text-neutral-300">$8,5 bilhões</td>
+<td class="p-3 text-neutral-300">Estimativa 2026</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Devs nos EUA usando IA diariamente</td>
+<td class="p-3 text-neutral-300">92%</td>
+<td class="p-3 text-neutral-300">Stack Overflow Survey</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Código gerado por IA (total global)</td>
+<td class="p-3 text-neutral-300">41%</td>
+<td class="p-3 text-neutral-300">GitHub/Microsoft</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Usuários Replit que nunca escrevem código</td>
+<td class="p-3 text-neutral-300">75%</td>
+<td class="p-3 text-neutral-300">Replit Blog</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-8-lg">
+<p class="text-neutral-100 font-semibold mb-1">💡 Dado surpreendente</p>
+<p class="text-neutral-300"><strong>75% dos usuários do Replit nunca escrevem uma linha de código.</strong> Eles usam exclusivamente o agente de IA para construir seus projetos. Isso mostra que a barreira entre "programador" e "não-programador" está desaparecendo.</p>
+</div>
+<!-- Por que importa para criadores -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🎬 Por que isso importa para criadores de conteúdo?</h2>
+<p class="text-neutral-300 mb-4">
           Como criador de conteúdo audiovisual, você provavelmente já sentiu a frustração de depender de ferramentas que não fazem exatamente o que precisa, ou de ter ideias para automações mas não saber implementá-las. O vibe coding muda isso.
         </p>
-
-        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-orange-800 font-semibold mb-2">🔧 O que você pode construir como criador</p>
-          <ul class="text-orange-700 space-y-1">
-            <li>✅ <strong>Gerador de legendas personalizado</strong> — que siga seu estilo específico</li>
-            <li>✅ <strong>Dashboard de analytics</strong> — agregando dados de todas as plataformas</li>
-            <li>✅ <strong>Ferramenta de agendamento</strong> — com lógica customizada para seu fluxo</li>
-            <li>✅ <strong>Scraper de tendências</strong> — monitorando trends em múltiplas plataformas</li>
-            <li>✅ <strong>Pipeline de reaproveitamento</strong> — convertendo um vídeo longo em múltiplos shorts</li>
-            <li>✅ <strong>Gerador de thumbnails</strong> — criando variações automaticamente</li>
-            <li>✅ <strong>Bot de interação</strong> — respondendo comentários com IA</li>
-          </ul>
-        </div>
-
-        <!-- A mudança -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🔄 A mudança: De consumidor a construtor</h2>
-        <p class="text-gray-700 mb-4">
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🔧 O que você pode construir como criador</p>
+<ul class="text-neutral-300 space-y-1">
+<li>✅ <strong>Gerador de legendas personalizado</strong> — que siga seu estilo específico</li>
+<li>✅ <strong>Dashboard de analytics</strong> — agregando dados de todas as plataformas</li>
+<li>✅ <strong>Ferramenta de agendamento</strong> — com lógica customizada para seu fluxo</li>
+<li>✅ <strong>Scraper de tendências</strong> — monitorando trends em múltiplas plataformas</li>
+<li>✅ <strong>Pipeline de reaproveitamento</strong> — convertendo um vídeo longo em múltiplos shorts</li>
+<li>✅ <strong>Gerador de thumbnails</strong> — criando variações automaticamente</li>
+<li>✅ <strong>Bot de interação</strong> — respondendo comentários com IA</li>
+</ul>
+</div>
+<!-- A mudança -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🔄 A mudança: De consumidor a construtor</h2>
+<p class="text-neutral-300 mb-4">
           Até agora, criadores de conteúdo eram <strong>consumidores</strong> de ferramentas: usavam o que estava disponível, pagavam por assinaturas e se adaptavam às limitações. Com o vibe coding, você se torna um <strong>construtor</strong>: cria exatamente o que precisa, quando precisa.
         </p>
-
-        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6 rounded-r-lg">
-          <p class="text-indigo-800 font-semibold mb-2">📈 O ciclo do criador-construtor</p>
-          <ol class="text-indigo-700 space-y-1 list-decimal ml-4">
-            <li><strong>Identifique</strong> uma tarefa repetitiva ou uma necessidade no seu fluxo</li>
-            <li><strong>Descreva</strong> a solução em linguagem natural para uma ferramenta de vibe coding</li>
-            <li><strong>Construa</strong> um protótipo funcional em minutos ou horas</li>
-            <li><strong>Teste</strong> e itere até funcionar como deseja</li>
-            <li><strong>Integre</strong> no seu fluxo de trabalho diário</li>
-            <li><strong>Compartilhe</strong> ou até venda para outros criadores</li>
-          </ol>
-        </div>
-
-        <!-- Categorias de ferramentas -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">🗂️ Categorias de ferramentas de vibe coding</h2>
-
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4 rounded-r-lg">
-          <p class="text-blue-800 font-semibold mb-1">🚀 App Builders (sem código)</p>
-          <p class="text-blue-700"><strong>Lovable, Bolt.new, v0, Replit Agent.</strong> Ideal para quem nunca programou. Você descreve o que quer e a ferramenta gera um app completo com interface visual. Perfeito para MVPs, landing pages e ferramentas simples.</p>
-        </div>
-
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-4 rounded-r-lg">
-          <p class="text-green-800 font-semibold mb-1">⚡ IDEs com IA (código assistido)</p>
-          <p class="text-green-700"><strong>Cursor, Windsurf, GitHub Copilot.</strong> Editores de código potencializados por IA. Você trabalha junto com a IA, revisando e ajustando o código. Mais poder e controle, mas exige alguma familiaridade com código.</p>
-        </div>
-
-        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mb-4 rounded-r-lg">
-          <p class="text-purple-800 font-semibold mb-1">🖥️ Agentes de terminal</p>
-          <p class="text-purple-700"><strong>Claude Code, Aider, Codex CLI.</strong> Agentes que rodam no terminal e podem entender projetos inteiros. Potentes para automações complexas e integração com sistemas existentes.</p>
-        </div>
-
-        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 mb-8 rounded-r-lg">
-          <p class="text-orange-800 font-semibold mb-1">🔗 Plataformas de automação</p>
-          <p class="text-orange-700"><strong>n8n, Make, Zapier.</strong> Conectam serviços sem código. Embora não sejam "vibe coding" puro, cada vez mais integram IA para gerar fluxos a partir de descrições textuais.</p>
-        </div>
-
-        <!-- Exemplos reais -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">💼 Exemplos reais: O que criadores já construíram</h2>
-
-        <div class="overflow-x-auto mb-8">
-          <table class="w-full border-collapse border border-gray-300 text-sm">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-300 px-4 py-3 text-left">Projeto</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Ferramenta usada</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Tempo de criação</th>
-                <th class="border border-gray-300 px-4 py-3 text-left">Resultado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3">Gerador de legendas com IA</td>
-                <td class="border border-gray-300 px-4 py-3">Lovable</td>
-                <td class="border border-gray-300 px-4 py-3">~2 horas</td>
-                <td class="border border-gray-300 px-4 py-3">App web que gera legendas no estilo do criador</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3">Dashboard de métricas</td>
-                <td class="border border-gray-300 px-4 py-3">Bolt.new</td>
-                <td class="border border-gray-300 px-4 py-3">~4 horas</td>
-                <td class="border border-gray-300 px-4 py-3">Painel unificado com dados de YT, IG e TikTok</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3">Scraper de trends do TikTok</td>
-                <td class="border border-gray-300 px-4 py-3">Claude Code</td>
-                <td class="border border-gray-300 px-4 py-3">~1 hora</td>
-                <td class="border border-gray-300 px-4 py-3">Script que monitora trends e envia alertas</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-300 px-4 py-3">Agendador de posts</td>
-                <td class="border border-gray-300 px-4 py-3">Replit Agent</td>
-                <td class="border border-gray-300 px-4 py-3">~3 horas</td>
-                <td class="border border-gray-300 px-4 py-3">App com calendário visual e publicação automática</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-300 px-4 py-3">Pipeline de repurposing</td>
-                <td class="border border-gray-300 px-4 py-3">Cursor + n8n</td>
-                <td class="border border-gray-300 px-4 py-3">~6 horas</td>
-                <td class="border border-gray-300 px-4 py-3">Converte vídeo longo em 5+ shorts automaticamente</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Checklist -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-10">✅ Checklist da aula</h2>
-        <div class="bg-gray-50 rounded-lg p-6">
-          <ul class="space-y-3">
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Entender o conceito de vibe coding e sua origem</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Conhecer os dados de mercado e tendências</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Identificar 3 ferramentas repetitivas no seu fluxo que poderiam ser automatizadas</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Conhecer as 4 categorias de ferramentas de vibe coding</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Criar conta gratuita no Lovable ou Bolt.new</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-gray-400 mt-1">☐</span>
-              <span class="text-gray-700">Fazer um primeiro teste: pedir à IA para criar algo simples (ex: calculadora, lista de tarefas)</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-12">
-        <a href="../mod8-audio-musica/aula-8.3-edicao-audio-sound-design.html" class="content-button content-button-secondary">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📈 O ciclo do criador-construtor</p>
+<ol class="text-neutral-300 space-y-1 list-decimal ml-4">
+<li><strong>Identifique</strong> uma tarefa repetitiva ou uma necessidade no seu fluxo</li>
+<li><strong>Descreva</strong> a solução em linguagem natural para uma ferramenta de vibe coding</li>
+<li><strong>Construa</strong> um protótipo funcional em minutos ou horas</li>
+<li><strong>Teste</strong> e itere até funcionar como deseja</li>
+<li><strong>Integre</strong> no seu fluxo de trabalho diário</li>
+<li><strong>Compartilhe</strong> ou até venda para outros criadores</li>
+</ol>
+</div>
+<!-- Categorias de ferramentas -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🗂️ Categorias de ferramentas de vibe coding</h2>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">🚀 App Builders (sem código)</p>
+<p class="text-neutral-300"><strong>Lovable, Bolt.new, v0, Replit Agent.</strong> Ideal para quem nunca programou. Você descreve o que quer e a ferramenta gera um app completo com interface visual. Perfeito para MVPs, landing pages e ferramentas simples.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">⚡ IDEs com IA (código assistido)</p>
+<p class="text-neutral-300"><strong>Cursor, Windsurf, GitHub Copilot.</strong> Editores de código potencializados por IA. Você trabalha junto com a IA, revisando e ajustando o código. Mais poder e controle, mas exige alguma familiaridade com código.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">🖥️ Agentes de terminal</p>
+<p class="text-purple-700"><strong>Claude Code, Aider, Codex CLI.</strong> Agentes que rodam no terminal e podem entender projetos inteiros. Potentes para automações complexas e integração com sistemas existentes.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-8-lg">
+<p class="text-neutral-100 font-semibold mb-1">🔗 Plataformas de automação</p>
+<p class="text-neutral-300"><strong>n8n, Make, Zapier.</strong> Conectam serviços sem código. Embora não sejam "vibe coding" puro, cada vez mais integram IA para gerar fluxos a partir de descrições textuais.</p>
+</div>
+<!-- Exemplos reais -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">💼 Exemplos reais: O que criadores já construíram</h2>
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Projeto</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Ferramenta usada</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Tempo de criação</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Resultado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Gerador de legendas com IA</td>
+<td class="p-3 text-neutral-300">Lovable</td>
+<td class="p-3 text-neutral-300">~2 horas</td>
+<td class="p-3 text-neutral-300">App web que gera legendas no estilo do criador</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Dashboard de métricas</td>
+<td class="p-3 text-neutral-300">Bolt.new</td>
+<td class="p-3 text-neutral-300">~4 horas</td>
+<td class="p-3 text-neutral-300">Painel unificado com dados de YT, IG e TikTok</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Scraper de trends do TikTok</td>
+<td class="p-3 text-neutral-300">Claude Code</td>
+<td class="p-3 text-neutral-300">~1 hora</td>
+<td class="p-3 text-neutral-300">Script que monitora trends e envia alertas</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Agendador de posts</td>
+<td class="p-3 text-neutral-300">Replit Agent</td>
+<td class="p-3 text-neutral-300">~3 horas</td>
+<td class="p-3 text-neutral-300">App com calendário visual e publicação automática</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Pipeline de repurposing</td>
+<td class="p-3 text-neutral-300">Cursor + n8n</td>
+<td class="p-3 text-neutral-300">~6 horas</td>
+<td class="p-3 text-neutral-300">Converte vídeo longo em 5+ shorts automaticamente</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Checklist -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">✅ Checklist da aula</h2>
+<div class="bg-gray-50 rounded-lg p-6">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Entender o conceito de vibe coding e sua origem</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Conhecer os dados de mercado e tendências</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Identificar 3 ferramentas repetitivas no seu fluxo que poderiam ser automatizadas</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Conhecer as 4 categorias de ferramentas de vibe coding</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Criar conta gratuita no Lovable ou Bolt.new</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Fazer um primeiro teste: pedir à IA para criar algo simples (ex: calculadora, lista de tarefas)</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="../mod8-audio-musica/aula-8.3-edicao-audio-sound-design.html">
           ← Aula anterior
         </a>
-        <a href="aula-9.2-lovable-bolt.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-9.2-lovable-bolt.html">
           Próxima aula →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -406,6 +366,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

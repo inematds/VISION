@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 3.4: Adicionando Voz com ElevenLabs v3 · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 3.4: Adicionando Voz com ElevenLabs v3 · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 3.4: Adicionando Voz com ElevenLabs v3 · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 3.4: Adicionando Voz com ElevenLabs v3 · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,303 +80,268 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 1</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 3</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 3.4</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8 animate-fade-in">
-        <div class="flex items-center gap-3 mb-4 flex-wrap">
-          <span class="badge badge-iniciante">🎙️ Aula 3.4</span>
-          <span class="badge badge-tecnico">~90 min</span>
-        </div>
-
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 1</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 3</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 3.4</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8 animate-fade-in">
+<div class="flex items-center gap-3 mb-4 flex-wrap">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎙️ Aula 3.4</span>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">~90 min</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Adicionando Voz com ElevenLabs v3
         </h1>
-
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Domine o ElevenLabs v3: o TTS mais expressivo do mundo. Aprenda clonagem de voz, tags de áudio, Scribe v2 para transcrição e SFX v2 para efeitos sonoros.
         </p>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8 mb-8 prose prose-lg max-w-none">
-
-        <!-- ElevenLabs v3 (ElevenMusic) (ElevenMusic) -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">🎙️ ElevenLabs v3: O TTS Mais Expressivo</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+</div>
+<div class="rounded-lg p-8 mb-8 space-y-12">
+<!-- ElevenLabs v3 (ElevenMusic) (ElevenMusic) -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎙️</span> ElevenLabs v3: O TTS Mais Expressivo</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
             O ElevenLabs v3, lançado no final de 2025, é considerado o text-to-speech mais expressivo já criado. A diferença em relação a versões anteriores é dramática — as vozes soam genuinamente humanas, com nuances emocionais que antes eram impossíveis.
           </p>
-
-          <div class="space-y-4 mb-6">
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Expressividade Natural</h3>
-              <p class="text-gray-700 text-sm">V3 inclui suspiros, sussurros, risadas, pausas dramáticas e variações de tom naturais. A voz soa como um locutor profissional gravando em estúdio, não como uma máquina lendo texto.</p>
-            </div>
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Audio Tags para Controle de Tom</h3>
-              <p class="text-gray-700 text-sm">Insira tags no texto para controlar como a voz é entregue. Exemplos de uso:</p>
-              <div class="bg-white p-3 rounded font-mono text-xs mt-2">
-                <p>&lt;whisper&gt;Isso é um segredo&lt;/whisper&gt;</p>
-                <p>&lt;excited&gt;Que incrível!&lt;/excited&gt;</p>
-                <p>&lt;sad&gt;Infelizmente, não foi possível&lt;/sad&gt;</p>
-                <p>&lt;pause duration="1s"/&gt;</p>
-              </div>
-            </div>
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Suporte Multilíngue</h3>
-              <p class="text-gray-700 text-sm">Suporta 30+ idiomas incluindo português brasileiro com pronúncia nativa. A mesma voz pode narrar em diferentes idiomas mantendo o timbre e personalidade.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Clonagem de voz -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">🧬 Clonagem de Voz</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+<div class="space-y-4 mb-6">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">Expressividade Natural</h3>
+<p class="text-neutral-300 text-sm">V3 inclui suspiros, sussurros, risadas, pausas dramáticas e variações de tom naturais. A voz soa como um locutor profissional gravando em estúdio, não como uma máquina lendo texto.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">Audio Tags para Controle de Tom</h3>
+<p class="text-neutral-300 text-sm">Insira tags no texto para controlar como a voz é entregue. Exemplos de uso:</p>
+<div class="bg-white p-3 rounded font-mono text-xs mt-2">
+<p class="">&lt;whisper&gt;Isso é um segredo&lt;/whisper&gt;</p>
+<p class="">&lt;excited&gt;Que incrível!&lt;/excited&gt;</p>
+<p class="">&lt;sad&gt;Infelizmente, não foi possível&lt;/sad&gt;</p>
+<p class="">&lt;pause duration="1s"/&gt;</p>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">Suporte Multilíngue</h3>
+<p class="text-neutral-300 text-sm">Suporta 30+ idiomas incluindo português brasileiro com pronúncia nativa. A mesma voz pode narrar em diferentes idiomas mantendo o timbre e personalidade.</p>
+</div>
+</div>
+</section>
+<!-- Clonagem de voz -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🧬</span> Clonagem de Voz</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
             O ElevenLabs permite clonar vozes a partir de amostras de áudio. Existem dois métodos:
           </p>
-
-          <div class="grid md:grid-cols-2 gap-4 mb-6">
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h3 class="font-bold text-gray-900 mb-3">Instant Voice Cloning</h3>
-              <ul class="text-sm text-gray-700 space-y-2">
-                <li>• Upload de 1-5 minutos de áudio</li>
-                <li>• Resultado em segundos</li>
-                <li>• Boa qualidade para a maioria dos usos</li>
-                <li>• Disponível em todos os planos pagos</li>
-              </ul>
-            </div>
-            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
-              <h3 class="font-bold text-gray-900 mb-3">Professional Voice Cloning</h3>
-              <ul class="text-sm text-gray-700 space-y-2">
-                <li>• Requer 30+ minutos de áudio limpo</li>
-                <li>• Treinamento leva horas</li>
-                <li>• Qualidade indistinguível do original</li>
-                <li>• Planos Pro e acima</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded mb-6">
-            <h3 class="font-bold text-gray-900 mb-2">🚫 Ética da clonagem de voz</h3>
-            <p class="text-gray-700 text-sm">
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-3">Instant Voice Cloning</h3>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• Upload de 1-5 minutos de áudio</li>
+<li>• Resultado em segundos</li>
+<li>• Boa qualidade para a maioria dos usos</li>
+<li>• Disponível em todos os planos pagos</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-3">Professional Voice Cloning</h3>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• Requer 30+ minutos de áudio limpo</li>
+<li>• Treinamento leva horas</li>
+<li>• Qualidade indistinguível do original</li>
+<li>• Planos Pro e acima</li>
+</ul>
+</div>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">🚫 Ética da clonagem de voz</h3>
+<p class="text-neutral-300 text-sm">
               NUNCA clone a voz de outra pessoa sem consentimento explícito e por escrito. O ElevenLabs exige que você confirme ter autorização para clonar a voz. Use apenas sua própria voz ou vozes com permissão documentada.
             </p>
-          </div>
-        </section>
-
-        <!-- Scribe v2 -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">📝 Scribe v2 — Speech-to-Text</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+</div>
+</section>
+<!-- Scribe v2 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">📝</span> Scribe v2 — Speech-to-Text</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
             Além de gerar voz, o ElevenLabs também transcreve áudio com o Scribe v2:
           </p>
-
-          <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded mb-6">
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>• <strong>Transcrição precisa</strong> em 30+ idiomas</li>
-              <li>• <strong>Identificação de falantes</strong> — diferencia quem está falando</li>
-              <li>• <strong>Timestamps</strong> — marcações de tempo para cada frase</li>
-              <li>• <strong>Útil para</strong>: gerar legendas, transcrever entrevistas, criar roteiros a partir de áudio</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- SFX v2 -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">🔊 SFX v2 — Efeitos Sonoros com IA</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• <strong>Transcrição precisa</strong> em 30+ idiomas</li>
+<li>• <strong>Identificação de falantes</strong> — diferencia quem está falando</li>
+<li>• <strong>Timestamps</strong> — marcações de tempo para cada frase</li>
+<li>• <strong>Útil para</strong>: gerar legendas, transcrever entrevistas, criar roteiros a partir de áudio</li>
+</ul>
+</div>
+</section>
+<!-- SFX v2 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🔊</span> SFX v2 — Efeitos Sonoros com IA</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
             O gerador de efeitos sonoros do ElevenLabs cria sons a partir de descrições textuais:
           </p>
-
-          <div class="space-y-3 mb-6">
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-2">Exemplos de prompts para SFX</h3>
-              <ul class="text-sm text-gray-700 space-y-1">
-                <li>• "Rain falling on a tin roof, gentle, ambient"</li>
-                <li>• "Crowd cheering in a stadium, excited, echoey"</li>
-                <li>• "Car engine starting and revving, sports car, powerful"</li>
-                <li>• "Forest birds singing at dawn, peaceful, nature ambience"</li>
-                <li>• "Typing on a mechanical keyboard, rhythmic, close-up"</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded mb-6">
-            <h3 class="font-bold text-gray-900 mb-2">💡 Combinando SFX com vídeos</h3>
-            <p class="text-gray-700 text-sm">
+<div class="space-y-3 mb-6">
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Exemplos de prompts para SFX</h3>
+<ul class="text-sm text-neutral-300 space-y-1">
+<li>• "Rain falling on a tin roof, gentle, ambient"</li>
+<li>• "Crowd cheering in a stadium, excited, echoey"</li>
+<li>• "Car engine starting and revving, sports car, powerful"</li>
+<li>• "Forest birds singing at dawn, peaceful, nature ambience"</li>
+<li>• "Typing on a mechanical keyboard, rhythmic, close-up"</li>
+</ul>
+</div>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 Combinando SFX com vídeos</h3>
+<p class="text-neutral-300 text-sm">
               Gere efeitos sonoros específicos para seus vídeos do Kling ou Runway. Sons de passos, portas, ambiente urbano — tudo pode ser gerado sob demanda e adicionado na edição com CapCut.
             </p>
-          </div>
-        </section>
-
-        <!-- Planos -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">💰 Planos ElevenLabs</h2>
-
-          <div class="overflow-x-auto mb-6">
-            <table class="w-full border-collapse bg-white rounded-lg overflow-hidden">
-              <thead>
-                <tr class="bg-gray-100">
-                  <th class="text-left p-3 font-semibold text-gray-900">Plano</th>
-                  <th class="text-left p-3 font-semibold text-gray-900">Preço</th>
-                  <th class="text-left p-3 font-semibold text-gray-900">Caracteres/mês</th>
-                  <th class="text-left p-3 font-semibold text-gray-900">Recursos</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200">
-                <tr><td class="p-3 text-gray-700">Free</td><td class="p-3 text-gray-700">Grátis</td><td class="p-3 text-gray-700">10.000</td><td class="p-3 text-gray-700">Vozes padrão, 3 custom voices</td></tr>
-                <tr><td class="p-3 text-gray-700">Starter</td><td class="p-3 text-gray-700">$5/mês</td><td class="p-3 text-gray-700">30.000</td><td class="p-3 text-gray-700">Instant cloning, mais vozes</td></tr>
-                <tr><td class="p-3 text-gray-700">Creator</td><td class="p-3 text-gray-700">$22/mês</td><td class="p-3 text-gray-700">100.000</td><td class="p-3 text-gray-700">Professional cloning, projects</td></tr>
-                <tr><td class="p-3 text-gray-700">Pro</td><td class="p-3 text-gray-700">$99/mês</td><td class="p-3 text-gray-700">500.000</td><td class="p-3 text-gray-700">API, alta prioridade, 48kHz</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <!-- Projeto prático -->
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">🎬 Prática: Adicionando Narração a um Vídeo</h2>
-
-          <div class="space-y-3 mb-6">
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-1">1. Escreva o roteiro</h3>
-              <p class="text-gray-700 text-sm">Use ChatGPT para criar um roteiro de narração de 30-60 segundos para um dos vídeos que você gerou com Kling ou Runway.</p>
-            </div>
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-1">2. Escolha a voz</h3>
-              <p class="text-gray-700 text-sm">No ElevenLabs, explore as vozes em português brasileiro. Teste pelo menos 3 vozes diferentes com o mesmo texto. Escolha a que melhor combina com o tom do vídeo.</p>
-            </div>
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-1">3. Adicione tags de expressão</h3>
-              <p class="text-gray-700 text-sm">Insira pausas e variações de tom no texto para tornar a narração mais natural e envolvente.</p>
-            </div>
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-1">4. Gere e baixe o áudio</h3>
-              <p class="text-gray-700 text-sm">Gere o áudio, ouça atentamente e ajuste se necessário. Baixe em MP3 ou WAV.</p>
-            </div>
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-1">5. Gere efeitos sonoros (SFX)</h3>
-              <p class="text-gray-700 text-sm">Crie 2-3 efeitos sonoros que complementem seu vídeo (ambiente, transições, ênfase).</p>
-            </div>
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <h3 class="font-bold text-gray-900 mb-1">6. Combine no CapCut</h3>
-              <p class="text-gray-700 text-sm">Importe o vídeo, a narração e os SFX no CapCut. Sincronize a narração com as cenas e adicione os efeitos nos momentos certos. Exporte o resultado final.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="mb-8">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Entendo as capacidades do ElevenLabs v3</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Sei usar audio tags para controlar tom e expressão</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Compreendo as opções de clonagem de voz e seus limites éticos</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Conheço o Scribe v2 para transcrição</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Sei gerar efeitos sonoros com SFX v2</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300">
-                <span class="text-gray-700">Completei o projeto prático: vídeo com narração e SFX</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-8">
-        <a href="aula-3.3-hailuo-ferramentas-chinesas.html" class="content-button content-button-secondary">
+</div>
+</section>
+<!-- Planos -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">💰</span> Planos ElevenLabs</h2></div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Plano</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Preço</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Caracteres/mês</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Recursos</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Free</td><td class="p-3 text-neutral-300">Grátis</td><td class="p-3 text-neutral-300">10.000</td><td class="p-3 text-neutral-300">Vozes padrão, 3 custom voices</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Starter</td><td class="p-3 text-neutral-300">$5/mês</td><td class="p-3 text-neutral-300">30.000</td><td class="p-3 text-neutral-300">Instant cloning, mais vozes</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Creator</td><td class="p-3 text-neutral-300">$22/mês</td><td class="p-3 text-neutral-300">100.000</td><td class="p-3 text-neutral-300">Professional cloning, projects</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Pro</td><td class="p-3 text-neutral-300">$99/mês</td><td class="p-3 text-neutral-300">500.000</td><td class="p-3 text-neutral-300">API, alta prioridade, 48kHz</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Projeto prático -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> Prática: Adicionando Narração a um Vídeo</h2></div>
+<div class="space-y-3 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">1. Escreva o roteiro</h3>
+<p class="text-neutral-300 text-sm">Use ChatGPT para criar um roteiro de narração de 30-60 segundos para um dos vídeos que você gerou com Kling ou Runway.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">2. Escolha a voz</h3>
+<p class="text-neutral-300 text-sm">No ElevenLabs, explore as vozes em português brasileiro. Teste pelo menos 3 vozes diferentes com o mesmo texto. Escolha a que melhor combina com o tom do vídeo.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">3. Adicione tags de expressão</h3>
+<p class="text-neutral-300 text-sm">Insira pausas e variações de tom no texto para tornar a narração mais natural e envolvente.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">4. Gere e baixe o áudio</h3>
+<p class="text-neutral-300 text-sm">Gere o áudio, ouça atentamente e ajuste se necessário. Baixe em MP3 ou WAV.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">5. Gere efeitos sonoros (SFX)</h3>
+<p class="text-neutral-300 text-sm">Crie 2-3 efeitos sonoros que complementem seu vídeo (ambiente, transições, ênfase).</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">6. Combine no CapCut</h3>
+<p class="text-neutral-300 text-sm">Importe o vídeo, a narração e os SFX no CapCut. Sincronize a narração com as cenas e adicione os efeitos nos momentos certos. Exporte o resultado final.</p>
+</div>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Checklist da Aula</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Entendo as capacidades do ElevenLabs v3</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Sei usar audio tags para controlar tom e expressão</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Compreendo as opções de clonagem de voz e seus limites éticos</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Conheço o Scribe v2 para transcrição</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Sei gerar efeitos sonoros com SFX v2</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Completei o projeto prático: vídeo com narração e SFX</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="content-button content-button-secondary" href="aula-3.3-hailuo-ferramentas-chinesas.html">
           ← Aula 3.3
         </a>
-        <a href="../mod4-edicao-pos-producao/aula-4.1-capcut-edicao-ia.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="../mod4-edicao-pos-producao/aula-4.1-capcut-edicao-ia.html">
           Próxima: Aula 4.1 →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -391,6 +355,5 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>

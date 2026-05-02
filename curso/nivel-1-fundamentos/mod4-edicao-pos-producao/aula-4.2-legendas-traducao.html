@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula 4.2: Legendas, Tradução e Dublagem Automática · VISION — Curso VISION de IA Audiovisual">
-  <title>Aula 4.2: Legendas, Tradução e Dublagem Automática · VISION</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Aula 4.2: Legendas, Tradução e Dublagem Automática · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Aula 4.2: Legendas, Tradução e Dublagem Automática · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     article h1, article h2, article h3, article h4 { color: inherit; }
@@ -64,15 +63,15 @@
     /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
     html.dark .bg-white { background-color: #1f2937; }
     html.dark .text-gray-900 { color: #f9fafb; }
-    html.dark .text-gray-800 { color: #f3f4f6; }
-    html.dark .text-gray-700 { color: #d1d5db; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
     html.dark .text-gray-600 { color: #9ca3af; }
     html.dark .text-gray-500 { color: #6b7280; }
     html.dark .bg-gray-50 { background-color: #111827; }
     html.dark .bg-gray-100 { background-color: #1f2937; }
     html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
     html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
-    html.dark .bg-yellow-50 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
     html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
     html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
     html.dark .border-gray-200 { border-color: #374151; }
@@ -81,484 +80,444 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🎬</span>
-            <span class="font-bold text-lg hidden sm:inline">VISION</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Desenvolvimento</span>
-          </a>
-          <a href="../../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Especialização</span>
-          </a>
-          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-    
-
-    <nav class="breadcrumb mb-8">
-      <a href="../../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Nível 1</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="./">Módulo 4</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Aula 4.2</span>
-    </nav>
-
-    <article class="max-w-4xl mx-auto">
-
-      <div class="mb-8">
-        <span class="badge badge-iniciante mb-4">✂️ Módulo 4 • Aula 2</span>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Pular para conteúdo</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desenvolvimento</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialização</span>
+</a>
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav class="breadcrumb mb-8">
+<a href="../../../">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../../">Curso</a>
+<span class="breadcrumb-separator">/</span>
+<a href="../">Nível 1</a>
+<span class="breadcrumb-separator">/</span>
+<a href="./">Módulo 4</a>
+<span class="breadcrumb-separator">/</span>
+<span>Aula 4.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">✂️ Módulo 4 • Aula 2</span>
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
           Legendas, Tradução e Dublagem Automática
         </h1>
-        <p class="text-xl text-gray-600">
+<p class="text-xl text-neutral-400">
           Torne seu conteúdo acessível e global com legendas automáticas, tradução e dublagem por IA.
         </p>
-        <div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
-          <span>⏱️ ~90 minutos</span>
-          <span>📊 Iniciante</span>
-          <span>🔄 Atualizado Abr/2026</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-md p-8">
-
-        <!-- Seção 1 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">💬 Legendas Automáticas com IA</h2>
-          <p class="text-gray-700 mb-4">
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~90 minutos</span>
+<span>📊 Iniciante</span>
+<span>🔄 Atualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">💬</span> Legendas Automáticas com IA</h2></div>
+<p class="text-neutral-300 mb-4">
             Legendas não são mais opcionais: 85% dos vídeos em redes sociais são assistidos sem som.
             Além disso, legendas aumentam o engajamento, melhoram a acessibilidade e ajudam no SEO.
             Em 2026, a IA gera legendas com precisão superior a 98% em português.
           </p>
-
-          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 mb-4">
-            <h3 class="font-bold text-blue-800 mb-2">Por que legendas são essenciais</h3>
-            <ul class="text-blue-700 space-y-1">
-              <li>• <strong>Acessibilidade:</strong> Pessoas surdas ou com deficiência auditiva</li>
-              <li>• <strong>Engajamento:</strong> +80% de tempo de visualização em vídeos com legenda</li>
-              <li>• <strong>Alcance:</strong> Plataformas priorizam vídeos com legendas no algoritmo</li>
-              <li>• <strong>Contexto:</strong> Muitos assistem em transporte público, escritório, etc.</li>
-            </ul>
-          </div>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Ferramentas de legendas automáticas</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Ferramenta</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Precisão PT-BR</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Preço</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Destaque</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">CapCut Auto-Captions</td>
-                <td class="border border-gray-200 px-4 py-2">~96%</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
-                <td class="border border-gray-200 px-4 py-2">Integrado ao editor</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Whisper (OpenAI)</td>
-                <td class="border border-gray-200 px-4 py-2">~98%</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito (open-source)</td>
-                <td class="border border-gray-200 px-4 py-2">Maior precisão, uso local</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">YouTube Auto-Captions</td>
-                <td class="border border-gray-200 px-4 py-2">~94%</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
-                <td class="border border-gray-200 px-4 py-2">Automático ao publicar</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Descript</td>
-                <td class="border border-gray-200 px-4 py-2">~97%</td>
-                <td class="border border-gray-200 px-4 py-2">A partir de $24/mês</td>
-                <td class="border border-gray-200 px-4 py-2">Edição por texto</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Captions.ai</td>
-                <td class="border border-gray-200 px-4 py-2">~97%</td>
-                <td class="border border-gray-200 px-4 py-2">Freemium</td>
-                <td class="border border-gray-200 px-4 py-2">Legendas estilizadas para redes sociais</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Gerando legendas no CapCut</h3>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-            <li>Importe seu vídeo com narração na timeline</li>
-            <li>Clique em <strong>Texto > Auto-Captions</strong></li>
-            <li>Selecione o idioma: <strong>Português (Brasil)</strong></li>
-            <li>Aguarde a IA processar o áudio (geralmente 30s-2min)</li>
-            <li>Revise e corrija eventuais erros (nomes próprios, termos técnicos)</li>
-            <li>Escolha um estilo de legenda (fonte, cor, posição, animação)</li>
-            <li>Ajuste o tamanho para garantir legibilidade em mobile</li>
-          </ol>
-
-          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 mb-4">
-            <h3 class="font-bold text-yellow-800 mb-2">Dica Profissional</h3>
-            <p class="text-yellow-700">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Por que legendas são essenciais</h3>
+<ul class="text-neutral-300 space-y-1">
+<li>• <strong>Acessibilidade:</strong> Pessoas surdas ou com deficiência auditiva</li>
+<li>• <strong>Engajamento:</strong> +80% de tempo de visualização em vídeos com legenda</li>
+<li>• <strong>Alcance:</strong> Plataformas priorizam vídeos com legendas no algoritmo</li>
+<li>• <strong>Contexto:</strong> Muitos assistem em transporte público, escritório, etc.</li>
+</ul>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Ferramentas de legendas automáticas</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Ferramenta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Precisão PT-BR</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Preço</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Destaque</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">CapCut Auto-Captions</td>
+<td class="p-3 text-neutral-300">~96%</td>
+<td class="p-3 text-neutral-300">Gratuito</td>
+<td class="p-3 text-neutral-300">Integrado ao editor</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Whisper (OpenAI)</td>
+<td class="p-3 text-neutral-300">~98%</td>
+<td class="p-3 text-neutral-300">Gratuito (open-source)</td>
+<td class="p-3 text-neutral-300">Maior precisão, uso local</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">YouTube Auto-Captions</td>
+<td class="p-3 text-neutral-300">~94%</td>
+<td class="p-3 text-neutral-300">Gratuito</td>
+<td class="p-3 text-neutral-300">Automático ao publicar</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Descript</td>
+<td class="p-3 text-neutral-300">~97%</td>
+<td class="p-3 text-neutral-300">A partir de $24/mês</td>
+<td class="p-3 text-neutral-300">Edição por texto</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Captions.ai</td>
+<td class="p-3 text-neutral-300">~97%</td>
+<td class="p-3 text-neutral-300">Freemium</td>
+<td class="p-3 text-neutral-300">Legendas estilizadas para redes sociais</td>
+</tr>
+</tbody>
+</table>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Gerando legendas no CapCut</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Importe seu vídeo com narração na timeline</li>
+<li>Clique em <strong>Texto &gt; Auto-Captions</strong></li>
+<li>Selecione o idioma: <strong>Português (Brasil)</strong></li>
+<li>Aguarde a IA processar o áudio (geralmente 30s-2min)</li>
+<li>Revise e corrija eventuais erros (nomes próprios, termos técnicos)</li>
+<li>Escolha um estilo de legenda (fonte, cor, posição, animação)</li>
+<li>Ajuste o tamanho para garantir legibilidade em mobile</li>
+</ol>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Dica Profissional</h3>
+<p class="text-neutral-300">
               Sempre revise as legendas geradas automaticamente. A IA pode errar em nomes próprios,
               gírias regionais e termos técnicos. Uma revisão de 5 minutos evita erros constrangedores.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 2 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">📄 Arquivos SRT e VTT</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">📄</span> Arquivos SRT e VTT</h2></div>
+<p class="text-neutral-300 mb-4">
             Legendas são armazenadas em arquivos de texto especiais. Os dois formatos mais comuns são SRT e VTT.
             Entender esses formatos permite que você edite, reutilize e importe legendas em qualquer plataforma.
           </p>
-
-          <div class="grid md:grid-cols-2 gap-4 mb-4">
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <h4 class="font-bold text-gray-800 mb-2">Formato SRT</h4>
-              <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-2">Formato SRT</h4>
+<pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
 1
-00:00:01,000 --> 00:00:04,500
+00:00:01,000 --&gt; 00:00:04,500
 Olá! Bem-vindos ao nosso
 vídeo sobre IA.
 
 2
-00:00:05,000 --> 00:00:08,200
+00:00:05,000 --&gt; 00:00:08,200
 Hoje vamos aprender a criar
 conteúdo incrível.</pre>
-              <p class="text-gray-600 text-sm mt-2">Mais universal, aceito em quase todas as plataformas.</p>
-            </div>
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <h4 class="font-bold text-gray-800 mb-2">Formato VTT (WebVTT)</h4>
-              <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
+<p class="text-neutral-400 text-sm mt-2">Mais universal, aceito em quase todas as plataformas.</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-2">Formato VTT (WebVTT)</h4>
+<pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
 WEBVTT
 
-00:00:01.000 --> 00:00:04.500
+00:00:01.000 --&gt; 00:00:04.500
 Olá! Bem-vindos ao nosso
 vídeo sobre IA.
 
-00:00:05.000 --> 00:00:08.200
+00:00:05.000 --&gt; 00:00:08.200
 Hoje vamos aprender a criar
 conteúdo incrível.</pre>
-              <p class="text-gray-600 text-sm mt-2">Padrão web (HTML5), suporta estilização CSS.</p>
-            </div>
-          </div>
-
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
-            <h3 class="font-bold text-green-800 mb-2">Exportando legendas do CapCut</h3>
-            <p class="text-green-700">
+<p class="text-neutral-400 text-sm mt-2">Padrão web (HTML5), suporta estilização CSS.</p>
+</div>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Exportando legendas do CapCut</h3>
+<p class="text-neutral-300">
               No CapCut, após gerar as legendas automáticas, você pode exportá-las como arquivo SRT separado.
-              Vá em <strong>Texto > Exportar legenda como SRT</strong>. Isso permite reutilizar as legendas
+              Vá em <strong>Texto &gt; Exportar legenda como SRT</strong>. Isso permite reutilizar as legendas
               em outras plataformas ou traduzi-las separadamente.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 3 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🌍 Tradução Automática com IA</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🌍</span> Tradução Automática com IA</h2></div>
+<p class="text-neutral-300 mb-4">
             Traduzir seu conteúdo para outros idiomas multiplica seu alcance potencial. Em 2026, as ferramentas
             de tradução automática oferecem qualidade próxima à tradução humana para os idiomas mais comuns.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Ferramentas de tradução para vídeo</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Ferramenta</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Idiomas</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">O que traduz</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Preço</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">CapCut Translate</td>
-                <td class="border border-gray-200 px-4 py-2">20+</td>
-                <td class="border border-gray-200 px-4 py-2">Legendas</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">ElevenLabs Dubbing</td>
-                <td class="border border-gray-200 px-4 py-2">30+</td>
-                <td class="border border-gray-200 px-4 py-2">Voz + legendas</td>
-                <td class="border border-gray-200 px-4 py-2">A partir de $5/mês</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">HeyGen Translate</td>
-                <td class="border border-gray-200 px-4 py-2">40+</td>
-                <td class="border border-gray-200 px-4 py-2">Voz + lip-sync</td>
-                <td class="border border-gray-200 px-4 py-2">A partir de $29/mês</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Rask.ai</td>
-                <td class="border border-gray-200 px-4 py-2">60+</td>
-                <td class="border border-gray-200 px-4 py-2">Voz + legendas</td>
-                <td class="border border-gray-200 px-4 py-2">A partir de $50/mês</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">DeepL + Whisper</td>
-                <td class="border border-gray-200 px-4 py-2">30+</td>
-                <td class="border border-gray-200 px-4 py-2">Texto das legendas</td>
-                <td class="border border-gray-200 px-4 py-2">Gratuito/Freemium</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Fluxo de tradução recomendado</h3>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-            <li><strong>Gere legendas</strong> no idioma original (PT-BR) com CapCut ou Whisper</li>
-            <li><strong>Exporte o SRT</strong> do idioma original</li>
-            <li><strong>Traduza o SRT</strong> usando DeepL (melhor qualidade) ou ChatGPT</li>
-            <li><strong>Revise a tradução</strong> (especialmente expressões idiomáticas)</li>
-            <li><strong>Importe o SRT traduzido</strong> no CapCut como nova faixa de legenda</li>
-            <li><strong>Publique</strong> com legendas em múltiplos idiomas</li>
-          </ol>
-        </section>
-
-        <!-- Seção 4 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🎙️ Dublagem Automática com IA</h2>
-          <p class="text-gray-700 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Ferramentas de tradução para vídeo</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Ferramenta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Idiomas</th>
+<th class="text-left p-3 font-semibold text-neutral-100">O que traduz</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Preço</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">CapCut Translate</td>
+<td class="p-3 text-neutral-300">20+</td>
+<td class="p-3 text-neutral-300">Legendas</td>
+<td class="p-3 text-neutral-300">Gratuito</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ElevenLabs Dubbing</td>
+<td class="p-3 text-neutral-300">30+</td>
+<td class="p-3 text-neutral-300">Voz + legendas</td>
+<td class="p-3 text-neutral-300">A partir de $5/mês</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">HeyGen Translate</td>
+<td class="p-3 text-neutral-300">40+</td>
+<td class="p-3 text-neutral-300">Voz + lip-sync</td>
+<td class="p-3 text-neutral-300">A partir de $29/mês</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Rask.ai</td>
+<td class="p-3 text-neutral-300">60+</td>
+<td class="p-3 text-neutral-300">Voz + legendas</td>
+<td class="p-3 text-neutral-300">A partir de $50/mês</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">DeepL + Whisper</td>
+<td class="p-3 text-neutral-300">30+</td>
+<td class="p-3 text-neutral-300">Texto das legendas</td>
+<td class="p-3 text-neutral-300">Gratuito/Freemium</td>
+</tr>
+</tbody>
+</table>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Fluxo de tradução recomendado</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Gere legendas</strong> no idioma original (PT-BR) com CapCut ou Whisper</li>
+<li><strong>Exporte o SRT</strong> do idioma original</li>
+<li><strong>Traduza o SRT</strong> usando DeepL (melhor qualidade) ou ChatGPT</li>
+<li><strong>Revise a tradução</strong> (especialmente expressões idiomáticas)</li>
+<li><strong>Importe o SRT traduzido</strong> no CapCut como nova faixa de legenda</li>
+<li><strong>Publique</strong> com legendas em múltiplos idiomas</li>
+</ol>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎙️</span> Dublagem Automática com IA</h2></div>
+<p class="text-neutral-300 mb-4">
             A dublagem automática vai além da tradução de texto: ela recria a narração do vídeo em outro idioma,
             mantendo o tom, ritmo e até a voz original. Em 2026, os resultados são surpreendentemente naturais.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Dublagem com ElevenLabs</h3>
-          <p class="text-gray-700 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Dublagem com ElevenLabs</h3>
+<p class="text-neutral-300 mb-4">
             O ElevenLabs oferece o recurso Dubbing Studio, que automatiza todo o processo de dublagem:
           </p>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-            <li>Acesse <strong>ElevenLabs > Dubbing</strong></li>
-            <li>Faça upload do seu vídeo (ou cole o link do YouTube)</li>
-            <li>Selecione o idioma de origem (Português)</li>
-            <li>Escolha os idiomas de destino (ex: Inglês, Espanhol)</li>
-            <li>A IA transcreve, traduz e gera a narração no novo idioma</li>
-            <li>Revise e ajuste a sincronização</li>
-            <li>Exporte o vídeo dublado</li>
-          </ol>
-
-          <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 mb-4">
-            <h3 class="font-bold text-purple-800 mb-2">HeyGen: Lip-Sync com IA</h3>
-            <p class="text-purple-700">
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Acesse <strong>ElevenLabs &gt; Dubbing</strong></li>
+<li>Faça upload do seu vídeo (ou cole o link do YouTube)</li>
+<li>Selecione o idioma de origem (Português)</li>
+<li>Escolha os idiomas de destino (ex: Inglês, Espanhol)</li>
+<li>A IA transcreve, traduz e gera a narração no novo idioma</li>
+<li>Revise e ajuste a sincronização</li>
+<li>Exporte o vídeo dublado</li>
+</ol>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">HeyGen: Lip-Sync com IA</h3>
+<p class="text-purple-700">
               Se seu vídeo mostra uma pessoa falando, o HeyGen vai além: ele não apenas dubla a voz, mas
               também ajusta o movimento labial para sincronizar com o novo idioma. O resultado é tão natural
               que parece que a pessoa realmente está falando naquele idioma.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 5 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🌐 Estratégia de Conteúdo Multilíngue</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🌐</span> Estratégia de Conteúdo Multilíngue</h2></div>
+<p class="text-neutral-300 mb-4">
             Com as ferramentas de tradução e dublagem com IA, criar conteúdo multilíngue ficou acessível.
             Mas é importante ter uma estratégia clara para maximizar o impacto.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Idiomas prioritários por nicho</h3>
-          <table class="w-full border-collapse mb-4">
-            <thead>
-              <tr class="bg-gray-100">
-                <th class="border border-gray-200 px-4 py-2 text-left">Nicho</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Idiomas recomendados</th>
-                <th class="border border-gray-200 px-4 py-2 text-left">Motivo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Tecnologia</td>
-                <td class="border border-gray-200 px-4 py-2">EN, ES, HI</td>
-                <td class="border border-gray-200 px-4 py-2">Maior público e demanda global</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Lifestyle/Viagem</td>
-                <td class="border border-gray-200 px-4 py-2">EN, ES, FR</td>
-                <td class="border border-gray-200 px-4 py-2">Público internacional diversificado</td>
-              </tr>
-              <tr>
-                <td class="border border-gray-200 px-4 py-2 font-semibold">Educação</td>
-                <td class="border border-gray-200 px-4 py-2">ES, EN</td>
-                <td class="border border-gray-200 px-4 py-2">Mercado latino-americano + global</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="border border-gray-200 px-4 py-2 font-semibold">E-commerce</td>
-                <td class="border border-gray-200 px-4 py-2">EN, ES, DE</td>
-                <td class="border border-gray-200 px-4 py-2">Mercados com maior poder de compra</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mb-4">
-            <h3 class="font-bold text-green-800 mb-2">Estratégia MVP: Comece com 2 idiomas</h3>
-            <p class="text-green-700">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Idiomas prioritários por nicho</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Nicho</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Idiomas recomendados</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Motivo</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Tecnologia</td>
+<td class="p-3 text-neutral-300">EN, ES, HI</td>
+<td class="p-3 text-neutral-300">Maior público e demanda global</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Lifestyle/Viagem</td>
+<td class="p-3 text-neutral-300">EN, ES, FR</td>
+<td class="p-3 text-neutral-300">Público internacional diversificado</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Educação</td>
+<td class="p-3 text-neutral-300">ES, EN</td>
+<td class="p-3 text-neutral-300">Mercado latino-americano + global</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">E-commerce</td>
+<td class="p-3 text-neutral-300">EN, ES, DE</td>
+<td class="p-3 text-neutral-300">Mercados com maior poder de compra</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Estratégia MVP: Comece com 2 idiomas</h3>
+<p class="text-neutral-300">
               Não tente traduzir para 10 idiomas de uma vez. Comece com Português + Inglês (ou Espanhol).
               Meça os resultados, ajuste sua abordagem e depois expanda gradualmente. O custo de traduzir
               um vídeo de 1 minuto com ElevenLabs é inferior a R$5.
             </p>
-          </div>
-        </section>
-
-        <!-- Seção 6 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">♿ Acessibilidade: Boas Práticas</h2>
-          <p class="text-gray-700 mb-4">
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">♿</span> Acessibilidade: Boas Práticas</h2></div>
+<p class="text-neutral-300 mb-4">
             Acessibilidade não é apenas uma questão legal - é uma questão de respeito e alcance.
             Vídeos acessíveis atingem mais pessoas e performam melhor nos algoritmos.
           </p>
-
-          <h3 class="text-lg font-bold text-gray-800 mb-3">Checklist de acessibilidade para vídeos</h3>
-          <div class="space-y-3 mb-4">
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">📝</span>
-              <div>
-                <strong>Legendas descritivas:</strong> Além da fala, inclua sons importantes entre colchetes:
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Checklist de acessibilidade para vídeos</h3>
+<div class="space-y-3 mb-4">
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">📝</span>
+<div>
+<strong>Legendas descritivas:</strong> Além da fala, inclua sons importantes entre colchetes:
                 [música animada], [porta batendo], [risos]
               </div>
-            </div>
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">🎨</span>
-              <div>
-                <strong>Contraste de legendas:</strong> Use fundo semitransparente escuro com texto branco.
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🎨</span>
+<div>
+<strong>Contraste de legendas:</strong> Use fundo semitransparente escuro com texto branco.
                 Nunca use texto branco direto sobre vídeo claro.
               </div>
-            </div>
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">📏</span>
-              <div>
-                <strong>Tamanho da fonte:</strong> Mínimo de 28px para vídeos 1080p. Em mobile, as legendas
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">📏</span>
+<div>
+<strong>Tamanho da fonte:</strong> Mínimo de 28px para vídeos 1080p. Em mobile, as legendas
                 precisam ser legíveis em telas pequenas.
               </div>
-            </div>
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">⏰</span>
-              <div>
-                <strong>Tempo de exibição:</strong> Cada legenda deve ficar na tela por pelo menos 1.5 segundos.
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">⏰</span>
+<div>
+<strong>Tempo de exibição:</strong> Cada legenda deve ficar na tela por pelo menos 1.5 segundos.
                 Máximo de 2 linhas por vez.
               </div>
-            </div>
-            <div class="bg-gray-50 p-3 rounded flex items-start gap-2">
-              <span class="text-lg">🔊</span>
-              <div>
-                <strong>Audiodescrição:</strong> Para conteúdos visuais importantes, considere adicionar
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🔊</span>
+<div>
+<strong>Audiodescrição:</strong> Para conteúdos visuais importantes, considere adicionar
                 audiodescrição para pessoas com deficiência visual.
               </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Seção 7 -->
-        <section class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">🛠️ Exercício Prático</h2>
-
-          <div class="bg-gray-50 p-6 rounded-lg mb-4">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">Exercício: Legendas e tradução completas</h3>
-            <ol class="list-decimal list-inside space-y-3 text-gray-700">
-              <li><strong>Gere legendas:</strong> Use o CapCut Auto-Captions em um vídeo com narração em português</li>
-              <li><strong>Estilize:</strong> Aplique um estilo de legenda atraente (fonte, cor, animação)</li>
-              <li><strong>Exporte SRT:</strong> Salve as legendas como arquivo SRT</li>
-              <li><strong>Traduza:</strong> Use o DeepL para traduzir o SRT para inglês</li>
-              <li><strong>Importe:</strong> Adicione as legendas em inglês como segunda faixa no CapCut</li>
-              <li><strong>Bonus:</strong> Teste a dublagem automática do ElevenLabs (versão gratuita permite 1 vídeo/mês)</li>
-            </ol>
-          </div>
-        </section>
-
-        <!-- Checklist -->
-        <section class="mb-6">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">✅ Checklist da Aula</h2>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Gerei legendas automáticas no CapCut</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Revisei e corrigi as legendas geradas pela IA</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Entendo os formatos SRT e VTT</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Exportei um arquivo SRT do meu vídeo</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Traduzi legendas para pelo menos um idioma adicional</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Conheço as ferramentas de dublagem automática (ElevenLabs, HeyGen)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" class="mt-1">
-                <span class="text-gray-700">Apliquei boas práticas de acessibilidade nas legendas</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Navegação -->
-      <div class="flex justify-between items-center mt-12">
-        <a href="aula-4.1-capcut-edicao-ia.html" class="content-button content-button-secondary">
+</div>
+</div>
+</section>
+<!-- Seção 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">🛠️</span> Exercício Prático</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Exercício: Legendas e tradução completas</h3>
+<ol class="list-decimal list-inside space-y-3 text-neutral-300">
+<li><strong>Gere legendas:</strong> Use o CapCut Auto-Captions em um vídeo com narração em português</li>
+<li><strong>Estilize:</strong> Aplique um estilo de legenda atraente (fonte, cor, animação)</li>
+<li><strong>Exporte SRT:</strong> Salve as legendas como arquivo SRT</li>
+<li><strong>Traduza:</strong> Use o DeepL para traduzir o SRT para inglês</li>
+<li><strong>Importe:</strong> Adicione as legendas em inglês como segunda faixa no CapCut</li>
+<li><strong>Bonus:</strong> Teste a dublagem automática do ElevenLabs (versão gratuita permite 1 vídeo/mês)</li>
+</ol>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Checklist da Aula</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Gerei legendas automáticas no CapCut</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Revisei e corrigi as legendas geradas pela IA</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Entendo os formatos SRT e VTT</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Exportei um arquivo SRT do meu vídeo</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Traduzi legendas para pelo menos um idioma adicional</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Conheço as ferramentas de dublagem automática (ElevenLabs, HeyGen)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Apliquei boas práticas de acessibilidade nas legendas</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="content-button content-button-secondary" href="aula-4.1-capcut-edicao-ia.html">
           ← Aula 4.1
         </a>
-        <a href="aula-4.3-efeitos-especiais-vfx.html" class="content-button content-button-primary">
+<a class="content-button content-button-primary" href="aula-4.3-efeitos-especiais-vfx.html">
           Aula 4.3 →
         </a>
-      </div>
-
-    </article>
-
-  
-  
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-      <p class="text-sm text-neutral-500">Atualizado maio/2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Atualizado maio/2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -572,6 +531,5 @@ conteúdo incrível.</pre>
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
-
 </body>
 </html>
