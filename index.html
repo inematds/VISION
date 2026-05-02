@@ -1,466 +1,372 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Curso completo e gratuito de criação audiovisual com IA. 12 módulos, 45 aulas, 75-95 horas. Kling 3.0, FLUX.2, Vibe Coding, ComfyUI e mais. Atualizado abril 2026.">
-  <meta name="keywords" content="IA, Inteligência Artificial, Audiovisual, Vídeo, Imagens, AI, Curso Gratuito, Kling, FLUX, Vibe Coding, ComfyUI">
+  <meta name="description" content="Curso completo e gratuito de criação audiovisual com IA. 12 módulos, 45 aulas, 75-95 horas. Midjourney V8.1, Kling 3.0, FLUX.2, Veo 3.1, ElevenMusic. Atualizado maio 2026.">
+  <meta name="keywords" content="IA, Inteligência Artificial, Audiovisual, Vídeo, Imagens, Curso Gratuito, Midjourney, Kling, FLUX, Vibe Coding, ComfyUI, INEMA.CLUB">
   <meta name="author" content="VISION">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="VISION - Audiovisual com IA (2026)">
-  <meta property="og:description" content="Curso completo e gratuito de criação audiovisual com IA — Kling 3.0, FLUX.2, Vibe Coding e mais">
+  <meta property="og:title" content="VISION — Audiovisual com IA (Maio 2026)">
+  <meta property="og:description" content="Curso completo e gratuito de audiovisual com IA — Midjourney V8.1, Kling 3.0, FLUX.2, Veo 3.1, ElevenMusic e mais.">
 
-  <title>VISION - Audiovisual com Inteligência Artificial</title>
+  <title>VISION — Audiovisual com IA | Curso Completo Maio 2026</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- VISION Design System -->
-  <link rel="stylesheet" href="css/vision-styles.css">
-
-  <!-- Favicon -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #34d399, #60a5fa, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow:hover { box-shadow: 0 0 30px rgba(96, 165, 250, 0.25); transform: translateY(-2px); }
+    .module-card { transition: all 0.3s ease; }
+
+    /* Light mode overrides - OBRIGATORIO */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Cores de acento - landing usa todas as 3 trilhas */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-blue-400 { color: #2563eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-purple-400 { color: #7c3aed; }
+
+    /* Light mode - remove gradientes (fundo uniforme) */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* Light mode - cores especiais */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .bg-primary\/20 { background-color: rgba(161, 98, 7, 0.15); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    html:not(.dark) .gradient-text {
+      background: linear-gradient(90deg, #059669, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
 
-  <!-- Skip to main content (Acessibilidade) -->
-  <a href="#main-content" class="skip-to-main">Pular para conteúdo principal</a>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
 
-  <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4">
-      <nav class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <span class="text-3xl">🎬</span>
-          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <!-- Logo + INEMA.CLUB -->
+        <div class="flex items-center space-x-4">
+          <a href="index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">VISION</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
-        <div class="hidden md:flex gap-6">
-          <a href="#sobre" class="text-gray-600 hover:text-gray-900 transition">Sobre</a>
-          <a href="#niveis" class="text-gray-600 hover:text-gray-900 transition">Níveis</a>
-          <a href="#ferramentas" class="text-gray-600 hover:text-gray-900 transition">Ferramentas</a>
-          <a href="https://github.com/inematds/VISION" target="_blank" class="text-gray-600 hover:text-gray-900 transition">GitHub</a>
+
+        <!-- Trilhas + Theme Toggle -->
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="curso/nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="curso/nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Desenvolvimento</span>
+          </a>
+          <a href="curso/nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Especialização</span>
+          </a>
+
+          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
         </div>
-        <a href="curso/" class="content-button content-button-primary">
-          Começar Curso →
-        </a>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- Main Content -->
   <main id="main-content">
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-50 via-purple-50 to-green-50 py-20 animate-fade-in">
-      <div class="container mx-auto px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-
-          <!-- Badges -->
-          <div class="flex gap-3 justify-center mb-6 flex-wrap">
-            <span class="badge badge-iniciante">🆓 100% Gratuito</span>
-            <span class="badge badge-tecnico">🇧🇷 Português</span>
-            <span class="badge badge-masterclass">⭐ Open Source</span>
-          </div>
-
-          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Audiovisual com<br>
-            <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
-              Inteligência Artificial
-            </span>
-          </h1>
-
-          <p class="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed">
-            Domine a criação de conteúdo audiovisual com as ferramentas de IA mais avançadas de 2026.
-            Do zero ao domínio completo.
-          </p>
-          <p class="text-sm text-gray-500 mb-8">Kling 3.0 · FLUX.2 · Runway Gen-4.5 · ComfyUI · Vibe Coding · Agentes de IA</p>
-
-          <!-- Stats -->
-          <div class="grid grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
-            <div class="bg-white/80 backdrop-blur rounded-lg p-4 shadow-sm">
-              <div class="text-3xl font-bold text-blue-600">75-95h</div>
-              <div class="text-sm text-gray-600">de conteúdo</div>
-            </div>
-            <div class="bg-white/80 backdrop-blur rounded-lg p-4 shadow-sm">
-              <div class="text-3xl font-bold text-purple-600">45</div>
-              <div class="text-sm text-gray-600">aulas práticas</div>
-            </div>
-            <div class="bg-white/80 backdrop-blur rounded-lg p-4 shadow-sm">
-              <div class="text-3xl font-bold text-green-600">12</div>
-              <div class="text-sm text-gray-600">módulos</div>
-            </div>
-            <div class="bg-white/80 backdrop-blur rounded-lg p-4 shadow-sm">
-              <div class="text-3xl font-bold text-orange-600">30+</div>
-              <div class="text-sm text-gray-600">ferramentas</div>
-            </div>
-          </div>
-
-          <!-- CTA Buttons -->
-          <div class="flex gap-4 justify-center flex-wrap">
-            <a href="curso/" class="content-button content-button-primary text-lg px-8 py-4">
-              Começar Agora →
-            </a>
-            <a href="https://github.com/inematds/VISION" target="_blank" class="content-button content-button-secondary text-lg px-8 py-4">
-              Ver no GitHub
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Sobre Section -->
-    <section id="sobre" class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-            O que você vai aprender
-          </h2>
-          <p class="text-lg text-gray-600 text-center mb-12">
-            Um curso completo e atualizado para dominar a criação audiovisual com IA em 2026
-          </p>
-
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <div class="flex gap-4 items-start">
-              <div class="text-4xl">🎨</div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Criação de Imagens</h3>
-                <p class="text-gray-600">
-                  Midjourney V7/V8, FLUX.2, Stable Diffusion 3.5 e Leonardo AI para imagens profissionais.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex gap-4 items-start">
-              <div class="text-4xl">🎬</div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Produção de Vídeos</h3>
-                <p class="text-gray-600">
-                  Kling 3.0, Runway Gen-4.5, Hailuo, Seedance, Google Veo 4 e mais.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex gap-4 items-start">
-              <div class="text-4xl">🎙️</div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Áudio e Música</h3>
-                <p class="text-gray-600">
-                  ElevenLabs v3 para voz, Suno v5 e Udio v4 para música com IA.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex gap-4 items-start">
-              <div class="text-4xl">🔧</div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Workflows e Open-Source</h3>
-                <p class="text-gray-600">
-                  Freepik Spaces, ComfyUI, SkyReels V4, Wan 2.7 e LTX-Video 2.3.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex gap-4 items-start">
-              <div class="text-4xl">💻</div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Vibe Coding</h3>
-                <p class="text-gray-600">
-                  Crie suas próprias ferramentas com Cursor, Claude Code, Lovable e Bolt.new.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex gap-4 items-start">
-              <div class="text-4xl">🤖</div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Automação e Agentes</h3>
-                <p class="text-gray-600">
-                  n8n 2.0, Make.com, Zapier Agents para pipelines autônomos de conteúdo.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Níveis Section -->
-    <section id="niveis" class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-          Estrutura do Curso
-        </h2>
-        <p class="text-lg text-gray-600 text-center mb-12">
-          3 níveis progressivos — do zero ao profissional autônomo
+    <!-- Hero -->
+    <section class="py-20 px-4 bg-gradient-to-br from-emerald-900/20 via-blue-900/20 to-purple-900/20">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-6">
+          CURSO COMPLETO — MAIO 2026
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-bold mb-6">
+          <span class="gradient-text">Audiovisual com IA</span>
+        </h1>
+        <p class="text-xl text-neutral-400 mb-4 max-w-2xl mx-auto">
+          Domine a criação audiovisual com as ferramentas de IA mais avançadas de 2026. Do zero ao profissional autônomo.
         </p>
+        <p class="text-sm text-neutral-500 mb-8">Midjourney V8.1 · Kling 3.0 · Runway Gen-4.5 · FLUX.2 · Veo 3.1 · ElevenMusic · ComfyUI · Vibe Coding</p>
 
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-          <!-- Nível 1 -->
-          <div class="level-card bg-white p-6 rounded-lg shadow-md animate-on-scroll">
-            <div class="flex items-center justify-between mb-4">
-              <span class="badge badge-iniciante">🟢 Iniciante</span>
-              <span class="text-sm text-gray-500">25-30h</span>
-            </div>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-              Nível 1: Fundamentos
-            </h3>
-
-            <p class="text-gray-600 mb-4">
-              Conceitos básicos, primeiras imagens, vídeos e edição com IA.
-            </p>
-
-            <div class="space-y-2 mb-6 text-sm text-gray-700">
-              <div class="flex items-start gap-2">
-                <span class="text-green-500 font-bold">✓</span>
-                <span>Módulo 1: Introdução à IA Criativa</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-green-500 font-bold">✓</span>
-                <span>Módulo 2: Criação de Imagens</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-green-500 font-bold">✓</span>
-                <span>Módulo 3: Primeiros Vídeos</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-green-500 font-bold">✓</span>
-                <span>Módulo 4: Edição e Pós-Produção</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-green-500 font-bold">✓</span>
-                <span>Módulo 5: Projeto Final</span>
-              </div>
-            </div>
-
-            <a href="curso/nivel-1-fundamentos/" class="content-button content-button-primary w-full">
-              Começar Nível 1 →
-            </a>
+        <!-- Stats -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
+          <div class="bg-dark-800/60 backdrop-blur rounded-xl p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-emerald-400">75-95h</div>
+            <div class="text-sm text-neutral-400">de conteúdo</div>
           </div>
-
-          <!-- Nível 2 -->
-          <div class="level-card bg-white p-6 rounded-lg shadow-md animate-on-scroll">
-            <div class="flex items-center justify-between mb-4">
-              <span class="badge badge-tecnico">🔵 Intermediário</span>
-              <span class="text-sm text-gray-500">30-40h</span>
-            </div>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-              Nível 2: Desenvolvimento
-            </h3>
-
-            <p class="text-gray-600 mb-4">
-              Ferramentas avançadas, workflows, áudio profissional e vibe coding.
-            </p>
-
-            <div class="space-y-2 mb-6 text-sm text-gray-700">
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">○</span>
-                <span>Módulo 6: Vídeo Avançado</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">○</span>
-                <span>Módulo 7: Workflows e Open-Source</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">○</span>
-                <span>Módulo 8: Áudio e Música</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">○</span>
-                <span>Módulo 9: Vibe Coding</span>
-              </div>
-            </div>
-
-            <a href="curso/nivel-2-desenvolvimento/" class="content-button content-button-secondary w-full">
-              Ver Nível 2
-            </a>
+          <div class="bg-dark-800/60 backdrop-blur rounded-xl p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-blue-400">45</div>
+            <div class="text-sm text-neutral-400">aulas práticas</div>
           </div>
-
-          <!-- Nível 3 -->
-          <div class="level-card bg-white p-6 rounded-lg shadow-md animate-on-scroll">
-            <div class="flex items-center justify-between mb-4">
-              <span class="badge badge-masterclass">🟣 Avançado</span>
-              <span class="text-sm text-gray-500">20-25h</span>
-            </div>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-              Nível 3: Especialização
-            </h3>
-
-            <p class="text-gray-600 mb-4">
-              Automação com agentes, monetização e projeto final profissional.
-            </p>
-
-            <div class="space-y-2 mb-6 text-sm text-gray-700">
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">○</span>
-                <span>Módulo 10: Automação e Agentes</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">○</span>
-                <span>Módulo 11: Monetização</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">○</span>
-                <span>Módulo 12: Projeto Final e Futuro</span>
-              </div>
-            </div>
-
-            <a href="curso/nivel-3-especializacao/" class="content-button content-button-secondary w-full">
-              Ver Nível 3
-            </a>
+          <div class="bg-dark-800/60 backdrop-blur rounded-xl p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-purple-400">12</div>
+            <div class="text-sm text-neutral-400">módulos</div>
           </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Ferramentas Section -->
-    <section id="ferramentas" class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="max-w-5xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-            Ferramentas do Curso
-          </h2>
-          <p class="text-lg text-gray-600 text-center mb-12">
-            30+ ferramentas de IA cobrindo imagem, vídeo, áudio, automação e código
-          </p>
-
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🎨</div>
-                <h4 class="font-semibold text-gray-900">Midjourney V7</h4>
-              </div>
-              <p class="text-sm text-gray-600">Imagens com IA</p>
-              <span class="text-xs text-blue-600 font-semibold">$ Pago</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🖼️</div>
-                <h4 class="font-semibold text-gray-900">FLUX.2</h4>
-              </div>
-              <p class="text-sm text-gray-600">Open-source, sub-segundo</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Gratuito</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🎬</div>
-                <h4 class="font-semibold text-gray-900">Kling 3.0</h4>
-              </div>
-              <p class="text-sm text-gray-600">Vídeo + áudio nativo</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Freemium</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🎥</div>
-                <h4 class="font-semibold text-gray-900">Runway Gen-4.5</h4>
-              </div>
-              <p class="text-sm text-gray-600">Vídeo cinematográfico</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Freemium</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">💰</div>
-                <h4 class="font-semibold text-gray-900">Hailuo</h4>
-              </div>
-              <p class="text-sm text-gray-600">1080p a $0.28/vídeo</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Freemium</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🎙️</div>
-                <h4 class="font-semibold text-gray-900">ElevenLabs v3</h4>
-              </div>
-              <p class="text-sm text-gray-600">Voz, música e SFX</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Freemium</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🎵</div>
-                <h4 class="font-semibold text-gray-900">Suno v5</h4>
-              </div>
-              <p class="text-sm text-gray-600">Música com IA</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Freemium</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">✂️</div>
-                <h4 class="font-semibold text-gray-900">CapCut</h4>
-              </div>
-              <p class="text-sm text-gray-600">Edição de vídeo</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Gratuito</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🔗</div>
-                <h4 class="font-semibold text-gray-900">Freepik Spaces</h4>
-              </div>
-              <p class="text-sm text-gray-600">Canvas colaborativo</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Freemium</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🧩</div>
-                <h4 class="font-semibold text-gray-900">ComfyUI</h4>
-              </div>
-              <p class="text-sm text-gray-600">Hub open-source</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Gratuito</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">💻</div>
-                <h4 class="font-semibold text-gray-900">Cursor / Claude Code</h4>
-              </div>
-              <p class="text-sm text-gray-600">Vibe Coding</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Freemium</span>
-            </div>
-
-            <div class="module-card bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-2xl">🤖</div>
-                <h4 class="font-semibold text-gray-900">n8n 2.0</h4>
-              </div>
-              <p class="text-sm text-gray-600">Automação com agentes</p>
-              <span class="text-xs text-green-600 font-semibold">✓ Gratuito</span>
-            </div>
-
+          <div class="bg-dark-800/60 backdrop-blur rounded-xl p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-primary">30+</div>
+            <div class="text-sm text-neutral-400">ferramentas</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- CTA Final -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600">
-      <div class="container mx-auto px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-            Pronto para dominar a criação com IA?
-          </h2>
-          <p class="text-xl text-white/90 mb-8">
-            12 módulos, 45 aulas e 30+ ferramentas para transformar suas ideias em conteúdo profissional.
-          </p>
-          <a href="curso/" class="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition text-lg shadow-lg">
-            Começar Agora - É Grátis! →
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="curso/nivel-1-fundamentos/index.html" class="px-8 py-4 bg-emerald-500 text-white rounded-lg font-bold text-lg hover:bg-emerald-600 transition-colors">
+            Começar Agora →
           </a>
+          <a href="https://github.com/inematds/VISION" target="_blank" class="px-8 py-4 bg-dark-700 text-neutral-100 rounded-lg font-bold text-lg hover:bg-dark-600 transition-colors border border-dark-600">
+            Ver no GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">O que você vai aprender</h2>
+          <p class="text-lg text-neutral-400">Curso atualizado para maio/2026 com as ferramentas de ponta</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 module-card card-glow">
+            <div class="text-4xl mb-3">🎨</div>
+            <h3 class="text-xl font-bold mb-2 text-emerald-400">Criação de Imagens</h3>
+            <p class="text-neutral-400 text-sm">Midjourney V8.1, FLUX.2 Pro, Stable Diffusion 3.5 e Leonardo AI para imagens profissionais.</p>
+          </div>
+
+          <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 module-card card-glow">
+            <div class="text-4xl mb-3">🎬</div>
+            <h3 class="text-xl font-bold mb-2 text-emerald-400">Produção de Vídeos</h3>
+            <p class="text-neutral-400 text-sm">Kling 3.0 (4K nativo), Runway Gen-4.5, Hailuo, Seedance 2.0, Google Veo 3.1, Pika 2.5 e Luma Ray3.</p>
+          </div>
+
+          <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 module-card card-glow">
+            <div class="text-4xl mb-3">🎙️</div>
+            <h3 class="text-xl font-bold mb-2 text-blue-400">Áudio e Música</h3>
+            <p class="text-neutral-400 text-sm">ElevenLabs ElevenMusic (lançado abril/2026), Suno v5.5, Udio v4 — voz, música e SFX.</p>
+          </div>
+
+          <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 module-card card-glow">
+            <div class="text-4xl mb-3">🔧</div>
+            <h3 class="text-xl font-bold mb-2 text-blue-400">Workflows Open-Source</h3>
+            <p class="text-neutral-400 text-sm">Freepik Spaces, ComfyUI, SkyReels V4, Wan 2.7 e LTX-Video 2.3.</p>
+          </div>
+
+          <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 module-card card-glow">
+            <div class="text-4xl mb-3">💻</div>
+            <h3 class="text-xl font-bold mb-2 text-blue-400">Vibe Coding</h3>
+            <p class="text-neutral-400 text-sm">Construa suas próprias ferramentas com Cursor, Claude Code, Lovable e Bolt.new.</p>
+          </div>
+
+          <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 module-card card-glow">
+            <div class="text-4xl mb-3">🤖</div>
+            <h3 class="text-xl font-bold mb-2 text-purple-400">Automação e Agentes</h3>
+            <p class="text-neutral-400 text-sm">n8n 2.0, Make.com Maia, Zapier Agents para pipelines autônomos de conteúdo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trilhas -->
+    <section id="trilhas" class="py-16 px-4 bg-dark-800/50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Estrutura do Curso</h2>
+          <p class="text-lg text-neutral-400">3 trilhas progressivas — do zero ao profissional autônomo</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <!-- Trilha 1 - Emerald -->
+          <a href="curso/nivel-1-fundamentos/index.html" class="group block bg-dark-800 rounded-xl p-6 border border-dark-600 hover:border-emerald-500/30 transition-all module-card">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">TRILHA 1 · INICIANTE</span>
+              <span class="text-sm text-neutral-500">25-30h</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-3 group-hover:text-emerald-400 transition-colors">📚 Fundamentos</h3>
+            <p class="text-neutral-400 text-sm mb-4">Conceitos básicos, primeiras imagens, vídeos e edição com IA.</p>
+            <ul class="space-y-2 text-sm text-neutral-300 mb-6">
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Mód 1: Introdução à IA Criativa</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Mód 2: Criação de Imagens</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Mód 3: Primeiros Vídeos</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Mód 4: Edição e Pós-Produção</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Mód 5: Projeto Final</span></li>
+            </ul>
+            <span class="inline-block w-full text-center px-4 py-3 bg-emerald-500/20 text-emerald-400 rounded-lg font-semibold group-hover:bg-emerald-500/30 transition-colors">Começar Trilha 1 →</span>
+          </a>
+
+          <!-- Trilha 2 - Blue -->
+          <a href="curso/nivel-2-desenvolvimento/index.html" class="group block bg-dark-800 rounded-xl p-6 border border-dark-600 hover:border-blue-500/30 transition-all module-card">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">TRILHA 2 · INTERMEDIÁRIO</span>
+              <span class="text-sm text-neutral-500">30-40h</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">🔧 Desenvolvimento</h3>
+            <p class="text-neutral-400 text-sm mb-4">Ferramentas avançadas, workflows, áudio profissional e vibe coding.</p>
+            <ul class="space-y-2 text-sm text-neutral-300 mb-6">
+              <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Mód 6: Vídeo Avançado</span></li>
+              <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Mód 7: Workflows Open-Source</span></li>
+              <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Mód 8: Áudio e Música</span></li>
+              <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Mód 9: Vibe Coding</span></li>
+            </ul>
+            <span class="inline-block w-full text-center px-4 py-3 bg-blue-500/20 text-blue-400 rounded-lg font-semibold group-hover:bg-blue-500/30 transition-colors">Começar Trilha 2 →</span>
+          </a>
+
+          <!-- Trilha 3 - Purple -->
+          <a href="curso/nivel-3-especializacao/index.html" class="group block bg-dark-800 rounded-xl p-6 border border-dark-600 hover:border-purple-500/30 transition-all module-card">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full">TRILHA 3 · AVANÇADO</span>
+              <span class="text-sm text-neutral-500">20-25h</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">🚀 Especialização</h3>
+            <p class="text-neutral-400 text-sm mb-4">Automatize, monetize e construa seu negócio com IA.</p>
+            <ul class="space-y-2 text-sm text-neutral-300 mb-6">
+              <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Mód 10: Automação e Agentes</span></li>
+              <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Mód 11: Monetização</span></li>
+              <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Mód 12: Projeto Final + Futuro</span></li>
+            </ul>
+            <span class="inline-block w-full text-center px-4 py-3 bg-purple-500/20 text-purple-400 rounded-lg font-semibold group-hover:bg-purple-500/30 transition-colors">Começar Trilha 3 →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Cronograma -->
+    <section class="py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">📅 Cronograma sugerido</h2>
+          <p class="text-lg text-neutral-400">13 semanas — avance no seu próprio ritmo</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 sm:p-8 space-y-3">
+          <div class="flex items-start gap-4 pb-3 border-b border-dark-600">
+            <div class="text-sm font-semibold text-neutral-500 w-24 flex-shrink-0">Semana 1-2</div>
+            <div class="flex-1">
+              <div class="font-semibold text-emerald-400">Trilha 1 — Mód 1-2</div>
+              <div class="text-sm text-neutral-400">Introdução à IA e Criação de Imagens</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pb-3 border-b border-dark-600">
+            <div class="text-sm font-semibold text-neutral-500 w-24 flex-shrink-0">Semana 3-4</div>
+            <div class="flex-1">
+              <div class="font-semibold text-emerald-400">Trilha 1 — Mód 3-4</div>
+              <div class="text-sm text-neutral-400">Primeiros Vídeos e Edição</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pb-3 border-b border-dark-600">
+            <div class="text-sm font-semibold text-neutral-500 w-24 flex-shrink-0">Semana 5</div>
+            <div class="flex-1">
+              <div class="font-semibold text-emerald-400">Trilha 1 — Mód 5</div>
+              <div class="text-sm text-neutral-400">Projeto Final do Nível 1</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pb-3 border-b border-dark-600">
+            <div class="text-sm font-semibold text-neutral-500 w-24 flex-shrink-0">Semana 6-8</div>
+            <div class="flex-1">
+              <div class="font-semibold text-blue-400">Trilha 2 — Mód 6-7</div>
+              <div class="text-sm text-neutral-400">Vídeo Avançado e Workflows Open-Source</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pb-3 border-b border-dark-600">
+            <div class="text-sm font-semibold text-neutral-500 w-24 flex-shrink-0">Semana 9-10</div>
+            <div class="flex-1">
+              <div class="font-semibold text-blue-400">Trilha 2 — Mód 8-9</div>
+              <div class="text-sm text-neutral-400">Áudio/Música e Vibe Coding</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 pb-3 border-b border-dark-600">
+            <div class="text-sm font-semibold text-neutral-500 w-24 flex-shrink-0">Semana 11-12</div>
+            <div class="flex-1">
+              <div class="font-semibold text-purple-400">Trilha 3 — Mód 10-11</div>
+              <div class="text-sm text-neutral-400">Automação com Agentes e Monetização</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="text-sm font-semibold text-neutral-500 w-24 flex-shrink-0">Semana 13</div>
+            <div class="flex-1">
+              <div class="font-semibold text-purple-400">Trilha 3 — Mód 12</div>
+              <div class="text-sm text-neutral-400">Projeto Final + Portfólio + Referências</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -468,83 +374,37 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8 mb-8">
-
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-2xl">🎬</span>
-            <h3 class="text-white font-bold text-xl">VISION</h3>
-          </div>
-          <p class="text-gray-400 mb-4">
-            Curso completo e gratuito de Audiovisual com IA. Atualizado abril 2026.
-          </p>
-          <div class="flex gap-4">
-            <a href="https://github.com/inematds/VISION" target="_blank" class="text-gray-400 hover:text-white transition">
-              GitHub
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="text-white font-semibold mb-4">Curso</h4>
-          <ul class="space-y-2">
-            <li><a href="curso/nivel-1-fundamentos/" class="text-gray-400 hover:text-white transition">Nível 1: Fundamentos</a></li>
-            <li><a href="curso/nivel-2-desenvolvimento/" class="text-gray-400 hover:text-white transition">Nível 2: Desenvolvimento</a></li>
-            <li><a href="curso/nivel-3-especializacao/" class="text-gray-400 hover:text-white transition">Nível 3: Especialização</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-white font-semibold mb-4">Recursos</h4>
-          <ul class="space-y-2">
-            <li><a href="docs/design-system.md" class="text-gray-400 hover:text-white transition">Design System</a></li>
-            <li><a href="https://github.com/inematds/VISION/issues" target="_blank" class="text-gray-400 hover:text-white transition">Reportar Problema</a></li>
-            <li><a href="https://github.com/inematds/VISION/discussions" target="_blank" class="text-gray-400 hover:text-white transition">Discussões</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="border-t border-gray-800 pt-8 text-center">
-        <p class="text-gray-400 mb-2">
-          &copy; 2026 VISION. Design System baseado em <a href="https://inematds.github.io/FEP/" target="_blank" class="text-blue-400 hover:text-blue-300">FEP</a>.
-        </p>
-        <p class="text-sm text-gray-500">
-          Licença MIT · Open Source · Feito com ❤️ para a comunidade
-        </p>
-      </div>
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 mb-2">
+        &copy; 2026 VISION ·
+        <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> ·
+        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
+      </p>
+      <p class="text-sm text-neutral-500">Atualizado maio/2026 — Midjourney V8.1, Kling 3.0, FLUX.2, Veo 3.1, ElevenMusic e mais</p>
     </div>
   </footer>
 
-  <!-- JavaScript para animações -->
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
+    if (localStorage.getItem('theme') === 'light') {
+      html.classList.remove('dark');
+      themeToggleDarkIcon.classList.remove('hidden');
+    } else {
+      html.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    }
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
 

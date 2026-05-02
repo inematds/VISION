@@ -1,563 +1,554 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nível 1: Fundamentos - Aprenda os conceitos básicos de IA aplicada ao audiovisual em 2026">
-  <title>Nível 1: Fundamentos - VISION</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../../css/vision-styles.css">
-</head>
-<body class="bg-gray-50">
+  <meta name="description" content="Trilha 1: Fundamentos — VISION. Módulos 1-5: Introdução à IA, Criação de Imagens, Primeiros Vídeos, Edição, Projeto Final. Atualizado maio/2026.">
+  <title>Trilha 1: Fundamentos · VISION</title>
 
-  <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4">
-      <nav class="flex items-center justify-between">
-        <a href="../../" class="flex items-center gap-3">
-          <span class="text-3xl">🎬</span>
-          <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
-        </a>
-        <a href="../" class="text-gray-600 hover:text-gray-900">← Curso</a>
-      </nav>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .module-card { transition: all 0.3s ease; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5, 150, 105, 0.18); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .bg-primary\/20 { background-color: rgba(161, 98, 7, 0.15); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">VISION</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../nivel-2-desenvolvimento/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Desenvolvimento</span>
+          </a>
+          <a href="../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Especialização</span>
+          </a>
+          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">TRILHA 1 · INICIANTE</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📚 Fundamentos</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Comece do zero: aprenda os conceitos de IA generativa, crie suas primeiras imagens e vídeos, e finalize com um projeto completo.</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">5</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">17</div>
+          <div class="text-xs text-neutral-400">Aulas</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">25-30h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="container mx-auto px-4 py-12">
+  <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb mb-8">
-      <a href="../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Nível 1</span>
-    </nav>
-
-    <!-- Hero -->
-    <div class="max-w-4xl mx-auto mb-12 animate-fade-in">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="badge badge-iniciante text-lg px-4 py-2">🟢 Iniciante</span>
-        <span class="text-gray-500">25-30 horas</span>
+    <!-- Módulo 1 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.1</span>
+          <span class="text-xs text-neutral-500">~120 min</span>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">🚀 Módulo 1: Introdução à IA Criativa</h2>
+        <p class="text-neutral-400 text-sm">Conheça o ecossistema, as ferramentas e os fundamentos éticos da IA generativa em 2026.</p>
       </div>
-
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Nível 1: Fundamentos
-      </h1>
-
-      <p class="text-xl text-gray-600 mb-6">
-        Domine os fundamentos da Inteligência Artificial aplicada ao audiovisual. De conceitos a projetos completos: gere imagens com Midjourney e FLUX, crie vídeos com Kling e Runway, adicione voz com ElevenLabs e edite com CapCut. Atualizado para abril de 2026.
-      </p>
-
-      <!-- Progress -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <div class="flex justify-between items-center mb-2">
-          <span class="text-sm font-semibold text-gray-700">Progresso do Nível</span>
-          <span class="text-sm text-gray-500">0%</span>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mt-2">0 de 20 aulas concluídas</p>
-      </div>
-    </div>
-
-    <!-- Módulos -->
-    <div class="max-w-4xl mx-auto space-y-8 mb-12">
-
-      <!-- Módulo 1 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">🎓</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 1: Introdução à IA Criativa (2026)
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 6-8 horas &bull; 4 aulas</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          Conceitos de IA generativa, panorama completo de ferramentas 2026, ética e direitos autorais, e configuração do ambiente de trabalho.
-        </p>
-
-        <!-- Aulas -->
-        <div class="space-y-3 mb-6">
-          <a href="mod1-introducao-ia/aula-1.1-ia-generativa-ecossistema.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 1.1: O que é IA generativa e o ecossistema atual</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-
-          <a href="mod1-introducao-ia/aula-1.2-panorama-ferramentas.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 1.2: Panorama de ferramentas 2026</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-
-          <a href="mod1-introducao-ia/aula-1.3-etica-direitos-autorais.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 1.3: Ética, direitos autorais e boas práticas</div>
-                <div class="text-sm text-gray-500">~60 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-
-          <a href="mod1-introducao-ia/aula-1.4-ambiente-trabalho.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 1.4: Configurando seu ambiente de trabalho</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">0 de 4 aulas concluídas</p>
-
-        <a href="mod1-introducao-ia/" class="content-button content-button-primary w-full">
-          Começar Módulo 1 →
-        </a>
-      </div>
-
-      <!-- Módulo 2 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">🎨</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 2: Criação de Imagens com IA
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 7-9 horas &bull; 4 aulas</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          Midjourney V7/V8, FLUX.2 e SD 3.5, arte e personagens consistentes, mockups e fotorrealismo.
-        </p>
-
-        <div class="space-y-3 mb-6 opacity-50">
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 2.1: Midjourney V7/V8 — Do prompt à imagem perfeita</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🌐</span>
+            <span class="font-medium flex-1">O que é IA Generativa e o Ecossistema Atual</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Os 4 pilares da IA criativa em 2026 — geração, edição, automação e agentes — e como o ecossistema se organiza após a descontinuação do Sora (mar/2026).</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Sem entender o panorama, você gasta tempo aprendendo ferramentas erradas. Esta aula define a paisagem.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Modelos foundation, ecossistema chinês (Kling, Hailuo, Seedance), open-source (FLUX, ComfyUI), licenciamento.</span></p>
+              <a href="mod1-introducao-ia/aula-1.1-ia-generativa-ecossistema.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
             </div>
           </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 2.2: FLUX.2 e Stable Diffusion 3.5 — Open-source</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 2.3: Arte conceitual e personagens consistentes</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 2.4: Mockups, produtos e fotorrealismo</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">Complete o Módulo 1 para desbloquear</p>
-
-        <button disabled class="content-button content-button-secondary w-full opacity-50 cursor-not-allowed">
-          🔒 Bloqueado
-        </button>
-      </div>
-
-      <!-- Módulo 3 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">🎬</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 3: Primeiros Vídeos com IA
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 8-10 horas &bull; 4 aulas</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          Kling 3.0 com áudio nativo, Runway Gen-4.5 e Pika 2.5, Hailuo e ferramentas chinesas, ElevenLabs v3 para voz.
-        </p>
-
-        <div class="space-y-3 mb-6 opacity-50">
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 3.1: Kling 3.0 — Vídeos com áudio nativo</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 3.2: Runway Gen-4.5 e Pika 2.5</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 3.3: Hailuo e ferramentas chinesas acessíveis</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 3.4: Adicionando voz com ElevenLabs v3</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">Complete o Módulo 2 para desbloquear</p>
-
-        <button disabled class="content-button content-button-secondary w-full opacity-50 cursor-not-allowed">
-          🔒 Bloqueado
-        </button>
-      </div>
-
-      <!-- Módulo 4 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">✂️</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 4: Edição e Pós-Produção
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 6-8 horas &bull; 4 aulas</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          CapCut com IA, legendas/tradução/dublagem automática, efeitos especiais e VFX, finalização e publicação.
-        </p>
-
-        <div class="space-y-3 mb-6 opacity-50">
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 4.1: CapCut com IA — Edição inteligente</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 4.2: Legendas, tradução e dublagem</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 4.3: Efeitos especiais e VFX com IA</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 4.4: Finalização e publicação</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">Complete o Módulo 3 para desbloquear</p>
-
-        <button disabled class="content-button content-button-secondary w-full opacity-50 cursor-not-allowed">
-          🔒 Bloqueado
-        </button>
-      </div>
-
-      <!-- Módulo 5 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">🏆</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 5: Projeto Final Nível 1
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 5-7 horas &bull; 4 aulas</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          Planejamento do projeto, produção de assets, montagem do vídeo e finalização com apresentação.
-        </p>
-
-        <div class="space-y-3 mb-6 opacity-50">
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 5.1: Planejamento do projeto</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 5.2: Produção de assets</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 5.3: Montagem do vídeo</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 5.4: Finalização e apresentação</div>
-                <div class="text-sm text-gray-500">~60 min</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">Complete o Módulo 4 para desbloquear</p>
-
-        <button disabled class="content-button content-button-secondary w-full opacity-50 cursor-not-allowed">
-          🔒 Bloqueado
-        </button>
-      </div>
-
-    </div>
-
-    <!-- Objetivos & Ferramentas -->
-    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-12">
-
-      <!-- Objetivos -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">🎯 Objetivos de Aprendizagem</h3>
-        <ul class="space-y-2 text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-green-500">✓</span>
-            <span>Compreender IA generativa e o ecossistema 2026</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500">✓</span>
-            <span>Gerar imagens com Midjourney V7/V8 e FLUX.2</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500">✓</span>
-            <span>Criar vídeos com Kling 3.0 e Runway Gen-4.5</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500">✓</span>
-            <span>Usar ElevenLabs v3 para narração e voz</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500">✓</span>
-            <span>Editar e finalizar projetos com CapCut</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Ferramentas -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">🛠️ Ferramentas Principais</h3>
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">💬</span>
-              <span class="font-semibold">ChatGPT</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎨</span>
-              <span class="font-semibold">Midjourney V7</span>
-            </div>
-            <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Pago</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🖼️</span>
-              <span class="font-semibold">FLUX.2</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎬</span>
-              <span class="font-semibold">Kling 3.0</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎥</span>
-              <span class="font-semibold">Runway Gen-4.5</span>
-            </div>
-            <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Pago</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎙️</span>
-              <span class="font-semibold">ElevenLabs v3</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">✂️</span>
-              <span class="font-semibold">CapCut</span>
-            </div>
-            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Grátis</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Projeto Final -->
-    <div class="max-w-4xl mx-auto bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-500 p-6 rounded-lg mb-12">
-      <h3 class="text-xl font-bold text-gray-900 mb-3">🏆 Projeto Final do Nível 1</h3>
-      <p class="text-gray-700 mb-4">
-        <strong>Desafio:</strong> Crie um vídeo de 30-60 segundos apresentando um produto ou serviço fictício, utilizando todas as ferramentas do nível.
-      </p>
-      <ul class="space-y-2 text-gray-700 text-sm">
-        <li class="flex items-start gap-2">
-          <span>✓</span>
-          <span>Use ChatGPT para criar o roteiro e planejamento</span>
         </li>
-        <li class="flex items-start gap-2">
-          <span>✓</span>
-          <span>Gere imagens com Midjourney V7 e FLUX.2</span>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🗺️</span>
+            <span class="font-medium flex-1">Panorama de Ferramentas Maio/2026</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Mapeamento completo das ferramentas atuais: Midjourney V8.1, Kling 3.0, Runway Gen-4.5, FLUX.2, Veo 3.1, Suno v5.5, ElevenMusic e mais.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Saber qual ferramenta usar em cada caso evita retrabalho e gasto desnecessário.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Categorias de ferramentas, custo-benefício, freemium vs pago, modelos chineses acessíveis.</span></p>
+              <a href="mod1-introducao-ia/aula-1.2-panorama-ferramentas.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
         </li>
-        <li class="flex items-start gap-2">
-          <span>✓</span>
-          <span>Crie clipes de vídeo com Kling 3.0 ou Runway Gen-4.5</span>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚖️</span>
+            <span class="font-medium flex-1">Ética, Direitos Autorais e Boas Práticas</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Marco legal brasileiro/europeu, lawsuits ativos (Suno/Udio vs RIAA), licenças comerciais e boas práticas de atribuição.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Usar IA sem entender licenças pode invalidar seu trabalho comercialmente. ElevenMusic é a licença mais limpa do mercado em 2026.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Fair use, opt-out de treinamento, deepfake, deepvoice, transparência.</span></p>
+              <a href="mod1-introducao-ia/aula-1.3-etica-direitos-autorais.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
         </li>
-        <li class="flex items-start gap-2">
-          <span>✓</span>
-          <span>Adicione narração com ElevenLabs v3</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span>✓</span>
-          <span>Edite e finalize tudo no CapCut</span>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⚙️</span>
+            <span class="font-medium flex-1">Configurando seu Ambiente de Trabalho</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Setup de hardware (GPU, RAM), softwares essenciais, contas e organização de assets.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Um workflow bem montado economiza horas todo dia.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">VRAM mínima, gestão de prompts, biblioteca de assets, backups.</span></p>
+              <a href="mod1-introducao-ia/aula-1.4-ambiente-trabalho.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
 
-    <!-- Navegação -->
-    <div class="max-w-4xl mx-auto flex justify-between items-center">
-      <a href="../" class="content-button content-button-secondary">
-        ← Voltar ao Curso
-      </a>
-      <a href="../nivel-2-desenvolvimento/" class="content-button content-button-secondary opacity-50 cursor-not-allowed">
-        Nível 2 →
-      </a>
+    <!-- Módulo 2 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.2</span>
+          <span class="text-xs text-neutral-500">~120 min</span>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">🎨 Módulo 2: Criação de Imagens</h2>
+        <p class="text-neutral-400 text-sm">Da prompt à imagem perfeita com Midjourney V8.1, FLUX.2 e Stable Diffusion 3.5.</p>
+      </div>
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎯</span>
+            <span class="font-medium flex-1">Midjourney V8.1 — Do Prompt à Imagem Perfeita</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">V8.1 (lançada 2026-04-30) traz HD 2K nativo, prompts mais aderentes e geração 4-5× mais rápida que V7.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Midjourney lidera estética. Dominar V8.1 é o caminho mais curto para imagens conceituais profissionais.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Prompt anatomy, parâmetros (--ar, --s, --c), referência de imagem, V8 Alpha vs V8.1.</span></p>
+              <a href="mod2-criacao-imagens/aula-2.1-midjourney-v7-v8.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔓</span>
+            <span class="font-medium flex-1">FLUX.2 e Stable Diffusion 3.5 — Open-source</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">FLUX.2 Pro lidera fotorrealismo. SD 3.5 segue como referência de customização.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Open-source = controle total + custo zero ao rodar local. Essencial para produção em volume.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">LoRA, ControlNet, samplers, FLUX.1.1 Pro vs FLUX.2 Pro.</span></p>
+              <a href="mod2-criacao-imagens/aula-2.2-flux-stable-diffusion.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">👤</span>
+            <span class="font-medium flex-1">Arte Conceitual e Personagens Consistentes</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Manter o mesmo personagem ou estilo em múltiplas cenas usando referência, --cref e LoRAs treinadas.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Sem consistência você não cria narrativa visual. Habilidade-chave para storyboards.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">--cref, --sref, IPAdapter, treino de LoRA personalizado.</span></p>
+              <a href="mod2-criacao-imagens/aula-2.3-arte-personagens.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📦</span>
+            <span class="font-medium flex-1">Mockups, Produtos e Fotorrealismo</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Geração de mockups e fotos de produto com FLUX.2 Pro e técnicas de luz/material.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Mercado de e-commerce demanda fotos infinitas. IA produz em minutos o que estúdio leva dias.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Iluminação, materiais, ângulos, photoreal vs hyperreal.</span></p>
+              <a href="mod2-criacao-imagens/aula-2.4-mockups-fotorrealismo.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
 
+    <!-- Módulo 3 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.3</span>
+          <span class="text-xs text-neutral-500">~120 min</span>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">🎬 Módulo 3: Primeiros Vídeos</h2>
+        <p class="text-neutral-400 text-sm">Crie seus primeiros vídeos com IA: Kling 3.0, Runway Gen-4.5, Pika 2.5, Hailuo e ElevenLabs.</p>
+      </div>
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🌊</span>
+            <span class="font-medium flex-1">Kling 3.0 — Vídeos com Áudio Nativo</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Kling 3.0 (lançado 2026-02-05): 4K nativo, storyboard multi-plano e áudio sincronizado em uma pipeline.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Custo-benefício imbatível para criadores brasileiros. Áudio embutido elimina etapa separada de TTS.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Image-to-video, motion brush, lip-sync nativo, custos por segundo.</span></p>
+              <a href="mod3-primeiros-videos/aula-3.1-kling-videos-audio.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🚂</span>
+            <span class="font-medium flex-1">Runway Gen-4.5 e Pika 2.5</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Runway Gen-4.5 lidera benchmarks (1247 Elo). Pika 2.5 introduziu Pikaswaps e Pikaffects.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Runway é o profissional. Pika é o mais beginner-friendly ($8/mês, 30-40s de geração).</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Aleph editing, camera control, Pikaswaps, Pikaffects.</span></p>
+              <a href="mod3-primeiros-videos/aula-3.2-runway-pika.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🐉</span>
+            <span class="font-medium flex-1">Hailuo e Ferramentas Chinesas Acessíveis</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Hailuo a $0.28/vídeo, Vidu Q3, Seedance 2.0 (multi-shot nativo), Wan open-source.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Para volume e custo, ferramentas chinesas viabilizam centenas de vídeos/mês.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">MiniMax, Seedance multi-shot, ByteDance, Alibaba Wan, custos comparativos.</span></p>
+              <a href="mod3-primeiros-videos/aula-3.3-hailuo-ferramentas-chinesas.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🎙️</span>
+            <span class="font-medium flex-1">Adicionando Voz com ElevenLabs v3</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">ElevenLabs v3 — TTS mais expressivo do mercado, com tags de áudio e clonagem de voz.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Voz boa transforma vídeo. Em maio/2026, ElevenMusic unifica voz+música+SFX no iOS.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Voice cloning, audio tags, Scribe v2 STT, SFX v2, ElevenMusic.</span></p>
+              <a href="mod3-primeiros-videos/aula-3.4-elevenlabs-voz.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Módulo 4 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.4</span>
+          <span class="text-xs text-neutral-500">~120 min</span>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">✂️ Módulo 4: Edição e Pós-Produção</h2>
+        <p class="text-neutral-400 text-sm">CapCut com IA, legendas automáticas, VFX e finalização profissional.</p>
+      </div>
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎞️</span>
+            <span class="font-medium flex-1">CapCut e Edição com IA</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">CapCut com IA: corte automático, beat sync, remoção de fundo, smart caption.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Edição manual de vídeos curtos é gargalo. IA acelera 10× e mantém qualidade.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Auto-cut, beat sync, remoção fundo, smart caption.</span></p>
+              <a href="mod4-edicao-pos-producao/aula-4.1-capcut-edicao-ia.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📝</span>
+            <span class="font-medium flex-1">Legendas, Tradução e Dublagem Automática</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Pipeline completa de legendagem (Scribe v2, Whisper) + tradução + dublagem com lip-sync.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Internacionalizar conteúdo multiplica alcance sem refazer gravações.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Speech-to-text, voice cloning multi-idioma, lip-sync.</span></p>
+              <a href="mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">✨</span>
+            <span class="font-medium flex-1">Efeitos Especiais e VFX Básico</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">VFX acessível com IA: rotoscoping automático, replacement de fundo, color grading inteligente.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Efeitos antes inalcançáveis para criadores solo agora cabem em workflows simples.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Mask, roto IA, color grading, slow motion.</span></p>
+              <a href="mod4-edicao-pos-producao/aula-4.3-efeitos-especiais-vfx.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📤</span>
+            <span class="font-medium flex-1">Finalização e Publicação</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Codecs, formatos de export (vertical/horizontal), thumbnails IA, otimização para cada rede.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Vídeo bem editado mal exportado falha. Finalização correta multiplica engajamento.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Codecs (H.264, H.265, AV1), aspectos, thumbnails, A/B testing.</span></p>
+              <a href="mod4-edicao-pos-producao/aula-4.4-finalizacao-publicacao.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Módulo 5 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.5</span>
+          <span class="text-xs text-neutral-500">~120 min</span>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">🏆 Módulo 5: Projeto Final do Nível 1</h2>
+        <p class="text-neutral-400 text-sm">Aplique tudo: planeje, produza assets, edite e publique seu primeiro projeto completo.</p>
+      </div>
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📋</span>
+            <span class="font-medium flex-1">Planejamento do Projeto</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Briefing, roteiro, storyboard e definição de escopo realista.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">90% dos projetos travam por falta de planejamento.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Briefing, persona, mood board, story beats.</span></p>
+              <a href="mod5-projeto-final/aula-5.1-planejamento.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎨</span>
+            <span class="font-medium flex-1">Produção de Assets</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Geração coordenada de imagens, vídeos e áudios usando todas ferramentas dos módulos 2-3.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Produzir em escala mantendo consistência visual define profissional.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Asset library, naming convention, version control.</span></p>
+              <a href="mod5-projeto-final/aula-5.2-producao-assets.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎞️</span>
+            <span class="font-medium flex-1">Montagem e Edição</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Montagem com ritmo, color grading, trilha sonora e mixagem.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Edição é onde o projeto vira história.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Pacing, cor, mix, J-cut, L-cut.</span></p>
+              <a href="mod5-projeto-final/aula-5.3-montagem-edicao.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🚀</span>
+            <span class="font-medium flex-1">Finalização e Publicação</span>
+            <span class="text-xs text-neutral-500 hidden sm:inline">~30 min</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-emerald-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-emerald-400">O que é:</strong> <span class="text-neutral-300 text-sm">Export por plataforma, copy, hashtags, agendamento e métricas.</span></p>
+              <p><strong class="text-emerald-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Cada plataforma tem regras próprias.</span></p>
+              <p><strong class="text-emerald-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">YouTube, TikTok, Reels, métricas, retenção.</span></p>
+              <a href="mod5-projeto-final/aula-5.4-finalizacao-publicacao.html" class="inline-block mt-2 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 pt-8 border-t border-dark-600">
+      <a href="../index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar ao Curso</a>
+      <a href="../nivel-2-desenvolvimento/index.html" class="flex-1 text-center px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Próxima: Trilha 2 — Desenvolvimento →</a>
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
-    <div class="container mx-auto px-4 text-center text-gray-600">
-      &copy; 2026 VISION
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+      <p class="text-sm text-neutral-500">Trilha 1 — Fundamentos · Atualizado maio/2026</p>
     </div>
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.module-card');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => { if (exp !== explanation) exp.classList.remove('active'); });
+      explanation.classList.toggle('active');
+    }
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
 

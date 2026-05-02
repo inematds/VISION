@@ -1,507 +1,459 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nível 2: Desenvolvimento - Domine ferramentas avançadas de vídeo, workflows open-source, áudio profissional e vibe coding para criadores">
-  <title>Nível 2: Desenvolvimento - VISION</title>
+  <meta name="description" content="Trilha 2: Desenvolvimento — VISION. Módulos 6-9: Vídeo Avançado, Workflows Open-Source, Áudio/Música e Vibe Coding. Atualizado maio/2026.">
+  <title>Trilha 2: Desenvolvimento · VISION</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../../css/vision-styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔵</text></svg>">
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .module-card { transition: all 0.3s ease; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37, 99, 235, 0.18); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
 
-  <a href="#main-content" class="skip-to-main">Pular para conteúdo principal</a>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded">Pular para conteúdo</a>
 
-  <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4">
-      <nav class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <a href="../../" class="flex items-center gap-3 hover:opacity-80 transition">
-            <span class="text-3xl">🎬</span>
-            <h1 class="text-2xl font-bold text-gray-800">VISION</h1>
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">VISION</span>
           </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
-        <div class="flex items-center gap-4">
-          <a href="../" class="text-gray-600 hover:text-gray-900 transition">← Curso</a>
+
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../nivel-1-fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Desenvolvimento</span>
+          </a>
+          <a href="../nivel-3-especializacao/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Especialização</span>
+          </a>
+          <button id="theme-toggle" aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
         </div>
-      </nav>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">TRILHA 2 · INTERMEDIÁRIO</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔧 Desenvolvimento</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Domine ferramentas avançadas, pipelines open-source, áudio profissional e construa suas próprias ferramentas com Vibe Coding.</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">4</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">17</div>
+          <div class="text-xs text-neutral-400">Aulas</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">30-40h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Inter</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main id="main-content" class="container mx-auto px-4 py-12">
+  <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb mb-8">
-      <a href="../../">Início</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="../">Curso</a>
-      <span class="breadcrumb-separator">/</span>
-      <span>Nível 2</span>
-    </nav>
-
-    <!-- Hero -->
-    <div class="max-w-4xl mx-auto mb-12 animate-fade-in">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="badge badge-tecnico text-lg px-4 py-2">🔵 Intermediário</span>
-        <span class="text-gray-500">30-40 horas • 16 aulas</span>
-      </div>
-
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Nível 2: Desenvolvimento
-      </h1>
-
-      <p class="text-xl text-gray-600 mb-6">
-        Domine ferramentas avançadas de vídeo, workflows open-source, áudio profissional e vibe coding para criadores.
-      </p>
-
-      <!-- Progress -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <div class="flex justify-between items-center mb-2">
-          <span class="text-sm font-semibold text-gray-700">Progresso do Nível</span>
-          <span class="text-sm text-gray-500">0%</span>
+    <!-- Módulo 6 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.1 · Mód 6</span>
+          <span class="text-xs text-neutral-500">~150 min</span>
         </div>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mt-2">0 de 16 aulas concluídas</p>
+        <h2 class="text-2xl font-bold mb-2">🎬 Módulo 6: Vídeo Avançado</h2>
+        <p class="text-neutral-400 text-sm">Storyboards multi-plano, controle cinematográfico e os 30+ modelos do Adobe Firefly Video.</p>
       </div>
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📋</span>
+            <span class="font-medium flex-1">Kling 3.0 — Storyboard Multi-plano</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Recurso de storyboard do Kling 3.0 (lançado fev/2026): controle plano-a-plano com câmera, pacing e áudio sincronizado.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Permite produção de cenas longas com continuidade narrativa, antes só viável em editor.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Multi-shot prompting, camera moves, lip-sync, 4K nativo.</span></p>
+              <a href="mod6-video-avancado/aula-6.1-kling-storyboard.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">⚡</span>
+            <span class="font-medium flex-1">Seedance 2.0 e Vidu Q3</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Seedance 2.0 introduziu multi-shot nativo + áudio sincronizado em prompt único. Rollout global Q2/2026.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Vidu Q3 é #1 na China com áudio+vídeo nativo. Ferramentas chinesas dominam custo-benefício.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Multi-shot, audio-vídeo unificado, ByteDance.</span></p>
+              <a href="mod6-video-avancado/aula-6.2-seedance-vidu.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🌐</span>
+            <span class="font-medium flex-1">Google Veo 3.1 e Flow</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Google Veo 3.1 — 4K nativo, character consistency, vídeo vertical. Integrado ao Gemini Advanced ($19.99/mês).</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Veo 3.1 é o melhor all-around. Flow é a interface completa do Google para criação.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Veo 3.1, Flow, Gemini Advanced, character consistency.</span></p>
+              <a href="mod6-video-avancado/aula-6.3-google-veo-flow.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔥</span>
+            <span class="font-medium flex-1">Adobe Firefly Video e 30+ modelos</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Adobe Firefly Video integra 30+ modelos third-party em uma só plataforma com créditos unificados.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Profissional sério usa Firefly como hub: switching entre modelos vira drag-and-drop.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Firefly Video, créditos Adobe, integração Premiere/After.</span></p>
+              <a href="mod6-video-avancado/aula-6.4-adobe-firefly-video.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🌅</span>
+            <span class="font-medium flex-1">Luma Ray3 e Pika Pikaformance</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Luma Ray3 para alta qualidade visual; Pika Pikaformance + Pikaswaps + Pikaffects para edição rápida.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Ferramentas complementares: Luma para hero shots, Pika para iteração rápida.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Ray3 motion, Pikaffects, character/object replacement.</span></p>
+              <a href="mod6-video-avancado/aula-6.5-luma-pika-avancado.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <!-- Módulos -->
-    <div class="max-w-4xl mx-auto space-y-8 mb-12">
-
-      <!-- Módulo 6 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">🎥</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 6: Vídeo Avançado e Ferramentas Chinesas
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 10-12 horas • 5 aulas</p>
-          </div>
+    <!-- Módulo 7 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.2 · Mód 7</span>
+          <span class="text-xs text-neutral-500">~120 min</span>
         </div>
-
-        <p class="text-gray-600 mb-6">
-          Domine as ferramentas de vídeo mais avançadas do mercado, incluindo Kling Storyboard, Seedance, Vidu, Google Veo, Adobe Firefly Video, Luma Ray3 e Pika Pikaformance.
-        </p>
-
-        <!-- Aulas -->
-        <div class="space-y-3 mb-6">
-          <a href="mod6-video-avancado/aula-6.1-kling-storyboard.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 6.1: Kling 3.0 — Storyboard Multi-plano</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-
-          <a href="mod6-video-avancado/aula-6.2-seedance-vidu.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 6.2: Seedance 2.0 e Vidu Q3</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-
-          <a href="mod6-video-avancado/aula-6.3-google-veo-flow.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 6.3: Google Veo 4 e Flow</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-
-          <a href="mod6-video-avancado/aula-6.4-adobe-firefly-video.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 6.4: Adobe Firefly Video e 30+ modelos</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-
-          <a href="mod6-video-avancado/aula-6.5-luma-pika-avancado.html" class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between hover:bg-gray-100 transition">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">○</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 6.5: Luma Ray3 e Pika Pikaformance</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-            <span class="text-gray-400">→</span>
-          </a>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">0 de 5 aulas concluídas</p>
-
-        <a href="mod6-video-avancado/" class="content-button content-button-primary w-full">
-          Começar Módulo 6 →
-        </a>
+        <h2 class="text-2xl font-bold mb-2">🛠️ Módulo 7: Workflows e Open-Source</h2>
+        <p class="text-neutral-400 text-sm">Freepik Spaces, ComfyUI, SkyReels, Wan, LTX-Video e pipelines de produção em escala.</p>
       </div>
-
-      <!-- Módulo 7 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">🔧</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 7: Workflows e Open-Source
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 8-10 horas • 4 aulas</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          Crie workflows profissionais com Freepik Spaces, domine o ComfyUI e explore os melhores modelos open-source de vídeo como SkyReels, Wan e LTX-Video.
-        </p>
-
-        <!-- Aulas -->
-        <div class="space-y-3 mb-6 opacity-50">
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 7.1: Freepik Spaces — Canvas infinito colaborativo</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎨</span>
+            <span class="font-medium flex-1">Freepik Spaces — Canvas infinito colaborativo</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Canvas infinito que combina geração, mood board e colaboração em tempo real.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Substitui FigJam + Midjourney + Discord em uma única ferramenta para criação visual.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Mood boards, real-time collab, brand kits.</span></p>
+              <a href="mod7-workflows-opensource/aula-7.1-freepik-spaces.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
             </div>
           </div>
-
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 7.2: ComfyUI — Hub do ecossistema open-source</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔌</span>
+            <span class="font-medium flex-1">ComfyUI — Hub do ecossistema open-source</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Workflow visual node-based para FLUX, SD, ControlNet, LoRA e modelos de vídeo open-source.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Único caminho para custo zero em produção em volume. ComfyUI é o "Photoshop" da IA open-source.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Nodes, workflows, custom nodes, manager, runpod.</span></p>
+              <a href="mod7-workflows-opensource/aula-7.2-comfyui.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
             </div>
           </div>
-
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 7.3: SkyReels, Wan 2.7 e LTX-Video 2.3</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎥</span>
+            <span class="font-medium flex-1">SkyReels, Wan 2.7 e LTX-Video 2.3</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Modelos open-source de vídeo: SkyReels V4, Wan 2.7 (Alibaba), LTX-Video 2.3 — rodam localmente em GPU consumer.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Custo zero, controle total e privacidade dos prompts.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">VRAM mínima, quantization, ComfyUI integration.</span></p>
+              <a href="mod7-workflows-opensource/aula-7.3-skyreels-wan-ltx.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
             </div>
           </div>
-
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 7.4: Pipelines de produção em escala</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🏭</span>
+            <span class="font-medium flex-1">Pipelines de produção em escala</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Como produzir 1000+ vídeos/mês: batch processing, ComfyUI distribuído, custo otimizado.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Volume é onde IA gera dinheiro. Pipeline mal montado = prejuízo.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Batch, queues, runpod, caching, custo unitário.</span></p>
+              <a href="mod7-workflows-opensource/aula-7.4-pipelines-escala.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
             </div>
           </div>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">Complete o Módulo 6 para desbloquear</p>
-
-        <button disabled class="content-button content-button-secondary w-full opacity-50 cursor-not-allowed">
-          🔒 Bloqueado
-        </button>
-      </div>
-
-      <!-- Módulo 8 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">🎵</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 8: Áudio, Música e Voz
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 6-8 horas • 3 aulas</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          Produza música profissional com Suno v5 e Udio v4, clone vozes e crie efeitos sonoros com ElevenLabs, e domine a edição de áudio com IA.
-        </p>
-
-        <!-- Aulas -->
-        <div class="space-y-3 mb-6 opacity-50">
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 8.1: Suno v5 e Udio v4 — Música profissional</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 8.2: ElevenLabs — Clonagem de voz e SFX</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 8.3: Edição de áudio com IA</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">Complete o Módulo 7 para desbloquear</p>
-
-        <button disabled class="content-button content-button-secondary w-full opacity-50 cursor-not-allowed">
-          🔒 Bloqueado
-        </button>
-      </div>
-
-      <!-- Módulo 9 -->
-      <div class="level-card bg-white p-8 rounded-lg shadow-md animate-on-scroll">
-        <div class="flex items-start justify-between mb-4">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-3xl">💻</span>
-              <h2 class="text-2xl font-bold text-gray-900">
-                Módulo 9: Vibe Coding para Criadores
-              </h2>
-            </div>
-            <p class="text-gray-500">Duração: 8-10 horas • 4 aulas</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          Aprenda a criar suas próprias ferramentas e aplicações usando vibe coding com Lovable, Bolt, Cursor, Claude Code, v0 e Replit — sem precisar ser programador.
-        </p>
-
-        <!-- Aulas -->
-        <div class="space-y-3 mb-6 opacity-50">
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 9.1: O que é Vibe Coding</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 9.2: Lovable e Bolt</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 9.3: Cursor e Claude Code</div>
-                <div class="text-sm text-gray-500">~120 min</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-card bg-gray-50 p-4 rounded-lg flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400">🔒</span>
-              <div>
-                <div class="font-semibold text-gray-900">Aula 9.4: v0 e Replit</div>
-                <div class="text-sm text-gray-500">~90 min</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-bar mb-2">
-          <div class="progress-fill" style="width: 0%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mb-4">Complete o Módulo 8 para desbloquear</p>
-
-        <button disabled class="content-button content-button-secondary w-full opacity-50 cursor-not-allowed">
-          🔒 Bloqueado
-        </button>
-      </div>
-
+        </li>
+      </ul>
     </div>
 
-    <!-- Objetivos & Ferramentas -->
-    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-12">
-
-      <!-- Objetivos -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">🎯 Objetivos de Aprendizagem</h3>
-        <ul class="space-y-2 text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500">✓</span>
-            <span>Dominar vídeo avançado com ferramentas chinesas</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500">✓</span>
-            <span>Criar workflows com ComfyUI e Freepik Spaces</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500">✓</span>
-            <span>Produzir música e áudio profissional</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500">✓</span>
-            <span>Usar vibe coding para criar ferramentas próprias</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Ferramentas -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">🛠️ Ferramentas Principais</h3>
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎥</span>
-              <span class="font-semibold">Kling 3.0 Pro</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Pago</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎬</span>
-              <span class="font-semibold">Runway Gen-4.5</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Pago</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🌱</span>
-              <span class="font-semibold">Seedance 2.0</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🔍</span>
-              <span class="font-semibold">Google Veo 4</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">$19.99/mês</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎨</span>
-              <span class="font-semibold">Freepik Spaces</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🔧</span>
-              <span class="font-semibold">ComfyUI</span>
-            </div>
-            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Grátis</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🌌</span>
-              <span class="font-semibold">SkyReels V4</span>
-            </div>
-            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Open-Source</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎵</span>
-              <span class="font-semibold">Suno v5</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🎙️</span>
-              <span class="font-semibold">ElevenLabs v3</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">💻</span>
-              <span class="font-semibold">Cursor / Claude Code</span>
-            </div>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Freemium</span>
-          </div>
+    <!-- Módulo 8 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.3 · Mód 8</span>
+          <span class="text-xs text-neutral-500">~90 min</span>
         </div>
+        <h2 class="text-2xl font-bold mb-2">🎵 Módulo 8: Áudio e Música com IA</h2>
+        <p class="text-neutral-400 text-sm">Suno v5.5, Udio v4, ElevenLabs ElevenMusic e técnicas de sound design.</p>
       </div>
-
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎼</span>
+            <span class="font-medium flex-1">Suno v5.5 e Udio v4 — Música com IA</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Suno v5.5 trouxe Studio DAW, Generative Stems (12 trilhas) e Vocal Personas. Udio v4 lidera fidelidade musical (48kHz stereo).</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Suno = consumer leader (pop/rock/EDM). Udio = audiophile (jazz, classical, ambient).</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Stems, vocal personas, inpainting, licenciamento (RIAA lawsuits).</span></p>
+              <a href="mod8-audio-musica/aula-8.1-suno-udio-musica.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎙️</span>
+            <span class="font-medium flex-1">ElevenLabs ElevenMusic — Voz, Música e SFX</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">ElevenMusic (lançado iOS abr/2026) unifica voz, música e SFX no mesmo app. Licença comercial mais limpa do mercado.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Para uso comercial seguro, ElevenMusic supera Suno/Udio (que estão em lawsuits ativas).</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Voice clone, Scribe v2, SFX v2, ElevenMusic, licença comercial.</span></p>
+              <a href="mod8-audio-musica/aula-8.2-elevenlabs-clonagem-sfx.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎚️</span>
+            <span class="font-medium flex-1">Edição de Áudio e Sound Design</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Mixagem, masterização e sound design assistidos por IA: Adobe Podcast, Auphonic, RX Music.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Áudio profissional é diferencial. IA democratiza ferramentas antes só de estúdios.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Loudness, EQ adaptativo, denoise, sound design.</span></p>
+              <a href="mod8-audio-musica/aula-8.3-edicao-audio-sound-design.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <!-- Navegação -->
-    <div class="max-w-4xl mx-auto flex justify-between items-center">
-      <a href="../nivel-1-fundamentos/" class="content-button content-button-secondary">
-        ← Nível 1: Fundamentos
-      </a>
-      <a href="../nivel-3-especializacao/" class="content-button content-button-secondary">
-        Nível 3: Especialização →
-      </a>
+    <!-- Módulo 9 -->
+    <div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">2.4 · Mód 9</span>
+          <span class="text-xs text-neutral-500">~120 min</span>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">💻 Módulo 9: Vibe Coding</h2>
+        <p class="text-neutral-400 text-sm">Construa suas próprias ferramentas com Cursor, Claude Code, Lovable, Bolt, v0 e Replit.</p>
+      </div>
+      <ul class="divide-y divide-dark-600">
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🧠</span>
+            <span class="font-medium flex-1">O que é Vibe Coding e por que importa</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Programação em linguagem natural com agentes IA — descrever em PT-BR, IA implementa, você revisa.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Criadores que dominam vibe coding constroem suas próprias ferramentas em horas, não meses.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Spec-driven dev, agentes, code review IA, mentalidade de PM.</span></p>
+              <a href="mod9-vibe-coding/aula-9.1-o-que-e-vibe-coding.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🚀</span>
+            <span class="font-medium flex-1">Criando ferramentas com Lovable e Bolt.new</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Apps full-stack do zero a partir de prompt — Lovable e Bolt.new são as plataformas líderes em 2026.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Para validar ideias e MVPs em horas, não semanas.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">Stack moderno (Next/React/Supabase), deploy 1-click.</span></p>
+              <a href="mod9-vibe-coding/aula-9.2-lovable-bolt.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚡</span>
+            <span class="font-medium flex-1">Cursor e Claude Code para automações</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">Cursor (IDE com IA) e Claude Code (CLI agent) — ferramentas profissionais para projetos complexos.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Para projetos sérios, Lovable/Bolt não bastam. Cursor + Claude Code é o setup pro.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">IDE agents, CLI workflows, tool calling, MCPs.</span></p>
+              <a href="mod9-vibe-coding/aula-9.3-cursor-claude-code.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+        <li class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🛠️</span>
+            <span class="font-medium flex-1">v0, Replit Agent e apps sem código</span>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-blue-900/20 rounded-lg p-4 ml-9 space-y-3">
+              <p><strong class="text-blue-400">O que é:</strong> <span class="text-neutral-300 text-sm">v0 (Vercel) gera UI React/Next.js a partir de prompt. Replit Agent monta apps full-stack no browser.</span></p>
+              <p><strong class="text-blue-400">Por que aprender:</strong> <span class="text-neutral-300 text-sm">Para landing pages e UIs prontas em minutos.</span></p>
+              <p><strong class="text-blue-400">Conceitos-chave:</strong> <span class="text-neutral-300 text-sm">v0, Replit Agent, deploy automático.</span></p>
+              <a href="mod9-vibe-coding/aula-9.4-v0-replit-apps.html" class="inline-block mt-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/30 transition-colors">Ver aula completa →</a>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
 
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 pt-8 border-t border-dark-600">
+      <a href="../nivel-1-fundamentos/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha 1: Fundamentos</a>
+      <a href="../nivel-3-especializacao/index.html" class="flex-1 text-center px-6 py-3 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors">Próxima: Trilha 3 — Especialização →</a>
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t border-gray-200 mt-16 py-8">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-gray-600">
-        &copy; 2026 VISION
-      </p>
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 mb-2">&copy; 2026 VISION · <a href="https://github.com/inematds/VISION" target="_blank" class="text-sky-400 hover:text-sky-300">GitHub</a> · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+      <p class="text-sm text-neutral-500">Trilha 2 — Desenvolvimento · Atualizado maio/2026</p>
     </div>
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.module-card');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => { if (exp !== explanation) exp.classList.remove('active'); });
+      explanation.classList.toggle('active');
+    }
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
 
