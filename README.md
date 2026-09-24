@@ -269,3 +269,11 @@ Agradecimento especial ao projeto [FEP](https://inematds.github.io/FEP/) pelo de
 [⬆ Voltar ao topo](#-vision---audiovisual-com-inteligência-artificial)
 
 </div>
+
+<!-- inema-backlink:v1 -->
+## Mais no INEMA.CLUB
+
+- [Ficha completa deste curso](https://www.inema.club/cursos/34-vision/)
+- [Guia: como aprender inteligência artificial](https://www.inema.club/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.inema.club/cursos/)
+<!-- /inema-backlink:v1 -->
