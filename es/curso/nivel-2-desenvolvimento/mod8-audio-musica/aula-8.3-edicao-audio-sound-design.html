@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 8.3: Edición de audio y diseño de sonido · VISION — Curso VISION de IA audiovisual" name="description"/>
+<title>Lección 8.3: Edición de audio y diseño de sonido · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.3-edicao-audio-sound-design.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.3-edicao-audio-sound-design.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.3-edicao-audio-sound-design.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.3-edicao-audio-sound-design.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.3-edicao-audio-sound-design.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-8.3-edicao-audio-sound-design.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 2</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 8</a>
+<span class="mx-2">/</span>
+<span>Lección 8.3</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">🔵 Nivel 2</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Edición de audio y diseño de sonido
+        </h1>
+<p class="text-xl text-neutral-400">
+          Transforma audios de IA sin procesar en producciones pulidas: mezcla, eliminación de ruido, sincronización y diseño sonoro profesional.
+        </p>
+<p class="text-sm text-neutral-500 mt-2">~90 minutos • Actualizado en Abril 2026</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Fundamentos -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4">🎛️ Fundamentos de edición de audio para contenido con IA</h2>
+<p class="text-neutral-300 mb-4">
+          Generar audio con IA es solo el primer paso. Lo que distingue una producción amateur de una profesional es el <strong>posprocesamiento</strong>: edición, mezcla y masterización. Aunque herramientas como Suno y ElevenLabs ofrecen audio de alta calidad, casi siempre es necesario ajustar, combinar y pulir antes del producto final.
+        </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-8-lg">
+<p class="text-neutral-100 font-semibold mb-1">💡 Por qué editar audio de IA</p>
+<p class="text-neutral-300">Incluso el mejor audio generado por IA necesita integrarse en un proyecto. Hay que equilibrar los volúmenes, ajustar los silencios, eliminar los ruidos y sincronizar varias fuentes. Dominar la edición de audio multiplica el valor de todas las herramientas que aprendiste.</p>
+</div>
+<!-- Combinando fontes -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🔀 Combinar varias fuentes de audio</h2>
+<p class="text-neutral-300 mb-4">
+          Un video profesional suele combinar tres capas de audio: <strong>voz</strong> (narración o diálogo), <strong>música</strong> (pista de fondo) y <strong>efectos de sonido</strong> (SFX). Cada capa debe tratarse individualmente antes de combinarse.
+        </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Capa</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Volumen recomendado</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Tratamiento</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Fuente típica</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">🗣️ Voz / Narración</td>
+<td class="p-3 text-neutral-300">-6dB a -3dB (principal)</td>
+<td class="p-3 text-neutral-300">Compresión, EQ, de-esser</td>
+<td class="p-3 text-neutral-300">ElevenLabs, grabación propia</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">🎵 Música / Banda sonora</td>
+<td class="p-3 text-neutral-300">-18dB a -12dB (fondo)</td>
+<td class="p-3 text-neutral-300">Fundido de entrada/salida, ducking</td>
+<td class="p-3 text-neutral-300">Suno, Udio, ElevenLabs Music</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">🔊 Efectos de sonido</td>
+<td class="p-3 text-neutral-300">-12dB a -6dB (puntual)</td>
+<td class="p-3 text-neutral-300">Timing, reverberación, paneo</td>
+<td class="p-3 text-neutral-300">ElevenLabs SFX, bibliotecas</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-1">💡 Técnica: ducking automático</p>
+<p class="text-neutral-300">O <strong>ducking</strong> reduce automáticamente el volumen de la música cuando hay narración. Tanto Audacity como CapCut ofrecen esta función. En Audacity, usa el plugin "Auto Duck". En CapCut, activa "Reducir volumen del audio de fondo" en la configuración de audio.</p>
+</div>
+<!-- Níveis e Mixagem -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">📊 Niveles de audio y mezcla básica</h2>
+<p class="text-neutral-300 mb-4">
+          Comprender los niveles de audio es fundamental para lograr una mezcla equilibrada. Estos son los conceptos esenciales:
+        </p>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📏 Conceptos clave de niveles</p>
+<ul class="text-purple-700 space-y-2">
+<li><strong>Nivel máximo:</strong> El punto más alto del audio. Nunca debe superar 0dB (clipping)</li>
+<li><strong>LUFS (unidades de sonoridad a escala completa):</strong> Medida de la sonoridad percibida. YouTube recomienda -14 LUFS y los podcasts, -16 LUFS</li>
+<li><strong>Headroom:</strong> Espacio entre el pico del audio y 0dB. Mantén al menos -3dB de headroom</li>
+<li><strong>Rango dinámico:</strong> Diferencia entre los fragmentos más altos y más bajos. La compresión reduce ese rango</li>
+</ul>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Flujo de mezcla recomendado</h3>
+<ol class="text-neutral-300 space-y-2 mb-6 ml-4 list-decimal">
+<li><strong>Organiza las pistas:</strong> Separa la voz, la música y los SFX en pistas/capas diferentes</li>
+<li><strong>Normaliza la voz:</strong> Ajusta el nivel de pico a -3dB</li>
+<li><strong>Aplica compresión a la voz:</strong> Ratio 3:1, threshold -18dB (valores iniciales)</li>
+<li><strong>Ajusta el volumen de la pista:</strong> Redúcelo 12-15dB por debajo de la voz</li>
+<li><strong>Ubica los efectos:</strong> Sincroniza con eventos visuales del video</li>
+<li><strong>Configura el ducking:</strong> La música baja automáticamente cuando hay diálogo</li>
+<li><strong>Verifica en distintos dispositivos:</strong> Escucha con audífonos, parlantes y celular</li>
+<li><strong>Exporta en el formato correcto:</strong> WAV para máxima calidad, MP3/AAC para publicación</li>
+</ol>
+<!-- Remoção de ruído -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🔇 Eliminación del ruido de fondo</h2>
+<p class="text-neutral-300 mb-4">
+          Aunque los audios generados por IA rara vez tienen ruido, las grabaciones de voz real suelen necesitar limpieza. Además, los audios de IA pueden tener artefactos sutiles que deben eliminarse.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🧹 Técnicas de eliminación de ruido</p>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>Noise Gate:</strong> Silencia los fragmentos por debajo de un volumen mínimo. Sirve para eliminar el ruido de fondo entre las intervenciones</li>
+<li><strong>Noise Reduction (Audacity):</strong> Captura un "perfil de ruido" de un segmento silencioso y aplica la reducción a todo el audio</li>
+<li><strong>EQ sustractivo:</strong> Corta las frecuencias por debajo de 80Hz (rumble) y por encima de 12kHz (hiss) en las voces</li>
+<li><strong>Reducción de reverberación:</strong> Reduce el eco no deseado de espacios grandes. Herramientas como iZotope RX o plugins gratuitos</li>
+</ul>
+</div>
+<!-- Sincronização -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🎬 Sincronización de audio con video</h2>
+<p class="text-neutral-300 mb-4">
+          La sincronía entre audio y video es lo que hace que una producción resulte creíble. Incluso pequeñas desincronizaciones (de más de 50ms) se perciben y reducen la calidad percibida.
+        </p>
+<div class="bg-cyan-900/20 rounded-xl border border-cyan-500/30 p-4 mb-6">
+<p class="text-cyan-800 font-semibold mb-2">🎯 Consejos de sincronización</p>
+<ul class="text-cyan-700 space-y-1">
+<li>✅ Sincroniza los ritmos de la música con los cortes de escena para lograr un impacto dramático</li>
+<li>✅ Usa marcadores/keyframes para sincronizar SFX con eventos visuales</li>
+<li>✅ Aplica "J-cuts" y "L-cuts" para lograr transiciones suaves entre escenas</li>
+<li>✅ Inicia la pista 1-2 segundos antes del video para crear expectativa</li>
+<li>✅ Usa fade out en los últimos 3-5 segundos en lugar de un corte abrupto</li>
+</ul>
+</div>
+<div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-6 rounded-r-lg">
+<p class="text-neutral-100 font-semibold mb-1">📌 J-Cut y L-Cut explicados</p>
+<p class="text-neutral-300"><strong>J-Cut:</strong> El audio de la siguiente escena empieza antes del corte visual (el espectador escucha antes de ver). <strong>L-Cut:</strong> El audio de la escena anterior continúa después del corte visual (el espectador ve la nueva escena, pero todavía escucha la anterior). Ambas crean transiciones más naturales y cinematográficas.</p>
+</div>
+<!-- Sound Design por tipo -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🎨 Diseño de sonido para diferentes tipos de contenido</h2>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🎬 Contenido cinematográfico</p>
+<ul class="text-neutral-300 space-y-1">
+<li>Música orquestal o ambiental como base</li>
+<li>Efectos ambientales (viento, ciudad, naturaleza) para una experiencia inmersiva</li>
+<li>SFX puntuales para impacto dramático</li>
+<li>Amplio rango dinámico — alterna momentos suaves e intensos</li>
+<li>Silencio estratégico para crear tensión</li>
+</ul>
+</div>
+<div class="bg-rose-900/20 rounded-xl border border-rose-500/30 p-4 mb-6">
+<p class="text-pink-800 font-semibold mb-2">📱 Redes sociales (Reels, Shorts, TikTok)</p>
+<ul class="text-pink-700 space-y-1">
+<li>Música cautivadora en los primeros 2 segundos (hook)</li>
+<li>SFX de transición entre cortes (whoosh, pop, ding)</li>
+<li>Voz clara y alta: muchos escuchan sin audífonos</li>
+<li>Poco rango dinámico: volumen más consistente</li>
+<li>Los loops cortos y repetitivos funcionan bien</li>
+</ul>
+</div>
+<div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-4 mb-6">
+<p class="text-teal-800 font-semibold mb-2">🎙️ Podcast</p>
+<ul class="text-teal-700 space-y-1">
+<li>La voz como elemento principal: calidad impecable</li>
+<li>Música de apertura y cierre consistente (marca sonora)</li>
+<li>Música de fondo sutil solo en momentos de transición</li>
+<li>Nivel de sonoridad objetivo: -16 LUFS (estándar de Spotify/Apple Podcasts)</li>
+<li>Evita los SFX excesivos: el podcast se centra en la conversación</li>
+</ul>
+</div>
+<!-- Ferramentas gratuitas -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🆓 Herramientas gratuitas de edición</h2>
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Herramienta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Plataforma</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Mejor para</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Limitaciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Audacity</td>
+<td class="p-3 text-neutral-300">Windows, Mac, Linux</td>
+<td class="p-3 text-neutral-300">Edición detallada, eliminación de ruido, plugins</td>
+<td class="p-3 text-neutral-300">Interfaz anticuada, no edita videos</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">CapCut (audio)</td>
+<td class="p-3 text-neutral-300">Web, Windows, Mac, Mobile</td>
+<td class="p-3 text-neutral-300">Edición rápida integrada al video, ducking</td>
+<td class="p-3 text-neutral-300">Menos control detallado que las DAW</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">GarageBand</td>
+<td class="p-3 text-neutral-300">Mac, iOS</td>
+<td class="p-3 text-neutral-300">Mezcla musical, loops, instrumentos virtuales</td>
+<td class="p-3 text-neutral-300">Solo Apple</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">DaVinci Resolve (Fairlight)</td>
+<td class="p-3 text-neutral-300">Windows, Mac, Linux</td>
+<td class="p-3 text-neutral-300">Edición de audio profesional integrada al video</td>
+<td class="p-3 text-neutral-300">Curva de aprendizaje pronunciada</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Workflow profissional -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🏭 Flujo de trabajo profesional: del audio sin procesar al producto final</h2>
+<p class="text-neutral-300 mb-4">
+          Este es el flujo completo para transformar audios generados por IA en una producción pulida:
+        </p>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🔄 Flujo de trabajo en 8 etapas</p>
+<ol class="text-neutral-300 space-y-2 list-decimal ml-4">
+<li><strong>Generación:</strong> Crea narración (ElevenLabs), música (Suno) y SFX (ElevenLabs SFX)</li>
+<li><strong>Importación:</strong> Importa todos los archivos en el editor (Audacity o el DAW de tu editor de video)</li>
+<li><strong>Limpieza:</strong> Quita silencios, artefactos y ruidos de cada pista por separado</li>
+<li><strong>Procesamiento de voz:</strong> Aplica EQ (corte low-end por debajo de 80Hz), compresión y de-esser</li>
+<li><strong>Posicionamiento:</strong> Sincroniza la voz con el video y ubica la música y los SFX en los momentos adecuados</li>
+<li><strong>Balanceo:</strong> Ajusta los volúmenes relativos (voz &gt; SFX &gt; música)</li>
+<li><strong>Ducking:</strong> Configura la pista para bajar el volumen automáticamente durante la narración</li>
+<li><strong>Exportación:</strong> Renderiza en un formato adecuado (AAC para YouTube, WAV para archivado)</li>
+</ol>
+</div>
+<!-- Checklist -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">✅ Lista de verificación de la clase</h2>
+<div class="bg-gray-50 rounded-lg p-6">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Instala Audacity (o usa Fairlight en DaVinci Resolve)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Practicar la eliminación de ruido en una grabación de voz</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Combinar voz + música + SFX en un proyecto</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Configurar ducking automático</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Sincronizar efectos de sonido con los cortes del video</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Practicar J-Cuts y L-Cuts en una transición</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Exportar un proyecto final con audio profesional</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Probar el audio con audífonos, parlantes y celular</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-8.2-elevenlabs-clonagem-sfx.html">
+          ← Clase anterior
+        </a>
+<a class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors" href="../mod9-vibe-coding/aula-9.1-o-que-e-vibe-coding.html">
+          Siguiente clase →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

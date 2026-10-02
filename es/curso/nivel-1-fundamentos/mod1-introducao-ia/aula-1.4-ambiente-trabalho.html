@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Clase 1.4: Configuración de tu entorno de trabajo · VISION — Curso VISION de IA audiovisual" name="description"/>
+<title>Clase 1.4: Configuración de tu entorno de trabajo · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.4-ambiente-trabalho.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.4-ambiente-trabalho.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.4-ambiente-trabalho.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.4-ambiente-trabalho.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.4-ambiente-trabalho.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-1.4-ambiente-trabalho.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 1</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 1</a>
+<span class="mx-2">/</span>
+<span>Clase 1.4</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8 animate-fade-in">
+<div class="flex items-center gap-3 mb-4 flex-wrap">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎓 Clase 1.4</span>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">~90 min</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
+          Configurando tu entorno de trabajo
+        </h1>
+<p class="text-xl text-neutral-400">
+          Crea cuentas en las plataformas esenciales, entiende los modelos de créditos y precios, organiza tus proyectos y prepárate para empezar a crear.
+        </p>
+</div>
+<div class="rounded-lg p-8 mb-8 space-y-12">
+<!-- Criando contas -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🔑</span> Crear cuentas en las plataformas esenciales</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            Configuraremos cuentas en todas las plataformas que usaremos durante el curso. Empieza por las gratuitas y freemium:
+          </p>
+<div class="space-y-4 mb-6">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">1. Kling (klingai.com)</h3>
+<p class="text-neutral-300 text-sm">Crea una cuenta gratuita. Recibirás créditos iniciales para generar videos. Explora la interfaz y familiarízate con las opciones de generación de video e imagen. No necesitas una tarjeta de crédito para empezar.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">2. Midjourney (midjourney.com)</h3>
+<p class="text-neutral-300 text-sm">Crea una cuenta de Discord (si aún no tienes una) y únete al servidor de Midjourney. También visita alpha.midjourney.com para usar la interfaz web. El plan Basic ($10/mes) es suficiente para empezar. No hay un plan gratuito permanente.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">3. Runway (runwayml.com)</h3>
+<p class="text-neutral-300 text-sm">Crea una cuenta gratuita. Recibirás créditos iniciales para hacer pruebas. Explora los modos de generación de video (Gen-4, Gen-4.5) y las herramientas de edición incluidas.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">4. ElevenLabs (elevenlabs.io)</h3>
+<p class="text-neutral-300 text-sm">Crea una cuenta gratuita. El plan free ofrece 10.000 caracteres/mes para generar voz. Prueba las voces predefinidas y explora el panel de control.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">5. Hugging Face (huggingface.co)</h3>
+<p class="text-neutral-300 text-sm">Crea una cuenta gratuita. Allí puedes acceder a FLUX.2 mediante Spaces o descargar modelos para usarlos localmente. También sirve para probar otros modelos open-source.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">6. CapCut (capcut.com)</h3>
+<p class="text-neutral-300 text-sm">Descarga la aplicación de escritorio (Windows/Mac) o usa la versión web. Es completamente gratuita y tiene funciones de IA integradas. Será nuestro editor principal.</p>
+</div>
+</div>
+</section>
+<!-- Créditos e Preços -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">💰</span> Comprender los créditos y los modelos de precios</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            Cada plataforma tiene un modelo de precios distinto. Entenderlo es crucial para optimizar tus gastos:
+          </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Plataforma</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Plan gratuito</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Plan de pago (inicial)</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Cómo funciona</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Kling</td><td class="p-3 text-neutral-300">66 créditos/día</td><td class="p-3 text-neutral-300">~$8/mes</td><td class="p-3 text-neutral-300">Créditos por generación, varían según la resolución y la duración</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Midjourney</td><td class="p-3 text-neutral-300">Sin plan gratuito</td><td class="p-3 text-neutral-300">$10/mes (Basic)</td><td class="p-3 text-neutral-300">200 generaciones/mes en Basic, ilimitado en Standard ($30)</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Runway</td><td class="p-3 text-neutral-300">125 créditos iniciales</td><td class="p-3 text-neutral-300">$12/mes</td><td class="p-3 text-neutral-300">Créditos por segundo de video generado</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">ElevenLabs</td><td class="p-3 text-neutral-300">10k caracteres/mes</td><td class="p-3 text-neutral-300">$5/mes</td><td class="p-3 text-neutral-300">Caracteres de texto convertidos en audio</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">FLUX.2</td><td class="p-3 text-neutral-300">Gratis (local)</td><td class="p-3 text-neutral-300">Gratis / API paga</td><td class="p-3 text-neutral-300">Código abierto, funciona localmente o mediante API</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">CapCut</td><td class="p-3 text-neutral-300">Completo</td><td class="p-3 text-neutral-300">Pro opcional</td><td class="p-3 text-neutral-300">Gratis con todas las funcionalidades esenciales</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 Estrategia para ahorrar</h3>
+<p class="text-neutral-300 text-sm">
+              Para el curso, invierte inicialmente solo en Midjourney Basic ($10/mês). Todas las demás herramientas tienen planes gratuitos suficientes para aprender. Cuando estés produciendo contenido real, evalúa qué planes pagos tienen sentido para tu volumen de producción.
+            </p>
+</div>
+</section>
+<!-- Organização de Pastas -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">📁</span> Organizando tus proyectos</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
+            Una buena organización de archivos es esencial cuando trabajas con múltiples herramientas de IA. Recomendamos la siguiente estructura:
+          </p>
+<div class="bg-gray-900 text-green-400 p-6 rounded-lg font-mono text-sm mb-6">
+<pre>
+VISION-Projetos/
+├── 01-Imagens/
+│   ├── midjourney/
+│   ├── flux/
+│   ├── referencias/
+│   └── finalizadas/
+├── 02-Videos/
+│   ├── kling/
+│   ├── runway/
+│   ├── brutos/
+│   └── finalizados/
+├── 03-Audio/
+│   ├── elevenlabs/
+│   ├── musica/
+│   └── sfx/
+├── 04-Projetos-CapCut/
+├── 05-Roteiros/
+├── 06-Assets/
+│   ├── fontes/
+│   ├── logos/
+│   └── templates/
+└── 07-Exportados/
+    ├── youtube/
+    ├── instagram/
+    └── tiktok/</pre>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 Consejo para nombrar</h3>
+<p class="text-neutral-300 text-sm">
+              Usa fechas y descripciones en los nombres: <code>2026-04-12_produto-cafe_midjourney-v7.png</code>. Esto facilita encontrar archivos y mantener un historial de qué se generó con cada herramienta.
+            </p>
+</div>
+</section>
+<!-- Hardware -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🖥️</span> Recomendaciones de hardware</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            La mayoría de las herramientas que usaremos funcionan en la nube, pero contar con hardware adecuado mejora la productividad:
+          </p>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-3">Para herramientas en la nube (suficiente)</h3>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• Cualquier computadora con un navegador moderno</li>
+<li>• 8GB RAM mínimo</li>
+<li>• Conexión estable a Internet</li>
+<li>• Monitor Full HD (recomendado)</li>
+<li>• Almacenamiento: 100GB+ libres para proyectos</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-3">Para modelos locales (FLUX, SD)</h3>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• GPU NVIDIA con 8GB+ VRAM (RTX 3060+)</li>
+<li>• 16GB+ RAM</li>
+<li>• SSD con 50GB+ libres para modelos</li>
+<li>• Python 3.10+ instalado</li>
+<li>• FLUX.2 klein funciona con 8GB VRAM</li>
+</ul>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">⚠️ ¿Sin GPU?</h3>
+<p class="text-neutral-300 text-sm">
+              ¡No hay problema! Todas las herramientas principales (Kling, Midjourney, Runway, ElevenLabs) funcionan 100% en la nube. Los modelos locales son opcionales y se explorarán como alternativa, no como requisito. También puedes usar Google Colab (gratuito) para ejecutar modelos en la GPU de Google.
+            </p>
+</div>
+</section>
+<!-- Extensões e produtividade -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🔧</span> Extensiones y consejos de productividad</h2></div>
+<div class="space-y-4 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Extensiones de navegador recomendadas</h3>
+<ul class="text-sm text-neutral-300 space-y-1">
+<li>• <strong>Loom</strong> — graba la pantalla para documentar procesos</li>
+<li>• <strong>Image Downloader</strong> — descargar imágenes de interfaces de IA</li>
+<li>• <strong>Dark Reader</strong> — comodidad visual para sesiones largas</li>
+<li>• <strong>Tab Manager</strong> — organiza las muchas pestañas de herramientas</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Apps de apoyo</h3>
+<ul class="text-sm text-neutral-300 space-y-1">
+<li>• <strong>Notion u Obsidian</strong> — documenta prompts que funcionan</li>
+<li>• <strong>ShareX (Windows) / CleanShot (Mac)</strong> — capturas de pantalla rápidas</li>
+<li>• <strong>HandBrake</strong> — convierte formatos de video (gratis)</li>
+<li>• <strong>Google Drive / OneDrive</strong> — copia de seguridad en la nube de los proyectos</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Free tiers estratégicos -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🎯</span> Uso estratégico de planes gratuitos</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
+            Maximiza lo que puedes hacer gratis con esta estrategia:
+          </p>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5 mb-6">
+<ol class="text-sm text-neutral-300 space-y-3">
+<li><strong>1. Planifica antes de generar</strong> — Escribe tus prompts en un documento antes de usar créditos. Cada intento cuenta.</li>
+<li><strong>2. Usa Kling para pruebas de video</strong> — Con 66 créditos gratis al día, es la mejor opción para experimentar.</li>
+<li><strong>3. FLUX.2 vía Hugging Face Spaces</strong> — Genera imágenes gratis sin instalar nada. Puede haber una cola, pero es gratis.</li>
+<li><strong>4. ElevenLabs gratis para borradores</strong> — Usa los 10k caracteres/mes para probar la narración. Graba la versión final cuando estés satisfecho.</li>
+<li><strong>5. Hailuo para volumen</strong> — A $0.28/video, es la opción más barata para producir múltiples variaciones.</li>
+<li><strong>6. CapCut es 100% gratis</strong> — No escatimes aquí, usa todas las funciones sin restricciones.</li>
+</ol>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación de la clase</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Creé una cuenta en Kling</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Creé una cuenta en Midjourney (Discord + web)</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Creé una cuenta en Runway</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Creé una cuenta en ElevenLabs</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Creé una cuenta en Hugging Face</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Instalé CapCut</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Organicé mi estructura de carpetas</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Entiendo los modelos de precios de cada plataforma</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-1.3-etica-direitos-autorais.html">
+          ← Clase 1.3
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="../mod2-criacao-imagens/aula-2.1-midjourney-v7-v8.html">
+          Siguiente: Clase 2.1 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

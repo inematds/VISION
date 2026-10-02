@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 5.4: Acabado y publicación · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Lección 5.4: Acabado y publicación · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.4-finalizacao-publicacao.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.4-finalizacao-publicacao.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.4-finalizacao-publicacao.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.4-finalizacao-publicacao.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.4-finalizacao-publicacao.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-5.4-finalizacao-publicacao.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 1</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 5</a>
+<span class="mx-2">/</span>
+<span>Lección 5.4</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎓 Módulo 5 • Clase 4</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Finalización y publicación
+        </h1>
+<p class="text-xl text-neutral-400">
+          Pulido final, exportación en múltiples formatos, publicación y autoevaluación del proyecto.
+        </p>
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~60 minutos</span>
+<span>📊 Principiante</span>
+<span>🔄 Actualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">✨</span> Pulido final</h2></div>
+<p class="text-neutral-300 mb-4">
+            El pulido final es lo que separa un buen video de uno excelente. Son los pequeños
+            detalles los que marcan la diferencia en la percepción de calidad.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Lista de verificación de pulido</h3>
+<div class="space-y-3 mb-4">
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🎵</span>
+<div>
+<strong>Audio final:</strong> Verifica que el volumen esté equilibrado de principio a fin.
+                No debe haber picos ni caídas bruscas. Usa el normalizador de audio de CapCut si es necesario.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🏁</span>
+<div>
+<strong>Primer fotograma:</strong> El primer fotograma del video debe ser visualmente interesante,
+                ya que será la vista previa automática en algunas plataformas.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">⏱️</span>
+<div>
+<strong>Timing final:</strong> Corta los fotogramas extra al inicio y al final. El video debe comenzar
+                de inmediato (sin pantalla negra) y terminar limpiamente después de la CTA.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🔤</span>
+<div>
+<strong>Ortografía:</strong> Revisa cada texto en pantalla. Un error tipográfico puede arruinar
+                la credibilidad de todo el video.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">📱</span>
+<div>
+<strong>Prueba en móvil:</strong> Exporta una versión preliminar y mírala en el celular. Verifica
+                que los textos sean legibles y que ningún elemento importante quede cortado.
+              </div>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">La regla de «míralo 3 veces»</h3>
+<p class="text-neutral-300">
+              Mira el video completo 3 veces antes de exportar la versión final:
+              <strong>1)</strong> enfocándote en lo visual,
+              <strong>2)</strong> enfocándote en el audio (cierra los ojos),
+              <strong>3)</strong> como un espectador que nunca ha visto el contenido.
+            </p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">📤</span> Exportación en varios formatos</h2></div>
+<p class="text-neutral-300 mb-4">
+            Exporta el video final en diferentes formatos para publicar en varias plataformas.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Exportaciones necesarias</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Versión</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Proporción</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Plataforma</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Configuración</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Principal</td>
+<td class="p-3 text-neutral-300">9:16 o 16:9</td>
+<td class="p-3 text-neutral-300">TikTok/YouTube</td>
+<td class="p-3 text-neutral-300">1080p, 30fps, H.264, alta calidad</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Instagram Reels</td>
+<td class="p-3 text-neutral-300">9:16</td>
+<td class="p-3 text-neutral-300">Instagram</td>
+<td class="p-3 text-neutral-300">1080x1920, 30fps, máximo 90s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Feed cuadrado</td>
+<td class="p-3 text-neutral-300">1:1</td>
+<td class="p-3 text-neutral-300">Instagram Feed / LinkedIn</td>
+<td class="p-3 text-neutral-300">1080x1080, 30fps</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Portafolio</td>
+<td class="p-3 text-neutral-300">16:9</td>
+<td class="p-3 text-neutral-300">Sitio web / portafolio</td>
+<td class="p-3 text-neutral-300">1080p o 4K, calidad máxima</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Smart Resize para una adaptación rápida</h3>
+<p class="text-neutral-300">
+              Si editaste en formato 9:16, usa Smart Resize de CapCut para convertirlo automáticamente a 16:9 y 1:1. Revisa el resultado, porque la IA podría necesitar pequeños ajustes manuales en el encuadre de textos y elementos.
+            </p>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🖼️</span> Crear miniaturas</h2></div>
+<p class="text-neutral-300 mb-4">
+            Crea thumbnails atractivas para cada plataforma usando los assets del proyecto y herramientas de IA.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Flujo rápido para una miniatura</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Elige la mejor imagen</strong> de tu proyecto (hero shot del producto)</li>
+<li><strong>Abrir en Canva</strong> con la plantilla 1280x720 (YouTube) o 1080x1920 (TikTok)</li>
+<li><strong>Agrega texto impactante:</strong> 3-5 palabras que complementan el título</li>
+<li><strong>Usa colores contrastantes:</strong> Fondo oscuro + texto claro o viceversa</li>
+<li><strong>Agrega un borde/contorno:</strong> Ayuda a que el texto destaque sobre la imagen</li>
+<li><strong>Exporta en PNG</strong> para obtener la máxima calidad</li>
+</ol>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Prueba A/B de thumbnails</h3>
+<p class="text-neutral-300">
+              Crea 2 versiones de miniatura y pregúntales a tus amigos: "¿En cuál harías clic?"
+              YouTube permite cambiar la miniatura después, así que monitorea el CTR y cámbiala si es necesario.
+            </p>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">📝</span> Descripciones y etiquetas</h2></div>
+<p class="text-neutral-300 mb-4">
+            Prepara todo el contenido textual que acompaña la publicación del video.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Usa ChatGPT para generar todo</h3>
+<div class="bg-gray-800 text-green-400 p-4 rounded-lg mb-4 text-sm overflow-x-auto">
+<pre>Gere conteúdo de publicação para um vídeo de [30/60]s que
+apresenta [seu produto/serviço].
+
+Preciso de:
+1. Título YouTube (max 60 chars, com palavra-chave)
+2. Descrição YouTube (2 parágrafos + timestamps + CTA)
+3. 15 tags YouTube relevantes
+4. Legenda TikTok (engajante, com 3-5 hashtags trending)
+5. Legenda Instagram (com emojis, 5-10 hashtags de nicho)
+6. Post LinkedIn (tom profissional, 3-4 linhas)
+
+Público-alvo: [descreva]
+Palavras-chave principais: [liste]</pre>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Guarda todo en un documento</h3>
+<p class="text-neutral-300">
+              Crea un archivo <code class="bg-blue-100 px-1 rounded">publicacao.txt</code> en la carpeta del proyecto
+              con todas las descripciones, etiquetas y subtítulos listos. Así, al momento de publicar, solo tienes que copiar y pegar.
+            </p>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🚀</span> Publicando en las plataformas</h2></div>
+<p class="text-neutral-300 mb-4">
+            Sigue este orden de publicación para maximizar el alcance y evitar problemas con los algoritmos.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Orden y lista de verificación de publicación</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Orden</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Plataforma</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Lista de verificación rápida</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">1</td>
+<td class="p-3 text-neutral-300">YouTube / YouTube Shorts</td>
+<td class="p-3 text-neutral-300">Título, descripción, etiquetas, miniatura, subtítulos SRT, tarjetas</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">2</td>
+<td class="p-3 text-neutral-300">TikTok</td>
+<td class="p-3 text-neutral-300">Descripción con hashtags, sonidos en tendencia (opcional), portada</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">3</td>
+<td class="p-3 text-neutral-300">Instagram Reels</td>
+<td class="p-3 text-neutral-300">Descripción, hashtags, portada, compartir en el feed</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">4</td>
+<td class="p-3 text-neutral-300">LinkedIn (si aplica)</td>
+<td class="p-3 text-neutral-300">Publicación profesional, versión cuadrada, etiquetas de empresa</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Horario de publicación</h3>
+<p class="text-purple-700">
+              Publica en el horario de mayor actividad de tu audiencia (generalmente de 17h a 20h en Brasil los días hábiles,
+              y de 10h a 14h los fines de semana). Usa la programación nativa de cada plataforma para
+              dejar todo programado de una vez y publicar en los horarios ideales.
+            </p>
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">📊</span> Autoevaluación del proyecto</h2></div>
+<p class="text-neutral-300 mb-4">
+            Antes de considerar que el proyecto está completo, haz una autoevaluación honesta para identificar
+            tus fortalezas y áreas de mejora.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Rúbrica de autoevaluación</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Criterio</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Excelente</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Bueno</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Por mejorar</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Calidad visual</td>
+<td class="p-3 text-neutral-300">Imágenes y videos de alta calidad, estilo consistente</td>
+<td class="p-3 text-neutral-300">Buena calidad, pequeñas inconsistencias</td>
+<td class="p-3 text-neutral-300">Artefactos visibles, estilos mezclados</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Narración</td>
+<td class="p-3 text-neutral-300">Natural, bien sincronizada, tono adecuado</td>
+<td class="p-3 text-neutral-300">Clara, pequeños problemas de sincronización</td>
+<td class="p-3 text-neutral-300">Robótica o desincronizada</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Edición</td>
+<td class="p-3 text-neutral-300">Transiciones suaves, ritmo perfecto</td>
+<td class="p-3 text-neutral-300">Funcional, algunas transiciones abruptas</td>
+<td class="p-3 text-neutral-300">Cortes extraños, ritmo irregular</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Mensaje</td>
+<td class="p-3 text-neutral-300">Clara, persuasiva, CTA eficaz</td>
+<td class="p-3 text-neutral-300">Comprensible, podría ser más contundente</td>
+<td class="p-3 text-neutral-300">Confusa o sin CTA</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Impacto general</td>
+<td class="p-3 text-neutral-300">Parece profesional, lo vería hasta el final</td>
+<td class="p-3 text-neutral-300">Competente, necesita perfeccionarse</td>
+<td class="p-3 text-neutral-300">Aficionado, no logra mantener la atención</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Seção 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">🎉</span> Conclusión del Nivel 1</h2></div>
+<p class="text-neutral-300 mb-4">
+            ¡Felicitaciones! Al completar este proyecto, demostraste dominio de las habilidades fundamentales
+            para crear contenido audiovisual con IA. Mira todo lo que lograste:
+          </p>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-4">
+<h3 class="font-bold text-neutral-100 mb-3">Lo que aprendiste en el Nivel 1</h3>
+<ul class="text-neutral-300 space-y-2">
+<li>• <strong>Fundamentos de IA:</strong> Cómo funciona la IA generativa y sus principales aplicaciones</li>
+<li>• <strong>Generación de imágenes:</strong> Midjourney, FLUX, DALL-E para crear imágenes profesionales</li>
+<li>• <strong>Creación de video:</strong> Kling 3.0, Runway, Pika para generar clips de video con IA</li>
+<li>• <strong>Voz y audio:</strong> ElevenLabs para narración y Suno para música original</li>
+<li>• <strong>Edición con IA:</strong> CapCut con Auto-Cut, subtítulos, efectos y VFX</li>
+<li>• <strong>Publicación:</strong> SEO, miniaturas, publicación en varias plataformas y analítica</li>
+<li>• <strong>Proyecto completo:</strong> Creación integral de un video profesional</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-4">
+<h3 class="font-bold text-neutral-100 mb-3">Qué incluye el Nivel 2: Desarrollo</h3>
+<p class="text-purple-700 mb-3">
+              En el siguiente nivel, profundizarás tus habilidades con:
+            </p>
+<ul class="text-purple-700 space-y-1">
+<li>• Técnicas avanzadas de imágenes (composición, iluminación, estilos artísticos)</li>
+<li>• Animación profesional y personajes con IA</li>
+<li>• Edición avanzada y efectos especiales complejos</li>
+<li>• Producción de audio profesional (podcasts, sound design)</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">¡Comparte tu proyecto!</h3>
+<p class="text-neutral-300">
+              Publica tu video en las redes sociales con el hashtag <strong>#VISIONcurso</strong>.
+              Compartir tu trabajo inspira a otras personas y crea conexiones con otros creadores de la comunidad.
+            </p>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación final del proyecto</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Realicé el pulido final (audio, timing, textos, versión móvil)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Exporté el video en al menos 2 formatos</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Creé thumbnails atractivas</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Preparé descripciones y etiquetas con ChatGPT</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Publiqué en al menos una plataforma</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Pedí comentarios de al menos 2 personas</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Completé la autoevaluación con honestidad</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300 font-bold">¡Proyecto final del nivel 1 completado!</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-5.3-montagem-edicao.html">
+          ← Clase 5.3
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="../../nivel-2-desenvolvimento/">
+          Avanzar al Nivel 2 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lesson 5.3: Assembly and Editing · VISION — VISION Audiovisual AI Course" name="description"/>
+<title>Lesson 5.3: Assembly and Editing · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.3-montagem-edicao.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.3-montagem-edicao.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.3-montagem-edicao.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.3-montagem-edicao.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="aula-5.3-montagem-edicao.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../../es/curso/nivel-1-fundamentos/mod5-projeto-final/aula-5.3-montagem-edicao.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Start</a>
+<span class="mx-2">/</span>
+<a href="../../">Course</a>
+<span class="mx-2">/</span>
+<a href="../">Level 1</a>
+<span class="mx-2">/</span>
+<a href="./">Module 5</a>
+<span class="mx-2">/</span>
+<span>Lesson 5.3</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎓 Module 5 • Lesson 3</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Filming and Editing
+        </h1>
+<p class="text-xl text-neutral-400">
+          Assemble the final video in CapCut by combining all the AI-generated assets.
+        </p>
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~120 minutes</span>
+<span>📊 Beginner</span>
+<span>🔄 Updated Apr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> Setting Up the Project in CapCut</h2></div>
+<p class="text-neutral-300 mb-4">
+            Before you start assembling, set up the project properly to avoid problems later.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Initial setup</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Open CapCut Desktop and create a <strong>New Project</strong></li>
+<li>Set the aspect ratio based on your primary platform:
+              <ul class="list-disc list-inside ml-6 mt-1">
+<li><strong>9:16</strong> for TikTok / Instagram Reels</li>
+<li><strong>16:9</strong> for YouTube</li>
+<li><strong>1:1</strong> for Instagram Feed</li>
+</ul>
+</li>
+<li>Resolution: <strong>1080p</strong> (Full HD)</li>
+<li>Frame rate: <strong>30 FPS</strong></li>
+<li>Import all assets from the folder organized in the previous lesson</li>
+</ol>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Tip: Start with the audio</h3>
+<p class="text-neutral-300">
+              The best practice is to build the video around the audio. Put the narration on the timeline
+              first, then add visuals synced to the speech. This creates a
+              natural rhythm and keeps the video in sync.
+            </p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🔊</span> Audio Sync</h2></div>
+<p class="text-neutral-300 mb-4">
+            Synchronization between audio and visuals is what distinguishes an amateur video from a professional one.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Assembling the audio layers</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Track 1 - Voiceover:</strong> Drag the narration file to the first audio track</li>
+<li><strong>Track 2 - Music:</strong> Add the background music on the second track</li>
+<li><strong>Narration volume:</strong> Keep it at 100%</li>
+<li><strong>Music volume:</strong> Reduce to 15-25% (it should be subtle)</li>
+<li><strong>Music fade in/out:</strong> Add a 1s fade-in at the beginning and a 2s fade-out at the end</li>
+</ol>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Visual sync with narration</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Narration excerpt</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Matching visual</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Technique</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Hook (question/statement)</td>
+<td class="p-3 text-neutral-300">Striking image or product close-up</td>
+<td class="p-3 text-neutral-300">Quick cut or zoom in</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Problem description</td>
+<td class="p-3 text-neutral-300">Scenario that represents the problem</td>
+<td class="p-3 text-neutral-300">Darker tones, smooth transition</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Solution presentation</td>
+<td class="p-3 text-neutral-300">Featured Product, Reveal</td>
+<td class="p-3 text-neutral-300">Impactful transition, light tones</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Each benefit mentioned</td>
+<td class="p-3 text-neutral-300">Visual illustrating the benefit + text</td>
+<td class="p-3 text-neutral-300">Cut to the beat of the music</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Call to action</td>
+<td class="p-3 text-neutral-300">Logo + CTA text + product</td>
+<td class="p-3 text-neutral-300">Clean screen, focus on the text</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Cut on the beat</h3>
+<p class="text-neutral-300">
+              Sync scene transitions with the beats of the background music. This creates a
+              visual rhythm that keeps viewers engaged. In CapCut, use the beat detection feature: <strong>Audio &gt; Detect Beats</strong>.
+            </p>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🔄</span> Transitions and Effects</h2></div>
+<p class="text-neutral-300 mb-4">
+            Transitions connect scenes and maintain visual flow. For a professional video,
+            less is more—avoid overly flashy transitions.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Recommended transitions</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Transition</th>
+<th class="text-left p-3 font-semibold text-neutral-100">When to use</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Duration</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Hard cut</td>
+<td class="p-3 text-neutral-300">Fast-paced scenes, high energy, TikTok</td>
+<td class="p-3 text-neutral-300">0s (instant)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Cross Dissolve</td>
+<td class="p-3 text-neutral-300">Change of theme, passage of time</td>
+<td class="p-3 text-neutral-300">0.3-0.5s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Fade to Black</td>
+<td class="p-3 text-neutral-300">Video ending, section breaks</td>
+<td class="p-3 text-neutral-300">0.5-1s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Zoom Transition</td>
+<td class="p-3 text-neutral-300">Product reveal, highlight</td>
+<td class="p-3 text-neutral-300">0.3-0.5s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Slide/Wipe</td>
+<td class="p-3 text-neutral-300">Show benefits in sequence</td>
+<td class="p-3 text-neutral-300">0.3s</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Golden rule for transitions</h3>
+<p class="text-neutral-300">
+              Use no more than 2 types of transitions in a short video. Visual consistency conveys
+              professionalism. A hard cut + cross dissolve is a safe combination for almost
+              any type of video.
+            </p>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">📝</span> Text and Captions</h2></div>
+<p class="text-neutral-300 mb-4">
+            On-screen text reinforces the message and helps people watching without sound. Add
+            strategic text for the video's most important points.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Types of text to include</h3>
+<div class="space-y-3 mb-4">
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600">
+<strong class="text-neutral-100">Title/Hook (0-3s):</strong>
+<span class="text-gray-600">Large, eye-catching text that reinforces the hook. Example: "This will change EVERYTHING"</span>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600">
+<strong class="text-neutral-100">Benefit highlights (15-25s):</strong>
+<span class="text-gray-600">Keywords that appear alongside the narration. E.g.: "40h battery"</span>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600">
+<strong class="text-neutral-100">Final CTA (25-30s):</strong>
+<span class="text-gray-600">Clear call to action. E.g.: "Link in bio" or "Learn more"</span>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600">
+<strong class="text-neutral-100">Automatic captions:</strong>
+<span class="text-gray-600">Generate captions for the entire video with CapCut Auto-Captions</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Styling text in CapCut</h3>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li><strong>Source:</strong> Use sans-serif fonts (Montserrat, Inter, Poppins) for a modern look</li>
+<li><strong>Size:</strong> Large enough to read on mobile (minimum 48px at 1080p)</li>
+<li><strong>Color:</strong> White with a dark shadow for legibility on any background</li>
+<li><strong>Animation:</strong> Smooth entrance (fade or slide); avoid distracting animations</li>
+<li><strong>Duration:</strong> Each text should remain visible for at least 2 seconds</li>
+</ul>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🎨</span> Color Consistency</h2></div>
+<p class="text-neutral-300 mb-4">
+            Since the assets were generated with different AI tools, colors and styles may
+            vary between scenes. Color grading unifies everything.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Steps for color consistency</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Choose a base LUT:</strong> Apply the same color filter to all clips</li>
+<li><strong>Adjust individually:</strong> Fix brightness and contrast in clips that look out of place</li>
+<li><strong>Temperature match:</strong> All clips should have a similar color temperature (warm or cool)</li>
+<li><strong>Copy settings:</strong> Use the "Copy/Paste Adjustments" feature between similar clips</li>
+<li><strong>Test in preview:</strong> Watch the full video and check that the color transitions are smooth</li>
+</ol>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">AI Color Match in CapCut</h3>
+<p class="text-purple-700">
+              CapCut has a feature for <strong>AI Color Match</strong> that analyzes a reference clip
+              and applies the same color palette to the others. Choose your best-looking clip as the reference
+              and apply it to all the others to automatically create a consistent look.
+            </p>
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">👁️</span> Preview and Feedback</h2></div>
+<p class="text-neutral-300 mb-4">
+            Before finishing, review the video multiple times with a critical eye.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Pre-export Review Checklist</h3>
+<div class="space-y-2 mb-4">
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>🔊</span>
+<div><strong>Audio:</strong> Is the narration clear? Is the music drowning out the voice? Are there clicks or noise?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>⏰</span>
+<div><strong>Timing:</strong> Does each visual appear synchronized with the corresponding narration?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>🎨</span>
+<div><strong>Colors:</strong> Are the colors consistent across scenes? Does any clip stand out?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>📝</span>
+<div><strong>Text:</strong> Is all the text readable? Are there any spelling errors? Is it displayed long enough?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>🔄</span>
+<div><strong>Transitions:</strong> Smooth and natural? No abrupt or awkward transitions?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>📱</span>
+<div><strong>Mobile:</strong> Watch it on your phone—is everything readable and visible on the small screen?</div>
+</div>
+<div class="flex items-start gap-2 bg-gray-50 p-3 rounded">
+<span>⏱️</span>
+<div><strong>Duration:</strong> Is the video between 30-60 seconds? Is the pacing good?</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Ask for external feedback</h3>
+<p class="text-neutral-300">
+              Send the preview to 2-3 people you trust and ask for honest feedback. Ask specifically:
+              <em>"Did you understand what the product was in the first 5 seconds?"</em> e
+              <em>"Would you watch until the end if you saw this in your feed?"</em>
+</p>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lesson Checklist</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I configured the project in CapCut with the correct aspect ratio and resolution</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I imported all the assets and organized them in the timeline</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I synced the narration with the visuals for each scene</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I added background music at an appropriate volume, with fade-in/out</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I applied smooth transitions between scenes</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I added callout text and automatic captions</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I unified the colors with color grading/LUT</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I reviewed the full video and fixed the issues I found</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-5.2-producao-assets.html">
+          ← Lesson 5.2
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="aula-5.4-finalizacao-publicacao.html">
+          Lesson 5.4 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Updated May/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lesson 8.1: Suno v5 and Udio v4 — AI Music · VISION — VISION Audiovisual AI Course" name="description"/>
+<title>Lesson 8.1: Suno v5 and Udio v4 — AI Music · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.1-suno-udio-musica.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.1-suno-udio-musica.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.1-suno-udio-musica.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.1-suno-udio-musica.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="aula-8.1-suno-udio-musica.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../../es/curso/nivel-2-desenvolvimento/mod8-audio-musica/aula-8.1-suno-udio-musica.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Start</a>
+<span class="mx-2">/</span>
+<a href="../../">Course</a>
+<span class="mx-2">/</span>
+<a href="../">Level 2</a>
+<span class="mx-2">/</span>
+<a href="./">Module 8</a>
+<span class="mx-2">/</span>
+<span>Lesson 8.1</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">🔵 Level 2</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Suno v5.5 and Udio v4 — AI Music
+        </h1>
+<p class="text-xl text-neutral-400">
+          Generate full songs with realistic vocals, professional music production, and video integration.
+        </p>
+<p class="text-sm text-neutral-500 mt-2">~120 minutes • Updated in April 2026</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Introdução -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4">🎵 The AI-Generated Music Revolution</h2>
+<p class="text-neutral-300 mb-4">
+          In 2026, AI music generation reached a level few had predicted. With more than 7 million songs created each day on Suno alone, AI has established itself as a legitimate music production tool. In this lesson, you’ll master the market’s two leading platforms: <strong>Suno v5</strong> e <strong>Udio v4</strong>.
+        </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-8-lg">
+<p class="text-neutral-100 font-semibold mb-1">💡 Important Context</p>
+<p class="text-neutral-300">AI music generation is already being used in YouTube productions, podcasts, short film soundtracks, and even commercial music. Understanding these tools is essential for any audiovisual content creator.</p>
+</div>
+<!-- Suno v5.5 -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🎶 Suno v5.5 — The State of the Art in AI Music</h2>
+<p class="text-neutral-300 mb-4">
+          Launched in September 2025, Suno v5.5 marked a huge leap in quality. With 44.1kHz audio, extremely realistic vocals, and the ability to generate songs up to 4 minutes long, the platform became the industry benchmark.
+        </p>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🎤 Suno v5 Main Features</p>
+<ul class="text-purple-700 space-y-1">
+<li>✅ Audio in <strong>44.1kHz</strong> — CD quality</li>
+<li>✅ Extremely realistic vocals with emotional nuances</li>
+<li>✅ Music up to <strong>4 minutes</strong> of duration</li>
+<li>✅ <strong>12 stems</strong> separated (vocals, drums, bass, guitar, etc.)</li>
+<li>✅ <strong>Vocal Personas</strong> — consistent voices across songs</li>
+<li>✅ <strong>Suno Studio</strong> — Built-in DAW for editing</li>
+<li>✅ More than <strong>7 million songs</strong> created per day</li>
+</ul>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Vocal Personas</h3>
+<p class="text-neutral-300 mb-4">
+          One of the most revolutionary features of Suno v5.5 is <strong>Vocal Personas</strong>. You can create a "vocal persona" and reuse it in different songs while keeping the voice consistent. This is perfect for creating a "virtual artist" with its own sound identity.
+        </p>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Suno Studio (DAW)</h3>
+<p class="text-neutral-300 mb-4">
+          Suno Studio is an integrated digital workstation that lets you edit your music directly on the platform. You can adjust the volume of each stem, rearrange sections, add effects, and export in high quality.
+        </p>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Versions and pricing</h3>
+<div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-6 rounded-r-lg">
+<p class="text-neutral-100 font-semibold mb-2">📌 Note About Versions</p>
+<p class="text-neutral-300">Suno v4.5 is still available for free. v5, with all its improvements, requires a paid plan. The licensing agreement with Warner Music Group (WMG) ensures that generated music can be used commercially on paid plans.</p>
+</div>
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Plan</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Price</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Credits</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Features</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Free</td>
+<td class="p-3 text-neutral-300">Free</td>
+<td class="p-3 text-neutral-300">50 credits/day</td>
+<td class="p-3 text-neutral-300">Suno v4.5, non-commercial use</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Pro</td>
+<td class="p-3 text-neutral-300">$10/month</td>
+<td class="p-3 text-neutral-300">2,500 credits/month</td>
+<td class="p-3 text-neutral-300">Suno v5.5, commercial use, Vocal Personas</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Premier</td>
+<td class="p-3 text-neutral-300">$30/month</td>
+<td class="p-3 text-neutral-300">10,000 credits/month</td>
+<td class="p-3 text-neutral-300">Everything in Pro + Suno Studio, priority, 12 stems</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Udio v4 -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🎧 Udio v4 — Studio Quality and Long Context</h2>
+<p class="text-neutral-300 mb-4">
+          Udio v4 is Suno’s main competitor and stands out for its superior audio quality (48kHz stereo), long context of up to 10 minutes, and advanced features like audio inpainting and genre remixing.
+        </p>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🎚️ Udio v4 Main Features</p>
+<ul class="text-neutral-300 space-y-1">
+<li>✅ Audio in <strong>48kHz stereo</strong> — superior quality</li>
+<li>✅ Context up to <strong>10 minutes</strong> — ideal for long-form content</li>
+<li>✅ <strong>Stem separation</strong> integrated</li>
+<li>✅ <strong>Audio Inpainting</strong> — edit specific sections</li>
+<li>✅ <strong>Genre Remix</strong> — transform the genre of a song</li>
+<li>✅ Licensing with <strong>UMG + WMG + Kobalt</strong></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4 mb-8-lg">
+<p class="text-neutral-100 font-semibold mb-1">⚠️ ATTENTION: Downloads disabled</p>
+<p class="text-neutral-300">Since October 2025, Udio has disabled music downloads while it resolves licensing issues. You can create and listen to your music on the platform, but you can’t download it. Check the current status before starting a project that depends on exporting.</p>
+</div>
+<!-- Comparação -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">📊 Comparison: Suno vs Udio vs ElevenLabs Music</h2>
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Feature</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Suno v5</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Udio v4</th>
+<th class="text-left p-3 font-semibold text-neutral-100">ElevenLabs Music</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Audio quality</td>
+<td class="p-3 text-neutral-300">44.1kHz</td>
+<td class="p-3 text-neutral-300">48kHz stereo</td>
+<td class="p-3 text-neutral-300">44.1kHz</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Maximum duration</td>
+<td class="p-3 text-neutral-300">4 minutes</td>
+<td class="p-3 text-neutral-300">10 minutes</td>
+<td class="p-3 text-neutral-300">5 minutes</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Vocals</td>
+<td class="p-3 text-neutral-300">Excellent (Vocal Personas)</td>
+<td class="p-3 text-neutral-300">Very good</td>
+<td class="p-3 text-neutral-300">Good (instrumental focus)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Stems</td>
+<td class="p-3 text-neutral-300">12 stems</td>
+<td class="p-3 text-neutral-300">Integrated separation</td>
+<td class="p-3 text-neutral-300">Basic stems</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Integrated DAW</td>
+<td class="p-3 text-neutral-300">Yes (Suno Studio)</td>
+<td class="p-3 text-neutral-300">No</td>
+<td class="p-3 text-neutral-300">No</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Commercial licensing</td>
+<td class="p-3 text-neutral-300">WMG (paid plans)</td>
+<td class="p-3 text-neutral-300">UMG + WMG + Kobalt</td>
+<td class="p-3 text-neutral-300">Included</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Downloads</td>
+<td class="p-3 text-neutral-300">Available</td>
+<td class="p-3 text-neutral-300">Disabled (Oct 2025)</td>
+<td class="p-3 text-neutral-300">Available</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Starting price</td>
+<td class="p-3 text-neutral-300">Free / $10/month</td>
+<td class="p-3 text-neutral-300">Free / $10/month</td>
+<td class="p-3 text-neutral-300">Included in the ElevenLabs plan</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Best for</td>
+<td class="p-3 text-neutral-300">Songs with vocals, fast production</td>
+<td class="p-3 text-neutral-300">Long pieces, high fidelity</td>
+<td class="p-3 text-neutral-300">Background tracks, voice integration</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Passo a passo -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🛠️ Step by step: Creating your first song with AI</h2>
+<p class="text-neutral-300 mb-4">
+          We'll create a song from scratch using Suno v5.5. This process is simple and takes less than 5 minutes.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Step 1: Go to Suno</p>
+<p class="text-neutral-300">Access <strong>suno.com</strong> and log in. If this is your first time, create a free account. You'll receive 50 daily credits to try it out.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Step 2: Set the Style</p>
+<p class="text-neutral-300">Click "Create" and choose the mode. In <strong>Simple</strong>, just describe what you want: "an upbeat pop song about traveling the world, female vocals, in Portuguese". In <strong>Custom</strong>, you can specify lyrics, genre, BPM, and more.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Step 3: Configure the parameters</p>
+<ul class="text-neutral-300 space-y-1">
+<li>🎵 <strong>Gender:</strong> Pop, Rock, Lo-fi, Sertanejo, MPB, etc.</li>
+<li>🎤 <strong>Vocal:</strong> Male, female, or instrumental</li>
+<li>⏱️ <strong>Duration:</strong> 1 to 4 minutes</li>
+<li>🌍 <strong>Language:</strong> Portuguese, English, or any language</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Step 4: Generate and iterate</p>
+<p class="text-neutral-300">Click "Create" and wait. Suno generates 2 variations by default. Listen to both and choose the best one. Use the "Extend" button to extend or "Remix" to create variations.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Step 5: Export the stems</p>
+<p class="text-neutral-300">On the Premier plan, access Suno Studio and export up to 12 separate stems. This lets you mix the music in your video editor, adjusting vocal and instrument volumes independently.</p>
+</div>
+<!-- Música para vídeo -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🎬 Music for Video: Matching Mood, Tempo, and Style</h2>
+<p class="text-neutral-300 mb-4">
+          Creating music for video requires attention to three fundamental elements: the <strong>mood</strong> (emotional tone), the <strong>time</strong> (BPM) and the <strong>style</strong> musical. Let’s explore how to align each one.
+        </p>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Mood (Emotional tone)</h3>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Video type</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Recommended mood</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Example prompt</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Travel Vlog</td>
+<td class="p-3 text-neutral-300">Cheerful, adventurous</td>
+<td class="p-3 text-neutral-300">"upbeat indie folk, acoustic guitar, happy, travel vibes"</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Documentary</td>
+<td class="p-3 text-neutral-300">Introspective, epic</td>
+<td class="p-3 text-neutral-300">"cinematic orchestral, emotional, documentary score"</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Tutorial</td>
+<td class="p-3 text-neutral-300">Neutral, light</td>
+<td class="p-3 text-neutral-300">"lo-fi hip hop, calm, background music, study vibes"</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Reels/Shorts</td>
+<td class="p-3 text-neutral-300">Energetic, catchy</td>
+<td class="p-3 text-neutral-300">"catchy pop beat, energetic, viral, 120 BPM"</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Horror/Suspense</td>
+<td class="p-3 text-neutral-300">Tense, mysterious</td>
+<td class="p-3 text-neutral-300">"dark ambient, tension building, horror soundtrack"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Tempo (BPM)</h3>
+<p class="text-neutral-300 mb-4">
+          BPM (beats per minute) defines the energy of the music. As a general rule:
+        </p>
+<ul class="text-neutral-300 space-y-2 mb-6 ml-4">
+<li>🐢 <strong>60–80 BPM:</strong> Slow, emotional, introspective scenes</li>
+<li>🚶 <strong>80–110 BPM:</strong> Moderate pace, conversations, vlogs</li>
+<li>🏃 <strong>110-140 BPM:</strong> Energetic, action, dance</li>
+<li>⚡ <strong>140+ BPM:</strong> High energy, sports, fast-paced edits</li>
+</ul>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-8-lg">
+<p class="text-neutral-100 font-semibold mb-1">💡 Pro Tip</p>
+<p class="text-neutral-300">When creating music for video, always generate versions <strong>instrumentals</strong> e <strong>with vocals</strong>. The instrumental version works as background music while you narrate, and the vocal version can be used for intros, transitions, or highlights.</p>
+</div>
+<!-- Checklist -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">✅ Lesson checklist</h2>
+<div class="bg-gray-50 rounded-lg p-6">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Create an account on Suno and explore the interface</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Generate at least 3 songs in different styles</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Try Custom mode with your own lyrics</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Create a Vocal Persona (Pro/Premier plan)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Explore Udio v4 and compare the quality</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Generate an instrumental track for an existing video</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Export stems and test them in a video editor</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../mod7-workflows-opensource/aula-7.4-pipelines-escala.html">
+          ← Previous lesson
+        </a>
+<a class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors" href="aula-8.2-elevenlabs-clonagem-sfx.html">
+          Next lesson →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Updated May/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

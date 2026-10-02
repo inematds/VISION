@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Clase 10.2: Make.com Maia y Zapier Agents · VISION — Curso VISION de IA audiovisual" name="description"/>
+<title>Clase 10.2: Make.com Maia y Zapier Agents · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-3-especializacao/mod10-automacao-agentes/aula-10.2-make-zapier-agents.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-3-especializacao/mod10-automacao-agentes/aula-10.2-make-zapier-agents.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-3-especializacao/mod10-automacao-agentes/aula-10.2-make-zapier-agents.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-3-especializacao/mod10-automacao-agentes/aula-10.2-make-zapier-agents.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-3-especializacao/mod10-automacao-agentes/aula-10.2-make-zapier-agents.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-10.2-make-zapier-agents.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 3</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 10</a>
+<span class="mx-2">/</span>
+<span>Clase 10.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full">🔗 Módulo 10 • Lección 2</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Make.com Maia y Zapier Agents
+        </h1>
+<p class="text-xl text-neutral-400">
+          Automatización visual con IA generativa y ejecución autónoma de tareas en miles de aplicaciones.
+        </p>
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~90 minutos</span>
+<span>📊 Avanzado</span>
+<span>🔄 Actualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🤖</span> Make.com Maia: IA que construye automatizaciones</h2></div>
+<p class="text-neutral-300 mb-4">
+            Make.com Maia es el asistente de IA integrado en Make.com que revoluciona la forma de crear automatizaciones. En vez de arrastrar y conectar nodos manualmente, describes en lenguaje natural lo que quieres automatizar y Maia construye el escenario completo por ti.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">¿Qué es Maia?</h3>
+<p class="text-neutral-300">
+              Maia es el asistente de IA de Make.com que interpreta comandos en lenguaje natural para crear escenarios de automatización. Tiene un Agent Builder con registros de razonamiento paso a paso, un canvas visual para editar y acceso a más de 1.500 integraciones de aplicaciones.
+            </p>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Recursos principales de Make.com Maia</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Recurso</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Descripción</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Creación mediante lenguaje natural</td>
+<td class="p-3 text-neutral-300">Describe lo que deseas automatizar y Maia arma el escenario</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Agent Builder</td>
+<td class="p-3 text-neutral-300">Crea agentes con registros de razonamiento visibles paso a paso</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Canvas visual</td>
+<td class="p-3 text-neutral-300">Interfaz intuitiva de arrastrar y soltar con vista previa en tiempo real</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">1.500+ integraciones</td>
+<td class="p-3 text-neutral-300">Google, Slack, Notion, Airtable, Shopify, WordPress y mucho más</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Iteradores y routers</td>
+<td class="p-3 text-neutral-300">Lógica condicional avanzada con ramificaciones y loops</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Data Stores</td>
+<td class="p-3 text-neutral-300">Almacenamiento interno para persistir datos entre ejecuciones</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">¿Para quién?</h3>
+<p class="text-neutral-300">
+              Make.com es ideal para creadores de contenido de nivel intermedio que quieren automatizaciones visuales potentes sin escribir código. Maia reduce drásticamente la curva de aprendizaje y permite crear escenarios complejos en minutos.
+            </p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">⚡</span> Zapier Agents: tareas autónomas en 8.000+ apps</h2></div>
+<p class="text-neutral-300 mb-4">
+            Los Zapier Agents representan la evolución más accesible de la automatización con IA. Mientras que n8n exige conocimientos técnicos y Make.com requiere familiaridad con la automatización visual, Zapier Agents permite que cualquiera cree agentes autónomos con la menor barrera de entrada del mercado.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">¿Qué pueden hacer los Zapier Agents?</h3>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">🌐 Navegación web</h4>
+<p class="text-purple-700 text-sm">Los agentes navegan por la web para investigar información, monitorear a la competencia y recopilar datos de sitios públicos.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">📊 Análisis de hojas de cálculo</h4>
+<p class="text-purple-700 text-sm">Procesan datos en Google Sheets y Excel, generan informes e identifican patrones automáticamente.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">📧 Gestión de la bandeja de entrada</h4>
+<p class="text-purple-700 text-sm">Clasifican correos electrónicos, responden automáticamente y los envían a las personas adecuadas según reglas de IA.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">🤖 AI by Zapier (nativo)</h4>
+<p class="text-purple-700 text-sm">Pasos de IA nativos sin necesidad de una clave API externa. Genera textos, resume documentos y clasifica datos en línea.</p>
+</div>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Ventaja competitiva: más de 8.000 integraciones</h3>
+<p class="text-neutral-300">
+              La mayor diferencia de Zapier es su ecosistema. Con más de 8.000 aplicaciones integradas, es prácticamente imposible encontrar un servicio que Zapier no conecte. Para los creadores que usan muchas herramientas distintas, esto elimina la necesidad de integraciones personalizadas.
+            </p>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">📊</span> Comparativa: Make.com vs Zapier para creadores</h2></div>
+<p class="text-neutral-300 mb-4">
+            Ambas plataformas son excelentes, pero se adaptan a perfiles diferentes. Consulta la comparación detallada:
+          </p>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Criterio</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Make.com + Maia</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Zapier Agents</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Asistente de IA</td>
+<td class="p-3 text-neutral-300">Maia (crea escenarios a partir de texto)</td>
+<td class="p-3 text-neutral-300">Zapier Agents (ejecuta tareas)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Integraciones</td>
+<td class="p-3 text-neutral-300">1.500+</td>
+<td class="p-3 text-neutral-300">8.000+</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Interfaz</td>
+<td class="p-3 text-neutral-300">Canvas visual avanzado</td>
+<td class="p-3 text-neutral-300">Lista lineal + agente conversacional</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Lógica condicional</td>
+<td class="p-3 text-neutral-300">Routers, iteradores, filtros visuales</td>
+<td class="p-3 text-neutral-300">Rutas y filtros simples</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Precio (de entrada)</td>
+<td class="p-3 text-neutral-300">Gratis (1.000 ops/mes)</td>
+<td class="p-3 text-neutral-300">Gratis (100 tasks/mes)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">IA nativa (sin API key)</td>
+<td class="p-3 text-neutral-300">⚠️ Requiere una clave para LLMs</td>
+<td class="p-3 text-neutral-300">✅ AI by Zapier nativo</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Navegación web</td>
+<td class="p-3 text-neutral-300">❌ A través de una integración externa</td>
+<td class="p-3 text-neutral-300">✅ Nativo en Agents</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Mejor para</td>
+<td class="p-3 text-neutral-300">Flujos visuales complejos</td>
+<td class="p-3 text-neutral-300">Automatizaciones rápidas, muchas apps</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🔧</span> Práctica: pipeline de publicación automática con Make.com</h2></div>
+<p class="text-neutral-300 mb-4">
+            Configuraremos un escenario en Make.com que automatiza la publicación de contenido en varias redes sociales a partir de una sola entrada.
+          </p>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-6">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Paso a paso</h3>
+<ol class="list-decimal list-inside space-y-3 text-neutral-300">
+<li><strong>Crear una cuenta en Make.com</strong> — Accede a make.com y crea una cuenta gratuita</li>
+<li><strong>Nuevo escenario:</strong> Haz clic en "Create a new scenario"</li>
+<li><strong>Usa Maia:</strong> En el chat de Maia, escribe: "Cuando publique un artículo nuevo en WordPress, genera versiones para Instagram, LinkedIn y X, y programa su publicación"</li>
+<li><strong>Revisa el escenario generado:</strong> Maia creará los módulos automáticamente. Revisa cada conexión</li>
+<li><strong>Configura las credenciales:</strong> Conecta tus cuentas de WordPress, Instagram Business, LinkedIn y X</li>
+<li><strong>Agrega el módulo de OpenAI:</strong> Configura la generación de variaciones de texto para cada plataforma</li>
+<li><strong>Configura Router:</strong> Agrega un router para enviar el contenido a cada red social en paralelo</li>
+<li><strong>Agrega la programación:</strong> Usa el módulo de delay para publicar en horarios optimizados por plataforma</li>
+<li><strong>Prueba:</strong> Ejecuta el escenario con un artículo de prueba y verifica todas las salidas</li>
+<li><strong>Activa:</strong> Activa el escenario para la ejecución automática</li>
+</ol>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🕵️</span> Práctica: Zapier Agent para monitorear a la competencia</h2></div>
+<p class="text-neutral-300 mb-4">
+            Crea un Zapier Agent que supervise automáticamente a tus competidores y genere informes semanales con insights prácticos.
+          </p>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-6">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Configuración del agente</h3>
+<ol class="list-decimal list-inside space-y-3 text-neutral-300">
+<li><strong>Accede a Zapier Agents:</strong> En el dashboard de Zapier, ve a "Agentes" (beta)</li>
+<li><strong>Crea un agente nuevo:</strong> Ponle un nombre descriptivo, como "Monitor de Competidores"</li>
+<li><strong>Define las instrucciones:</strong> "Monitorea los perfiles de X y LinkedIn de los siguientes competidores: [lista]. Cada semana, recopila las publicaciones con mayor interacción, identifica tendencias y genera un informe"</li>
+<li><strong>Agrega herramientas:</strong> Habilita la navegación web, Google Sheets y Gmail</li>
+<li><strong>Configura la salida:</strong> Informe semanal enviado por email con una tabla de las publicaciones más destacadas y análisis de tendencias</li>
+<li><strong>Define la frecuencia:</strong> Ejecución semanal los lunes a las 8 h</li>
+<li><strong>Prueba y ajusta:</strong> Ejecútalo manualmente y refina las instrucciones hasta obtener el formato deseado</li>
+</ol>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Combinando Make + Zapier</h3>
+<p class="text-purple-700">
+              Una estrategia avanzada consiste en usar Zapier para monitorear y recopilar datos (gracias a sus más de 8.000 integraciones) y Make.com para el procesamiento visual complejo de contenido. Puedes conectar ambos mediante webhooks para crear un potente sistema híbrido.
+            </p>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación de la clase</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Entiendo las capacidades de Make.com Maia y cómo crear escenarios con lenguaje natural</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Conozco Zapier Agents y sus funcionalidades (navegación web, IA nativa, más de 8k apps)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Sé cuáles son las diferencias entre Make y Zapier y cuándo usar cada uno</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Configuré un flujo de autopublicación en Make.com</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Creé un Zapier Agent para supervisar a la competencia</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Sé cómo combinar Make + Zapier mediante webhooks</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-10.1-n8n-agentes.html">
+          ← Clase 10.1
+        </a>
+<a class="px-6 py-3 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors" href="aula-10.3-pipelines-autonomos.html">
+          Clase 10.3 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

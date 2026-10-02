@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Clase 1.2: Panorama de herramientas 2026 · VISION — Curso VISION de IA audiovisual" name="description"/>
+<title>Clase 1.2: Panorama de herramientas 2026 · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.2-panorama-ferramentas.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.2-panorama-ferramentas.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.2-panorama-ferramentas.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.2-panorama-ferramentas.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.2-panorama-ferramentas.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-1.2-panorama-ferramentas.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 1</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 1</a>
+<span class="mx-2">/</span>
+<span>Clase 1.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8 animate-fade-in">
+<div class="flex items-center gap-3 mb-4 flex-wrap">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎓 Clase 1.2</span>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">~120 min</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
+          Panorama de herramientas 2026
+        </h1>
+<p class="text-xl text-neutral-400">
+          Mapa completo de todas las herramientas de IA creativa disponibles en mayo de 2026, organizadas por categoría, con precios y aspectos destacados.
+        </p>
+</div>
+<div class="rounded-lg p-8 mb-8 space-y-12">
+<!-- Introdução -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">📖</span> Introducción</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
+            El ecosistema de herramientas de IA creativa en 2026 es amplio y puede resultar abrumador para quienes están empezando. En esta clase, vamos a hacer un mapa sistemático de todas las herramientas relevantes, organizadas por categoría, para que tengas una visión clara de lo que está disponible y puedas tomar decisiones informadas.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 Cómo usar esta clase</h3>
+<p class="text-neutral-300 text-sm">
+              Esta clase funciona como una guía de referencia. No es necesario memorizar todas las herramientas ahora. Marca esta página y vuelve siempre que necesites consultar opciones para un tipo específico de contenido.
+            </p>
+</div>
+</section>
+<!-- IMAGEM -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🖼️</span> Herramientas de imagen</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            La generación de imágenes es la categoría más madura del ecosistema. Estas son las principales opciones:
+          </p>
+<div class="space-y-4 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Midjourney V7 / V8 Alpha</h3>
+<p class="text-neutral-300 text-sm mb-2">Líder en calidad artística. V7 reconstruido desde cero con interpretación literal de prompts, renderizado de texto y Draft Mode. V8 Alpha es 4-5x más rápido, con resolución nativa 2K HD y generación de video de hasta 10s a 60fps. Desde $10/mes.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">FLUX.2 (Black Forest Labs)</h3>
+<p class="text-neutral-300 text-sm mb-2">Código abierto de alta calidad. Modelo dev con 32B parámetros, versión klein sub-1-segundo en GPU con 8GB VRAM, resolución de hasta 4MP. Ideal para producción a escala y uso local.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Stable Diffusion 3.5 (Stability AI)</h3>
+<p class="text-neutral-300 text-sm mb-2">Código abierto con arquitectura MMDiT. Versiones Large (8B params) y Medium (2.6B). Ecosistema maduro con ComfyUI, extensiones y comunidad activa.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Leonardo AI</h3>
+<p class="text-neutral-300 text-sm mb-2">Plataforma completa con el modelo Phoenix, motor de personajes consistentes y herramientas de edición. Ideal para game art y concept art. Freemium generoso.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Adobe Firefly</h3>
+<p class="text-neutral-300 text-sm mb-2">Integrado con Creative Cloud. Entrenado solo con contenido con licencia; ofrece indemnización por propiedad intelectual. Ideal para un uso comercial seguro.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Freepik / Canva AI</h3>
+<p class="text-neutral-300 text-sm mb-2">Freepik con generador de imágenes y recursos comerciales. Canva AI integrado al editor con Magic Design. Ambos son excelentes para marketing y redes sociales.</p>
+</div>
+</div>
+</section>
+<!-- VÍDEO -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> Herramientas de video</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            La generación de video es la categoría que más evolucionó en 2025-2026. Hay muchas opciones, cada una con características distintas:
+          </p>
+<div class="space-y-4 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Kling 3.0 (Kuaishou)</h3>
+<p class="text-neutral-300 text-sm">60M+ creadores, 600M+ videos generados. Audio nativo integrado, Multi-Shot Storyboard, hasta 15s en 1080p/48fps. La mejor relación calidad-precio del mercado. Freemium.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Runway Gen-4.5</h3>
+<p class="text-neutral-300 text-sm">Precisión física sin precedentes, salida 4K, consistencia de personajes con imágenes de referencia. Gen-4 Turbo: 5x más rápido. Calidad premium, pero excepcional.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Pika 2.5</h3>
+<p class="text-neutral-300 text-sm">Imágenes más nítidas y cámara más fluida. Pikaformance: modelo hiperrealista de expresiones para una sincronización labial perfecta. Destaca en la edición de videos existentes.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Hailuo / MiniMax</h3>
+<p class="text-neutral-300 text-sm">1080p a $0.28/video (!). Hailuo 2.3 con microexpresiones y estilos anime. Precio imbatible para producción en volumen.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Luma Ray3</h3>
+<p class="text-neutral-300 text-sm">Enfocado en 3D y escenas con física realista. Bueno para product shots y entornos tridimensionales.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Google Veo 3.1</h3>
+<p class="text-neutral-300 text-sm">Integrado con el ecosistema de Google. Alta calidad, pero el acceso aún es limitado. Disponible mediante Vertex AI y Google Labs.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Seedance 2.0 (ByteDance)</h3>
+<p class="text-neutral-300 text-sm">#1 en el Video Arena Leaderboard. Calidad excepcional del equipo de TikTok/ByteDance. Acceso cada vez mayor fuera de China.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Vidu Q3</h3>
+<p class="text-neutral-300 text-sm">#1 en China con audio y video nativos. Destaca en contenido con diálogo y expresividad facial.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Adobe Firefly Video</h3>
+<p class="text-neutral-300 text-sm">Integrado con Premiere Pro. Ideal para editores que ya usan Adobe. Se enfoca en ampliar los workflows existentes.</p>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">⚠️ Sora (OpenAI) — Descontinuado</h3>
+<p class="text-neutral-300 text-sm">
+              Sora dejó de estar disponible en marzo de 2026. Tras sufrir retrasos y problemas de calidad y costo frente a competidores como Kling y Runway, OpenAI decidió cerrar el proyecto. Si encuentras referencias a Sora en tutoriales antiguos, ten en cuenta que ya no está disponible.
+            </p>
+</div>
+</section>
+<!-- ÁUDIO -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎵</span> Herramientas de audio</h2></div>
+<div class="space-y-4 mb-6">
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">ElevenLabs v3</h3>
+<p class="text-neutral-300 text-sm">El TTS más expresivo que se ha creado: suspiros, susurros y risas naturales. Tags de audio para controlar el tono. Clonación de voz. Scribe v2 para speech-to-text. SFX v2 para efectos de sonido. Freemium.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Suno v5</h3>
+<p class="text-neutral-300 text-sm">Generación de canciones completas a partir de texto. Diversos estilos, letras en portugués, calidad de estudio. Ideal para bandas sonoras y jingles. Freemium.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Udio v4</h3>
+<p class="text-neutral-300 text-sm">Competidor de Suno enfocado en la fidelidad musical. Excelente para una producción musical más refinada. Freemium.</p>
+</div>
+</div>
+</section>
+<!-- WORKFLOWS -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🔄</span> Herramientas de workflow</h2></div>
+<div class="space-y-4 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Freepik Spaces</h3>
+<p class="text-neutral-300 text-sm">Entorno integrado para crear recursos visuales con IA, organizar proyectos y colaborar en equipo. Incluye generador de imágenes, editor y biblioteca de recursos.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">ComfyUI</h3>
+<p class="text-neutral-300 text-sm">Interfaz visual basada en nodos para Stable Diffusion y FLUX. Permite crear workflows complejos de generación de imágenes con control total. Es de código abierto y gratuita.</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Adobe Creative Cloud</h3>
+<p class="text-neutral-300 text-sm">Suite completa con Firefly integrado en Photoshop, Premiere y After Effects. Estándar de la industria para la posproducción profesional.</p>
+</div>
+</div>
+</section>
+<!-- AUTOMAÇÃO -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">⚙️</span> Herramientas de automatización</h2></div>
+<div class="space-y-4 mb-6">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">n8n 2.0</h3>
+<p class="text-neutral-300 text-sm">Plataforma de automatización de código abierto con nodos de IA integrados. Ideal para crear pipelines de producción de contenido. Autohospedada o en la nube. Gratis (autohospedada).</p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Make.com</h3>
+<p class="text-neutral-300 text-sm">Automatización visual con cientos de integraciones. Excelente para conectar herramientas de IA entre sí. Freemium.</p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Zapier</h3>
+<p class="text-neutral-300 text-sm">La mayor plataforma de automatización, con 7000+ integraciones. Fácil de usar, ideal para automatizaciones rápidas. Freemium.</p>
+</div>
+</div>
+</section>
+<!-- CODING -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">💻</span> Herramientas de vibe coding</h2></div>
+<div class="space-y-4 mb-6">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Cursor</h3>
+<p class="text-neutral-300 text-sm">Editor de código con IA integrada. Autocompletado inteligente, chat con el código base, generación de código. VS Code con superpoderes. Freemium.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Claude Code</h3>
+<p class="text-neutral-300 text-sm">Agente de código de Anthropic. Ejecuta tareas complejas de desarrollo directamente en la terminal. Pago mediante API.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Lovable</h3>
+<p class="text-neutral-300 text-sm">Crea aplicaciones web completas a partir de descripciones en lenguaje natural. Ideal para prototipos y MVPs. Freemium.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Bolt.new</h3>
+<p class="text-neutral-300 text-sm">Entorno de desarrollo completo en el navegador con IA. Crea y despliega apps en minutos. Freemium.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">v0 (Vercel)</h3>
+<p class="text-neutral-300 text-sm">Generador de interfaces React/Next.js a partir de prompts. Perfecto para crear componentes UI rápidamente. Freemium.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Replit</h3>
+<p class="text-neutral-300 text-sm">IDE en línea con agente de IA integrado. Crea, prueba y despliega aplicaciones directamente en el navegador. Freemium.</p>
+</div>
+</div>
+</section>
+<!-- Tabela Resumo -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">📊</span> Tabla resumen: todas las herramientas</h2></div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Herramienta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Categoría</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Precio</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Destacado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Midjourney V8.1</td><td class="p-3 text-neutral-300">Imagen</td><td class="p-3 text-neutral-300"><span class="text-xs bg-yellow-100 text-neutral-300 px-2 py-1 rounded">De pago</span></td><td class="p-3 text-neutral-300">Calidad artística líder, V8 con video</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">FLUX.2</td><td class="p-3 text-neutral-300">Imagen</td><td class="p-3 text-neutral-300"><span class="text-xs bg-green-100 text-neutral-300 px-2 py-1 rounded">Gratis</span></td><td class="p-3 text-neutral-300">32B de código abierto, ejecutable localmente</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Stable Diffusion 3.5</td><td class="p-3 text-neutral-300">Imagen</td><td class="p-3 text-neutral-300"><span class="text-xs bg-green-100 text-neutral-300 px-2 py-1 rounded">Gratis</span></td><td class="p-3 text-neutral-300">Ecosistema maduro, ComfyUI</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Leonardo AI</td><td class="p-3 text-neutral-300">Imagen</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Personajes consistentes, modelo Phoenix</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Adobe Firefly</td><td class="p-3 text-neutral-300">Imagen</td><td class="p-3 text-neutral-300"><span class="text-xs bg-yellow-100 text-neutral-300 px-2 py-1 rounded">De pago</span></td><td class="p-3 text-neutral-300">Indemnización por propiedad intelectual, uso comercial seguro</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Freepik</td><td class="p-3 text-neutral-300">Imagen</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Assets comerciales + generador IA</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Canva AI</td><td class="p-3 text-neutral-300">Imagen</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Integrado en el editor, Magic Design</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300" colspan="4"></td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Kling 3.0</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Audio nativo, más de 60 millones de creadores</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Runway Gen-4.5</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-yellow-100 text-neutral-300 px-2 py-1 rounded">De pago</span></td><td class="p-3 text-neutral-300">Calidad cinematográfica, 4K</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Pika 2.5</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Sincronización labial con Pikaformance, edición de video</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Hailuo/MiniMax</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">$0.28/video, precio imbatible</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Luma Ray3</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Enfoque en 3D y física realista</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Google Veo 3.1</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-yellow-100 text-neutral-300 px-2 py-1 rounded">De pago</span></td><td class="p-3 text-neutral-300">Ecosistema de Google, Vertex AI</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Seedance 2.0</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">#1 Video Arena Leaderboard</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Vidu Q3</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">#1 en China, audio y video nativos</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Adobe Firefly Video</td><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300"><span class="text-xs bg-yellow-100 text-neutral-300 px-2 py-1 rounded">De pago</span></td><td class="p-3 text-neutral-300">Integrado con Premiere Pro</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300" colspan="4"></td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">ElevenLabs v3</td><td class="p-3 text-neutral-300">Audio</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">TTS más expresivo, clonación de voz</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Suno v5</td><td class="p-3 text-neutral-300">Audio</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Música completa a partir de texto</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Udio v4</td><td class="p-3 text-neutral-300">Audio</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Fidelidad musical refinada</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300" colspan="4"></td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">n8n 2.0</td><td class="p-3 text-neutral-300">Automatización</td><td class="p-3 text-neutral-300"><span class="text-xs bg-green-100 text-neutral-300 px-2 py-1 rounded">Gratis</span></td><td class="p-3 text-neutral-300">Código abierto, nodos de IA integrados</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Make.com</td><td class="p-3 text-neutral-300">Automatización</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Visual, cientos de integraciones</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Zapier</td><td class="p-3 text-neutral-300">Automatización</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">7000+ integraciones</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300" colspan="4"></td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Cursor</td><td class="p-3 text-neutral-300">Coding</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">VS Code + IA, autocompletado inteligente</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Claude Code</td><td class="p-3 text-neutral-300">Coding</td><td class="p-3 text-neutral-300"><span class="text-xs bg-yellow-100 text-neutral-300 px-2 py-1 rounded">De pago</span></td><td class="p-3 text-neutral-300">Agente de código en la terminal</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Lovable</td><td class="p-3 text-neutral-300">Coding</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Apps completas mediante lenguaje natural</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Bolt.new</td><td class="p-3 text-neutral-300">Coding</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Desarrollo completo en el navegador</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">v0</td><td class="p-3 text-neutral-300">Coding</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">Generador de UI React/Next.js</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Replit</td><td class="p-3 text-neutral-300">Coding</td><td class="p-3 text-neutral-300"><span class="text-xs bg-blue-100 text-neutral-300 px-2 py-1 rounded">Freemium</span></td><td class="p-3 text-neutral-300">IDE en línea con agente de IA</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-9">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">9</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación de la clase</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Conozco las principales herramientas de generación de imágenes</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Sé cuáles son las opciones de generación de video y sus diferencias</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Entiendo las herramientas de audio (ElevenLabs, Suno, Udio)</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Conozco las opciones de automatización y vibe coding</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Sé que Sora fue descontinuado en marzo de 2026</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Tengo una visión general de los modelos de precios (Gratis/Freemium/Pago)</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-1.1-ia-generativa-ecossistema.html">
+          ← Clase 1.1
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="aula-1.3-etica-direitos-autorais.html">
+          Siguiente: Clase 1.3 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

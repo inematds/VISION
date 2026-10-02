@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 12.3: Próximos pasos, tendencias y referencias · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Lección 12.3: Próximos pasos, tendencias y referencias · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.3-proximos-passos-referencias.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.3-proximos-passos-referencias.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.3-proximos-passos-referencias.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.3-proximos-passos-referencias.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.3-proximos-passos-referencias.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-12.3-proximos-passos-referencias.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 3</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 12</a>
+<span class="mx-2">/</span>
+<span>Lección 12.3</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full">🔮 Módulo 12 • Lección 3</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Próximos pasos, tendencias y referencias
+        </h1>
+<p class="text-xl text-neutral-400">
+          Descubre lo que viene en la IA audiovisual, entiende los cambios del ecosistema y descubre dónde seguir aprendiendo.
+        </p>
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~60 minutos</span>
+<span>📊 Avanzado</span>
+<span>🔄 Actualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1: Tendências Emergentes -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🚀</span> Tendencias emergentes para 2026-2027</h2></div>
+<p class="text-neutral-300 mb-4">
+            El campo de la IA audiovisual está evolucionando a una velocidad sin precedentes. Estas son las tendencias más significativas que marcarán los próximos 12-18 meses y que todo creador debe seguir.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">1. Generación nativa de audio + video como nuevo estándar</h3>
+<p class="text-neutral-300 mb-4">
+            Modelos como Veo 3 (Google) y Wan (Alibaba) ya demuestran la generación de video con audio sincronizado de forma nativa. Esto elimina la etapa de posproducción de audio y abre posibilidades para crear contenido completo de una sola vez. Pronto, generar un video de 60 segundos con diálogos, efectos de sonido y banda sonora será tan sencillo como escribir un prompt.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">2. Videos más largos y storyboards con múltiples tomas</h3>
+<p class="text-neutral-300 mb-4">
+            Los límites de duración se están ampliando rápidamente. Lo que en 2024 era de 4 segundos, en 2025 pasó a ser de 10-20 segundos y en 2026 ya vemos generación de videos de 1-2 minutos con coherencia narrativa. Herramientas como SkyReels V2 con DiT architecture están liderando la generación de múltiples tomas con coherencia de personajes y escenarios.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">3. El código abierto alcanza al código cerrado</h3>
+<p class="text-neutral-300 mb-4">
+            Los modelos open-source como FLUX (Black Forest Labs), Wan 2.1 (Alibaba) y SkyReels V2 están cerrando rápidamente la brecha de calidad con los modelos propietarios. Esto democratiza el acceso y permite que los creadores ejecuten modelos localmente sin costos de API. La comunidad de ComfyUI es el epicentro de esta revolución.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">4. Costos en picada</h3>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Ejemplo: Hailuo a $0.28/video</h3>
+<p class="text-neutral-300">
+              La guerra de precios entre las plataformas de video con IA está haciendo que producir a gran escala sea muy accesible. Hailuo Minimax ofrece generación de video de calidad por solo $0.28, lo que hace viable producir cientos de videos al mes con un presupuesto mínimo. Kling, Runway y otras plataformas siguen la misma tendencia de reducción de precios.
+            </p>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">5. Vibe coding como acelerador para creadores</h3>
+<p class="text-neutral-300 mb-4">
+            La capacidad de crear herramientas, sitios web y aplicaciones sin ser programador profesional está cambiando radicalmente lo que un creador de contenido puede construir. Herramientas como v0 (Vercel), Replit Agent y Cursor están permitiendo que los creadores se conviertan en microemprendedores tecnológicos y construyan SaaS y herramientas para su nicho.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">6. Agentes de IA que gestionan operaciones completas</h3>
+<p class="text-neutral-300 mb-4">
+            Los agentes de IA están evolucionando de asistentes a operadores. En 2026-2027, veremos agentes capaces de gestionar operaciones completas de contenido: desde la investigación de tendencias hasta la publicación y optimización, con mínima supervisión humana. Plataformas como n8n 2.0, Make.com y Zapier están a la vanguardia de esta transformación.
+          </p>
+</section>
+<!-- Seção 2: O que vem a seguir -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🔭</span> Lo que viene a continuación</h2></div>
+<p class="text-neutral-300 mb-4">
+            Además de las tendencias actuales, estas son las fronteras que se están explorando y que probablemente se volverán mainstream en los próximos 1-3 años:
+          </p>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Frontera</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Estado actual</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Pronóstico</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">4K nativo</td>
+<td class="p-3 text-neutral-300">Algunos modelos ya generan en 4K (Veo 3)</td>
+<td class="p-3 text-neutral-300">Estándar hasta finales de 2027</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Generación en tiempo real</td>
+<td class="p-3 text-neutral-300">Experimental (SDXL Turbo, LCM)</td>
+<td class="p-3 text-neutral-300">Viable para streaming en 2027</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Contenido personalizado a escala</td>
+<td class="p-3 text-neutral-300">Versiones personalizadas de anuncios</td>
+<td class="p-3 text-neutral-300">Cada espectador recibe una versión única</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Colaboración entre humanos e IA</td>
+<td class="p-3 text-neutral-300">Copilotos de edición (Premiere, DaVinci)</td>
+<td class="p-3 text-neutral-300">IA como cocreadora en tiempo real</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Regulación</td>
+<td class="p-3 text-neutral-300">EU AI Act en vigor, otras regiones siguiendo el ejemplo</td>
+<td class="p-3 text-neutral-300">Marca de agua obligatoria, licenciamiento</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Videos largos (10min+)</td>
+<td class="p-3 text-neutral-300">Generación coherente de 1-2 min</td>
+<td class="p-3 text-neutral-300">10min+ con narrativa completa en 2028</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Cómo prepararte</h3>
+<p class="text-neutral-300">
+              La mejor forma de prepararte para el futuro es dominar los fundamentos (que aprendiste en este curso) y mantenerte al día. Las herramientas cambian, pero los principios del storytelling, la composición visual, la participación y la automatización se mantienen. Sigue las comunidades y consulta los recursos que aparecen abajo.
+            </p>
+</div>
+</section>
+<!-- Seção 3: REFERÊNCIAS CRÍTICAS -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">📋</span> REFERENCIAS — Herramientas descontinuadas y cambios importantes</h2></div>
+<p class="text-neutral-300 mb-4">
+            El ecosistema de IA audiovisual es extremadamente volátil. Las herramientas que eran líderes del mercado pueden desaparecer en unos meses. Esta sección documenta los cambios más importantes para que entiendas el contexto y sepas redirigir tus workflows cuando sea necesario.
+          </p>
+<!-- Sora -->
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-xl font-bold text-neutral-100 mb-3">🔴 Sora (OpenAI) — Cerrado en marzo de 2026</h3>
+<p class="text-neutral-300 mb-3">
+              Sora, la herramienta de generación de video de OpenAI que marcó un hito en la historia de la IA, cerró oficialmente en marzo de 2026 tras una trayectoria turbulenta.
+            </p>
+<h4 class="font-bold text-neutral-100 mb-2">Cronología completa:</h4>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Feb 2024</td>
+<td class="p-3 text-neutral-300">Anuncio de Sora: los videos demo impresionan al mundo</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Dic 2024</td>
+<td class="p-3 text-neutral-300">Sora 1 — lanzamiento público. Calidad inferior a las demos, pero funcional</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Sep 2025</td>
+<td class="p-3 text-neutral-300">Sora 2 — mejora significativa. Se considera competitivo frente a Runway y Kling</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Mar 2026</td>
+<td class="p-3 text-neutral-300">Anuncio de discontinuación. OpenAI decide cerrar el producto</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">26 Abr 2026</td>
+<td class="p-3 text-neutral-300">App móvil desactivada: los usuarios pierden acceso a la aplicación</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">24 Set 2026</td>
+<td class="p-3 text-neutral-300">API cerrada — los desarrolladores pierden el acceso programático</td>
+</tr>
+</tbody>
+</table>
+<h4 class="font-bold text-neutral-100 mb-2">Motivos del cierre:</h4>
+<ul class="text-neutral-300 space-y-1 mb-3">
+<li>• <strong>Escasez de capacidad de cómputo:</strong> La generación de video consume enormes recursos de GPU que OpenAI necesitaba para sus modelos de lenguaje (GPT-5, o3)</li>
+<li>• <strong>Costos insostenibles:</strong> El costo por video generado era significativamente mayor que el de la competencia</li>
+<li>• <strong>Enfoque estratégico:</strong> OpenAI priorizó los productos empresariales (API, ChatGPT Enterprise) por encima de las herramientas creativas para consumidores</li>
+<li>• <strong>Competencia feroz:</strong> Kling, Runway y Hailuo ofrecían una calidad similar o superior a precios más bajos</li>
+</ul>
+<h4 class="font-bold text-neutral-100 mb-2">Alternativas recomendadas:</h4>
+<ul class="text-neutral-300 space-y-1">
+<li>• <strong>Kling 3.0</strong> — Mejor calidad general, control avanzado de cámara</li>
+<li>• <strong>Runway Gen-4.5</strong> — Ideal para uso profesional e integración con pipelines</li>
+<li>• <strong>Seedance 2.0</strong> — Excelente para danza y movimiento de personajes</li>
+<li>• <strong>Veo 3.1 (Google)</strong> — Generación nativa con audio, 4K</li>
+</ul>
+</div>
+<!-- Haiper AI -->
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+<h3 class="text-xl font-bold text-neutral-100 mb-3">🟠 Haiper AI — Descontinuado</h3>
+<p class="text-neutral-300 mb-3">
+              Haiper AI fue una herramienta de generación de video con IA que llamó la atención en 2024 por su facilidad de uso e integración con redes sociales. Sin embargo, la herramienta no logró mantenerse competitiva en un mercado cada vez más saturado de herramientas de video con IA.
+            </p>
+<ul class="text-neutral-300 space-y-1">
+<li>• <strong>Lo que era:</strong> Plataforma de generación de video con IA enfocada en creadores de contenido para redes sociales</li>
+<li>• <strong>Por qué falló:</strong> No logró seguir el rápido avance en calidad de sus competidores (Kling, Runway, Hailuo). La competencia por financiamiento y talento en el sector del video con IA fue brutal</li>
+<li>• <strong>Lección:</strong> En el mercado de la IA, la velocidad de iteración y la calidad lo son todo. Las herramientas que no evolucionan rápidamente son reemplazadas en cuestión de meses</li>
+<li>• <strong>Alternativas:</strong> Hailuo (accesible), Kling (calidad), Runway (profesional)</li>
+</ul>
+</div>
+<!-- Stability AI -->
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+<h3 class="text-xl font-bold text-neutral-100 mb-3">🟡 Stability AI — En medio de turbulencias, pero en funcionamiento</h3>
+<p class="text-neutral-300 mb-3">
+              Stability AI, la empresa detrás del revolucionario Stable Diffusion, atravesó períodos turbulentos en 2024-2025, incluidas crisis financieras y cambios de liderazgo. La empresa sigue operando, pero el ecosistema se fragmentó considerablemente.
+            </p>
+<h4 class="font-bold text-neutral-100 mb-2">Cronología de las turbulencias:</h4>
+<ul class="text-neutral-300 space-y-1 mb-3">
+<li>• <strong>2024:</strong> Crisis financiera, salida de ejecutivos clave, cuestionamientos sobre la sostenibilidad del modelo de negocio</li>
+<li>• <strong>2024-2025:</strong> Turbulencias en el liderazgo. Emad Mostaque (CEO y fundador) dejó la empresa</li>
+<li>• <strong>2025:</strong> Reestructuración, enfoque en API empresarial, lanzamiento de Stable Diffusion 3.x con recepción mixta</li>
+<li>• <strong>2026:</strong> Empresa en funcionamiento, pero con presencia reducida en el mercado de consumo</li>
+</ul>
+<h4 class="font-bold text-neutral-100 mb-2">Impacto en el ecosistema:</h4>
+<ul class="text-neutral-300 space-y-1">
+<li>• Los creadores originales de Stable Diffusion fundaron la <strong>Black Forest Labs</strong> y crearon el <strong>FLUX</strong>, que se convirtió en el modelo open source líder para la generación de imágenes</li>
+<li>• La comunidad de ComfyUI migró en gran medida a FLUX como modelo base</li>
+<li>• Stable Diffusion todavía se usa, especialmente mediante ComfyUI, pero FLUX es la opción preferida para nuevas implementaciones</li>
+<li>• <strong>Lección:</strong> En el código abierto, la comunidad es más importante que la empresa. Cuando los creadores se fueron, la innovación se fue con ellos</li>
+</ul>
+</div>
+<!-- Udio -->
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-xl font-bold text-neutral-100 mb-3">🟣 Udio — Descargas deshabilitadas desde octubre de 2025</h3>
+<p class="text-purple-700 mb-3">
+              Udio, una de las principales herramientas de generación musical con IA y competidor directo de Suno, implementó una grave limitación para el uso profesional: deshabilitó la función de descarga de música en octubre de 2025.
+            </p>
+<h4 class="font-bold text-neutral-100 mb-2">Detalles de la limitación:</h4>
+<ul class="text-purple-700 space-y-1 mb-3">
+<li>• <strong>Qué cambió:</strong> Los usuarios ya no pueden descargar la música generada en formato de archivo de audio</li>
+<li>• <strong>Fecha:</strong> Desde octubre de 2025</li>
+<li>• <strong>Impacto:</strong> Imposibilita el uso profesional de la herramienta (pistas para videos, podcasts, etc.)</li>
+<li>• <strong>Estado:</strong> Sin previsión de retorno. Entre los posibles motivos se incluyen disputas de copyright y costos operativos</li>
+</ul>
+<h4 class="font-bold text-neutral-100 mb-2">Alternativas para la producción musical con IA:</h4>
+<ul class="text-purple-700 space-y-1">
+<li>• <strong>Suno</strong> — Principal alternativa. Permite descargas. Calidad excelente</li>
+<li>• <strong>MusicFX (Google)</strong> — Gratis, integrado en el ecosistema de Google</li>
+<li>• <strong>Stable Audio</strong> — De código abierto, ejecutable localmente</li>
+</ul>
+</div>
+<!-- Resumo geral -->
+<div class="bg-gray-100 p-6 rounded-lg mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Resumen: Lecciones del ecosistema</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Herramienta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Estado</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Alternativa principal</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Sora (OpenAI)</td>
+<td class="p-3 text-neutral-300">❌ Finalizado (mar/2026)</td>
+<td class="p-3 text-neutral-300">Kling 3.0, Runway Gen-4.5</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Haiper AI</td>
+<td class="p-3 text-neutral-300">❌ Descontinuado</td>
+<td class="p-3 text-neutral-300">Hailuo, Kling</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Stability AI</td>
+<td class="p-3 text-neutral-300">⚠️ En funcionamiento (con turbulencias)</td>
+<td class="p-3 text-neutral-300">FLUX (Black Forest Labs)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Udio (descargas)</td>
+<td class="p-3 text-neutral-300">⚠️ Sin descarga (oct/2025)</td>
+<td class="p-3 text-neutral-300">Suno</td>
+</tr>
+</tbody>
+</table>
+<div class="mt-4 p-4 bg-white rounded-lg">
+<h4 class="font-bold text-neutral-100 mb-2">Reglas de oro para sobrevivir en el ecosistema:</h4>
+<ol class="list-decimal list-inside text-neutral-300 space-y-2">
+<li><strong>Nunca dependas de una sola herramienta.</strong> Ten siempre un plan B para cada etapa del pipeline</li>
+<li><strong>Exporta y haz una copia de seguridad.</strong> Descarga todo lo que crees. Las plataformas pueden cerrar sin previo aviso</li>
+<li><strong>Prefiere código abierto cuando sea posible.</strong> Los modelos que ejecutas localmente no desaparecen</li>
+<li><strong>Sigue las comunidades.</strong> Los cambios se anuncian y se debaten antes en las comunidades que en los medios masivos</li>
+<li><strong>Invierte en habilidades, no en herramientas.</strong> Las herramientas cambian; la composición, el storytelling y la estrategia son permanentes</li>
+</ol>
+</div>
+</div>
+</section>
+<!-- Seção 4: Recursos e Comunidades -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🔗</span> Recursos y comunidades</h2></div>
+<p class="text-neutral-300 mb-4">
+            Para mantenerte al día en este campo que cambia cada semana, participa en las comunidades y consulta los recursos siguientes:
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Comunidades esenciales</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Comunidad</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Plataforma</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Enfoque</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ComfyUI</td>
+<td class="p-3 text-neutral-300">Discord / GitHub</td>
+<td class="p-3 text-neutral-300">Workflows avanzados, nodos personalizados, nuevos modelos</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Midjourney</td>
+<td class="p-3 text-neutral-300">Discord</td>
+<td class="p-3 text-neutral-300">Generación de imágenes, prompts, showcases</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">r/StableDiffusion</td>
+<td class="p-3 text-neutral-300">Reddit</td>
+<td class="p-3 text-neutral-300">Modelos open-source, FLUX, workflows, tutoriales</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">r/aivideo</td>
+<td class="p-3 text-neutral-300">Reddit</td>
+<td class="p-3 text-neutral-300">Video con IA, comparativas, novedades</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">n8n Community</td>
+<td class="p-3 text-neutral-300">Foro / Discord</td>
+<td class="p-3 text-neutral-300">Automatización, workflows compartidos, AI agents</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Hugging Face</td>
+<td class="p-3 text-neutral-300">Hub / Discord</td>
+<td class="p-3 text-neutral-300">Modelos, papers, demos, rankings</td>
+</tr>
+</tbody>
+</table>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Canales de YouTube recomendados</h3>
+<ul class="space-y-2 text-neutral-300 mb-6">
+<li>• <strong>Matt Wolfe (AI)</strong> — Resumen semanal de novedades en IA</li>
+<li>• <strong>Olivio Sarikas</strong> — Tutoriales de Stable Diffusion y ComfyUI</li>
+<li>• <strong>Theoretically Media</strong> — Reseñas de herramientas de video con IA</li>
+<li>• <strong>Prompt Muse</strong> — Técnicas avanzadas de prompting</li>
+<li>• <strong>All About AI</strong> — Automatización con IA y agentes</li>
+</ul>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Repositorios open source esenciales</h3>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-1">ComfyUI</h4>
+<p class="text-neutral-400 text-sm">github.com/comfyanonymous/ComfyUI</p>
+<p class="text-neutral-500 text-sm">Interfaz basada en nodos para generar imágenes y videos</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-1">FLUX</h4>
+<p class="text-neutral-400 text-sm">github.com/black-forest-labs/flux</p>
+<p class="text-neutral-500 text-sm">Modelo líder de generación de imágenes open-source</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-1">SkyReels V2</h4>
+<p class="text-neutral-400 text-sm">github.com/SkyworkAI/SkyReels-V2</p>
+<p class="text-neutral-500 text-sm">Generación de video de código abierto con arquitectura DiT</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-1">Wan 2.1</h4>
+<p class="text-neutral-400 text-sm">github.com/Wan-Video/Wan2.1</p>
+<p class="text-neutral-500 text-sm">Modelo de video open-source de Alibaba (Tongyi Lab)</p>
+</div>
+</div>
+</section>
+<!-- Seção 5: Conclusão do Curso -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🎓</span> Conclusión del Curso VISION</h2></div>
+<div class="bg-purple-900/20 p-8 rounded-lg border border-purple-500/30 border-2 border-purple-200 mb-6">
+<div class="text-center mb-6">
+<div class="text-6xl mb-4">🎉</div>
+<h3 class="text-2xl font-bold text-purple-900 mb-2">¡Felicitaciones! ¡Completaste VISION!</h3>
+<p class="text-purple-700 text-lg">
+                Ahora formas parte de un grupo selecto de creadores que dominan las herramientas de IA audiovisual más avanzadas del mercado.
+              </p>
+</div>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Lo que aprendiste en los 3 niveles</h3>
+<div class="space-y-4 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h4 class="font-bold text-neutral-100 mb-2">Nivel 1: Fundamentos</h4>
+<ul class="text-neutral-300 space-y-1 text-sm">
+<li>• Conceptos de IA generativa y el ecosistema completo de herramientas</li>
+<li>• Generación de imágenes con Midjourney, FLUX y DALL-E</li>
+<li>• Creación de videos con Kling, Runway y Hailuo</li>
+<li>• Edición con CapCut y producción de audio con ElevenLabs y Suno</li>
+<li>• Ética, derechos de autor y buenas prácticas</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h4 class="font-bold text-neutral-100 mb-2">Nivel 2: Desarrollo</h4>
+<ul class="text-neutral-300 space-y-1 text-sm">
+<li>• Técnicas avanzadas de generación de imágenes y videos</li>
+<li>• ComfyUI y workflows personalizados</li>
+<li>• Producción musical avanzada y diseño de audio</li>
+<li>• Vibe coding con v0, Replit y Cursor</li>
+<li>• Producción audiovisual profesional completa</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h4 class="font-bold text-neutral-100 mb-2">Nivel 3: Especialización</h4>
+<ul class="text-purple-700 space-y-1 text-sm">
+<li>• Automatización con agentes de IA (n8n 2.0, Make.com, Zapier)</li>
+<li>• Flujos de trabajo autónomos de contenido (NoimosAI, Gumloop)</li>
+<li>• Estrategias de monetización y productos digitales</li>
+<li>• Marketing de contenidos potenciado por IA</li>
+<li>• Creación de un canal automatizado y un portafolio profesional</li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">El siguiente paso es tuyo</h3>
+<p class="text-neutral-300 mb-4">
+              El curso VISION te dio las herramientas, técnicas y estrategias. Ahora es hora de poner todo en práctica. Recuerda:
+            </p>
+<ul class="space-y-2 text-neutral-300">
+<li>• <strong>Empieza hoy.</strong> No esperes a tener todo perfecto. Lanza, aprende, itera</li>
+<li>• <strong>Sé constante.</strong> Publica con regularidad, aunque no sea perfecto</li>
+<li>• <strong>Mantén la curiosidad.</strong> Surgen herramientas nuevas cada semana. Prueba, evalúa, adapta</li>
+<li>• <strong>Construye en público.</strong> Comparte tu proceso, tus errores y tus aprendizajes</li>
+<li>• <strong>Conéctate.</strong> Participa en las comunidades, colabora con otros creadores, enseña lo que sabes</li>
+</ul>
+</div>
+<div class="bg-purple-100 p-6 rounded-lg text-center">
+<p class="text-neutral-100 text-lg font-bold mb-2">
+              "El futuro les pertenece a quienes crean."
+            </p>
+<p class="text-purple-700">
+              — Equipo VISION, Abril de 2026
+            </p>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación final</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Conozco las principales tendencias de IA audiovisual para 2026-2027</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Entiendo los cambios en el ecosistema (Sora, Haiper, Stability AI, Udio)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Tengo alternativas identificadas para las herramientas descontinuadas</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Entré en al menos 2 comunidades de la lista</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Guardé los repositorios open-source importantes</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Completé los 3 niveles de VISION</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Tengo mi portafolio publicado y actualizado</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Definí mi plan de acción para los próximos 30 días</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-12.2-desafio-portfolio.html">
+          ← Clase 12.2
+        </a>
+<a class="px-6 py-3 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors" href="../../">
+          Volver al inicio del curso →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 2.3: Arte conceptual y personajes consistentes · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Lección 2.3: Arte conceptual y personajes consistentes · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod2-criacao-imagens/aula-2.3-arte-personagens.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod2-criacao-imagens/aula-2.3-arte-personagens.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod2-criacao-imagens/aula-2.3-arte-personagens.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod2-criacao-imagens/aula-2.3-arte-personagens.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-1-fundamentos/mod2-criacao-imagens/aula-2.3-arte-personagens.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-2.3-arte-personagens.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 1</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 2</a>
+<span class="mx-2">/</span>
+<span>Lección 2.3</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8 animate-fade-in">
+<div class="flex items-center gap-3 mb-4 flex-wrap">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">👤 Clase 2.3</span>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">~120 min</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
+          Arte conceptual y personajes consistentes
+        </h1>
+<p class="text-xl text-neutral-400">
+          Aprende a crear personajes que mantienen una apariencia consistente en múltiples imágenes, domina técnicas de estilo visual y explora el arte conceptual con IA.
+        </p>
+</div>
+<div class="rounded-lg p-8 mb-8 space-y-12">
+<!-- O desafio da consistência -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎯</span> El desafío de la coherencia visual</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
+            Uno de los mayores desafíos al generar imágenes con IA es mantener la consistencia: generar el mismo personaje, con las mismas características, en escenas y poses diferentes. En 2026, varias herramientas resolvieron este problema con distintos enfoques.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 Por qué es importante la consistencia</h3>
+<p class="text-neutral-300 text-sm">
+              Si estás creando un video comercial, una serie de publicaciones para redes sociales o un storyboard, necesitas que tu personaje/mascota/producto sea reconocible en todas las piezas. Sin consistencia, el contenido parece amateur y desconectado.
+            </p>
+</div>
+</section>
+<!-- Técnicas por ferramenta -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🛠️</span> Técnicas de consistencia por herramienta</h2></div>
+<div class="space-y-4 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">Midjourney — Omni Reference</h3>
+<p class="text-neutral-300 text-sm mb-2">La función más potente de Midjourney para mantener la coherencia. Envía una imagen de referencia junto con tu prompt y el modelo mantendrá las características visuales del personaje. Funciona con rostros, ropa, poses y estilos.</p>
+<div class="bg-white p-3 rounded font-mono text-xs mt-2">
+                /imagine [URL de la imagen de referencia] a woman walking through a park, golden hour --cref [URL] --cw 100
+              </div>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">Leonardo AI — Phoenix + Character Engine</h3>
+<p class="text-neutral-300 text-sm mb-2">Leonardo AI ofrece un sistema dedicado a la creación de personajes. El modelo Phoenix genera personajes de alta calidad, y Character Engine permite guardar "personajes" que mantienen la consistencia automáticamente en nuevas generaciones.</p>
+<ul class="text-sm text-neutral-300 mt-2 space-y-1">
+<li>• Crea un personaje una vez y reutilízalo infinitamente</li>
+<li>• Ajusta la pose, la expresión y la escena sin cambiar la identidad</li>
+<li>• Ideal para series de contenido y storytelling visual</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">FLUX.2 — Referencias múltiples e IP-Adapter</h3>
+<p class="text-neutral-300 text-sm mb-2">Con FLUX.2 mediante ComfyUI, puedes usar IP-Adapter para transferir características visuales de imágenes de referencia. Admite varias referencias simultáneas (el rostro de una, la ropa de otra, el estilo de una tercera).</p>
+</div>
+</div>
+</section>
+<!-- Estilos artísticos -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🎨</span> Estilos artísticos con IA</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            Una de las fortalezas de la IA es su capacidad para generar imágenes en prácticamente cualquier estilo artístico. Estos son los más útiles para los creadores de contenido:
+          </p>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Fotorrealista</h3>
+<p class="text-sm text-neutral-300">Prompts: "fotorrealista, Canon EOS R5, 85mm, poca profundidad de campo, iluminación natural"</p>
+</div>
+<div class="bg-rose-900/20 rounded-xl border border-rose-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Anime / Manga</h3>
+<p class="text-sm text-neutral-300">Prompts: "estilo anime, inspirado en Studio Ghibli, sombreado cel, colores vibrantes"</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Ilustración digital</h3>
+<p class="text-sm text-neutral-300">Prompts: "ilustración digital, arte conceptual, tendencia en ArtStation, detallado"</p>
+</div>
+<div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Arte conceptual</h3>
+<p class="text-sm text-neutral-300">Prompts: "arte conceptual, pintura mate, diseño de entornos, cinematográfico"</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Render 3D</h3>
+<p class="text-sm text-neutral-300">Prompts: "renderizado 3D, renderizado en Octane, isométrico, iluminación volumétrica, limpio"</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">Flat Design / vectorial</h3>
+<p class="text-sm text-neutral-300">Prompts: "diseño plano, ilustración vectorial, minimalista, líneas limpias, colores pastel"</p>
+</div>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 Consejo profesional</h3>
+<p class="text-neutral-300 text-sm">
+              Crea una "style guide" con prompts probados para cada estilo que usas. Guarda los prompts que dieron los mejores resultados en un documento de referencia. Esto ahorra tiempo y garantiza la consistencia entre proyectos.
+            </p>
+</div>
+</section>
+<!-- Workflow de personagem -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">📋</span> Workflow: creando un personaje consistente</h2></div>
+<div class="space-y-3 mb-6">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">Paso 1: Define el personaje en texto</h3>
+<p class="text-neutral-300 text-sm">Escribe una descripción detallada: género, edad, etnia, cabello, ojos, ropa, accesorios, personalidad visual.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">Paso 2: Genera la referencia principal</h3>
+<p class="text-neutral-300 text-sm">Usa Midjourney V7 o FLUX.2 para generar la imagen "canónica" del personaje. Genera varias variaciones y elige la mejor.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">Paso 3: Crea una hoja de personaje</h3>
+<p class="text-neutral-300 text-sm">Genera a la misma persona desde múltiples ángulos (frente, perfil, 3/4). Usa el prompt: "character reference sheet, multiple angles, white background"</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">Paso 4: Usa una referencia para nuevas escenas</h3>
+<p class="text-neutral-300 text-sm">Con Omni Reference (Midjourney) o Character Engine (Leonardo), usa la imagen de referencia para generar el personaje en situaciones nuevas.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-1">Paso 5: Guarda y organiza</h3>
+<p class="text-neutral-300 text-sm">Organiza todas las imágenes del personaje en una carpeta dedicada. Mantén la referencia principal siempre accesible.</p>
+</div>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación de la clase</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Entiendo el desafío de la consistencia visual con IA</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Sé usar Omni Reference en Midjourney</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Conozco Character Engine de Leonardo AI</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Sé generar imágenes en al menos 4 estilos diferentes</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Creé un personaje consistente con character sheet</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">Tengo una guía de estilo con mis prompts favoritos</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-2.2-flux-stable-diffusion.html">
+          ← Clase 2.2
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="aula-2.4-mockups-fotorrealismo.html">
+          Siguiente: Clase 2.4 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

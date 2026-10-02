@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 7.2: ComfyUI - Hub central del ecosistema open-source de IA generativa" name="description"/>
+<title>Lección 7.2: ComfyUI — Hub del ecosistema open-source · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.2-comfyui.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.2-comfyui.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.2-comfyui.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.2-comfyui.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.2-comfyui.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-7.2-comfyui.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 2</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 7</a>
+<span class="mx-2">/</span>
+<span>Lección 7.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">Nivel 2</span>
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">~120 min</span>
+</div>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          ComfyUI — Hub del ecosistema Open-Source
+        </h1>
+<p class="text-xl text-neutral-400">
+          Domina ComfyUI, la interfaz basada en nodos que se convirtió en el centro para ejecutar modelos open-source de imagen y video con control total sobre cada etapa del pipeline.
+        </p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🔧</span> ¿Qué es ComfyUI?</h2></div>
+<p class="text-neutral-300 mb-4">
+            O <strong>ComfyUI</strong> es una interfaz gráfica open source basada en nodos para ejecutar modelos de IA generativa. Mientras que herramientas como Midjourney o Runway ofrecen una experiencia simplificada (escribes un prompt → recibes un resultado), ComfyUI expone <strong>cada etapa del pipeline de generación</strong> como un nodo visual que puedes configurar, conectar y personalizar.
+          </p>
+<p class="text-neutral-300 mb-4">
+            Piensa en él como el "Blender de la IA generativa": potente, flexible, con una curva de aprendizaje, pero con posibilidades prácticamente ilimitadas.
+          </p>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4-lg mb-6">
+<p class="text-neutral-100 font-semibold mb-1">¿Por qué ComfyUI dominó?</p>
+<p class="text-neutral-300 text-sm">Tres razones: (1) es 100 % gratuito y de código abierto, (2) admite prácticamente cualquier modelo de código abierto mediante custom nodes y (3) la comunidad creó más de 1000 paquetes de custom nodes que amplían sus capacidades infinitamente.</p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">📦</span> 1000+ Custom Nodes</h2></div>
+<p class="text-neutral-300 mb-4">
+            El ecosistema de custom nodes es lo que hace que ComfyUI sea verdaderamente potente. Cada paquete de nodos agrega nuevas funcionalidades:
+          </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Paquete de nodos</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Funcionalidad</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ComfyUI-Wan</td>
+<td class="p-3 text-neutral-300">Integración con Wan 2.5/2.7 para generar videos</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ComfyUI-FLUX</td>
+<td class="p-3 text-neutral-300">Compatibilidad con FLUX.2 para imágenes fotorrealistas</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ComfyUI-SkyReels</td>
+<td class="p-3 text-neutral-300">Pipeline SkyReels V4 para video con audio</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Rodin3D Nodes</td>
+<td class="p-3 text-neutral-300">Generación de modelos 3D a partir de imágenes</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ControlNet Nodes</td>
+<td class="p-3 text-neutral-300">Control de pose, profundidad, bordes y composición</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">LatentCut Node</td>
+<td class="p-3 text-neutral-300">Corte y composición en el espacio latente (sin artefactos)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">IP-Adapter Nodes</td>
+<td class="p-3 text-neutral-300">Transferencia de estilo y consistencia del personaje</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🧩</span> Subgraphs — Flujos de trabajo modulares</h2></div>
+<p class="text-neutral-300 mb-4">
+            Los <strong>Subgraphs</strong> son una función avanzada que permite encapsular workflows complejos en un único nodo reutilizable. Esto permite:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Modularidad</strong> — Crea «bloques» que puedas reutilizar en distintos proyectos</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Organización</strong> — Mantén los workflows complejos legibles y manejables</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Compartir</strong> — Exporta subgraphs para la comunidad o el equipo</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Abstracción</strong> — Oculta la complejidad y muestra solo los parámetros relevantes</span>
+</li>
+</ul>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🤖</span> ComfyUI Copilot (Alibaba)</h2></div>
+<p class="text-neutral-300 mb-4">
+            O <strong>ComfyUI Copilot</strong>, desarrollado por Alibaba, es un asistente de IA integrado en ComfyUI que acelera drásticamente la curva de aprendizaje:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">•</span>
+<span><strong>Generación de workflows mediante prompts</strong> — Describe lo que quieres y Copilot arma el workflow</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">•</span>
+<span><strong>Explicación de nodos</strong> — Pasa el cursor sobre cualquier nodo y recibe una explicación detallada</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">•</span>
+<span><strong>Depuración asistida</strong> — Copilot identifica y sugiere correcciones para errores en el workflow</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">•</span>
+<span><strong>10x más rápido</strong> — Según Alibaba, Copilot acelera 10 veces el aprendizaje de ComfyUI</span>
+</li>
+</ul>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Cómo activar Copilot</p>
+<p class="text-neutral-300 text-sm">Instala la extensión ComfyUI-Copilot mediante ComfyUI Manager. Después de reiniciar, aparecerá un ícono de chat en la interfaz. Puedes pedir: "Crea un workflow para generar una imagen con FLUX.2, aplicar ControlNet de pose y hacer un upscale 4x".</p>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">💾</span> Optimización de VRAM</h2></div>
+<p class="text-neutral-300 mb-4">
+            Ejecutar modelos grandes localmente requiere una gestión cuidadosa de la VRAM. ComfyUI ofrece varias estrategias:
+          </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Estrategia</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Comando/Configuración</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Ahorro de VRAM</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">FP16 Intermediates</td>
+<td class="p-3 text-neutral-300">--fp16-intermediates</td>
+<td class="p-3 text-neutral-300">~30-40%</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Low VRAM Mode</td>
+<td class="p-3 text-neutral-300">--lowvram</td>
+<td class="p-3 text-neutral-300">~50%</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">CPU Offload</td>
+<td class="p-3 text-neutral-300">--cpu</td>
+<td class="p-3 text-neutral-300">Máxima (más lento)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Tiled VAE</td>
+<td class="p-3 text-neutral-300">Nodo VAE Decode (Tiled)</td>
+<td class="p-3 text-neutral-300">~20% en el decode</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Recomendación de hardware</p>
+<p class="text-neutral-300 text-sm">Para generar imágenes con FLUX.2: mínimo 12GB VRAM (RTX 3060/4060). Para video con Wan 2.7: mínimo 24GB VRAM (RTX 4090 o A100). Con --fp16-intermediates, una RTX 3090 (24GB) ejecuta la mayoría de los modelos con comodidad.</p>
+</div>
+</section>
+<!-- Seção 6: Passo a passo -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🛠️</span> Configurando ComfyUI localmente</h2></div>
+<div class="space-y-4 mb-6">
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600 border-l-4 border-gray-400">
+<h3 class="font-bold text-neutral-100 mb-2">Paso 1 — Instalar los requisitos previos</h3>
+<p class="text-neutral-300 text-sm">Python 3.10+, Git, CUDA toolkit (NVIDIA) o ROCm (AMD). Verifica con <code class="bg-gray-200 px-1 rounded">nvidia-smi</code> si tu GPU es reconocida.</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600 border-l-4 border-gray-400">
+<h3 class="font-bold text-neutral-100 mb-2">Paso 2 — Clonar el repositorio</h3>
+<p class="text-neutral-300 text-sm font-mono">git clone https://github.com/comfyanonymous/ComfyUI.git</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600 border-l-4 border-gray-400">
+<h3 class="font-bold text-neutral-100 mb-2">Paso 3 — Instalar dependencias</h3>
+<p class="text-neutral-300 text-sm font-mono">pip install -r requirements.txt</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600 border-l-4 border-gray-400">
+<h3 class="font-bold text-neutral-100 mb-2">Paso 4 — Descargar el modelo FLUX.2</h3>
+<p class="text-neutral-300 text-sm">Descarga el modelo FLUX.2-schnell de Hugging Face y colócalo en <code class="bg-gray-200 px-1 rounded">ComfyUI/models/checkpoints/</code></p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600 border-l-4 border-gray-400">
+<h3 class="font-bold text-neutral-100 mb-2">Paso 5 — Iniciar ComfyUI</h3>
+<p class="text-neutral-300 text-sm font-mono">python main.py --fp16-intermediates</p>
+<p class="text-neutral-300 text-sm mt-1">Accede <code class="bg-gray-200 px-1 rounded">http://127.0.0.1:8188</code> en el navegador.</p>
+</div>
+</div>
+</section>
+<!-- Seção 7: Primeiro workflow -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">🎨</span> Primer workflow: Text-to-Image con FLUX.2</h2></div>
+<p class="text-neutral-300 mb-4">
+            Crea tu primer workflow conectando estos nodos en este orden:
+          </p>
+<div class="bg-gray-100 p-4 rounded-lg mb-4 font-mono text-sm">
+<p class="">[Load Checkpoint: FLUX.2] → [CLIP Text Encode: tu prompt] → [KSampler] → [VAE Decode] → [Save Image]</p>
+</div>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">1.</span>
+<span><strong>Load Checkpoint</strong> — Selecciona el modelo FLUX.2 que descargaste</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">2.</span>
+<span><strong>CLIP Text Encode</strong> — Agrega dos: uno para el prompt positivo y otro para el prompt negativo</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">3.</span>
+<span><strong>KSampler</strong> — Configura steps (20), cfg (7.5), sampler (euler), scheduler (normal)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">4.</span>
+<span><strong>VAE Decode</strong> — Convierte el espacio latente en una imagen visible</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">5.</span>
+<span><strong>Save Image</strong> — Guarda el resultado como PNG</span>
+</li>
+</ul>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación de la clase</h2></div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Comprendí el concepto de ComfyUI como hub basado en nodos</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Conozco los principales paquetes de custom nodes</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Sé qué son los Subgraphs y cómo usarlos</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Conozco ComfyUI Copilot de Alibaba</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Comprendí las estrategias de optimización de VRAM</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Instalé ComfyUI localmente (o en la nube)</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Creé mi primer workflow de text-to-image con FLUX.2</span>
+</label>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-7.1-freepik-spaces.html">
+          ← Clase 7.1
+        </a>
+<a class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors" href="aula-7.3-skyreels-wan-ltx.html">
+          Siguiente clase →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

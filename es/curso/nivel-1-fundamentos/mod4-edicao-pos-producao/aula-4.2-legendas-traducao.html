@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 4.2: Subtítulos, traducción y doblaje automático · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Lección 4.2: Subtítulos, traducción y doblaje automático · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-4.2-legendas-traducao.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 1</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 4</a>
+<span class="mx-2">/</span>
+<span>Lección 4.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">✂️ Módulo 4 • Clase 2</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Subtítulos, traducción y doblaje automáticos
+        </h1>
+<p class="text-xl text-neutral-400">
+          Haz que tu contenido sea accesible y global con subtítulos automáticos, traducción y doblaje con IA.
+        </p>
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~90 minutos</span>
+<span>📊 Principiante</span>
+<span>🔄 Actualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">💬</span> Subtítulos automáticos con IA</h2></div>
+<p class="text-neutral-300 mb-4">
+            Los subtítulos ya no son opcionales: el 85% de los videos en redes sociales se ven sin sonido.
+            Además, los subtítulos aumentan la interacción, mejoran la accesibilidad y ayudan al SEO.
+            En 2026, la IA genera subtítulos con una precisión superior al 98% en portugués.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Por qué los subtítulos son esenciales</h3>
+<ul class="text-neutral-300 space-y-1">
+<li>• <strong>Accesibilidad:</strong> Personas sordas o con discapacidad auditiva</li>
+<li>• <strong>Interacción:</strong> +80% de tiempo de visualización en videos con subtítulos</li>
+<li>• <strong>Alcance:</strong> Las plataformas priorizan los videos con subtítulos en el algoritmo</li>
+<li>• <strong>Contexto:</strong> Muchos miran el contenido en el transporte público, la oficina, etc.</li>
+</ul>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Herramientas de subtítulos automáticos</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Herramienta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Precisión PT-BR</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Precio</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Destacado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">CapCut Auto-Captions</td>
+<td class="p-3 text-neutral-300">~96%</td>
+<td class="p-3 text-neutral-300">Gratis</td>
+<td class="p-3 text-neutral-300">Integrado en el editor</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Whisper (OpenAI)</td>
+<td class="p-3 text-neutral-300">~98%</td>
+<td class="p-3 text-neutral-300">Gratis (open-source)</td>
+<td class="p-3 text-neutral-300">Mayor precisión, uso local</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">YouTube Auto-Captions</td>
+<td class="p-3 text-neutral-300">~94%</td>
+<td class="p-3 text-neutral-300">Gratis</td>
+<td class="p-3 text-neutral-300">Automático al publicar</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Descript</td>
+<td class="p-3 text-neutral-300">~97%</td>
+<td class="p-3 text-neutral-300">Desde $24/mes</td>
+<td class="p-3 text-neutral-300">Edición mediante texto</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Captions.ai</td>
+<td class="p-3 text-neutral-300">~97%</td>
+<td class="p-3 text-neutral-300">Freemium</td>
+<td class="p-3 text-neutral-300">Subtítulos estilizados para redes sociales</td>
+</tr>
+</tbody>
+</table>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Generando subtítulos en CapCut</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Importa tu video con narración en la línea de tiempo</li>
+<li>Haz clic en <strong>Texto &gt; Auto-Captions</strong></li>
+<li>Selecciona el idioma: <strong>Portugués (Brasil)</strong></li>
+<li>Espera a que la IA procese el audio (generalmente 30s-2min)</li>
+<li>Revisa y corrige posibles errores (nombres propios, términos técnicos)</li>
+<li>Elige un estilo de subtítulos (fuente, color, posición, animación)</li>
+<li>Ajusta el tamaño para garantizar la legibilidad en dispositivos móviles</li>
+</ol>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Consejo profesional</h3>
+<p class="text-neutral-300">
+              Revisa siempre los subtítulos generados automáticamente. La IA puede equivocarse con nombres propios,
+              modismos regionales y términos técnicos. Una revisión de 5 minutos evita errores vergonzosos.
+            </p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">📄</span> Archivos SRT y VTT</h2></div>
+<p class="text-neutral-300 mb-4">
+            Los subtítulos se almacenan en archivos de texto especiales. Los dos formatos más comunes son SRT y VTT.
+            Entender estos formatos te permite editar, reutilizar e importar subtítulos en cualquier plataforma.
+          </p>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-2">Formato SRT</h4>
+<pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
+1
+00:00:01,000 --&gt; 00:00:04,500
+Olá! Bem-vindos ao nosso
+vídeo sobre IA.
+
+2
+00:00:05,000 --&gt; 00:00:08,200
+Hoje vamos aprender a criar
+conteúdo incrível.</pre>
+<p class="text-neutral-400 text-sm mt-2">Más universal, aceptado en casi todas las plataformas.</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-2">Formato VTT (WebVTT)</h4>
+<pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
+WEBVTT
+
+00:00:01.000 --&gt; 00:00:04.500
+Olá! Bem-vindos ao nosso
+vídeo sobre IA.
+
+00:00:05.000 --&gt; 00:00:08.200
+Hoje vamos aprender a criar
+conteúdo incrível.</pre>
+<p class="text-neutral-400 text-sm mt-2">Estándar web (HTML5), admite estilos CSS.</p>
+</div>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Exportación de subtítulos de CapCut</h3>
+<p class="text-neutral-300">
+              En CapCut, después de generar los subtítulos automáticos, puedes exportarlos como archivo SRT separado.
+              Ve a <strong>Texto &gt; Exportar subtítulos como SRT</strong>. Esto permite reutilizar los subtítulos
+              en otras plataformas o traducirlos por separado.
+            </p>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🌍</span> Traducción automática con IA</h2></div>
+<p class="text-neutral-300 mb-4">
+            Traducir tu contenido a otros idiomas multiplica tu alcance potencial. En 2026, las herramientas
+            de traducción automática ofrecen una calidad cercana a la traducción humana para los idiomas más comunes.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Herramientas de traducción para video</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Herramienta</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Idiomas</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Qué traduce</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Precio</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">CapCut Translate</td>
+<td class="p-3 text-neutral-300">20+</td>
+<td class="p-3 text-neutral-300">Subtítulos</td>
+<td class="p-3 text-neutral-300">Gratis</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ElevenLabs Dubbing</td>
+<td class="p-3 text-neutral-300">30+</td>
+<td class="p-3 text-neutral-300">Voz + subtítulos</td>
+<td class="p-3 text-neutral-300">Desde $5/mes</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">HeyGen Translate</td>
+<td class="p-3 text-neutral-300">40+</td>
+<td class="p-3 text-neutral-300">Voz + lip-sync</td>
+<td class="p-3 text-neutral-300">Desde $29/mes</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Rask.ai</td>
+<td class="p-3 text-neutral-300">60+</td>
+<td class="p-3 text-neutral-300">Voz + subtítulos</td>
+<td class="p-3 text-neutral-300">Desde $50/mes</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">DeepL + Whisper</td>
+<td class="p-3 text-neutral-300">30+</td>
+<td class="p-3 text-neutral-300">Texto de los subtítulos</td>
+<td class="p-3 text-neutral-300">Gratis/Freemium</td>
+</tr>
+</tbody>
+</table>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Flujo de traducción recomendado</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Genera subtítulos</strong> en el idioma original (PT-BR) con CapCut o Whisper</li>
+<li><strong>Exporta el SRT</strong> del idioma original</li>
+<li><strong>Traduce el SRT</strong> usando DeepL (mejor calidad) o ChatGPT</li>
+<li><strong>Revisa la traducción</strong> (especialmente las expresiones idiomáticas)</li>
+<li><strong>Importa el SRT traducido</strong> en CapCut como una nueva pista de subtítulos</li>
+<li><strong>Publica</strong> con subtítulos en varios idiomas</li>
+</ol>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎙️</span> Doblaje automático con IA</h2></div>
+<p class="text-neutral-300 mb-4">
+            El doblaje automático va más allá de traducir el texto: recrea la narración del video en otro idioma,
+            conservando el tono, el ritmo e incluso la voz original. En 2026, los resultados son sorprendentemente naturales.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Doblaje con ElevenLabs</h3>
+<p class="text-neutral-300 mb-4">
+            ElevenLabs ofrece la función Dubbing Studio, que automatiza todo el proceso de doblaje:
+          </p>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Accede <strong>ElevenLabs &gt; Dubbing</strong></li>
+<li>Sube tu video (o pega el enlace de YouTube)</li>
+<li>Selecciona el idioma de origen (portugués)</li>
+<li>Elige los idiomas de destino (por ejemplo: inglés, español)</li>
+<li>La IA transcribe, traduce y genera la narración en el nuevo idioma</li>
+<li>Revisa y ajusta la sincronización</li>
+<li>Exporta el video doblado</li>
+</ol>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">HeyGen: sincronización labial con IA</h3>
+<p class="text-purple-700">
+              Si tu video muestra a una persona hablando, HeyGen va más allá: no solo dobla la voz, sino que también ajusta el movimiento de los labios para sincronizarlo con el nuevo idioma. El resultado es tan natural que parece que la persona realmente está hablando en ese idioma.
+            </p>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🌐</span> Estrategia de contenido multilingüe</h2></div>
+<p class="text-neutral-300 mb-4">
+            Con las herramientas de traducción y doblaje con IA, crear contenido multilingüe se volvió accesible.
+            Pero es importante tener una estrategia clara para maximizar el impacto.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Idiomas prioritarios por nicho</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Nicho</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Idiomas recomendados</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Motivo</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Tecnología</td>
+<td class="p-3 text-neutral-300">EN, ES, HI</td>
+<td class="p-3 text-neutral-300">Mayor audiencia y demanda global</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Estilo de vida/Viajes</td>
+<td class="p-3 text-neutral-300">EN, ES, FR</td>
+<td class="p-3 text-neutral-300">Audiencia internacional diversa</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Educación</td>
+<td class="p-3 text-neutral-300">ES, EN</td>
+<td class="p-3 text-neutral-300">Mercado latinoamericano + global</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Comercio electrónico</td>
+<td class="p-3 text-neutral-300">EN, ES, DE</td>
+<td class="p-3 text-neutral-300">Mercados con mayor poder adquisitivo</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Estrategia MVP: empieza con 2 idiomas</h3>
+<p class="text-neutral-300">
+              No intentes traducir a 10 idiomas de una vez. Empieza con portugués + inglés (o español).
+              Mide los resultados, ajusta tu enfoque y después amplía gradualmente. El costo de traducir
+              un video de 1 minuto con ElevenLabs es inferior a R$5.
+            </p>
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">♿</span> Accesibilidad: buenas prácticas</h2></div>
+<p class="text-neutral-300 mb-4">
+            La accesibilidad no es solo una cuestión legal: también es una cuestión de respeto y alcance.
+            Los videos accesibles llegan a más personas y funcionan mejor en los algoritmos.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Lista de verificación de accesibilidad para videos</h3>
+<div class="space-y-3 mb-4">
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">📝</span>
+<div>
+<strong>Subtítulos descriptivos:</strong> Además del habla, incluye sonidos importantes entre corchetes:
+                [música animada], [puerta que se cierra de golpe], [risas]
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🎨</span>
+<div>
+<strong>Contraste de subtítulos:</strong> Usa un fondo oscuro semitransparente con texto blanco.
+                Nunca uses texto blanco directamente sobre un video claro.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">📏</span>
+<div>
+<strong>Tamaño de fuente:</strong> Mínimo de 28px para videos 1080p. En móvil, los subtítulos
+                deben ser legibles en pantallas pequeñas.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">⏰</span>
+<div>
+<strong>Tiempo de visualización:</strong> Cada subtítulo debe permanecer en pantalla durante al menos 1.5 segundos.
+                Máximo de 2 líneas a la vez.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🔊</span>
+<div>
+<strong>Audiodescripción:</strong> Para contenidos visuales importantes, considera agregar
+                audiodescripción para personas con discapacidad visual.
+              </div>
+</div>
+</div>
+</section>
+<!-- Seção 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">🛠️</span> Ejercicio práctico</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Ejercicio: subtítulos y traducción completos</h3>
+<ol class="list-decimal list-inside space-y-3 text-neutral-300">
+<li><strong>Genera subtítulos:</strong> Usa CapCut Auto-Captions en un video con narración en portugués</li>
+<li><strong>Estiliza:</strong> Aplica un estilo de subtítulos atractivo (fuente, color, animación)</li>
+<li><strong>Exporta el SRT:</strong> Guarda los subtítulos como archivo SRT</li>
+<li><strong>Traduce:</strong> Usa DeepL para traducir el SRT al inglés</li>
+<li><strong>Importa:</strong> Agrega los subtítulos en inglés como segunda pista en CapCut</li>
+<li><strong>Bonus:</strong> Prueba la doblación automática de ElevenLabs (la versión gratuita permite 1 video/mes)</li>
+</ol>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación de la clase</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Generé subtítulos automáticos en CapCut</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Revisé y corregí los subtítulos generados por la IA</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Entiendo los formatos SRT y VTT</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Exporté un archivo SRT de mi video</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Traduje los subtítulos a por lo menos un idioma adicional</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Conozco las herramientas de doblaje automático (ElevenLabs, HeyGen)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Apliqué buenas prácticas de accesibilidad en los subtítulos</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-4.1-capcut-edicao-ia.html">
+          ← Clase 4.1
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="aula-4.3-efeitos-especiais-vfx.html">
+          Lección 4.3 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

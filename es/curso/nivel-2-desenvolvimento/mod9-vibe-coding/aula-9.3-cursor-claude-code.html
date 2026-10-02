@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 9.3: Cursor y Claude Code para automatizaciones · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Lección 9.3: Cursor y Claude Code para automatizaciones · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-2-desenvolvimento/mod9-vibe-coding/aula-9.3-cursor-claude-code.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-2-desenvolvimento/mod9-vibe-coding/aula-9.3-cursor-claude-code.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-2-desenvolvimento/mod9-vibe-coding/aula-9.3-cursor-claude-code.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-2-desenvolvimento/mod9-vibe-coding/aula-9.3-cursor-claude-code.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-2-desenvolvimento/mod9-vibe-coding/aula-9.3-cursor-claude-code.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-9.3-cursor-claude-code.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 2</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 9</a>
+<span class="mx-2">/</span>
+<span>Lección 9.3</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">🔵 Nivel 2</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Cursor y Claude Code para automatizaciones
+        </h1>
+<p class="text-xl text-neutral-400">
+          IDE con IA, agentes autónomos y herramientas de línea de comandos para automatizar tus flujos creativos.
+        </p>
+<p class="text-sm text-neutral-500 mt-2">~120 minutos • Actualizado en Abril 2026</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Cursor -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4">⚡ Cursor — El editor de código con IA más popular</h2>
+<p class="text-neutral-300 mb-4">
+          O <strong>Cursor</strong>, desarrollado por Anysphere (valuada en <strong>$9,2 mil millones</strong>), es un fork de VS Code con inteligencia artificial profundamente integrada. Se convirtió en el editor preferido de los desarrolladores y, cada vez más, de los creadores que usan vibe coding.
+        </p>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🏆 Funciones principales de Cursor</p>
+<ul class="text-purple-700 space-y-1">
+<li>✅ <strong>Composer 2</strong> — genera y edita código en varios archivos simultáneamente</li>
+<li>✅ <strong>Background Agents</strong> — hasta 8 agentes paralelos trabajando en distintas tareas</li>
+<li>✅ <strong>Plugin Marketplace</strong> — extensiones específicas para IA</li>
+<li>✅ <strong>Compatibilidad con JetBrains</strong> — no solo VS Code</li>
+<li>✅ <strong>Autocompletado de pestañas</strong> — autocompletado inteligente de código</li>
+<li>✅ <strong>Chat contextual</strong> — la IA entiende todo el proyecto, no solo el archivo actual</li>
+</ul>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Background Agents: la diferencia</h3>
+<p class="text-neutral-300 mb-4">
+          Los <strong>Background Agents</strong> son la función más revolucionaria de Cursor. Puedes crear hasta <strong>8 agentes paralelos</strong>, cada uno trabajando en una tarea diferente. Mientras uno crea el frontend, otro puede configurar la base de datos y un tercero escribir pruebas.
+        </p>
+<div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-6 rounded-r-lg">
+<p class="text-neutral-100 font-semibold mb-1">💰 Precio</p>
+<p class="text-neutral-300"><strong>Cursor Pro:</strong> $20/mes. Incluye uso ilimitado de Composer, Background Agents y modelos premium (Claude Sonnet, GPT-4o). Hay un plan gratuito con límites más bajos para probarlo.</p>
+</div>
+<!-- Claude Code -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🖥️ Claude Code — Agente de terminal de Anthropic</h2>
+<p class="text-neutral-300 mb-4">
+          O <strong>Claude Code</strong> es una herramienta de línea de comandos creada por Anthropic que funciona como un agente de programación autónomo. A diferencia de los IDE visuales, se ejecuta en la terminal y es especialmente potente para comprender y trabajar con proyectos grandes y complejos.
+        </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🧠 Por qué Claude Code es especial</p>
+<ul class="text-neutral-300 space-y-1">
+<li>✅ <strong>Comprensión profunda de proyectos</strong> — analiza repositorios completos</li>
+<li>✅ <strong>4% de todos los commits públicos en GitHub</strong> — usado ampliamente por la comunidad</li>
+<li>✅ <strong>Terminal-based</strong> — funciona en cualquier entorno, incluidos servidores remotos</li>
+<li>✅ <strong>Contexto largo</strong> — procesa cientos de archivos simultáneamente</li>
+<li>✅ <strong>Ejecución de comandos</strong> — puede ejecutar scripts, pruebas y builds</li>
+<li>✅ <strong>Integración con Git</strong> — crea commits, branches y PRs</li>
+</ul>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">💡 Ejemplo de uso para creadores</p>
+<p class="text-neutral-300">Imagina que tienes una carpeta con 100 videos y quieres generar miniaturas, subtítulos y descripciones para todos. Con Claude Code, puedes decir: "Crea un script Python que, para cada video de la carpeta /videos, genere una miniatura usando la API de Midjourney, extraiga la transcripción con Whisper y cree una descripción optimizada para YouTube." Claude Code escribe el script, instala dependencias y lo ejecuta.</p>
+</div>
+<!-- Windsurf -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🏄 Windsurf — Edición en «flow state»</h2>
+<p class="text-neutral-300 mb-4">
+          O <strong>Windsurf</strong> (anteriormente Codeium) se diferencia por el agente <strong>Cascade</strong>, que mantiene la conciencia de todo el proyecto y ofrece edición en "flow state": la IA anticipa lo que necesitas y te hace sugerencias de forma proactiva.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">🌊 Ventajas de Windsurf</p>
+<ul class="text-neutral-300 space-y-1">
+<li>✅ <strong>Cascade Agent</strong> — agente con plena conciencia del proyecto</li>
+<li>✅ <strong>Conciencia del contexto</strong> — entiende automáticamente las relaciones entre archivos</li>
+<li>✅ <strong>"Flow state" editing</strong> — sugerencias proactivas basadas en el contexto</li>
+<li>✅ <strong>Interfaz limpia</strong> — menos contaminación visual que Cursor</li>
+<li>✅ Plan gratuito generoso para empezar</li>
+</ul>
+</div>
+<!-- GitHub Copilot -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🐙 GitHub Copilot — El veterano</h2>
+<p class="text-neutral-300 mb-4">
+          O <strong>GitHub Copilot</strong> fue el primer asistente de código con IA adoptado ampliamente. Aunque perdió terreno frente a Cursor y Claude Code en funciones avanzadas, sigue siendo muy utilizado gracias a la integración nativa con VS Code y el ecosistema de GitHub.
+        </p>
+<div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-6 rounded-r-lg">
+<p class="text-neutral-100 font-semibold mb-1">📌 Cuándo usar Copilot</p>
+<p class="text-neutral-300">Copilot es una buena opción si ya usas VS Code y quieres autocompletar código sin cambiar de editor. Para proyectos más complejos o para programar con vibe coding, Cursor y Claude Code son más adecuados.</p>
+</div>
+<!-- Comparação -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">📊 Cuándo usar cada herramienta</h2>
+<div class="overflow-x-auto mb-8">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Escenario</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Herramienta recomendada</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Por qué</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Crear una app visual desde cero</td>
+<td class="p-3 text-neutral-300">Lovable / Bolt.new</td>
+<td class="p-3 text-neutral-300">Interfaz visual, sin necesidad de código</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Proyecto con múltiples archivos</td>
+<td class="p-3 text-neutral-300">Cursor (Composer)</td>
+<td class="p-3 text-neutral-300">Edición simultánea de múltiples archivos</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Automatización de scripts</td>
+<td class="p-3 text-neutral-300">Claude Code</td>
+<td class="p-3 text-neutral-300">Terminal, ejecución directa, contexto largo</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Tareas paralelas complejas</td>
+<td class="p-3 text-neutral-300">Cursor (Background Agents)</td>
+<td class="p-3 text-neutral-300">8 agentes simultáneos</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Comprender un proyecto existente grande</td>
+<td class="p-3 text-neutral-300">Claude Code</td>
+<td class="p-3 text-neutral-300">Análisis profundo de codebases</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Autocompletado mientras escribes</td>
+<td class="p-3 text-neutral-300">Copilot / Cursor</td>
+<td class="p-3 text-neutral-300">Integración con el editor, sugerencias en línea</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Deploy en la nube con todo listo</td>
+<td class="p-3 text-neutral-300">Replit Agent</td>
+<td class="p-3 text-neutral-300">100% cloud, deploy integrado</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Prática: Claude Code -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🛠️ Práctica: automatiza un flujo de contenido con Claude Code</h2>
+<p class="text-neutral-300 mb-4">
+          Usaremos Claude Code para crear una automatización que procesa videos: extrae el audio, genera una transcripción, crea subtítulos y adapta el formato a distintas plataformas.
+        </p>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Paso 1: Instala Claude Code</p>
+<p class="text-neutral-300">En el terminal, ejecuta: <code class="bg-white px-2 py-1 rounded">npm install -g @anthropic-ai/claude-code</code>. Después, configura tu clave de API de Anthropic siguiendo las instrucciones en pantalla.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Paso 2: Describe el proyecto</p>
+<p class="text-neutral-300">Inicia Claude Code en la carpeta del proyecto y describe: "Crea un script Python que: 1) Reciba una ruta a un archivo de video, 2) Extraiga el audio usando ffmpeg, 3) Transcriba con Whisper, 4) Genere subtítulos en formato SRT, 5) Cree versiones de la transcripción con formato para YouTube, Instagram y TikTok."</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Paso 3: Revisa y ejecuta</p>
+<p class="text-neutral-300">Claude Code creará el script, instalará las dependencias necesarias y te ofrecerá ejecutarlo. Revisa las acciones propuestas y confirma. Prueba con un video real.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Paso 4: Itera y amplía</p>
+<p class="text-neutral-300">"Ahora agrega un módulo que genere 5 opciones de título optimizadas para SEO usando la API de Claude. Y crea un archivo de resumen con los puntos principales del video." Claude Code entiende el contexto del proyecto e integra las nuevas funcionalidades.</p>
+</div>
+<!-- Prática: Cursor -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">🛠️ Práctica: construye una herramienta con Cursor</h2>
+<p class="text-neutral-300 mb-4">
+          Ahora vamos a usar Cursor para construir una herramienta visual: un generador de miniaturas que sugiere diseños, textos y colores según el título del video.
+        </p>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Paso 1: Abre Cursor y crea el proyecto</p>
+<p class="text-neutral-300">En Cursor, presiona <kbd>Ctrl+I</kbd> para abrir Composer y describe: «Crea una aplicación React con Tailwind que funcione como generador de miniaturas. El usuario escribe el título del video y la herramienta sugiere 3 diseños de miniatura con textos, colores y composiciones diferentes. Usa canvas para renderizar las vistas previas.»</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Paso 2: Usa Background Agents</p>
+<p class="text-neutral-300">Crea 2 agentes: uno para perfeccionar la interfaz (colores, diseño, adaptabilidad) y otro para agregar la lógica de exportación (descarga como PNG en diferentes resoluciones: 1280x720 para YouTube, 1080x1080 para Instagram).</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<p class="text-neutral-100 font-semibold mb-2">📝 Paso 3: Prueba y perfecciona</p>
+<p class="text-neutral-300">Prueba con diferentes títulos, ajusta colores y fuentes con Composer y agrega funciones: "Agrega una opción para subir una imagen de fondo y superponer el texto. Incluye filtros de imagen (blur, darken, saturate)."</p>
+</div>
+<!-- Checklist -->
+<h2 class="text-2xl font-bold text-neutral-100 mb-4 mt-10">✅ Lista de verificación de la clase</h2>
+<div class="bg-gray-50 rounded-lg p-6">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Instala Cursor y explora Composer</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Instala Claude Code en la terminal</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Crear el pipeline de procesamiento de video con Claude Code</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Construir el generador de miniaturas con Cursor</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Probar Background Agents en Cursor</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Explora Windsurf y compáralo con Cursor</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gray-400 mt-1">☐</span>
+<span class="text-neutral-300">Identificar 2 automatizaciones que beneficiarían tu flujo de contenido</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-9.2-lovable-bolt.html">
+          ← Clase anterior
+        </a>
+<a class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors" href="aula-9.4-v0-replit-apps.html">
+          Siguiente clase →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

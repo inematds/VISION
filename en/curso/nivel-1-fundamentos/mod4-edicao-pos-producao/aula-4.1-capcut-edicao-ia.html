@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lesson 4.1: CapCut and AI Editing · VISION — VISION Audiovisual AI Course" name="description"/>
+<title>Lesson 4.1: CapCut and AI Editing · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.1-capcut-edicao-ia.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.1-capcut-edicao-ia.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.1-capcut-edicao-ia.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.1-capcut-edicao-ia.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="aula-4.1-capcut-edicao-ia.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../../es/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.1-capcut-edicao-ia.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Start</a>
+<span class="mx-2">/</span>
+<a href="../../">Course</a>
+<span class="mx-2">/</span>
+<a href="../">Level 1</a>
+<span class="mx-2">/</span>
+<a href="./">Module 4</a>
+<span class="mx-2">/</span>
+<span>Lesson 4.1</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">✂️ Module 4 • Lesson 1</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          CapCut and AI Editing
+        </h1>
+<p class="text-xl text-neutral-400">
+          Master the most popular video editor with integrated artificial intelligence features.
+        </p>
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~90 minutes</span>
+<span>📊 Beginner</span>
+<span>🔄 Updated Apr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> CapCut in 2026: Overview</h2></div>
+<p class="text-neutral-300 mb-4">
+            CapCut has evolved from a simple editor into a complete AI-powered editing platform. In 2026, it offers
+            features that were once exclusive to professional software like Adobe Premiere and DaVinci Resolve, but
+            with the ease of use that made it the world's most popular editor.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Why CapCut?</h3>
+<p class="text-neutral-300">
+              Free, cross-platform (desktop, web, and mobile), native integration with TikTok and Instagram,
+              and now with dozens of built-in AI features that automate repetitive editing tasks.
+            </p>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Key AI features in CapCut (2026)</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Feature</th>
+<th class="text-left p-3 font-semibold text-neutral-100">What it does</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Plan</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Auto-Cut</td>
+<td class="p-3 text-neutral-300">Automatically removes silences and pauses</td>
+<td class="p-3 text-neutral-300">Free</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Smart Templates</td>
+<td class="p-3 text-neutral-300">Templates that adapt to your content</td>
+<td class="p-3 text-neutral-300">Free</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">AI Effects</td>
+<td class="p-3 text-neutral-300">Real-time AI-generated visual effects</td>
+<td class="p-3 text-neutral-300">Freemium</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Background Remover</td>
+<td class="p-3 text-neutral-300">Remove video backgrounds with one click</td>
+<td class="p-3 text-neutral-300">Free</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Auto-Captions</td>
+<td class="p-3 text-neutral-300">Automatically generates synchronized captions</td>
+<td class="p-3 text-neutral-300">Free</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">AI Script Generator</td>
+<td class="p-3 text-neutral-300">Suggests scripts based on trends</td>
+<td class="p-3 text-neutral-300">Pro</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Smart Resize</td>
+<td class="p-3 text-neutral-300">Adapts videos to different formats while maintaining framing</td>
+<td class="p-3 text-neutral-300">Free</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🖥️</span> Interface and Initial Setup</h2></div>
+<p class="text-neutral-300 mb-4">
+            Before you start editing, let's set up CapCut properly for the best workflow.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Step by step: Initial setup</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Download:</strong> Access <code class="bg-gray-100 px-1 rounded">capcut.com</code> and download the desktop version (Windows or Mac)</li>
+<li><strong>Account:</strong> Create a free account (or sign in with your TikTok/Google account)</li>
+<li><strong>Project settings:</strong> Go to Settings and set the default resolution to 1080p</li>
+<li><strong>Shortcuts:</strong> Enable keyboard shortcuts in Settings &gt; Shortcuts</li>
+<li><strong>Working folder:</strong> Create an organized folder for your VISION projects</li>
+</ol>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Organization Tip</h3>
+<p class="text-neutral-300">
+              Create a folder structure like this: <code class="bg-yellow-100 px-1 rounded">VISION/Projeto-Nome/assets/</code>,
+              <code class="bg-yellow-100 px-1 rounded">VISION/Projeto-Nome/exports/</code>.
+              This makes it easier to find your files and keep everything organized.
+            </p>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Getting to know the interface</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Area</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Function</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Media Panel (left)</td>
+<td class="p-3 text-neutral-300">Import and organize media, text, effects, and transitions</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Preview (top center)</td>
+<td class="p-3 text-neutral-300">Real-time video preview</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Timeline (bottom)</td>
+<td class="p-3 text-neutral-300">Timeline for organizing and trimming clips</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Properties (right)</td>
+<td class="p-3 text-neutral-300">Properties of the selected element (position, scale, opacity)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">⚡</span> Auto-Cut: Intelligent Automatic Editing</h2></div>
+<p class="text-neutral-300 mb-4">
+            Auto-Cut is CapCut's most revolutionary feature for content creators. It analyzes your video
+            and automatically removes silences, pauses, and moments without speech, saving hours of manual editing.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">How to Use Auto-Cut</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Import your video into the timeline</li>
+<li>Select the clip on the timeline</li>
+<li>Click <strong>AI Tools &gt; Auto-Cut</strong></li>
+<li>Adjust the sensitivity (recommended: 70-80% for spoken content)</li>
+<li>Click <strong>Apply</strong> and review the cuts</li>
+<li>Manually adjust the points that were inaccurate</li>
+</ol>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Results in Practice</h3>
+<p class="text-neutral-300">
+              A 10-minute video with natural speech pauses can automatically be shortened to 6-7 minutes,
+              resulting in much more dynamic and engaging content for the viewer.
+            </p>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎨</span> Smart Templates and AI Effects</h2></div>
+<p class="text-neutral-300 mb-4">
+            Smart Templates are preconfigured templates that automatically adapt to your content.
+            Just add your media and CapCut adjusts the timing, transitions, and effects.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Popular Template Categories</h3>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li><strong>Product/E-commerce:</strong> Product presentations with zoom and highlights</li>
+<li><strong>Vlog/Lifestyle:</strong> Smooth transitions and animated text</li>
+<li><strong>Educational:</strong> Large captions, markers, and highlights</li>
+<li><strong>Reels/TikTok:</strong> Fast transitions, dynamic text, trending music</li>
+<li><strong>Corporate:</strong> Clean, professional, with lower thirds</li>
+</ul>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Featured AI Effects</h3>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Style Transfer</h4>
+<p class="text-purple-700 text-sm">Transforms the video's aesthetic to look like anime, oil painting, watercolor, and more.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">AI Enhance</h4>
+<p class="text-purple-700 text-sm">Automatically improves the quality, lighting, and color of low-quality video footage.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Face Beautify</h4>
+<p class="text-purple-700 text-sm">Skin smoothing, facial lighting adjustment, and red-eye correction.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">Motion Blur AI</h4>
+<p class="text-purple-700 text-sm">Adds realistic motion blur for transitions and cinematic effects.</p>
+</div>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">📐</span> Timeline Fundamentals</h2></div>
+<p class="text-neutral-300 mb-4">
+            The timeline is the heart of any video editor. Understanding how to work with it is essential
+            for efficient editing.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Essential concepts</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Concept</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Description</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Shortcut</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Split</td>
+<td class="p-3 text-neutral-300">Split the clip at the cursor position</td>
+<td class="p-3 text-neutral-300"><code>Ctrl + B</code></td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Delete</td>
+<td class="p-3 text-neutral-300">Removes the selected clip</td>
+<td class="p-3 text-neutral-300"><code>Delete</code></td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Trim</td>
+<td class="p-3 text-neutral-300">Drag the clip edges to adjust the start/end</td>
+<td class="p-3 text-neutral-300">Drag edge</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Zoom Timeline</td>
+<td class="p-3 text-neutral-300">Zooms the timeline view in/out</td>
+<td class="p-3 text-neutral-300"><code>Ctrl + Scroll</code></td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Undo</td>
+<td class="p-3 text-neutral-300">Reverts the last action</td>
+<td class="p-3 text-neutral-300"><code>Ctrl + Z</code></td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Multiple tracks</td>
+<td class="p-3 text-neutral-300">Layer video, text, and audio separately</td>
+<td class="p-3 text-neutral-300">Drag to track</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">📥</span> Importing AI-Generated Content</h2></div>
+<p class="text-neutral-300 mb-4">
+            Throughout the course, you generated images, videos, and audio with AI. Now let's learn how to import
+            and organize these assets in CapCut to create complete productions.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Supported Formats</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Type</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Formats</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Source Tool</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Images</td>
+<td class="p-3 text-neutral-300">PNG, JPG, WebP</td>
+<td class="p-3 text-neutral-300">Midjourney, FLUX, DALL-E</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Videos</td>
+<td class="p-3 text-neutral-300">MP4, MOV, WebM</td>
+<td class="p-3 text-neutral-300">Kling 3.0, Runway, Pika</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Audio</td>
+<td class="p-3 text-neutral-300">MP3, WAV, M4A</td>
+<td class="p-3 text-neutral-300">ElevenLabs, Suno</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Recommended workflow</h3>
+<ol class="list-decimal list-inside text-neutral-300 space-y-1">
+<li>Generate all the necessary assets (images, videos, audio)</li>
+<li>Organize into subfolders: <code class="bg-blue-100 px-1 rounded">/imagens</code>, <code class="bg-blue-100 px-1 rounded">/videos</code>, <code class="bg-blue-100 px-1 rounded">/audio</code></li>
+<li>Import everything at once into CapCut (drag the entire folder)</li>
+<li>Use the media panel's search feature to find assets quickly</li>
+</ol>
+</div>
+</section>
+<!-- Seção 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">📱</span> Social Media Formats</h2></div>
+<p class="text-neutral-300 mb-4">
+            Each platform has its ideal format. CapCut makes adaptation easier with its Smart Resize feature,
+            but it's important to plan the format from the start of editing.
+          </p>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Platform</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Aspect ratio</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Resolution</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Ideal duration</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">TikTok</td>
+<td class="p-3 text-neutral-300">9:16 (vertical)</td>
+<td class="p-3 text-neutral-300">1080 x 1920</td>
+<td class="p-3 text-neutral-300">15s - 3min</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Instagram Reels</td>
+<td class="p-3 text-neutral-300">9:16 (vertical)</td>
+<td class="p-3 text-neutral-300">1080 x 1920</td>
+<td class="p-3 text-neutral-300">15s - 90s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">YouTube</td>
+<td class="p-3 text-neutral-300">16:9 (horizontal)</td>
+<td class="p-3 text-neutral-300">1920 x 1080</td>
+<td class="p-3 text-neutral-300">8min - 20min</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">YouTube Shorts</td>
+<td class="p-3 text-neutral-300">9:16 (vertical)</td>
+<td class="p-3 text-neutral-300">1080 x 1920</td>
+<td class="p-3 text-neutral-300">15s - 60s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Instagram Feed</td>
+<td class="p-3 text-neutral-300">1:1 (square)</td>
+<td class="p-3 text-neutral-300">1080 x 1080</td>
+<td class="p-3 text-neutral-300">15s - 60s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">LinkedIn</td>
+<td class="p-3 text-neutral-300">1:1 or 16:9</td>
+<td class="p-3 text-neutral-300">1080 x 1080 / 1920 x 1080</td>
+<td class="p-3 text-neutral-300">30s - 5min</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Smart Resize: One video, every format</h3>
+<p class="text-purple-700">
+              Edit first in 16:9 format (YouTube). Then use CapCut Smart Resize to automatically convert
+              to 9:16 and 1:1. AI repositions important elements in the frame, keeping
+              the content centered and visible in all formats.
+            </p>
+</div>
+</section>
+<!-- Seção 8 -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">🛠️</span> Practical Exercise</h2></div>
+<p class="text-neutral-300 mb-4">
+            We'll create a short product introduction video using AI-generated content.
+          </p>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Step-by-step exercise guide</h3>
+<ol class="list-decimal list-inside space-y-3 text-neutral-300">
+<li><strong>Create the project:</strong> Open CapCut and create a new 1080x1920 project (9:16 vertical)</li>
+<li><strong>Import assets:</strong> Use 3-5 AI-generated images (from previous lessons)</li>
+<li><strong>Put together the sequence:</strong> Drag the images to the timeline, each one 3-4 seconds long</li>
+<li><strong>Add transitions:</strong> Add smooth transitions between images</li>
+<li><strong>Apply AI Effects:</strong> Test Style Transfer on at least one clip</li>
+<li><strong>Add text:</strong> Add a title at the beginning and a call to action at the end</li>
+<li><strong>Add music:</strong> Use CapCut's free audio library or a song from Suno</li>
+<li><strong>Export:</strong> Export in 1080p to share</li>
+</ol>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-9">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">9</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lesson Checklist</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I installed CapCut desktop and created my account</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I know the main interface areas (Media, Preview, Timeline, Properties)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I tested Auto-Cut on a video</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I tried at least 2 Smart Templates</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I know how to import AI-generated images, videos, and audio</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I’m familiar with the ideal formats for each social network</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I completed the hands-on exercise (9:16 product video)</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../mod3-primeiros-videos/aula-3.4-elevenlabs-voz.html">
+          ← Lesson 3.4
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="aula-4.2-legendas-traducao.html">
+          Lesson 4.2 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Updated May/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lesson 1.1: What Is Generative AI and the Current Ecosystem · VISION — VISION Audiovisual AI Course" name="description"/>
+<title>Lesson 1.1: What Is Generative AI and the Current Ecosystem · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.1-ia-generativa-ecossistema.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.1-ia-generativa-ecossistema.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.1-ia-generativa-ecossistema.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.1-ia-generativa-ecossistema.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="aula-1.1-ia-generativa-ecossistema.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../../es/curso/nivel-1-fundamentos/mod1-introducao-ia/aula-1.1-ia-generativa-ecossistema.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Start</a>
+<span class="mx-2">/</span>
+<a href="../../">Course</a>
+<span class="mx-2">/</span>
+<a href="../">Level 1</a>
+<span class="mx-2">/</span>
+<a href="./">Module 1</a>
+<span class="mx-2">/</span>
+<span>Lesson 1.1</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8 animate-fade-in">
+<div class="flex items-center gap-3 mb-4 flex-wrap">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">🎓 Lesson 1.1</span>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">~90 min</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
+          What Is Generative AI and the Current Ecosystem
+        </h1>
+<p class="text-xl text-neutral-400">
+          Understand what generative AI means in the creative context of 2026, learn the historical milestones, the 4 pillars of AI creation, and the global market landscape.
+        </p>
+</div>
+<div class="rounded-lg p-8 mb-8 space-y-12">
+<!-- Introdução -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">📖</span> Introduction</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
+            We’re living through an unprecedented creative revolution. In 2026, generative Artificial Intelligence went from a technological novelty to an essential tool in every content creator’s toolkit. From commercial videos to original music, photorealistic illustrations to multilingual dubbing, AI is redefining what’s possible to create with a computer.
+          </p>
+<p class="text-neutral-300 leading-relaxed">
+            In this lesson, we’ll build a solid understanding of what generative AI is, how it works in creative contexts, and why understanding the entire ecosystem is essential for making smart decisions about which tools to use.
+          </p>
+</section>
+<!-- O que é IA generativa -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🤖</span> What Is Generative AI in the Creative Context</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-4">
+            Generative AI refers to artificial intelligence systems capable of <strong>create new and original content</strong> from instructions (prompts). Unlike traditional AI, which analyzes and classifies data, generative AI produces text, images, videos, audio, and code that never existed before.
+          </p>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            In a creative context, this means a creator can describe a scene in text and get a video in 4K, request an anime-style illustration and receive it in seconds, or clone their own voice to narrate content in 30 different languages.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 Key Concept</h3>
+<p class="text-neutral-300 text-sm">
+              Generative AI works using models trained on large volumes of data. These models learn statistical patterns and can generate new content that follows those patterns while combining them in original ways. The main types are diffusion models (images/video), transformers (text/code), and synthesis models (audio/voice).
+            </p>
+</div>
+</section>
+<!-- Explosão do ecossistema -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">💥</span> The Explosion of the AI Ecosystem</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            The creative AI ecosystem has exploded in every direction. Today, there are specialized tools for every type of content:
+          </p>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">📝 Text</h3>
+<p class="text-sm text-neutral-300">ChatGPT, Claude, Gemini — scripts, captions, creative planning, brainstorming</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">🖼️ Image</h3>
+<p class="text-sm text-neutral-300">Midjourney V8.1, FLUX.2, SD 3.5, Leonardo AI — illustrations, photos, concept art</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">🎬 Video</h3>
+<p class="text-sm text-neutral-300">Kling 3.0, Runway Gen-4.5, Pika 2.5, Hailuo, Seedance — clips, commercials, animations</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">🎵 Audio</h3>
+<p class="text-sm text-neutral-300">ElevenLabs v3, Suno v5.5, Udio v4 — synthetic voice, music, sound effects</p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">💻 Code</h3>
+<p class="text-sm text-neutral-300">Cursor, Claude Code, Lovable, Bolt.new — vibe coding, automation, complete apps</p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4">
+<h3 class="font-bold text-neutral-100 mb-2">⚙️ Automation</h3>
+<p class="text-sm text-neutral-300">n8n 2.0, Make.com, Zapier — workflows, integrations, production scale</p>
+</div>
+</div>
+</section>
+<!-- Marcos históricos -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">📅</span> Historical Milestones in Creative AI</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            Progress has been rapid. Here are the key milestones that brought us here:
+          </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Year</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Marco</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Impact</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2022</td><td class="p-3 text-neutral-300">DALL-E 2, Midjourney V1, Stable Diffusion</td><td class="p-3 text-neutral-300">Text-to-image generation becomes accessible</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2022</td><td class="p-3 text-neutral-300">ChatGPT (OpenAI)</td><td class="p-3 text-neutral-300">Conversational AI takes off with the general public</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2023</td><td class="p-3 text-neutral-300">Midjourney V5, GPT-4</td><td class="p-3 text-neutral-300">Photorealistic image quality, advanced reasoning</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2024</td><td class="p-3 text-neutral-300">Sora (OpenAI), Kling 1.0, Runway Gen-3</td><td class="p-3 text-neutral-300">Video generation becomes viable</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2024</td><td class="p-3 text-neutral-300">FLUX.1 (Black Forest Labs)</td><td class="p-3 text-neutral-300">Open-source challenges proprietary models</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2025</td><td class="p-3 text-neutral-300">Kling 2.0, Runway Gen-4/4.5, Midjourney V7</td><td class="p-3 text-neutral-300">Videos with consistency and cinematic quality</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2025</td><td class="p-3 text-neutral-300">ElevenLabs v3, Suno v5</td><td class="p-3 text-neutral-300">Synthetic audio indistinguishable from the real thing</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2026</td><td class="p-3 text-neutral-300">Sora discontinued (March 2026)</td><td class="p-3 text-neutral-300">Kling and Runway dominate the video market</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">2026</td><td class="p-3 text-neutral-300">Kling 3.0, Midjourney V8.1 Alpha, FLUX.2</td><td class="p-3 text-neutral-300">Native audio in video, 4–5x speed, 4K+ resolution</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">⚠️ Important note</h3>
+<p class="text-neutral-300 text-sm">
+              OpenAI’s Sora, announced with great anticipation in 2024, was officially discontinued in March 2026. Tools like Kling 3.0 and Runway Gen-4.5 surpassed its capabilities in quality, speed, and value.
+            </p>
+</div>
+</section>
+<!-- 4 Pilares -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🏛️</span> The 4 Pillars of AI Creation</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            In 2026, creative AI is organized around 4 fundamental pillars every creator needs to understand:
+          </p>
+<div class="space-y-4 mb-6">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">1. Generation — Create from scratch</h3>
+<p class="text-neutral-300 text-sm">
+                Create completely new content from text descriptions. Images, videos, music, voices, and even entire applications can be generated from scratch. Examples: generate a video scene with Kling 3.0 from a prompt, create an illustration with Midjourney V7, compose a soundtrack with Suno v5.5.
+              </p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">2. Editing — Modify the existing</h3>
+<p class="text-neutral-300 text-sm">
+                Transform, enhance, or modify existing content using AI. Includes image upscaling, object removal, video translation, lip-sync, and intelligent editing. Examples: using CapCut for automatic captions, Runway to remove a video background, ElevenLabs to dub in another language.
+              </p>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">3. Automation — Scale production</h3>
+<p class="text-neutral-300 text-sm">
+                Use automated workflows to produce content at scale. With tools like n8n 2.0, Make.com, and Zapier, you can automate entire creation pipelines. Example: a workflow that receives a script, generates images, creates a video, adds voice, and publishes it automatically.
+              </p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-2">4. Vibe Coding — Create with code assistance</h3>
+<p class="text-neutral-300 text-sm">
+                Build tools, websites, apps, and automations using AI to write code. With Cursor, Claude Code, Lovable, and Bolt.new, even non-programmers can create complete applications. Example: create a portfolio website, an analytics dashboard, or a custom editing tool.
+              </p>
+</div>
+</div>
+</section>
+<!-- Mercado: China vs Ocidente -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🌍</span> Market Overview: China vs. the West</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            One of the biggest changes of 2025-2026 was the rise of Chinese AI companies. The market is divided into two major hubs, each with distinct advantages:
+          </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Aspect</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Chinese Companies</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Western Companies</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Video</td><td class="p-3 text-neutral-300">Kling (Kuaishou), Hailuo (MiniMax), Vidu, Seedance (ByteDance), Wan (Alibaba)</td><td class="p-3 text-neutral-300">Runway, Pika, Luma, Google Veo</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Price</td><td class="p-3 text-neutral-300">Very aggressive — Hailuo at $0.28/video</td><td class="p-3 text-neutral-300">Premium — Runway from $12/month</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Innovation</td><td class="p-3 text-neutral-300">Native audio in video, extreme speed</td><td class="p-3 text-neutral-300">Cinematic quality, consistency</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Open-source</td><td class="p-3 text-neutral-300">Wan (Alibaba) is open-source</td><td class="p-3 text-neutral-300">FLUX.2, Stable Diffusion are open source</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Ecosystem</td><td class="p-3 text-neutral-300">Growing rapidly, with a focus on accessibility</td><td class="p-3 text-neutral-300">Mature, integrated with Adobe, Apple, etc.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">💡 Strategic Tip</h3>
+<p class="text-neutral-300 text-sm">
+              The best approach in 2026 is to combine tools from both sides. Use Kling for fast, affordable videos; Runway for projects that demand maximum quality; Midjourney for conceptual images; and FLUX.2 for production at scale with full control.
+            </p>
+</div>
+</section>
+<!-- Open-source vs Closed-source -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">🔓</span> Open-source vs. Closed-source</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            The creative AI ecosystem is divided between open and closed models, and understanding this difference is essential:
+          </p>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-3">🔓 Open-source</h3>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• <strong>FLUX.2</strong> — High-quality images that can run locally</li>
+<li>• <strong>Stable Diffusion 3.5</strong> — Complete flexibility with ComfyUI</li>
+<li>• <strong>Wan 2.7</strong> — Alibaba's open-source video</li>
+<li>• Full control, no recurring costs</li>
+<li>• Requires powerful hardware (dedicated GPU)</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-5">
+<h3 class="font-bold text-neutral-100 mb-3">🔒 Closed-source</h3>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li>• <strong>Midjourney V8.1</strong> — Industry-leading image quality</li>
+<li>• <strong>Kling 3.0</strong> — Best value for video</li>
+<li>• <strong>Runway Gen-4.5</strong> — Cinematic quality</li>
+<li>• Easy to use, with no technical setup</li>
+<li>• Monthly costs, platform dependency</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Antes vs Depois da IA -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">⚡</span> Before AI vs. After AI</h2></div>
+<p class="text-neutral-300 leading-relaxed mb-6">
+            To understand the real impact of generative AI, see how content creation has changed:
+          </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Task</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Before AI</th>
+<th class="text-left p-3 font-semibold text-neutral-100">After AI (2026)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Create an illustration</td><td class="p-3 text-neutral-300">Hours/days with an illustrator</td><td class="p-3 text-neutral-300">Seconds with Midjourney V7</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Produce a commercial video</td><td class="p-3 text-neutral-300">Team, studio, R$10k+</td><td class="p-3 text-neutral-300">Minutes with Kling 3.0, R$50</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Professional narration</td><td class="p-3 text-neutral-300">Narrator, recording studio</td><td class="p-3 text-neutral-300">ElevenLabs v3, identical quality</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Original soundtrack</td><td class="p-3 text-neutral-300">Composer, musicians, mixing</td><td class="p-3 text-neutral-300">Suno v5.5, minutes to make a song</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Dubbing in 10 languages</td><td class="p-3 text-neutral-300">10 speakers, weeks</td><td class="p-3 text-neutral-300">ElevenLabs, same voice, minutes</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Full website/app</td><td class="p-3 text-neutral-300">Developer, weeks</td><td class="p-3 text-neutral-300">Lovable/Bolt.new, hours</td></tr>
+<tr class="hover:bg-dark-700/30 transition-colors"><td class="p-3 text-neutral-300">Video editing</td><td class="p-3 text-neutral-300">Professional editor, hours</td><td class="p-3 text-neutral-300">CapCut with AI, automated</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-6">
+<h3 class="font-bold text-neutral-100 mb-2">⚠️ Important</h3>
+<p class="text-neutral-300 text-sm">
+              AI doesn’t replace human creativity—it amplifies it. Creative vision, storytelling, and curation remain the differentiators. AI is the tool; you’re the director.
+            </p>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-9">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">9</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lesson Checklist</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">I understood what generative AI is and how it works</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">I know the 6 types of content AI can generate</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">I understand the historical milestones from 2022 to 2026</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">I understood the 4 pillars: generation, editing, automation, and vibe coding</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">I know the difference between Chinese and Western tools</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 h-5 w-5 rounded border-gray-300" type="checkbox"/>
+<span class="text-neutral-300">I understand the advantages of open source vs. closed source</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="./">
+          ← Module 1
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="aula-1.2-panorama-ferramentas.html">
+          Next: Lesson 1.2 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Updated May/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

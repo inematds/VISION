@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lesson 6.4: Adobe Firefly Video Editor - Prompt to Edit, 30+ models, and Creative Cloud integration" name="description"/>
+<title>Lesson 6.4: Adobe Firefly Video and 30+ models · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.4-adobe-firefly-video.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.4-adobe-firefly-video.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.4-adobe-firefly-video.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.4-adobe-firefly-video.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="aula-6.4-adobe-firefly-video.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../../es/curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.4-adobe-firefly-video.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Start</a>
+<span class="mx-2">/</span>
+<a href="../../">Course</a>
+<span class="mx-2">/</span>
+<a href="../">Level 2</a>
+<span class="mx-2">/</span>
+<a href="./">Module 6</a>
+<span class="mx-2">/</span>
+<span>Lesson 6.4</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">Level 2</span>
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">~90 min</span>
+</div>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Adobe Firefly Video and 30+ Models
+        </h1>
+<p class="text-xl text-neutral-400">
+          Explore Adobe Firefly Video Editor with Prompt to Edit, reference-based camera control, Quick Cut, Firefly Boards, and access to more than 30 third-party models integrated into the Adobe ecosystem.
+        </p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🔥</span> Adobe Firefly Video Editor</h2></div>
+<p class="text-neutral-300 mb-4">
+            Adobe transformed Firefly from a simple image generator into a complete AI video editing platform. The <strong>Firefly Video Editor</strong> introduces features that no other traditional editor offers natively.
+          </p>
+<p class="text-neutral-300 mb-4">
+            Adobe’s biggest differentiator isn’t just the quality of its generation, but <strong>seamless integration with the Creative Cloud ecosystem</strong> — Premiere Pro, After Effects, Photoshop, and Illustrator.
+          </p>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4-lg mb-6">
+<p class="text-neutral-100 font-semibold mb-1">Competitive advantage: IP Indemnification</p>
+<p class="text-neutral-300 text-sm">Adobe offers intellectual property indemnification for content generated with Firefly. This means that if someone sues you for copyright infringement over content generated with Firefly, Adobe covers the legal costs. No other competitor offers this protection.</p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">✏️</span> Prompt to Edit</h2></div>
+<p class="text-neutral-300 mb-4">
+            O <strong>Prompt to Edit</strong> is the most revolutionary feature of Firefly Video Editor. Instead of using traditional editing controls, you simply describe what you want to change in natural language:
+          </p>
+<div class="space-y-3 mb-6">
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-neutral-500 mb-1">Prompt:</p>
+<p class="text-neutral-100 font-mono text-sm">"Change the sky to a dramatic sunset with orange clouds"</p>
+</div>
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-neutral-500 mb-1">Prompt:</p>
+<p class="text-neutral-100 font-mono text-sm">"Add gently falling snow to the scene"</p>
+</div>
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-neutral-500 mb-1">Prompt:</p>
+<p class="text-neutral-100 font-mono text-sm">"Turn day into night while keeping the windows' artificial lighting"</p>
+</div>
+<div class="bg-gray-100 p-3 rounded-lg">
+<p class="text-sm text-neutral-500 mb-1">Prompt:</p>
+<p class="text-neutral-100 font-mono text-sm">"Remove the person in the background and fill in the scene"</p>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">How It Works Under the Hood</p>
+<p class="text-neutral-300 text-sm">Prompt to Edit uses a combination of semantic segmentation (to understand “what” to edit), temporal inpainting (to maintain consistency across frames), and conditional generation (to apply the described change).</p>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🎥</span> Camera Motion Control</h2></div>
+<p class="text-neutral-300 mb-4">
+            O <strong>Camera Motion Control</strong> lets you extract camera movement from a reference video and apply it to a new AI-generated video. In practice:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">1.</span>
+<span>You upload a reference video with the desired camera movement</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">2.</span>
+<span>Firefly analyzes and extracts the camera trajectory (pan, tilt, dolly, zoom)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">3.</span>
+<span>You describe a new scene via a prompt</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">4.</span>
+<span>Firefly generates the new scene with the exact camera movement it extracted</span>
+</li>
+</ul>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Professional use case</p>
+<p class="text-neutral-300 text-sm">Did you capture a perfect camera move on set, but the scene didn't turn out well? Extract the movement and apply it to an AI-generated scene. Or use classic cinematic camera moves as references for your projects.</p>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">✂️</span> Quick Cut and Firefly Boards</h2></div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Quick Cut</h3>
+<p class="text-neutral-300 mb-4">
+            O <strong>Quick Cut</strong> automatically analyzes your video and suggests cuts, transitions, and pacing based on the content and audio. Ideal for:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-6">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Assemble the first cuts of long interviews</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Create event and talk highlights</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Generate short versions (15s, 30s, 60s) of long videos</span>
+</li>
+</ul>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Firefly Boards</h3>
+<p class="text-neutral-300 mb-4">
+            The <strong>Firefly Boards</strong> are collaborative, AI-powered mood boards. You can:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Collect visual references and generate variations with AI</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Collaborate with your team in real time</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Turn boards directly into video projects</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Maintain visual brand consistency across projects</span>
+</li>
+</ul>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🌐</span> 30+ Third-Party Models</h2></div>
+<p class="text-neutral-300 mb-4">
+            One of Adobe's biggest surprises in 2026 was opening Firefly to third-party models. Now you can access more than 30 models directly through the Adobe interface:
+          </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Model</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Company</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Specialty</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">FLUX.2</td>
+<td class="p-3 text-neutral-300">Black Forest Labs</td>
+<td class="p-3 text-neutral-300">High-Resolution Photorealistic Images</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Kling 3.0</td>
+<td class="p-3 text-neutral-300">Kuaishou</td>
+<td class="p-3 text-neutral-300">Video with a multi-shot storyboard</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Google Imagen 4</td>
+<td class="p-3 text-neutral-300">Google</td>
+<td class="p-3 text-neutral-300">Images with integrated text</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Runway Gen-4</td>
+<td class="p-3 text-neutral-300">Runway</td>
+<td class="p-3 text-neutral-300">Cinematic video</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Ideogram 3</td>
+<td class="p-3 text-neutral-300">Ideogram</td>
+<td class="p-3 text-neutral-300">Typography and graphic design</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">+ 25 others</td>
+<td class="p-3 text-neutral-300">Various</td>
+<td class="p-3 text-neutral-300">Specialized in niches (3D, anime, architecture, etc.)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Custom Models for brands</p>
+<p class="text-neutral-300 text-sm">Companies can train Custom Models with their own brand assets (logos, products, visual style) and use them directly in Firefly. This ensures brand consistency across all AI-generated content.</p>
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🔗</span> Creative Cloud Integration</h2></div>
+<p class="text-neutral-300 mb-4">
+            Adobe’s biggest advantage is its native integration with the professional tools the industry already uses:
+          </p>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30 border border-blue-200">
+<h3 class="font-bold text-neutral-100 mb-2">Premiere Pro</h3>
+<p class="text-neutral-300 text-sm">Generate B-roll with Firefly directly on the timeline. Extend clips, change backgrounds, and add effects without leaving the editor.</p>
+</div>
+<div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30 border border-purple-200">
+<h3 class="font-bold text-neutral-100 mb-2">After Effects</h3>
+<p class="text-neutral-300 text-sm">Integration for visual effects, AI-assisted rotoscoping, and advanced compositing with layers generated by Firefly.</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30 border border-green-200">
+<h3 class="font-bold text-neutral-100 mb-2">Photoshop</h3>
+<p class="text-neutral-300 text-sm">Generative Fill and Expand to create reference frames and storyboards for your video projects.</p>
+</div>
+<div class="bg-primary/10 p-4 rounded-lg border border-primary/40 border border-orange-200">
+<h3 class="font-bold text-neutral-100 mb-2">Topaz Upscaling</h3>
+<p class="text-neutral-300 text-sm">Integration with Topaz Video AI to upscale generated videos from 1080p to 4K with professional quality.</p>
+</div>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lesson Checklist</h2></div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I understood the Firefly Video Editor and Prompt to Edit</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know reference-based Camera Motion Control</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know how to use Quick Cut for automatic editing</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know Firefly Boards for mood boards</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I understood the marketplace of 30+ third-party models</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know the advantage of IP Indemnification</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I understood the integration with Premiere Pro/After Effects</span>
+</label>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-6.3-google-veo-flow.html">
+          ← Lesson 6.3
+        </a>
+<a class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors" href="aula-6.5-luma-pika-avancado.html">
+          Next lesson →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Updated May/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

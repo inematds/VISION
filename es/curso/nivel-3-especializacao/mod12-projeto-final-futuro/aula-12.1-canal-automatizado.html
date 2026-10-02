@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 12.1: Canal automatizado de contenido · VISION — Curso VISION de IA Audiovisual" name="description"/>
+<title>Lección 12.1: Canal automatizado de contenido · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.1-canal-automatizado.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.1-canal-automatizado.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.1-canal-automatizado.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.1-canal-automatizado.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-3-especializacao/mod12-projeto-final-futuro/aula-12.1-canal-automatizado.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-12.1-canal-automatizado.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 3</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 12</a>
+<span class="mx-2">/</span>
+<span>Lección 12.1</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full">📺 Módulo 12 • Lección 1</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Canal automatizado de contenido
+        </h1>
+<p class="text-xl text-neutral-400">
+          Construye desde cero un canal completo con un pipeline automatizado usando todas las herramientas del curso.
+        </p>
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~120 minutos</span>
+<span>📊 Avanzado</span>
+<span>🔄 Actualizado Abr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎯</span> Cómo elegir un nicho y una plataforma</h2></div>
+<p class="text-neutral-300 mb-4">
+            El primer paso para crear un canal automatizado exitoso es elegir el nicho adecuado y la plataforma principal. Esta decisión determinará toda tu estrategia de contenido, herramientas y monetización.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Marco de selección de nicho</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Criterio</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Preguntas clave</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Peso</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Demanda</td>
+<td class="p-3 text-neutral-300">¿La gente busca activamente este contenido?</td>
+<td class="p-3 text-neutral-300">Alto</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Competencia</td>
+<td class="p-3 text-neutral-300">¿Cuántos canales de IA existen ya en este nicho?</td>
+<td class="p-3 text-neutral-300">Medio</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Monetización</td>
+<td class="p-3 text-neutral-300">¿CPM alto? ¿Productos para vender? ¿Posibles colaboraciones?</td>
+<td class="p-3 text-neutral-300">Alto</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Automatizabilidad</td>
+<td class="p-3 text-neutral-300">¿Se puede generar el contenido mediante un pipeline de IA?</td>
+<td class="p-3 text-neutral-300">Alto</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Tu interés</td>
+<td class="p-3 text-neutral-300">¿Tienes un interés genuino en el tema?</td>
+<td class="p-3 text-neutral-300">Medio</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Nichos con alta automatización</h3>
+<ul class="text-neutral-300 space-y-1">
+<li>• <strong>Curiosidades y datos:</strong> Guion + voz en off + imágenes con IA = pipeline 100% automatizable</li>
+<li>• <strong>Tutoriales de tecnología:</strong> Grabaciones de pantalla + narración con IA + edición en CapCut</li>
+<li>• <strong>Meditación y relajación:</strong> Paisajes con IA + música de Suno + narración de ElevenLabs</li>
+<li>• <strong>Storytelling/historias:</strong> Guion con IA + imágenes FLUX + narración + edición automática</li>
+<li>• <strong>Resúmenes de libros/películas:</strong> El LLM resume + voz en off + imágenes temáticas</li>
+</ul>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🔄</span> Pipeline de producción: de la idea a la publicación</h2></div>
+<p class="text-neutral-300 mb-4">
+            Un canal automatizado eficaz funciona como una fábrica de contenido. Cada etapa del pipeline es clara, medible y (en su mayoría) automatizada.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Las 7 etapas del pipeline</h3>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-6">
+<ol class="list-decimal list-inside space-y-4 text-neutral-300">
+<li>
+<strong>Ideación (automática):</strong>
+<p class="ml-6 mt-1 text-sm">El agente monitorea tendencias en el nicho, analiza el rendimiento de videos anteriores y sugiere temas con alto potencial. Herramientas: n8n + Google Trends API + YouTube Data API.</p>
+</li>
+<li>
+<strong>Guion (semiautomático):</strong>
+<p class="ml-6 mt-1 text-sm">El LLM genera un guion completo con hook, desarrollo y CTA basados en el briefing. Tú revisas y ajustas el tono. Herramientas: Claude/GPT vía API.</p>
+</li>
+<li>
+<strong>Generación de medios (automática):</strong>
+<p class="ml-6 mt-1 text-sm">Pipeline paralelo genera voiceover (ElevenLabs), imágenes (FLUX/Midjourney) y clips de video (Kling 3.0). Herramientas: APIs mediante n8n.</p>
+</li>
+<li>
+<strong>Edición (semiautomática):</strong>
+<p class="ml-6 mt-1 text-sm">Plantilla en CapCut/Shotcut con marcadores de posición. Los recursos se insertan automáticamente. Subtítulos mediante auto-caption. Herramientas: CapCut API o FFmpeg.</p>
+</li>
+<li>
+<strong>Optimización (automática):</strong>
+<p class="ml-6 mt-1 text-sm">La IA genera un título optimizado, una descripción con SEO, etiquetas relevantes y una miniatura. Prueba A/B de miniaturas. Herramientas: LLM + FLUX.</p>
+</li>
+<li>
+<strong>Publicación (automática):</strong>
+<p class="ml-6 mt-1 text-sm">Programación inteligente en el mejor horario. Carga automática mediante la API de YouTube. Publicación cruzada en Shorts, TikTok y Reels. Herramientas: n8n + YouTube API.</p>
+</li>
+<li>
+<strong>Analítica (automática):</strong>
+<p class="ml-6 mt-1 text-sm">Dashboard actualizado a diario con métricas de rendimiento. Informe semanal con insights y recomendaciones. Herramientas: YouTube Analytics API + Google Sheets.</p>
+</li>
+</ol>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">⚙️</span> Configurando la automatización con n8n/Make</h2></div>
+<p class="text-neutral-300 mb-4">
+            Configuraremos el núcleo de la automatización. El workflow principal orquesta todas las etapas del pipeline.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Estructura del workflow principal (n8n)</h3>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<ol class="list-decimal list-inside space-y-2 text-neutral-300">
+<li><strong>Cron Trigger:</strong> Se ejecuta todos los días a las 6 a. m.</li>
+<li><strong>Fetch Topics:</strong> Consulta la hoja de cálculo de ideas aprobadas (Google Sheets)</li>
+<li><strong>AI Agent — Guionista:</strong> Genera un guion completo basado en el tema</li>
+<li><strong>Split — Generación paralela:</strong>
+<ul class="list-disc list-inside ml-6 mt-1">
+<li>Branch A: la API de ElevenLabs genera el voiceover MP3</li>
+<li>Branch B: la API de FLUX genera 5-8 imágenes para el video</li>
+<li>Branch C: la API de Kling genera 2-3 clips de video</li>
+</ul>
+</li>
+<li><strong>Merge:</strong> Combina todos los assets generados</li>
+<li><strong>Notify:</strong> Envía un email/Slack con una vista previa para aprobación humana</li>
+<li><strong>Wait for Approval:</strong> Pausa hasta recibir aprobación (webhook)</li>
+<li><strong>Publish:</strong> Subida mediante la API de YouTube + Buffer para redes sociales</li>
+<li><strong>Registro:</strong> Registra métricas en la hoja de seguimiento</li>
+</ol>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Punto de control de aprobación humana</h3>
+<p class="text-neutral-300">
+              Incluso en un pipeline "automatizado", recomendamos mantener al menos un punto de aprobación humana antes de publicar. Esto evita publicar contenido con errores factuales, un tono inadecuado o problemas de calidad. Con el tiempo, a medida que el pipeline demuestre ser confiable, puedes reducir la supervisión.
+            </p>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> Caso de estudio: canal de YouTube automatizado desde cero</h2></div>
+<p class="text-neutral-300 mb-4">
+            Acompañaremos paso a paso la creación de un canal de curiosidades científicas totalmente automatizado.
+          </p>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Canal: "Ciencia en 60 segundos"</h3>
+<ul class="text-purple-700 space-y-1">
+<li>• <strong>Nicho:</strong> Curiosidades científicas en formato Shorts (60s)</li>
+<li>• <strong>Frecuencia:</strong> 2 videos/día (60/mes)</li>
+<li>• <strong>Stack:</strong> n8n + Claude + ElevenLabs + FLUX + CapCut</li>
+<li>• <strong>Inversión mensual:</strong> ~$100 (APIs + hosting)</li>
+<li>• <strong>Meta:</strong> Monetización en 3-4 meses (1.000 suscriptores + 4.000h de tiempo de reproducción)</li>
+</ul>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Cronograma de implementación</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Semana</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Actividad</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Resultado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Semana 1</td>
+<td class="p-3 text-neutral-300">Crear un canal, definir la identidad visual y configurar n8n</td>
+<td class="p-3 text-neutral-300">Canal listo, flujo de trabajo base</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Semana 2</td>
+<td class="p-3 text-neutral-300">Configurar APIs, crear templates, probar el pipeline</td>
+<td class="p-3 text-neutral-300">Pipeline funcional</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Semana 3-4</td>
+<td class="p-3 text-neutral-300">Publicar 10 videos manualmente (perfeccionando la calidad)</td>
+<td class="p-3 text-neutral-300">Primeros 10 videos, ajustes</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Mes 2</td>
+<td class="p-3 text-neutral-300">Activar automatización completa (2/día)</td>
+<td class="p-3 text-neutral-300">60 videos, datos de analytics</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Mes 3-4</td>
+<td class="p-3 text-neutral-300">Optimizar según los datos y escalar entre plataformas</td>
+<td class="p-3 text-neutral-300">Monetización, más de 120 videos</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">💰</span> Integrar la monetización en el pipeline</h2></div>
+<p class="text-neutral-300 mb-4">
+            Un canal automatizado puede integrar múltiples fuentes de ingresos directamente en el pipeline:
+          </p>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">💵 AdSense automático</h4>
+<p class="text-neutral-300 text-sm">Una vez monetizado, cada video genera ingresos automáticamente. Con 2 videos/día, el efecto compuesto es poderoso.</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">🔗 Afiliados en la descripción</h4>
+<p class="text-neutral-300 text-sm">Pipeline inserta automáticamente enlaces de afiliados relevantes en la descripción de cada video según el tema.</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">📧 Captación de leads</h4>
+<p class="text-neutral-300 text-sm">CTA para newsletter/lead magnet incluido automáticamente al final de cada video y en la descripción.</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<h4 class="font-bold text-neutral-100 mb-1">📦 Promoción de productos</h4>
+<p class="text-neutral-300 text-sm">Cada 5 videos, el pipeline genera un video promocional de tu producto digital, integrado de forma natural en el contenido.</p>
+</div>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación de la clase</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Elegí mi nicho usando el framework de selección</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Entiendo las 7 etapas del pipeline de producción automatizado</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Configuré el workflow principal en n8n o Make</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Estudié el caso del canal "Ciencia en 60 Segundos"</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Definí mi cronograma de implementación</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Integré al menos 2 fuentes de monetización en el pipeline</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../mod11-monetizacao/aula-11.3-marketing-conteudo-ia.html">
+          ← Clase 11.3
+        </a>
+<a class="px-6 py-3 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors" href="aula-12.2-desafio-portfolio.html">
+          Lección 12.2 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lesson 4.2: Captions, Translation, and Automatic Dubbing · VISION — VISION Audiovisual AI Course" name="description"/>
+<title>Lesson 4.2: Captions, Translation, and Automatic Dubbing · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="aula-4.2-legendas-traducao.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../../es/curso/nivel-1-fundamentos/mod4-edicao-pos-producao/aula-4.2-legendas-traducao.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Start</a>
+<span class="mx-2">/</span>
+<a href="../../">Course</a>
+<span class="mx-2">/</span>
+<a href="../">Level 1</a>
+<span class="mx-2">/</span>
+<a href="./">Module 4</a>
+<span class="mx-2">/</span>
+<span>Lesson 4.2</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">✂️ Module 4 • Lesson 2</span>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Automatic Captions, Translation, and Dubbing
+        </h1>
+<p class="text-xl text-neutral-400">
+          Make your content accessible and global with automatic captions, AI translation, and dubbing.
+        </p>
+<div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+<span>⏱️ ~90 minutes</span>
+<span>📊 Beginner</span>
+<span>🔄 Updated Apr/2026</span>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">💬</span> AI Auto-Captions</h2></div>
+<p class="text-neutral-300 mb-4">
+            Captions are no longer optional: 85% of videos on social media are watched without sound.
+            In addition, captions increase engagement, improve accessibility, and help with SEO.
+            In 2026, AI generates captions with over 98% accuracy in Portuguese.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Why captions are essential</h3>
+<ul class="text-neutral-300 space-y-1">
+<li>• <strong>Accessibility:</strong> Deaf or hard-of-hearing people</li>
+<li>• <strong>Engagement:</strong> +80% watch time on videos with captions</li>
+<li>• <strong>Reach:</strong> Platforms prioritize videos with captions in the algorithm</li>
+<li>• <strong>Context:</strong> Many people watch on public transit, at the office, etc.</li>
+</ul>
+</div>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Automatic captioning tools</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Tool</th>
+<th class="text-left p-3 font-semibold text-neutral-100">PT-BR Accuracy</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Price</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Highlight</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">CapCut Auto-Captions</td>
+<td class="p-3 text-neutral-300">~96%</td>
+<td class="p-3 text-neutral-300">Free</td>
+<td class="p-3 text-neutral-300">Integrated with the editor</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Whisper (OpenAI)</td>
+<td class="p-3 text-neutral-300">~98%</td>
+<td class="p-3 text-neutral-300">Free (open source)</td>
+<td class="p-3 text-neutral-300">Greater accuracy, local use</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">YouTube Auto-Captions</td>
+<td class="p-3 text-neutral-300">~94%</td>
+<td class="p-3 text-neutral-300">Free</td>
+<td class="p-3 text-neutral-300">Automatically upon publishing</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Descript</td>
+<td class="p-3 text-neutral-300">~97%</td>
+<td class="p-3 text-neutral-300">Starting at $24/month</td>
+<td class="p-3 text-neutral-300">Text-based editing</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Captions.ai</td>
+<td class="p-3 text-neutral-300">~97%</td>
+<td class="p-3 text-neutral-300">Freemium</td>
+<td class="p-3 text-neutral-300">Stylized captions for social media</td>
+</tr>
+</tbody>
+</table>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Generating Captions in CapCut</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Import your video with narration into the timeline</li>
+<li>Click <strong>Text &gt; Auto-Captions</strong></li>
+<li>Select the language: <strong>Portuguese (Brazil)</strong></li>
+<li>Wait for the AI to process the audio (usually 30s-2min)</li>
+<li>Review and correct any errors (proper names, technical terms)</li>
+<li>Choose a caption style (font, color, position, animation)</li>
+<li>Adjust the size to ensure readability on mobile</li>
+</ol>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Pro Tip</h3>
+<p class="text-neutral-300">
+              Always review automatically generated captions. AI can get proper names,
+              regional slang, and technical terms wrong. A 5-minute review can prevent embarrassing mistakes.
+            </p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">📄</span> SRT and VTT files</h2></div>
+<p class="text-neutral-300 mb-4">
+            Captions are stored in special text files. The two most common formats are SRT and VTT.
+            Understanding these formats lets you edit, reuse, and import captions on any platform.
+          </p>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-2">SRT format</h4>
+<pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
+1
+00:00:01,000 --&gt; 00:00:04,500
+Olá! Bem-vindos ao nosso
+vídeo sobre IA.
+
+2
+00:00:05,000 --&gt; 00:00:08,200
+Hoje vamos aprender a criar
+conteúdo incrível.</pre>
+<p class="text-neutral-400 text-sm mt-2">More universal, accepted on almost all platforms.</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-2">VTT format (WebVTT)</h4>
+<pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
+WEBVTT
+
+00:00:01.000 --&gt; 00:00:04.500
+Olá! Bem-vindos ao nosso
+vídeo sobre IA.
+
+00:00:05.000 --&gt; 00:00:08.200
+Hoje vamos aprender a criar
+conteúdo incrível.</pre>
+<p class="text-neutral-400 text-sm mt-2">Web standard (HTML5), supports CSS styling.</p>
+</div>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">Exporting captions from CapCut</h3>
+<p class="text-neutral-300">
+              In CapCut, after generating automatic captions, you can export them as a separate SRT file.
+              Go to <strong>Text &gt; Export subtitle as SRT</strong>. This lets you reuse the captions
+              on other platforms or translate them separately.
+            </p>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🌍</span> Automatic AI Translation</h2></div>
+<p class="text-neutral-300 mb-4">
+            Translating your content into other languages multiplies your potential reach. In 2026, automatic translation tools
+            offer quality close to human translation for the most common languages.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Video translation tools</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Tool</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Languages</th>
+<th class="text-left p-3 font-semibold text-neutral-100">What it translates</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Price</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">CapCut Translate</td>
+<td class="p-3 text-neutral-300">20+</td>
+<td class="p-3 text-neutral-300">Captions</td>
+<td class="p-3 text-neutral-300">Free</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ElevenLabs Dubbing</td>
+<td class="p-3 text-neutral-300">30+</td>
+<td class="p-3 text-neutral-300">Voice + subtitles</td>
+<td class="p-3 text-neutral-300">Starting at $5/month</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">HeyGen Translate</td>
+<td class="p-3 text-neutral-300">40+</td>
+<td class="p-3 text-neutral-300">Voice + lip sync</td>
+<td class="p-3 text-neutral-300">Starting at $29/month</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Rask.ai</td>
+<td class="p-3 text-neutral-300">60+</td>
+<td class="p-3 text-neutral-300">Voice + subtitles</td>
+<td class="p-3 text-neutral-300">Starting at $50/month</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">DeepL + Whisper</td>
+<td class="p-3 text-neutral-300">30+</td>
+<td class="p-3 text-neutral-300">Caption text</td>
+<td class="p-3 text-neutral-300">Free/Freemium</td>
+</tr>
+</tbody>
+</table>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Recommended translation workflow</h3>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li><strong>Generate captions</strong> in the original language (PT-BR) with CapCut or Whisper</li>
+<li><strong>Export the SRT</strong> from the original language</li>
+<li><strong>Translate the SRT</strong> using DeepL (better quality) or ChatGPT</li>
+<li><strong>Review the translation</strong> (especially idioms)</li>
+<li><strong>Import the translated SRT</strong> in CapCut as a new caption track</li>
+<li><strong>Publish</strong> with captions in multiple languages</li>
+</ol>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎙️</span> Automatic AI Dubbing</h2></div>
+<p class="text-neutral-300 mb-4">
+            Automatic dubbing goes beyond text translation: it recreates the video narration in another language,
+            preserving the tone, rhythm, and even the original voice. In 2026, the results are surprisingly natural.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Dubbing with ElevenLabs</h3>
+<p class="text-neutral-300 mb-4">
+            ElevenLabs offers the Dubbing Studio feature, which automates the entire dubbing process:
+          </p>
+<ol class="list-decimal list-inside space-y-2 text-neutral-300 mb-4">
+<li>Access <strong>ElevenLabs &gt; Dubbing</strong></li>
+<li>Upload your video (or paste the YouTube link)</li>
+<li>Select the source language (Portuguese)</li>
+<li>Choose the target languages (e.g., English, Spanish)</li>
+<li>AI transcribes, translates, and generates the narration in the new language</li>
+<li>Review and adjust the synchronization</li>
+<li>Export the dubbed video</li>
+</ol>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">HeyGen: AI Lip Sync</h3>
+<p class="text-purple-700">
+              If your video shows someone speaking, HeyGen goes further: it doesn’t just dub the voice, it also adjusts the lip movements to sync with the new language. The result is so natural that it looks like the person is really speaking that language.
+            </p>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🌐</span> Multilingual Content Strategy</h2></div>
+<p class="text-neutral-300 mb-4">
+            With AI translation and dubbing tools, creating multilingual content has become accessible.
+            But it’s important to have a clear strategy to maximize impact.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Priority languages by niche</h3>
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Niche</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Recommended languages</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Reason</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Technology</td>
+<td class="p-3 text-neutral-300">EN, ES, HI</td>
+<td class="p-3 text-neutral-300">Larger audience and global demand</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Lifestyle/Travel</td>
+<td class="p-3 text-neutral-300">EN, ES, FR</td>
+<td class="p-3 text-neutral-300">Diverse international audience</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Education</td>
+<td class="p-3 text-neutral-300">ES, EN</td>
+<td class="p-3 text-neutral-300">Latin American + global market</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">E-commerce</td>
+<td class="p-3 text-neutral-300">EN, ES, DE</td>
+<td class="p-3 text-neutral-300">Markets with greater purchasing power</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4 mb-4">
+<h3 class="font-bold text-neutral-100 mb-2">MVP strategy: Start with 2 languages</h3>
+<p class="text-neutral-300">
+              Don't try to translate into 10 languages at once. Start with Portuguese + English (or Spanish).
+              Measure the results, adjust your approach, and then expand gradually. The cost of translating
+              a 1-minute video with ElevenLabs is less than R$5.
+            </p>
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">♿</span> Accessibility: Best Practices</h2></div>
+<p class="text-neutral-300 mb-4">
+            Accessibility isn’t just a legal issue—it’s a matter of respect and reach.
+            Accessible videos reach more people and perform better in algorithms.
+          </p>
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Video Accessibility Checklist</h3>
+<div class="space-y-3 mb-4">
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">📝</span>
+<div>
+<strong>Descriptive captions:</strong> In addition to speech, include important sounds in brackets:
+                [upbeat music], [door slamming], [laughter]
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🎨</span>
+<div>
+<strong>Caption contrast:</strong> Use a dark semi-transparent background with white text.
+                Never place white text directly over a light video.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">📏</span>
+<div>
+<strong>Font size:</strong> Minimum 28px for 1080p videos. On mobile, captions
+                need to be readable on small screens.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">⏰</span>
+<div>
+<strong>Display time:</strong> Each caption should stay on screen for at least 1.5 seconds.
+                Maximum of 2 lines at a time.
+              </div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded border border-dark-600 flex items-start gap-2">
+<span class="text-lg">🔊</span>
+<div>
+<strong>Audio description:</strong> For important visual content, consider adding
+                audio description for people with visual impairments.
+              </div>
+</div>
+</div>
+</section>
+<!-- Seção 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">🛠️</span> Practical Exercise</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600 mb-4">
+<h3 class="text-lg font-bold text-neutral-100 mb-3">Exercise: Complete Captions and Translation</h3>
+<ol class="list-decimal list-inside space-y-3 text-neutral-300">
+<li><strong>Generate captions:</strong> Use CapCut Auto-Captions on a video with Portuguese narration</li>
+<li><strong>Style:</strong> Apply an engaging caption style (font, color, animation)</li>
+<li><strong>Export SRT:</strong> Save the captions as an SRT file</li>
+<li><strong>Translate:</strong> Use DeepL to translate the SRT into English</li>
+<li><strong>Import:</strong> Add the English captions as the second track in CapCut</li>
+<li><strong>Bonus:</strong> Test ElevenLabs' automatic dubbing (the free version allows 1 video/month)</li>
+</ol>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-8">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">8</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lesson Checklist</h2></div>
+<div class="bg-dark-700/50 p-6 rounded-lg border border-dark-600">
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I generated automatic captions in CapCut</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I reviewed and corrected the captions generated by AI</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I understand the SRT and VTT formats</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I exported an SRT file of my video</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">Translated captions into at least one additional language</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I know the automatic dubbing tools (ElevenLabs, HeyGen)</span>
+</li>
+<li class="flex items-start gap-2">
+<input class="mt-1" type="checkbox"/>
+<span class="text-neutral-300">I applied accessibility best practices to the captions</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-12">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-4.1-capcut-edicao-ia.html">
+          ← Lesson 4.1
+        </a>
+<a class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors" href="aula-4.3-efeitos-especiais-vfx.html">
+          Lesson 4.3 →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Updated May/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

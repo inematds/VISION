@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lección 6.5: Luma Ray3 y Pika Pikaformance - 1080p nativo, keyframes y expresiones faciales con audio" name="description"/>
+<title>Lección 6.5: Luma Ray3 y Pika Pikaformance · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.5-luma-pika-avancado.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.5-luma-pika-avancado.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.5-luma-pika-avancado.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.5-luma-pika-avancado.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../../en/curso/nivel-2-desenvolvimento/mod6-video-avancado/aula-6.5-luma-pika-avancado.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="aula-6.5-luma-pika-avancado.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Desarrollo</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Especialización</span>
+</a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Inicio</a>
+<span class="mx-2">/</span>
+<a href="../../">Curso</a>
+<span class="mx-2">/</span>
+<a href="../">Nivel 2</a>
+<span class="mx-2">/</span>
+<a href="./">Módulo 6</a>
+<span class="mx-2">/</span>
+<span>Lección 6.5</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">Nivel 2</span>
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">~90 min</span>
+</div>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Luma Ray3 y Pika Pikaformance
+        </h1>
+<p class="text-xl text-neutral-400">
+          Conoce Luma Ray3, con 1080p nativo y edición por keyframes, y Pika Pikaformance, para expresiones faciales hiperrealistas sincronizadas con audio.
+        </p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">✨</span> Luma Ray3 / Ray3.14</h2></div>
+<p class="text-neutral-300 mb-4">
+            O <strong>Luma Ray3</strong> (y su actualización Ray3.14) representa un salto significativo en la generación de video. Tres cifras definen su impacto: <strong>1080p nativo, 4x más rápido y 3x más barato</strong> que la generación anterior.
+          </p>
+<p class="text-neutral-300 mb-4">
+            Mientras la mayoría de los competidores aún genera en resoluciones más bajas y requiere escalado, Ray3 produce video directamente en 1080p, lo que elimina los artefactos de escalado.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4-lg mb-6">
+<p class="text-neutral-100 font-semibold mb-1">Cifras de Ray3.14</p>
+<p class="text-neutral-300 text-sm">1080p nativo | 4x más rápido que Ray2 | 3x más barato por generación | Hasta 10s por clip | Compatibilidad con keyframes | Modify Video para edición posterior a la generación</p>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Modify Video con keyframes</h3>
+<p class="text-neutral-300 mb-4">
+            La función <strong>Modify Video</strong> de Ray3 permite editar videos ya generados usando keyframes. Puedes:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Definir keyframes del prompt</strong> — Cambia lo que sucede en puntos específicos del video</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Ajustar los movimientos de cámara</strong> — Agrega o modifica movimientos en puntos de la línea de tiempo</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Cambiar la iluminación a lo largo del tiempo</strong> — Transición del día a la noche, por ejemplo</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Refinar sin volver a generar</strong> — Ajusta los detalles sin perder lo que ya está bien</span>
+</li>
+</ul>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">📊</span> Ray3 vs competidores</h2></div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Aspecto</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Luma Ray3</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Runway Gen-4.5</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Kling 3.0</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Seedance 2.0</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Resolución nativa</td>
+<td class="p-3 text-neutral-300">1080p</td>
+<td class="p-3 text-neutral-300">4K</td>
+<td class="p-3 text-neutral-300">1080p</td>
+<td class="p-3 text-neutral-300">1080p</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Keyframes</td>
+<td class="p-3 text-neutral-300">✅</td>
+<td class="p-3 text-neutral-300">❌</td>
+<td class="p-3 text-neutral-300">A través de Storyboard</td>
+<td class="p-3 text-neutral-300">❌</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Modify Video</td>
+<td class="p-3 text-neutral-300">✅</td>
+<td class="p-3 text-neutral-300">Limitado</td>
+<td class="p-3 text-neutral-300">❌</td>
+<td class="p-3 text-neutral-300">❌</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Velocidad</td>
+<td class="p-3 text-neutral-300">Rápido</td>
+<td class="p-3 text-neutral-300">Medio</td>
+<td class="p-3 text-neutral-300">Medio</td>
+<td class="p-3 text-neutral-300">Rápido</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Costo por video</td>
+<td class="p-3 text-neutral-300">Bajo</td>
+<td class="p-3 text-neutral-300">Alto</td>
+<td class="p-3 text-neutral-300">Medio</td>
+<td class="p-3 text-neutral-300">Medio</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Movimiento humano</td>
+<td class="p-3 text-neutral-300">Bueno</td>
+<td class="p-3 text-neutral-300">Excelente</td>
+<td class="p-3 text-neutral-300">Muy bueno</td>
+<td class="p-3 text-neutral-300">Excelente</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">🎭</span> Pika 2.5 y Pikaformance</h2></div>
+<p class="text-neutral-300 mb-4">
+            O <strong>Pika 2.5</strong> trajo mejoras significativas en el motor de generación, pero lo más destacado es el <strong>Pikaformance</strong> — una función dedicada a expresiones faciales hiperrealistas sincronizadas con audio.
+          </p>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-4-lg mb-6">
+<p class="text-neutral-100 font-semibold mb-1">Qué hace Pikaformance</p>
+<p class="text-purple-700 text-sm">A partir de una imagen de un rostro y un archivo de audio (habla, canto, rap), Pikaformance genera un video en el que el rostro se mueve de forma hiperrealista, sincronizado con el audio. Los movimientos de la boca, los ojos, las cejas y las microexpresiones se generan automáticamente.</p>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Casos de uso de Pikaformance</h3>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-1">Videos de talking head</h4>
+<p class="text-neutral-300 text-sm">Crea videos de personas hablando a partir de una foto + audio de narración.</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-1">Clips musicales</h4>
+<p class="text-neutral-300 text-sm">Haz que los personajes canten sus canciones con expresiones y movimientos realistas.</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-1">Lip Sync para doblaje</h4>
+<p class="text-neutral-300 text-sm">Sincroniza los labios con el audio en distintos idiomas para crear contenido multilingüe.</p>
+</div>
+<div class="bg-dark-700/50 p-4 rounded-lg border border-dark-600">
+<h4 class="font-bold text-neutral-100 mb-1">Personajes virtuales</h4>
+<p class="text-neutral-300 text-sm">Dales vida a avatares y personajes ficticios con expresiones naturales.</p>
+</div>
+</div>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🎵</span> PixVerse V5.6 con audio nativo</h2></div>
+<p class="text-neutral-300 mb-4">
+            O <strong>PixVerse V5.6</strong> es otro actor importante que ahora ofrece generación de video con audio nativo. A diferencia de Veo (enfocado en diálogos) y Vidu (enfocado en ambientes), PixVerse equilibra ambos:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Efectos de sonido sincronizados con la acción visual</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Música de fondo contextual generada automáticamente</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Resolución de hasta 1080p con 30fps</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Plan gratuito generoso para pruebas</span>
+</li>
+</ul>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🎬</span> Higgsfield AI Cinema Studio</h2></div>
+<p class="text-neutral-300 mb-4">
+            O <strong>Higgsfield AI Cinema Studio</strong> adopta un enfoque diferente: en lugar de desarrollar un único modelo propietario, ofrece acceso a <strong>más de 50 modelos de video</strong> en una sola interfaz. Funciona como un «hub» donde puedes:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Comparar los resultados de varios modelos con el mismo prompt</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Elegir el modelo ideal para cada tipo de contenido</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Acceder a modelos open source y propietarios sin configuración</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span>Pagar solo por lo que uses (pay-per-generation)</span>
+</li>
+</ul>
+<div class="bg-primary/10 rounded-xl border border-primary/40 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Cuándo usar Higgsfield</p>
+<p class="text-neutral-300 text-sm">Ideal cuando aún no sabes qué modelo es mejor para tu proyecto. Genera el mismo prompt en 3-5 modelos diferentes y compara los resultados antes de invertir créditos en un modelo específico.</p>
+</div>
+</section>
+<!-- Seção 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🗺️</span> Mapa de decisión: ¿qué herramienta usar?</h2></div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Necesito...</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Herramienta</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Video barato y rápido en 1080p</td>
+<td class="p-3 text-neutral-300">Luma Ray3</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Editar video ya generado con keyframes</td>
+<td class="p-3 text-neutral-300">Luma Ray3 (Modify Video)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Rostro hablando/cantando sincronizado con el audio</td>
+<td class="p-3 text-neutral-300">Pika Pikaformance</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Video con audio nativo (SFX + ambiente)</td>
+<td class="p-3 text-neutral-300">PixVerse V5.6</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Comparar varios modelos en una interfaz</td>
+<td class="p-3 text-neutral-300">Higgsfield Cinema Studio</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Calidad comercial con personas reales</td>
+<td class="p-3 text-neutral-300">Seedance 2.0 (Clase 6.2)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Narrativa con varias escenas y storyboard</td>
+<td class="p-3 text-neutral-300">Kling 3.0 (Lección 6.1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lista de verificación de la clase</h2></div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Conozco Luma Ray3 y sus ventajas (1080p, 4 veces más rápido, 3 veces más barato)</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Comprendí Modify Video con keyframes</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Sé qué es Pikaformance y cuáles son sus casos de uso</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Conozco PixVerse V5.6 con audio nativo</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Comprendí la propuesta de Higgsfield AI Cinema Studio</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Sé qué herramienta usar para cada tipo de proyecto</span>
+</label>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-6.4-adobe-firefly-video.html">
+          ← Clase 6.4
+        </a>
+<a class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors" href="../mod7-workflows-opensource/aula-7.1-freepik-spaces.html">
+          Siguiente clase →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Actualizado mayo/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

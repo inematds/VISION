@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lesson 7.4: Production pipelines at scale - Produce 1000+ clips/month with automation" name="description"/>
+<title>Lesson 7.4: Production pipelines at scale · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.4-pipelines-escala.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.4-pipelines-escala.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.4-pipelines-escala.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.4-pipelines-escala.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="aula-7.4-pipelines-escala.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../../es/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.4-pipelines-escala.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Start</a>
+<span class="mx-2">/</span>
+<a href="../../">Course</a>
+<span class="mx-2">/</span>
+<a href="../">Level 2</a>
+<span class="mx-2">/</span>
+<a href="./">Module 7</a>
+<span class="mx-2">/</span>
+<span>Lesson 7.4</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">Level 2</span>
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">~90 min</span>
+</div>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Production Pipelines at Scale
+        </h1>
+<p class="text-xl text-neutral-400">
+          Learn how to build automated pipelines that scale to 1000+ clips/month, combining ComfyUI, CapCut, ElevenLabs, and cost optimization strategies.
+        </p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🏭</span> Why think about scale?</h2></div>
+<p class="text-neutral-300 mb-4">
+            If you create content for social media, e-commerce, or agencies, demand is growing rapidly. A TikTok account that posts 3 times a day needs <strong>90 videos/month</strong>. An agency with 10 clients needs <strong>900+</strong>. Producing them manually is unsustainable.
+          </p>
+<p class="text-neutral-300 mb-4">
+            An automated pipeline transforms content creation from a craft process (hours per video) into an industrial process (minutes per video), while maintaining quality.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Realistic scaling with AI in 2026</p>
+<p class="text-neutral-300 text-sm">With the right tools, one person can produce 50-100 short videos a day. A small team (2-3 people) with automated pipelines can reach 500+ videos/day for short-form content.</p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🔗</span> Complete Pipeline Architecture</h2></div>
+<p class="text-neutral-300 mb-4">
+            A typical large-scale production pipeline follows this structure:
+          </p>
+<div class="bg-gray-100 p-4 rounded-lg mb-6 font-mono text-sm">
+<p class="text-neutral-100 mb-1"><strong>Phase 1 — Planning:</strong></p>
+<p class="text-neutral-300 mb-3">[Text AI (ChatGPT/Claude)] → Scripts + Visual Prompts</p>
+<p class="text-neutral-100 mb-1"><strong>Phase 2 — Generation:</strong></p>
+<p class="text-neutral-300 mb-3">[ComfyUI / video API] → Raw visual clips</p>
+<p class="text-neutral-100 mb-1"><strong>Phase 3 — Audio:</strong></p>
+<p class="text-neutral-300 mb-3">[ElevenLabs] → Narration | [Suno] → Background music</p>
+<p class="text-neutral-100 mb-1"><strong>Phase 4 — Editing:</strong></p>
+<p class="text-neutral-300 mb-3">[CapCut / Premiere Pro] → Editing + Captions + Transitions</p>
+<p class="text-neutral-100 mb-1"><strong>Phase 5 — Publishing:</strong></p>
+<p class="text-neutral-300">[Scheduling] → TikTok, Instagram, YouTube, LinkedIn</p>
+</div>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Phase</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Tool</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Automation</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Time/video</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Script</td>
+<td class="p-3 text-neutral-300">ChatGPT / Claude API</td>
+<td class="p-3 text-neutral-300">Batch via API with templates</td>
+<td class="p-3 text-neutral-300">~30s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Visual generation</td>
+<td class="p-3 text-neutral-300">ComfyUI / Hailuo / Kling</td>
+<td class="p-3 text-neutral-300">Processing queue</td>
+<td class="p-3 text-neutral-300">~2–5 min</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Voice-over</td>
+<td class="p-3 text-neutral-300">ElevenLabs API</td>
+<td class="p-3 text-neutral-300">Batch text-to-speech</td>
+<td class="p-3 text-neutral-300">~10s</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Music</td>
+<td class="p-3 text-neutral-300">Suno / Udio</td>
+<td class="p-3 text-neutral-300">Pre-generated library</td>
+<td class="p-3 text-neutral-300">~0s (reuse)</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Editing</td>
+<td class="p-3 text-neutral-300">CapCut / FFmpeg</td>
+<td class="p-3 text-neutral-300">Templates + auto captions</td>
+<td class="p-3 text-neutral-300">~1–3 min</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">📦</span> Batch Processing</h2></div>
+<p class="text-neutral-300 mb-4">
+            The key to scaling is processing multiple videos in parallel. Strategies:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">1.</span>
+<span><strong>Batch scripts</strong> — Generate 50 scripts at once with a single well-structured API call</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">2.</span>
+<span><strong>Generation queue</strong> — Configure ComfyUI to process a prompt queue automatically</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">3.</span>
+<span><strong>Parallel APIs</strong> — Use multiple APIs simultaneously (ElevenLabs + video generation)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">4.</span>
+<span><strong>FFmpeg scripts</strong> — Automatically combine video + audio + captions with scripts</span>
+</li>
+</ul>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">🔌</span> Basic API Integration</h2></div>
+<p class="text-neutral-300 mb-4">
+            To automate, you need to connect tools via APIs. The main APIs used in content pipelines:
+          </p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">API</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Use in the pipeline</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Approx. cost</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">OpenAI / Anthropic</td>
+<td class="p-3 text-neutral-300">Generate scripts and visual prompts</td>
+<td class="p-3 text-neutral-300">~$0.01/script</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ElevenLabs</td>
+<td class="p-3 text-neutral-300">Text-to-speech for narration</td>
+<td class="p-3 text-neutral-300">~$0.03/min</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Hailuo/MiniMax</td>
+<td class="p-3 text-neutral-300">Video generation via API</td>
+<td class="p-3 text-neutral-300">~$0.28/video</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Kling API</td>
+<td class="p-3 text-neutral-300">Video with a storyboard</td>
+<td class="p-3 text-neutral-300">~$0.50/video</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">ComfyUI (local)</td>
+<td class="p-3 text-neutral-300">Local generation with no per-video cost</td>
+<td class="p-3 text-neutral-300">~$0.05/video (energy)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Total cost per short video (15-30s)</p>
+<p class="text-neutral-300 text-sm">Script ($0.01) + Video via Hailuo ($0.28) + Narration ($0.03) = approximately $0.32 per video. For 1000 videos/month, the cost is around $320. With local generation via ComfyUI, it can drop to less than $100/month.</p>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Quality Assurance at Scale</h2></div>
+<p class="text-neutral-300 mb-4">
+            Producing at scale without quality control creates poor content that hurts your brand. Implement these checks:
+          </p>
+<div class="space-y-3 mb-6">
+<div class="bg-dark-700/50 p-3 rounded-lg border border-dark-600 flex items-start gap-3">
+<span class="text-green-500 font-bold text-lg">1</span>
+<div>
+<p class="font-semibold text-gray-900">Visual artifact review</p>
+<p class="text-neutral-300 text-sm">Check for deformed hands, illegible text, and visual inconsistencies. Reject and regenerate clips with artifacts.</p>
+</div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded-lg border border-dark-600 flex items-start gap-3">
+<span class="text-green-500 font-bold text-lg">2</span>
+<div>
+<p class="font-semibold text-gray-900">Audio-video sync</p>
+<p class="text-neutral-300 text-sm">Make sure the narration and captions are synchronized with the visuals. Use auto-sync tools when possible.</p>
+</div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded-lg border border-dark-600 flex items-start gap-3">
+<span class="text-green-500 font-bold text-lg">3</span>
+<div>
+<p class="font-semibold text-gray-900">Brand check</p>
+<p class="text-neutral-300 text-sm">Check colors, logos, and tone of voice. Use templates to maintain consistency across all videos.</p>
+</div>
+</div>
+<div class="bg-dark-700/50 p-3 rounded-lg border border-dark-600 flex items-start gap-3">
+<span class="text-green-500 font-bold text-lg">4</span>
+<div>
+<p class="font-semibold text-gray-900">Statistical sampling</p>
+<p class="text-neutral-300 text-sm">For large batches (100+), manually review a 10-15% sample. If the rejection rate is below 5%, approve the batch.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 6: Case study -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">📋</span> Case Study: Automated Content Pipeline</h2></div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6-lg mb-6">
+<h3 class="font-bold text-neutral-100 mb-3">Scenario: Social media agency with 5 clients</h3>
+<p class="text-neutral-300 mb-3"><strong>Goal:</strong> 3 posts/day per client = 450 videos/month</p>
+<div class="space-y-2 text-neutral-300 text-sm">
+<p class=""><strong>Monday:</strong> Generate 100 scripts via Claude API with templates for each client (1 hour)</p>
+<p class=""><strong>Tuesday:</strong> ComfyUI generation queue — 100 clips processed overnight (0 active hours)</p>
+<p class=""><strong>Wednesday:</strong> Batch voiceovers via ElevenLabs + assembly with CapCut templates (2 hours)</p>
+<p class=""><strong>Thursday:</strong> QA — review a 15% sample and fix issues (2 hours)</p>
+<p class=""><strong>Friday:</strong> Schedule posts for the next 2 weeks (1 hour)</p>
+<p class="mt-3"><strong>Total:</strong> ~6 hours of active work for 100 videos = 3.6 minutes per video</p>
+</div>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lesson Checklist</h2></div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I understood the architecture of a 5-phase pipeline</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know batch processing strategies</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know which APIs to use and their approximate costs</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I understood cost optimization (Hailuo at $0.28/video)</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know the 4 stages of Quality Assurance at scale</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I studied the automated pipeline case study</span>
+</label>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="aula-7.3-skyreels-wan-ltx.html">
+          ← Lesson 7.3
+        </a>
+<a class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors" href="../mod8-audio-musica/aula-8.1-suno-udio-musica.html">
+          Next lesson →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Updated May/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

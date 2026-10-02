@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Track 3: Specialization — VISION. Modules 10-12: Agent Automation, Monetization, and Final Project + The Future. Updated May/2026." name="description"/>
+<title>Track 3: Specialization · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🚀&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .module-card { transition: all 0.3s ease; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-3-especializacao/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-3-especializacao/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-3-especializacao/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/nivel-3-especializacao/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/nivel-3-especializacao/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">TRACK 3 · ADVANCED</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🚀 Specialization</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">Automate with agents, build autonomous channels, monetize your work, and build a professional portfolio.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+<div class="text-xl font-bold text-purple-400">3</div>
+<div class="text-xs text-neutral-400">Modules</div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+<div class="text-xl font-bold text-purple-400">9</div>
+<div class="text-xs text-neutral-400">Lessons</div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+<div class="text-xl font-bold text-purple-400">20-25h</div>
+<div class="text-xs text-neutral-400">Duration</div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+<div class="text-xl font-bold text-purple-400">Advanced</div>
+<div class="text-xs text-neutral-400">Level</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<!-- Quick-nav: acesso rápido aos módulos -->
+<section class="mb-12">
+<h2 class="text-xl font-bold text-neutral-100 mb-4">📍 Quick Access to Modules</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<a class="group block bg-dark-800 rounded-lg p-4 border border-dark-600 hover:border-purple-500/30 transition-all" href="mod10-automacao-agentes/index.html">
+<div class="text-purple-400 font-bold text-sm mb-1">Mod 3.1</div>
+<div class="text-2xl mb-1">🤖</div>
+<div class="text-sm font-medium text-neutral-100 group-hover:text-purple-400 transition-colors">Automation and Agents</div>
+<div class="text-xs text-neutral-500 mt-1">3 lessons · ~90 min</div>
+</a>
+<a class="group block bg-dark-800 rounded-lg p-4 border border-dark-600 hover:border-purple-500/30 transition-all" href="mod11-monetizacao/index.html">
+<div class="text-purple-400 font-bold text-sm mb-1">Mod 3.2</div>
+<div class="text-2xl mb-1">💰</div>
+<div class="text-sm font-medium text-neutral-100 group-hover:text-purple-400 transition-colors">Monetization</div>
+<div class="text-xs text-neutral-500 mt-1">3 lessons · ~90 min</div>
+</a>
+<a class="group block bg-dark-800 rounded-lg p-4 border border-dark-600 hover:border-purple-500/30 transition-all" href="mod12-projeto-final-futuro/index.html">
+<div class="text-purple-400 font-bold text-sm mb-1">Mod 3.3</div>
+<div class="text-2xl mb-1">🏆</div>
+<div class="text-sm font-medium text-neutral-100 group-hover:text-purple-400 transition-colors">Final Project + Future</div>
+<div class="text-xs text-neutral-500 mt-1">3 lessons · ~90 min</div>
+</a>
+</div>
+</section>
+<div class="border-t border-dark-600 mb-12 pt-12">
+<h2 class="text-xl font-bold text-neutral-100 mb-2">📚 Detailed Content</h2>
+<p class="text-sm text-neutral-400">Explore each topic in the modules below. Click to expand.</p>
+</div>
+<!-- Módulo 10 -->
+<div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2">
+<span class="text-purple-400 font-bold">3.1 · Mod 10</span>
+<span class="text-xs text-neutral-500">~90 min</span>
+</div>
+<h2 class="text-2xl font-bold mb-2">🤖 Module 10: Automation and Agents</h2>
+<p class="text-neutral-400 text-sm">n8n 2.0 with LangChain, Make.com Maia, Zapier Agents, and autonomous content pipelines.</p>
+</div>
+<ul class="divide-y divide-dark-600">
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🔄</span>
+<span class="font-medium flex-1">n8n 2.0 — Agents with LangChain</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">n8n 2.0 introduces native AI agents with LangChain — workflows that make decisions, not just execute tasks.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">Open-source, self-hostable, and cheaper at scale than Make/Zapier.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">Triggers, agents, memory, tools, error handling.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod10-automacao-agentes/aula-10.1-n8n-agentes.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">⚙️</span>
+<span class="font-medium flex-1">Make.com Maia and Zapier Agents</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">Make.com Maia (built-in AI assistant) and Zapier Agents — automations with built-in intelligence.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">For quick integrations with 7000+ apps. Make is more visual; Zapier is simpler.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">Maia, agents, AI Steps, costs per operation.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod10-automacao-agentes/aula-10.2-make-zapier-agents.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🔄</span>
+<span class="font-medium flex-1">Autonomous Content Pipelines</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">Complete pipeline: trend → script → assets → video → upload — with no human intervention.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">It’s the state of the art in creative automation in 2026: channels that produce 10+ videos/day on their own.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">Trend scraping, prompt chains, queue management, monitoring.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod10-automacao-agentes/aula-10.3-pipelines-autonomos.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+</ul>
+<div class="px-6 py-4 bg-dark-700/30 border-t border-dark-600 flex justify-start gap-3">
+<a class="px-4 py-2 text-sm bg-purple-500/20 text-purple-400 rounded-lg font-semibold hover:bg-purple-500/30 transition-colors" href="mod10-automacao-agentes/index.html">View Full Module →</a>
+<a class="px-4 py-2 text-sm bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors" href="mod10-automacao-agentes/aula-10.1-n8n-agentes.html">Start Lesson 1 →</a>
+</div>
+</div>
+<!-- Módulo 11 -->
+<div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2">
+<span class="text-purple-400 font-bold">3.2 · Mod 11</span>
+<span class="text-xs text-neutral-500">~90 min</span>
+</div>
+<h2 class="text-2xl font-bold mb-2">💰 Module 11: Monetization</h2>
+<p class="text-neutral-400 text-sm">Monetization strategies for 2026, scalable digital products, and AI-powered content marketing.</p>
+</div>
+<ul class="divide-y divide-dark-600">
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">💵</span>
+<span class="font-medium flex-1">Monetization Strategies May/2026</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">Revenue models: micro-tool SaaS, content arbitrage, agencies, courses, licensing.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">Producing is easy in 2026; monetizing requires a model. This lesson defines your revenue engine.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">LTV, CAC, retention, model selection.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod11-monetizacao/aula-11.1-estrategias-monetizacao.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">📦</span>
+<span class="font-medium flex-1">Digital Products and Scalability</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">Templates, presets, LoRAs, packs, and courses — products that sell while you sleep.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">A creator's time is finite. Digital products break the hourly-work ceiling.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">Gumroad, Stripe, marketplaces, pricing.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod11-monetizacao/aula-11.2-produtos-digitais.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">📣</span>
+<span class="font-medium flex-1">Content Marketing with AI</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">Organic growth pipeline: research, production, distribution, and measurement with AI.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">Without distribution, a product won't sell. AI-first marketing is what sets you apart.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">SEO, social media, email, attribution, analytics.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod11-monetizacao/aula-11.3-marketing-conteudo-ia.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+</ul>
+<div class="px-6 py-4 bg-dark-700/30 border-t border-dark-600 flex justify-start gap-3">
+<a class="px-4 py-2 text-sm bg-purple-500/20 text-purple-400 rounded-lg font-semibold hover:bg-purple-500/30 transition-colors" href="mod11-monetizacao/index.html">View Full Module →</a>
+<a class="px-4 py-2 text-sm bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors" href="mod11-monetizacao/aula-11.1-estrategias-monetizacao.html">Start Lesson 1 →</a>
+</div>
+</div>
+<!-- Módulo 12 -->
+<div class="module-card bg-dark-800 rounded-xl mb-6 border border-dark-600 overflow-hidden">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2">
+<span class="text-purple-400 font-bold">3.3 · Mod 12</span>
+<span class="text-xs text-neutral-500">~90 min</span>
+</div>
+<h2 class="text-2xl font-bold mb-2">🏆 Module 12: Final Project + The Future</h2>
+<p class="text-neutral-400 text-sm">Build a channel, complete your portfolio, and discover the next steps.</p>
+</div>
+<ul class="divide-y divide-dark-600">
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">📺</span>
+<span class="font-medium flex-1">Automated Content Channel</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">Project: build a YouTube/TikTok channel that produces and publishes on its own 7 days a week.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">Apply all the course tools to a real, working system.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">Niche, voice, pipeline, scheduling, metrics.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod12-projeto-final-futuro/aula-12.1-canal-automatizado.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">🎯</span>
+<span class="font-medium flex-1">Final Challenge — Complete Portfolio</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">Deliver a portfolio with 5 pieces: commercial, narrative, musical, automated, and technical.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">Your portfolio is your résumé in 2026. Without proof of work, there’s no contract.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">Showreel, case study, visible technique, narrative.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod12-projeto-final-futuro/aula-12.2-desafio-portfolio.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button class="w-full px-6 py-4 flex items-center gap-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🔮</span>
+<span class="font-medium flex-1">Next Steps, Trends, and References</span>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-purple-900/20 rounded-lg p-4 ml-9 space-y-3">
+<p><strong class="text-purple-400">What is:</strong> <span class="text-neutral-300 text-sm">H2/2026 Trends: world models, generative 3D, real-time video, regulation.</span></p>
+<p><strong class="text-purple-400">Why learn:</strong> <span class="text-neutral-300 text-sm">The course ends, but the market doesn't. Find out where to look over the next 6-12 months.</span></p>
+<p><strong class="text-purple-400">Key concepts:</strong> <span class="text-neutral-300 text-sm">World models, 3D gen, real-time, AI Act, BR LGPD-IA.</span></p>
+<a class="inline-block mt-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="mod12-projeto-final-futuro/aula-12.3-proximos-passos-referencias.html">View Full Lesson →</a>
+</div>
+</div>
+</li>
+</ul>
+<div class="px-6 py-4 bg-dark-700/30 border-t border-dark-600 flex justify-start gap-3">
+<a class="px-4 py-2 text-sm bg-purple-500/20 text-purple-400 rounded-lg font-semibold hover:bg-purple-500/30 transition-colors" href="mod12-projeto-final-futuro/index.html">View Full Module →</a>
+<a class="px-4 py-2 text-sm bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors" href="mod12-projeto-final-futuro/aula-12.1-canal-automatizado.html">Start Lesson 1 →</a>
+</div>
+</div>
+<!-- Conclusão -->
+<section class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8 mt-12">
+<h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><span>🎓</span> You’ve reached the end</h2>
+<p class="text-neutral-300 mb-6">By completing Track 3, you’ll have the full creative AI arsenal for May/2026: from prompting to a monetized autonomous channel. The future is yours.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../../index.html">← Back to Home</a>
+<a class="flex-1 text-center px-6 py-3 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors" href="https://github.com/inematds/VISION" target="_blank">Share on GitHub →</a>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Track 3 — Specialization · Updated May/2026</p>
+</div>
+</footer>
+<script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.module-card');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => { if (exp !== explanation) exp.classList.remove('active'); });
+      explanation.classList.toggle('active');
+    }
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

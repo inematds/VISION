@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Lesson 7.1: Freepik Spaces - Infinite collaborative canvas with visual AI workflows" name="description"/>
+<title>Lesson 7.1: Freepik Spaces — Infinite collaborative canvas · VISION</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🎬&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    article h1, article h2, article h3, article h4 { color: inherit; }
+    article p, article li { color: inherit; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Compatibilidade com classes antigas do tailwind padrão (cor de texto preto/cinza usada nas aulas antigas) */
+    html.dark .bg-white { background-color: #1f2937; }
+    html.dark .text-gray-900 { color: #f9fafb; }
+    html.dark .text-neutral-100 { color: #f3f4f6; }
+    html.dark .text-neutral-300 { color: #d1d5db; }
+    html.dark .text-gray-600 { color: #9ca3af; }
+    html.dark .text-gray-500 { color: #6b7280; }
+    html.dark .bg-gray-50 { background-color: #111827; }
+    html.dark .bg-gray-100 { background-color: #1f2937; }
+    html.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.10); }
+    html.dark .bg-green-50 { background-color: rgba(5, 150, 105, 0.10); }
+    html.dark .bg-primary/10 { background-color: rgba(250, 204, 21, 0.10); }
+    html.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.10); }
+    html.dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.10); }
+    html.dark .border-gray-200 { border-color: #374151; }
+    html.dark .border-gray-300 { border-color: #4b5563; }
+    html.dark .shadow-md, html.dark .shadow-sm, html.dark .shadow-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+  </style>
+<link href="https://inematds.github.io/VISION/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.1-freepik-spaces.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/VISION/en/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.1-freepik-spaces.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/VISION/es/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.1-freepik-spaces.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../../curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.1-freepik-spaces.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="aula-7.1-freepik-spaces.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../../es/curso/nivel-2-desenvolvimento/mod7-workflows-opensource/aula-7.1-freepik-spaces.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:text-dark-900 focus:px-4 focus:py-2 focus:rounded" href="#main-content">Skip to content</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../../index.html">
+<span class="text-2xl">🎬</span>
+<span class="font-bold text-lg hidden sm:inline">VISION</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../../nivel-1-fundamentos/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="../../nivel-2-desenvolvimento/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Development</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../../nivel-3-especializacao/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Specialization</span>
+</a>
+<button aria-label="Toggle theme" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="main-content">
+<nav aria-label="Breadcrumb" class="text-sm text-neutral-400 mb-8">
+<a href="../../../">Start</a>
+<span class="mx-2">/</span>
+<a href="../../">Course</a>
+<span class="mx-2">/</span>
+<a href="../">Level 2</a>
+<span class="mx-2">/</span>
+<a href="./">Module 7</a>
+<span class="mx-2">/</span>
+<span>Lesson 7.1</span>
+</nav>
+<article class="max-w-4xl mx-auto">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">Level 2</span>
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">~120 min</span>
+</div>
+<h1 class="text-4xl font-bold text-neutral-100 mb-4">
+          Freepik Spaces — Collaborative Infinite Canvas
+        </h1>
+<p class="text-xl text-neutral-400">
+          Master Freepik Spaces, the node-based platform with an infinite canvas that brings all of Freepik’s AI tools together in collaborative visual workflows.
+        </p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8">
+<!-- Seção 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span><h2 class="text-2xl font-bold"><span class="mr-2">🎨</span> What is Freepik Spaces?</h2></div>
+<p class="text-neutral-300 mb-4">
+            Launched in November 2025, the <strong>Freepik Spaces</strong> is a node-based visual creation platform with an infinite canvas. Think of it as “Figma for AI”—you connect AI tools in a visual, collaborative workflow.
+          </p>
+<p class="text-neutral-300 mb-4">
+            Unlike tools that do one thing at a time (generate an image, then edit it, then export it), Spaces lets you create <strong>complete workflows</strong> where one tool’s output automatically feeds into the next.
+          </p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-4-lg mb-6">
+<p class="text-neutral-100 font-semibold mb-1">Why Is Spaces Different?</p>
+<p class="text-neutral-300 text-sm">Most AI tools operate in silos—you generate an image in Midjourney, edit it in Photoshop, and animate it in Runway. Spaces brings image, video, audio, retouching, upscaling, and more together in a single visual canvas.</p>
+</div>
+</section>
+<!-- Seção 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span><h2 class="text-2xl font-bold"><span class="mr-2">🔗</span> Visual Node Workflows</h2></div>
+<p class="text-neutral-300 mb-4">
+            The central concept of Spaces is the <strong>workflow node-based</strong>. Each node represents an AI tool or action, and you connect them to create pipelines:
+          </p>
+<div class="bg-gray-100 p-4 rounded-lg mb-4 font-mono text-sm">
+<p class="text-neutral-100">[Text Prompt] → [Image Generation] → [4K Upscaling] → [Background Removal] → [PNG Export]</p>
+<p class="text-neutral-400 mt-2">or</p>
+<p class="text-neutral-100 mt-2">[Reference Image] → [Style Transfer] → [Image-to-Video] → [Audio Addition] → [MP4 Export]</p>
+</div>
+<h3 class="text-xl font-bold text-neutral-100 mb-3">Tools built into Spaces</h3>
+<div class="overflow-x-auto mb-6">
+<table class="w-full border-collapse rounded-lg overflow-hidden border border-dark-600">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left p-3 font-semibold text-neutral-100">Category</th>
+<th class="text-left p-3 font-semibold text-neutral-100">Tools</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Image</td>
+<td class="p-3 text-neutral-300">Text-to-image, image-to-image, inpainting, outpainting, style transfer</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Video</td>
+<td class="p-3 text-neutral-300">Text-to-video, image-to-video, video-to-video, slow motion</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Audio</td>
+<td class="p-3 text-neutral-300">Text-to-speech, music, sound effects</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Retouching</td>
+<td class="p-3 text-neutral-300">Background removal, upscaling, color correction, object removal</td>
+</tr>
+<tr class="hover:bg-dark-700/30 transition-colors">
+<td class="p-3 text-neutral-300">Export</td>
+<td class="p-3 text-neutral-300">PNG, JPG, MP4, GIF, multiple formats simultaneously</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Seção 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span><h2 class="text-2xl font-bold"><span class="mr-2">👥</span> Real-Time Collaboration</h2></div>
+<p class="text-neutral-300 mb-4">
+            Spaces lets multiple people work on the same canvas at the same time, similar to Google Docs or Figma:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Live cursors</strong> — See where your colleagues are working on the canvas</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Comments and notes</strong> — Leave feedback directly on nodes or outputs</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Versioning</strong> — Complete change history with rollback</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Granular permissions</strong> — Viewer, editor, and admin roles per project</span>
+</li>
+</ul>
+</section>
+<!-- Seção 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span><h2 class="text-2xl font-bold"><span class="mr-2">⚡</span> Automation with Triggers and APIs</h2></div>
+<p class="text-neutral-300 mb-4">
+            In addition to manual workflows, Spaces supports automation:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">•</span>
+<span><strong>Automatic triggers</strong> — Run workflows when a file is added or an event occurs</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">•</span>
+<span><strong>Reusable templates</strong> — Save workflows as templates to reuse in new projects</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">•</span>
+<span><strong>REST API</strong> — Integrate with other systems via API for advanced automation</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-green-500 font-bold">•</span>
+<span><strong>Batch processing</strong> — Process multiple inputs in the same workflow at once</span>
+</li>
+</ul>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-4-lg">
+<p class="text-neutral-100 font-semibold mb-1">Practical automation example</p>
+<p class="text-neutral-300 text-sm">Configure a workflow that, when it receives a product photo, automatically removes the background, applies 3 different styles, generates a 5s video for each style, and exports everything organized into folders. A single trigger processes dozens of products.</p>
+</div>
+</section>
+<!-- Seção 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span><h2 class="text-2xl font-bold"><span class="mr-2">🏢</span> Brand Consistency and Enterprise Plans</h2></div>
+<p class="text-neutral-300 mb-4">
+            For businesses, Spaces offers advanced features for <strong>brand consistency</strong>:
+          </p>
+<ul class="space-y-2 text-neutral-300 mb-4">
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Brand Kit</strong> — Define the brand’s colors, fonts, logos, and visual styles</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Style Lock</strong> — Force all outputs to follow the defined visual style</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>IP Indemnification</strong> — Legal protection on the Enterprise plan</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-500 font-bold">•</span>
+<span><strong>Unlimited credits</strong> — Enterprise plan with unlimited generation</span>
+</li>
+</ul>
+</section>
+<!-- Seção 6: Passo a passo -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span><h2 class="text-2xl font-bold"><span class="mr-2">🛠️</span> Step by step: Your first creative workflow</h2></div>
+<div class="space-y-4 mb-6">
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30 border-l-4 border-blue-400">
+<h3 class="font-bold text-neutral-100 mb-2">Step 1 — Create the Space</h3>
+<p class="text-neutral-300 text-sm">Go to freepik.com/spaces and create a new Space. Give it a descriptive name (e.g., "E-commerce Product Pipeline").</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30 border-l-4 border-blue-400">
+<h3 class="font-bold text-neutral-100 mb-2">Step 2 — Add an input node</h3>
+<p class="text-neutral-300 text-sm">Drag an "Image Input" node onto the canvas. Upload a product photo to test it.</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30 border-l-4 border-blue-400">
+<h3 class="font-bold text-neutral-100 mb-2">Step 3 — Connect tools</h3>
+<p class="text-neutral-300 text-sm">Add: Remove Background → Upscale 2x → Style Transfer (choose the "Product Photography" style). Connect the outputs to the inputs.</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30 border-l-4 border-blue-400">
+<h3 class="font-bold text-neutral-100 mb-2">Step 4 — Add video generation</h3>
+<p class="text-neutral-300 text-sm">From the Style Transfer output, connect to an "Image-to-Video" node with the prompt "Product slowly rotating on white background, studio lighting".</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30 border-l-4 border-blue-400">
+<h3 class="font-bold text-neutral-100 mb-2">Step 5 — Run and export</h3>
+<p class="text-neutral-300 text-sm">Click "Run All" to run the entire workflow. Export the processed image (PNG) and the video (MP4).</p>
+</div>
+</div>
+</section>
+<!-- Checklist -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center gap-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span><h2 class="text-2xl font-bold"><span class="mr-2">✅</span> Lesson Checklist</h2></div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I understood the concept of an infinite node-based canvas</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know the AI tools integrated into Spaces</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know how real-time collaboration works</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I understand triggers, templates, and automation via API</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>I know the Brand Consistency and Enterprise options</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-5 h-5 rounded" type="checkbox"/>
+<span>Created my first workflow in Freepik Spaces</span>
+</label>
+</div>
+</section>
+</div>
+<!-- Navegação -->
+<div class="flex justify-between items-center mt-8">
+<a class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../mod6-video-avancado/aula-6.5-luma-pika-avancado.html">
+          ← Lesson 6.5
+        </a>
+<a class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors" href="aula-7.2-comfyui.html">
+          Next lesson →
+        </a>
+</div>
+</article>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 mb-2">© 2026 VISION · <a class="text-sky-400 hover:text-sky-300" href="https://github.com/inematds/VISION" target="_blank">GitHub</a> · <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p class="text-sm text-neutral-500">Updated May/2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { html.classList.remove('dark'); themeToggleDarkIcon.classList.remove('hidden'); }
+    else { html.classList.add('dark'); themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
